@@ -28,11 +28,19 @@ const usuarios = [
         email: 'operador@smcq.com',
         senha: bcrypt.hashSync('operador123', 8),
         perfil: 'OPERADOR'
+    },
+    {
+        id: 3,
+        nome: 'Gestor',
+        email: 'gestor@smcq.com',
+        senha: bcrypt.hashSync('gestor123', 8),
+        perfil: 'GESTOR'
     }
 ];
 
 let alertas = [];
 let alertaIdCounter = 1;
+let solicitacaoIdCounter = 1;
 
 // ============================================================
 // FUNÇÃO DE AUTENTICAÇÃO (MIDDLEWARE)
@@ -48,8 +56,42 @@ function autenticarToken(req, res, next) {
         req.usuario = decoded;
         next();
     } catch (err) {
-        return res.status(403).json({ erro: 'Token inválido' });
+        // 401 = sessão inválida ou expirada; 403 fica reservado para permissão negada
+        return res.status(401).json({ erro: 'Token inválido ou expirado' });
     }
+}
+
+// ============================================================
+// FUNÇÕES AUXILIARES
+// ============================================================
+function ehAdministrador(req) {
+    return req.usuario.perfil === 'ADMINISTRADOR';
+}
+
+// Alertas com exclusão lógica não são encontrados pelas rotas normais
+function buscarAlertaAtivo(id) {
+    return alertas.find(a => a.id === id && !a.excluido);
+}
+
+function nomeDoUsuario(id) {
+    const usuario = usuarios.find(u => u.id === id);
+    return usuario ? usuario.nome : null;
+}
+
+// Exclusão lógica: o alerta continua guardado para auditoria, mas some das listagens
+function excluirAlerta(alerta, usuarioId) {
+    const agora = new Date().toISOString();
+    alerta.excluido = true;
+    alerta.excluidoEm = agora;
+    alerta.excluidoPor = usuarioId;
+    alerta.atualizadoEm = agora;
+    alerta.historico.push({
+        campo: 'excluido',
+        valorAnterior: false,
+        valorNovo: true,
+        alteradoPor: usuarioId,
+        alteradoEm: agora
+    });
 }
 
 // ============================================================
@@ -102,9 +144,9 @@ app.post('/api/login', (req, res) => {
 // ============================================================
 app.use('/api', autenticarToken);
 
-// Listar alertas
+// Listar alertas (sem os excluídos)
 app.get('/api/alertas', (req, res) => {
-    res.json(alertas);
+    res.json(alertas.filter(a => !a.excluido));
 });
 
 // Criar novo alerta
@@ -132,7 +174,10 @@ app.post('/api/alertas', (req, res) => {
         criadoPor: req.usuario.id,
         criadoEm: new Date().toISOString(),
         atualizadoEm: new Date().toISOString(),
-        historico: []
+        historico: [],
+        solicitacoesExclusao: [],
+        excluido: false,
+        excluidoEm: null
     };
     alertas.push(novoAlerta);
     res.status(201).json(novoAlerta);
@@ -142,7 +187,7 @@ app.post('/api/alertas', (req, res) => {
 app.patch('/api/alertas/:id/status', (req, res) => {
     const id = parseInt(req.params.id);
     const { status } = req.body;
-    const alerta = alertas.find(a => a.id === id);
+    const alerta = buscarAlertaAtivo(id);
     if (!alerta) {
         return res.status(404).json({ erro: 'Alerta não encontrado' });
     }
@@ -169,7 +214,7 @@ app.patch('/api/alertas/:id/status', (req, res) => {
 app.post('/api/alertas/:id/observacoes', (req, res) => {
     const id = parseInt(req.params.id);
     const { observacao } = req.body;
-    const alerta = alertas.find(a => a.id === id);
+    const alerta = buscarAlertaAtivo(id);
     if (!alerta) {
         return res.status(404).json({ erro: 'Alerta não encontrado' });
     }
@@ -184,10 +229,116 @@ app.post('/api/alertas/:id/observacoes', (req, res) => {
 });
 
 // ============================================================
+// EXCLUSÃO DE ALERTAS (COM FLUXO DE APROVAÇÃO)
+// ============================================================
+
+// Excluir alerta diretamente (somente Administrador)
+app.delete('/api/alertas/:id', (req, res) => {
+    if (!ehAdministrador(req)) {
+        return res.status(403).json({ erro: 'Apenas administradores podem excluir alertas. Solicite a exclusão.' });
+    }
+    const alerta = buscarAlertaAtivo(parseInt(req.params.id));
+    if (!alerta) {
+        return res.status(404).json({ erro: 'Alerta não encontrado' });
+    }
+    excluirAlerta(alerta, req.usuario.id);
+    // Solicitações que ainda estavam pendentes ficam atendidas pela exclusão direta
+    alerta.solicitacoesExclusao
+        .filter(s => s.status === 'PENDENTE')
+        .forEach(s => {
+            s.status = 'APROVADA';
+            s.resolvidoEm = alerta.excluidoEm;
+            s.resolvidoPor = req.usuario.id;
+        });
+    res.json(alerta);
+});
+
+// Solicitar a exclusão de um alerta (Operador e Gestor)
+app.post('/api/alertas/:id/solicitacoes-exclusao', (req, res) => {
+    if (ehAdministrador(req)) {
+        return res.status(400).json({ erro: 'Administradores excluem o alerta diretamente' });
+    }
+    const alerta = buscarAlertaAtivo(parseInt(req.params.id));
+    if (!alerta) {
+        return res.status(404).json({ erro: 'Alerta não encontrado' });
+    }
+    const motivo = typeof req.body.motivo === 'string' ? req.body.motivo.trim() : '';
+    if (!motivo) {
+        return res.status(400).json({ erro: 'O motivo da exclusão é obrigatório' });
+    }
+    if (alerta.solicitacoesExclusao.some(s => s.status === 'PENDENTE')) {
+        return res.status(409).json({ erro: 'Já existe uma solicitação de exclusão pendente para este alerta' });
+    }
+    const solicitacao = {
+        id: solicitacaoIdCounter++,
+        solicitadoPor: req.usuario.id,
+        motivo,
+        status: 'PENDENTE',
+        criadoEm: new Date().toISOString(),
+        resolvidoEm: null,
+        resolvidoPor: null,
+        resposta: ''
+    };
+    alerta.solicitacoesExclusao.push(solicitacao);
+    res.status(201).json(solicitacao);
+});
+
+// Listar solicitações de exclusão: Administrador vê todas; os demais, só as próprias.
+// Aceita ?status=PENDENTE|APROVADA|REJEITADA
+app.get('/api/solicitacoes-exclusao', (req, res) => {
+    const { status } = req.query;
+    const lista = alertas.flatMap(alerta =>
+        alerta.solicitacoesExclusao.map(s => ({
+            ...s,
+            alertaId: alerta.id,
+            alertaTitulo: alerta.titulo,
+            alertaExcluido: alerta.excluido,
+            solicitadoPorNome: nomeDoUsuario(s.solicitadoPor),
+            resolvidoPorNome: nomeDoUsuario(s.resolvidoPor)
+        }))
+    )
+        .filter(s => ehAdministrador(req) || s.solicitadoPor === req.usuario.id)
+        .filter(s => !status || s.status === status)
+        .sort((a, b) => b.criadoEm.localeCompare(a.criadoEm));
+    res.json(lista);
+});
+
+// Aprovar ou rejeitar uma solicitação de exclusão (somente Administrador)
+app.patch('/api/alertas/:id/solicitacoes-exclusao/:sid', (req, res) => {
+    if (!ehAdministrador(req)) {
+        return res.status(403).json({ erro: 'Apenas administradores podem avaliar solicitações de exclusão' });
+    }
+    const alerta = buscarAlertaAtivo(parseInt(req.params.id));
+    if (!alerta) {
+        return res.status(404).json({ erro: 'Alerta não encontrado' });
+    }
+    const solicitacao = alerta.solicitacoesExclusao.find(s => s.id === parseInt(req.params.sid));
+    if (!solicitacao) {
+        return res.status(404).json({ erro: 'Solicitação não encontrada' });
+    }
+    const { decisao, resposta } = req.body;
+    if (!['APROVADA', 'REJEITADA'].includes(decisao)) {
+        return res.status(400).json({ erro: 'Decisão inválida: use APROVADA ou REJEITADA' });
+    }
+    if (solicitacao.status !== 'PENDENTE') {
+        return res.status(409).json({ erro: 'Esta solicitação já foi avaliada' });
+    }
+    solicitacao.status = decisao;
+    solicitacao.resolvidoEm = new Date().toISOString();
+    solicitacao.resolvidoPor = req.usuario.id;
+    solicitacao.resposta = typeof resposta === 'string' ? resposta.trim() : '';
+    if (decisao === 'APROVADA') {
+        excluirAlerta(alerta, req.usuario.id);
+    }
+    res.json(solicitacao);
+});
+
+// ============================================================
 // INICIAR SERVIDOR
 // ============================================================
 app.listen(PORT, () => {
     console.log(`🚀 SMCQ Protótipo rodando em http://localhost:${PORT}`);
     console.log(`   👤 Login: admin@smcq.com / admin123`);
     console.log(`   👤 Login: operador@smcq.com / operador123`);
+    console.log(`   👤 Login: gestor@smcq.com / gestor123`);
 });

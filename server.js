@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const { calcularRiscoAvancado } = require('./services/riscoService');
 
 const app = express();
 const PORT = 3000;
@@ -97,18 +98,9 @@ function excluirAlerta(alerta, usuarioId) {
 // ============================================================
 // FUNÇÃO DE CÁLCULO DE RISCO
 // ============================================================
+// Índice de Risco Sintético (IRS) multicritério: ver services/riscoService.js
 function calcularRisco(dados) {
-    const areaPontos = { PEQUENA: 1, MEDIA: 2, GRANDE: 3 }[dados.areaAfetada] || 0;
-    const zonaUrbanaPontos = dados.zonaUrbana ? 3 : 0;
-    const ventoPontos = { BAIXO: 1, MODERADO: 2, ALTO: 3 }[dados.vento] || 0;
-    const pessoasRiscoPontos = dados.pessoasRisco ? 4 : 0;
-    const total = areaPontos + zonaUrbanaPontos + ventoPontos + pessoasRiscoPontos;
-    let nivel;
-    if (total <= 3) nivel = 'BAIXO';
-    else if (total <= 6) nivel = 'MODERADO';
-    else if (total <= 9) nivel = 'ALTO';
-    else nivel = 'CRITICO';
-    return { pontuacao: total, nivel };
+    return calcularRiscoAvancado(dados);
 }
 
 // ============================================================
@@ -155,18 +147,27 @@ app.post('/api/alertas', (req, res) => {
     if (!titulo || !areaAfetada || !vento || latitude === undefined || longitude === undefined) {
         return res.status(400).json({ erro: 'Título, área, vento e localização são obrigatórios' });
     }
-    const risco = calcularRisco({ areaAfetada, zonaUrbana, vento, pessoasRisco });
+    // Opcionais do cálculo de risco: direção do vento em graus e taxa de crescimento da área
+    const direcaoVento = req.body.direcaoVento ?? 45;
+    const dA_dt = req.body.dA_dt ?? 0;
+    const risco = calcularRisco({ latitude, longitude, areaAfetada, vento, pessoasRisco, direcaoVento, dA_dt });
     const novoAlerta = {
         id: alertaIdCounter++,
         titulo,
         descricao: descricao || '',
         status: 'NOVO',
         risco: risco.nivel,
-        pontuacaoRisco: risco.pontuacao,
+        pontuacaoRisco: risco.irs,
+        direcaoVento,
+        dA_dt,
         latitude,
         longitude,
         estado: estado || '',
         municipio: municipio || '',
+        cep: req.body.cep || '',
+        logradouro: req.body.logradouro || '',
+        numero: req.body.numero || '',
+        bairro: req.body.bairro || '',
         areaAfetada,
         zonaUrbana: zonaUrbana || false,
         vento,
@@ -181,6 +182,17 @@ app.post('/api/alertas', (req, res) => {
     };
     alertas.push(novoAlerta);
     res.status(201).json(novoAlerta);
+});
+
+// Detalhamento do cálculo de risco do alerta (IRS, sigmoide e contribuição de cada critério)
+app.get('/api/alertas/:id/risco', (req, res) => {
+    const id = parseInt(req.params.id);
+    const alerta = buscarAlertaAtivo(id);
+    if (!alerta) {
+        return res.status(404).json({ erro: 'Alerta não encontrado' });
+    }
+    const { irs, sigmoide, nivel, detalhes } = calcularRisco(alerta);
+    res.json({ alertaId: alerta.id, irs, sigmoide, nivel, detalhes });
 });
 
 // Atualizar status do alerta
