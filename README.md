@@ -61,7 +61,7 @@ curl -X POST http://localhost:3000/api/login \
 | :--- | :--- | :--- | :--- |
 | `ADMINISTRADOR` | `admin@smcq.com` | `admin123` | Tudo, incluindo excluir alertas e avaliar solicitações de exclusão |
 | `OPERADOR` | `operador@smcq.com` | `operador123` | Registrar e acompanhar alertas; solicitar exclusão |
-| `GESTOR` | `gestor@smcq.com` | `gestor123` | Registrar e acompanhar alertas; solicitar exclusão |
+| `GESTOR` | `gestor@smcq.com` | `gestor123` | Registrar e acompanhar alertas; excluir alertas e avaliar solicitações de exclusão |
 
 ## Estrutura de pastas
 
@@ -146,10 +146,10 @@ A exclusão é **lógica**: o alerta recebe `excluido: true`, `excluidoEm` e `ex
 
 | Método | Rota | Quem | Descrição |
 | :--- | :--- | :--- | :--- |
-| `DELETE` | `/alertas/:id` | Administrador | Exclui o alerta diretamente |
-| `POST` | `/alertas/:id/solicitacoes-exclusao` | Operador, Gestor | Solicita a exclusão: `{ motivo }`. Só uma solicitação pendente por alerta |
-| `GET` | `/solicitacoes-exclusao` | Todos | Lista as solicitações (o administrador vê todas; os demais, só as próprias). Aceita `?status=PENDENTE\|APROVADA\|REJEITADA` |
-| `PATCH` | `/alertas/:id/solicitacoes-exclusao/:sid` | Administrador | Avalia a solicitação: `{ decisao: "APROVADA" \| "REJEITADA", resposta? }`. Aprovar exclui o alerta |
+| `DELETE` | `/alertas/:id` | Administrador, Gestor | Exclui o alerta diretamente |
+| `POST` | `/alertas/:id/solicitacoes-exclusao` | Operador | Solicita a exclusão: `{ motivo }`. Só uma solicitação pendente por alerta |
+| `GET` | `/solicitacoes-exclusao` | Todos | Lista as solicitações (administrador e gestor veem todas; o operador, só as próprias). Aceita `?status=PENDENTE\|APROVADA\|REJEITADA` |
+| `PATCH` | `/alertas/:id/solicitacoes-exclusao/:sid` | Administrador, Gestor | Avalia a solicitação: `{ decisao: "APROVADA" \| "REJEITADA", resposta? }`. Aprovar exclui o alerta |
 
 ## Algoritmo de classificação de risco
 
