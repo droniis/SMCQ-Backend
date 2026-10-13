@@ -65,8 +65,9 @@ function autenticarToken(req, res, next) {
 // ============================================================
 // FUNÇÕES AUXILIARES
 // ============================================================
-function ehAdministrador(req) {
-    return req.usuario.perfil === 'ADMINISTRADOR';
+// Administrador e Gestor excluem alertas direto e avaliam as solicitações; o Operador solicita a exclusão
+function podeExcluirDireto(req) {
+    return ['ADMINISTRADOR', 'GESTOR'].includes(req.usuario.perfil);
 }
 
 // Alertas com exclusão lógica não são encontrados pelas rotas normais
@@ -244,10 +245,10 @@ app.post('/api/alertas/:id/observacoes', (req, res) => {
 // EXCLUSÃO DE ALERTAS (COM FLUXO DE APROVAÇÃO)
 // ============================================================
 
-// Excluir alerta diretamente (somente Administrador)
+// Excluir alerta diretamente (Administrador e Gestor)
 app.delete('/api/alertas/:id', (req, res) => {
-    if (!ehAdministrador(req)) {
-        return res.status(403).json({ erro: 'Apenas administradores podem excluir alertas. Solicite a exclusão.' });
+    if (!podeExcluirDireto(req)) {
+        return res.status(403).json({ erro: 'Apenas administradores e gestores podem excluir alertas. Solicite a exclusão.' });
     }
     const alerta = buscarAlertaAtivo(parseInt(req.params.id));
     if (!alerta) {
@@ -265,10 +266,10 @@ app.delete('/api/alertas/:id', (req, res) => {
     res.json(alerta);
 });
 
-// Solicitar a exclusão de um alerta (Operador e Gestor)
+// Solicitar a exclusão de um alerta (Operador)
 app.post('/api/alertas/:id/solicitacoes-exclusao', (req, res) => {
-    if (ehAdministrador(req)) {
-        return res.status(400).json({ erro: 'Administradores excluem o alerta diretamente' });
+    if (podeExcluirDireto(req)) {
+        return res.status(400).json({ erro: 'Administradores e gestores excluem o alerta diretamente' });
     }
     const alerta = buscarAlertaAtivo(parseInt(req.params.id));
     if (!alerta) {
@@ -295,7 +296,7 @@ app.post('/api/alertas/:id/solicitacoes-exclusao', (req, res) => {
     res.status(201).json(solicitacao);
 });
 
-// Listar solicitações de exclusão: Administrador vê todas; os demais, só as próprias.
+// Listar solicitações de exclusão: Administrador e Gestor veem todas; o Operador, só as próprias.
 // Aceita ?status=PENDENTE|APROVADA|REJEITADA
 app.get('/api/solicitacoes-exclusao', (req, res) => {
     const { status } = req.query;
@@ -309,16 +310,16 @@ app.get('/api/solicitacoes-exclusao', (req, res) => {
             resolvidoPorNome: nomeDoUsuario(s.resolvidoPor)
         }))
     )
-        .filter(s => ehAdministrador(req) || s.solicitadoPor === req.usuario.id)
+        .filter(s => podeExcluirDireto(req) || s.solicitadoPor === req.usuario.id)
         .filter(s => !status || s.status === status)
         .sort((a, b) => b.criadoEm.localeCompare(a.criadoEm));
     res.json(lista);
 });
 
-// Aprovar ou rejeitar uma solicitação de exclusão (somente Administrador)
+// Aprovar ou rejeitar uma solicitação de exclusão (Administrador e Gestor)
 app.patch('/api/alertas/:id/solicitacoes-exclusao/:sid', (req, res) => {
-    if (!ehAdministrador(req)) {
-        return res.status(403).json({ erro: 'Apenas administradores podem avaliar solicitações de exclusão' });
+    if (!podeExcluirDireto(req)) {
+        return res.status(403).json({ erro: 'Apenas administradores e gestores podem avaliar solicitações de exclusão' });
     }
     const alerta = buscarAlertaAtivo(parseInt(req.params.id));
     if (!alerta) {
