@@ -1,3 +1,4 @@
+require('dotenv').config({ quiet: true });
 const express = require('express');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
@@ -7,7 +8,14 @@ const geodadosService = require('./services/geodadosService');
 
 const app = express();
 const PORT = 3000;
-const JWT_SECRET = 'smcq-secret-key';
+
+// Segredo dos tokens: obrigatório no .env. Só os testes (Jest define NODE_ENV=test) têm valor padrão.
+const JWT_SECRET = process.env.JWT_SECRET || (process.env.NODE_ENV === 'test' ? 'segredo-apenas-para-testes' : null);
+if (!JWT_SECRET) {
+    console.error('❌ JWT_SECRET não definido. Crie o arquivo .env a partir do .env.example e preencha JWT_SECRET.');
+    console.error('   Para gerar um valor: node -e "console.log(require(\'crypto\').randomBytes(48).toString(\'hex\'))"');
+    process.exit(1);
+}
 
 // Middlewares
 app.use(cors());
