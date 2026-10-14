@@ -28,11 +28,13 @@
   },
   "jest": {
     "setupFiles": [
+      "./tests/helpers/ambienteTeste.js",
       "./tests/helpers/semInternet.js"
     ],
     "collectCoverageFrom": [
       "server.js",
-      "services/**/*.js"
+      "services/**/*.js",
+      "repositorios/**/*.js"
     ],
     "coverageReporters": [
       "text",

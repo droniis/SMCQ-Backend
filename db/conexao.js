@@ -41,10 +41,30 @@ function explicarErroBanco(err) {
       return `Usuário ou senha do banco recusados (usuário "${user}"). Confira DB_USER e DB_PASSWORD no .env.`;
     case '3D000':
       return `O banco "${database}" não existe. Crie-o (ex.: createdb -U ${user} ${database}) ou ajuste DB_NAME no .env.`;
+    case '42P01':
+      return `Tabela inexistente no banco "${database}" (${err.message}). Execute: npm run db:init`;
     default:
       if (/timeout/i.test(err.message)) return `Tempo esgotado ao conectar ao PostgreSQL em ${host}:${port}.`;
       return err.message;
   }
 }
 
-module.exports = { configuracaoBanco, criarPool, explicarErroBanco };
+// Erros em que o banco está fora do ar, recusou a conexão ou não está preparado
+// (sem tabelas): a API responde 503 em vez de 500.
+const CODIGOS_INDISPONIVEL = new Set([
+  'ECONNREFUSED', 'ECONNRESET', 'ENOTFOUND', 'ETIMEDOUT', 'EHOSTUNREACH', 'EPIPE',
+  '28P01', // senha recusada
+  '3D000', // banco inexistente
+  '42P01', // tabela inexistente (npm run db:init não executado)
+  '53300', // conexões esgotadas
+  '57P01', '57P02', '57P03' // servidor encerrando / ainda iniciando
+]);
+
+function ehErroDeConexao(err) {
+  if (!err) return false;
+  if (CODIGOS_INDISPONIVEL.has(err.code)) return true;
+  if (typeof err.code === 'string' && err.code.startsWith('08')) return true; // classe 08: connection exception
+  return /timeout exceeded when trying to connect|Connection terminated/i.test(err.message || '');
+}
+
+module.exports = { configuracaoBanco, criarPool, explicarErroBanco, ehErroDeConexao };
