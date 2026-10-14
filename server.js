@@ -2,7 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const { calcularRiscoAvancado } = require('./services/riscoService');
+const classificacao = require('./services/classificacaoService');
+const geodadosService = require('./services/geodadosService');
 
 const app = express();
 const PORT = 3000;
@@ -96,12 +97,10 @@ function excluirAlerta(alerta, usuarioId) {
     });
 }
 
-// ============================================================
-// FUNÇÃO DE CÁLCULO DE RISCO
-// ============================================================
-// Índice de Risco Sintético (IRS) multicritério: ver services/riscoService.js
-function calcularRisco(dados) {
-    return calcularRiscoAvancado(dados);
+// Alertas criados antes do IRS v2 não têm a versão gravada: são do v1
+function comVersao(alerta) {
+    if (!alerta.versaoAlgoritmo) alerta.versaoAlgoritmo = classificacao.versaoDoAlerta(alerta);
+    return alerta;
 }
 
 // ============================================================
@@ -139,26 +138,57 @@ app.use('/api', autenticarToken);
 
 // Listar alertas (sem os excluídos)
 app.get('/api/alertas', (req, res) => {
-    res.json(alertas.filter(a => !a.excluido));
+    res.json(alertas.filter(a => !a.excluido).map(comVersao));
 });
 
-// Criar novo alerta
-app.post('/api/alertas', (req, res) => {
+// Geodados de um ponto, sem criar alerta. O frontend chama ao clicar no mapa:
+// a resposta fica em cache e o POST seguinte, no mesmo ponto, já a encontra pronta.
+// Declarada antes das rotas /api/alertas/:id.
+app.get('/api/alertas/geodados-preview', async (req, res) => {
+    const { lat, lng } = req.query;
+    if (!classificacao.validarCoordenadas(lat, lng)) {
+        return res.status(400).json({ erro: 'Parâmetros lat e lng obrigatórios, numéricos, com lat entre -90 e 90 e lng entre -180 e 180' });
+    }
+    try {
+        res.json(await geodadosService.obterGeodadosCompletos(Number(lat), Number(lng)));
+    } catch (err) {
+        res.status(500).json({ erro: `Falha ao obter geodados: ${err.message}` });
+    }
+});
+
+// Criar novo alerta, classificado pelo IRS v2
+app.post('/api/alertas', async (req, res) => {
     const { titulo, descricao, areaAfetada, zonaUrbana, vento, pessoasRisco, latitude, longitude, estado, municipio } = req.body;
     if (!titulo || !areaAfetada || !vento || latitude === undefined || longitude === undefined) {
         return res.status(400).json({ erro: 'Título, área, vento e localização são obrigatórios' });
     }
+    if (!classificacao.validarCoordenadas(latitude, longitude)) {
+        return res.status(400).json({ erro: 'Coordenadas inválidas: latitude entre -90 e 90 e longitude entre -180 e 180' });
+    }
+    // Bioma e tipo de área corrigidos pelo operador prevalecem sobre os detectados
+    const informados = classificacao.lerCamposInformados(req.body);
+    if (informados.erros.length > 0) {
+        return res.status(400).json({ erro: informados.erros.join('; ') });
+    }
     // Opcionais do cálculo de risco: direção do vento em graus e taxa de crescimento da área
     const direcaoVento = req.body.direcaoVento ?? 45;
     const dA_dt = req.body.dA_dt ?? 0;
-    const risco = calcularRisco({ latitude, longitude, areaAfetada, vento, pessoasRisco, direcaoVento, dA_dt });
+    let risco;
+    try {
+        // Falha das bases externas não impede o cálculo: o geodadosService usa fallback
+        risco = await classificacao.classificarAlerta(
+            { latitude, longitude, areaAfetada, vento, pessoasRisco, zonaUrbana, direcaoVento, dA_dt },
+            informados
+        );
+    } catch (err) {
+        return res.status(500).json({ erro: `Falha ao classificar o risco: ${err.message}` });
+    }
     const novoAlerta = {
         id: alertaIdCounter++,
         titulo,
         descricao: descricao || '',
         status: 'NOVO',
-        risco: risco.nivel,
-        pontuacaoRisco: risco.irs,
+        ...risco,
         direcaoVento,
         dA_dt,
         latitude,
@@ -185,15 +215,35 @@ app.post('/api/alertas', (req, res) => {
     res.status(201).json(novoAlerta);
 });
 
-// Detalhamento do cálculo de risco do alerta (IRS, sigmoide e contribuição de cada critério)
+// Detalhamento do cálculo de risco do alerta (IRS, sigmoide e contribuição de cada critério).
+// IRS v2: o cálculo gravado na criação. Alerta antigo do v1: recalculado pelo v1, como antes.
 app.get('/api/alertas/:id/risco', (req, res) => {
     const id = parseInt(req.params.id);
     const alerta = buscarAlertaAtivo(id);
     if (!alerta) {
         return res.status(404).json({ erro: 'Alerta não encontrado' });
     }
-    const { irs, sigmoide, nivel, detalhes } = calcularRisco(alerta);
-    res.json({ alertaId: alerta.id, irs, sigmoide, nivel, detalhes });
+    res.json(classificacao.detalhamentoDoRisco(alerta));
+});
+
+// Geodados do alerta: os gravados na criação; se não houver, consulta em tempo real (sem gravar)
+app.get('/api/alertas/:id/geodados', async (req, res) => {
+    const alerta = buscarAlertaAtivo(parseInt(req.params.id));
+    if (!alerta) {
+        return res.status(404).json({ erro: 'Alerta não encontrado' });
+    }
+    if (alerta.geodados) {
+        return res.json({ alertaId: alerta.id, origem: 'salvo', geodados: alerta.geodados });
+    }
+    if (!classificacao.validarCoordenadas(alerta.latitude, alerta.longitude)) {
+        return res.status(422).json({ erro: 'O alerta não tem coordenadas válidas para consultar os geodados' });
+    }
+    try {
+        const geodados = await geodadosService.obterGeodadosCompletos(Number(alerta.latitude), Number(alerta.longitude));
+        res.json({ alertaId: alerta.id, origem: 'tempo-real', geodados });
+    } catch (err) {
+        res.status(500).json({ erro: `Falha ao obter geodados: ${err.message}` });
+    }
 });
 
 // Atualizar status do alerta
