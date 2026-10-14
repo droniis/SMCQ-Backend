@@ -1,0 +1,34 @@
+{
+  "downloads": [
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/mensal/Brasil/focos_mensal_br_202607.csv",
+      "arquivo": "data/validacao/bruto/focos_mensal_br_202607.csv",
+      "baixadoEm": "2026-10-14T15:37:12.978Z",
+      "bytes": 25345226,
+      "sha256": "8ef86ddfe417b9fb719f34a0ddb7efdca10425dddffdc9aa84c337b9cfe784d9",
+      "ultimaModificacaoServidor": "Sat, 01 Aug 2026 23:56:11 GMT",
+      "tipo": "mensal"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/mensal/Brasil/focos_mensal_br_202608.csv",
+      "arquivo": "data/validacao/bruto/focos_mensal_br_202608.csv",
+      "baixadoEm": "2026-10-14T15:37:13.882Z",
+      "bytes": 103708076,
+      "sha256": "4574013b15b785f42078fe72dfa73b0b48a773666e88025ebe5ef440cc3694da",
+      "ultimaModificacaoServidor": "Tue, 01 Sep 2026 23:56:24 GMT",
+      "tipo": "mensal"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/mensal/Brasil/focos_mensal_br_202609.csv",
+      "arquivo": "data/validacao/bruto/focos_mensal_br_202609.csv",
+      "baixadoEm": "2026-10-14T15:37:15.077Z",
+      "bytes": 123024987,
+      "sha256": "69ecef072d0e0db63698f7e3adc101cd68f593294eefc3dcd97eeaf554bd0248",
+      "ultimaModificacaoServidor": "Thu, 01 Oct 2026 23:56:29 GMT",
+      "tipo": "mensal"
+    }
+  ],
+  "atualizadoEm": "2026-10-14T15:37:15.077Z",
+  "userAgent": "SMCQ/1.0 (Validacao do IRS; TCC de Engenharia de Software)",
+  "timeoutMs": 10000
+}

@@ -1,0 +1,2194 @@
+{
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-9.0513&longitude=-65.7508&start_date=2026-09-11&end_date=2026-09-11&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 9.4,
+    "direcaoGraus": 4,
+    "dia": "2026-09-11",
+    "consultadoEm": "2026-10-14T15:45:26.263Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-9.0513&longitude=-65.7508&start_date=2026-09-11&end_date=2026-09-11&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-6.8024&longitude=-59.8202&start_date=2026-08-24&end_date=2026-08-24&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 11.1,
+    "direcaoGraus": 142,
+    "dia": "2026-08-24",
+    "consultadoEm": "2026-10-14T15:45:26.918Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-6.8024&longitude=-59.8202&start_date=2026-08-24&end_date=2026-08-24&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-6.0172&longitude=-53.6832&start_date=2026-09-18&end_date=2026-09-18&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 13,
+    "direcaoGraus": 59,
+    "dia": "2026-09-18",
+    "consultadoEm": "2026-10-14T15:45:27.567Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-6.0172&longitude=-53.6832&start_date=2026-09-18&end_date=2026-09-18&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-10.0722&longitude=-60.5053&start_date=2026-08-16&end_date=2026-08-16&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 9.5,
+    "direcaoGraus": 67,
+    "dia": "2026-08-16",
+    "consultadoEm": "2026-10-14T15:45:28.219Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-10.0722&longitude=-60.5053&start_date=2026-08-16&end_date=2026-08-16&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-6.7306&longitude=-55.0982&start_date=2026-09-21&end_date=2026-09-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 13,
+    "direcaoGraus": 55,
+    "dia": "2026-09-21",
+    "consultadoEm": "2026-10-14T15:45:28.859Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-6.7306&longitude=-55.0982&start_date=2026-09-21&end_date=2026-09-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-6.1582&longitude=-57.7460&start_date=2026-09-01&end_date=2026-09-01&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 9.9,
+    "direcaoGraus": 22,
+    "dia": "2026-09-01",
+    "consultadoEm": "2026-10-14T15:45:29.506Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-6.1582&longitude=-57.7460&start_date=2026-09-01&end_date=2026-09-01&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-6.7736&longitude=-59.4781&start_date=2026-08-16&end_date=2026-08-16&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 11.3,
+    "direcaoGraus": 94,
+    "dia": "2026-08-16",
+    "consultadoEm": "2026-10-14T15:45:30.153Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-6.7736&longitude=-59.4781&start_date=2026-08-16&end_date=2026-08-16&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-6.2879&longitude=-55.2858&start_date=2026-09-13&end_date=2026-09-13&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12.8,
+    "direcaoGraus": 56,
+    "dia": "2026-09-13",
+    "consultadoEm": "2026-10-14T15:45:30.797Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-6.2879&longitude=-55.2858&start_date=2026-09-13&end_date=2026-09-13&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-6.0231&longitude=-53.7867&start_date=2026-09-13&end_date=2026-09-13&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 10.9,
+    "direcaoGraus": 64,
+    "dia": "2026-09-13",
+    "consultadoEm": "2026-10-14T15:45:31.447Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-6.0231&longitude=-53.7867&start_date=2026-09-13&end_date=2026-09-13&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-8.6563&longitude=-54.7350&start_date=2026-08-21&end_date=2026-08-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 11.1,
+    "direcaoGraus": 103,
+    "dia": "2026-08-21",
+    "consultadoEm": "2026-10-14T15:45:32.107Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-8.6563&longitude=-54.7350&start_date=2026-08-21&end_date=2026-08-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-7.7438&longitude=-50.8952&start_date=2026-08-18&end_date=2026-08-18&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 14,
+    "direcaoGraus": 66,
+    "dia": "2026-08-18",
+    "consultadoEm": "2026-10-14T15:45:32.754Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-7.7438&longitude=-50.8952&start_date=2026-08-18&end_date=2026-08-18&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-6.6983&longitude=-58.7318&start_date=2026-08-22&end_date=2026-08-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 10,
+    "direcaoGraus": 146,
+    "dia": "2026-08-22",
+    "consultadoEm": "2026-10-14T15:45:33.407Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-6.6983&longitude=-58.7318&start_date=2026-08-22&end_date=2026-08-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-7.6765&longitude=-63.3248&start_date=2026-08-24&end_date=2026-08-24&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 8.4,
+    "direcaoGraus": 314,
+    "dia": "2026-08-24",
+    "consultadoEm": "2026-10-14T15:45:34.055Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-7.6765&longitude=-63.3248&start_date=2026-08-24&end_date=2026-08-24&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-6.6154&longitude=-51.4285&start_date=2026-09-20&end_date=2026-09-20&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 15.1,
+    "direcaoGraus": 36,
+    "dia": "2026-09-20",
+    "consultadoEm": "2026-10-14T15:45:34.696Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-6.6154&longitude=-51.4285&start_date=2026-09-20&end_date=2026-09-20&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.5845&longitude=-54.5557&start_date=2026-08-31&end_date=2026-08-31&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 11.3,
+    "direcaoGraus": 66,
+    "dia": "2026-08-31",
+    "consultadoEm": "2026-10-14T15:45:35.346Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.5845&longitude=-54.5557&start_date=2026-08-31&end_date=2026-08-31&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-5.3717&longitude=-46.3060&start_date=2026-09-10&end_date=2026-09-10&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 14.4,
+    "direcaoGraus": 56,
+    "dia": "2026-09-10",
+    "consultadoEm": "2026-10-14T15:45:35.993Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-5.3717&longitude=-46.3060&start_date=2026-09-10&end_date=2026-09-10&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-6.4248&longitude=-55.0318&start_date=2026-09-21&end_date=2026-09-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12.2,
+    "direcaoGraus": 56,
+    "dia": "2026-09-21",
+    "consultadoEm": "2026-10-14T15:45:36.633Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-6.4248&longitude=-55.0318&start_date=2026-09-21&end_date=2026-09-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.7390&longitude=-60.9916&start_date=2026-09-14&end_date=2026-09-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 9.2,
+    "direcaoGraus": 209,
+    "dia": "2026-09-14",
+    "consultadoEm": "2026-10-14T15:45:37.279Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.7390&longitude=-60.9916&start_date=2026-09-14&end_date=2026-09-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-1.4140&longitude=-54.2207&start_date=2026-09-05&end_date=2026-09-05&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 17.4,
+    "direcaoGraus": 68,
+    "dia": "2026-09-05",
+    "consultadoEm": "2026-10-14T15:45:37.925Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-1.4140&longitude=-54.2207&start_date=2026-09-05&end_date=2026-09-05&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-2.9411&longitude=-54.0960&start_date=2026-09-02&end_date=2026-09-02&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 15.2,
+    "direcaoGraus": 65,
+    "dia": "2026-09-02",
+    "consultadoEm": "2026-10-14T15:45:38.577Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-2.9411&longitude=-54.0960&start_date=2026-09-02&end_date=2026-09-02&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-8.5823&longitude=-54.6836&start_date=2026-08-18&end_date=2026-08-18&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 14.9,
+    "direcaoGraus": 94,
+    "dia": "2026-08-18",
+    "consultadoEm": "2026-10-14T15:45:39.226Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-8.5823&longitude=-54.6836&start_date=2026-08-18&end_date=2026-08-18&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-5.7700&longitude=-50.1928&start_date=2026-09-12&end_date=2026-09-12&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 10,
+    "direcaoGraus": 53,
+    "dia": "2026-09-12",
+    "consultadoEm": "2026-10-14T15:45:39.878Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-5.7700&longitude=-50.1928&start_date=2026-09-12&end_date=2026-09-12&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-6.8781&longitude=-63.0545&start_date=2026-08-17&end_date=2026-08-17&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 10.5,
+    "direcaoGraus": 56,
+    "dia": "2026-08-17",
+    "consultadoEm": "2026-10-14T15:45:40.529Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-6.8781&longitude=-63.0545&start_date=2026-08-17&end_date=2026-08-17&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-10.2620&longitude=-68.8232&start_date=2026-09-05&end_date=2026-09-05&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 15.2,
+    "direcaoGraus": 350,
+    "dia": "2026-09-05",
+    "consultadoEm": "2026-10-14T15:45:41.183Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-10.2620&longitude=-68.8232&start_date=2026-09-05&end_date=2026-09-05&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-5.7674&longitude=-49.1268&start_date=2026-09-07&end_date=2026-09-07&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 11.3,
+    "direcaoGraus": 13,
+    "dia": "2026-09-07",
+    "consultadoEm": "2026-10-14T15:45:41.826Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-5.7674&longitude=-49.1268&start_date=2026-09-07&end_date=2026-09-07&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-1.7136&longitude=-56.0143&start_date=2026-09-03&end_date=2026-09-03&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12.3,
+    "direcaoGraus": 105,
+    "dia": "2026-09-03",
+    "consultadoEm": "2026-10-14T15:45:42.474Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-1.7136&longitude=-56.0143&start_date=2026-09-03&end_date=2026-09-03&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.7539&longitude=-59.3143&start_date=2026-09-01&end_date=2026-09-01&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12.9,
+    "direcaoGraus": 60,
+    "dia": "2026-09-01",
+    "consultadoEm": "2026-10-14T15:45:43.120Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.7539&longitude=-59.3143&start_date=2026-09-01&end_date=2026-09-01&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-6.7683&longitude=-55.6615&start_date=2026-08-29&end_date=2026-08-29&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 9.8,
+    "direcaoGraus": 51,
+    "dia": "2026-08-29",
+    "consultadoEm": "2026-10-14T15:45:43.761Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-6.7683&longitude=-55.6615&start_date=2026-08-29&end_date=2026-08-29&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-12.4423&longitude=-57.8049&start_date=2026-09-08&end_date=2026-09-08&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 8.5,
+    "direcaoGraus": 137,
+    "dia": "2026-09-08",
+    "consultadoEm": "2026-10-14T15:45:44.408Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-12.4423&longitude=-57.8049&start_date=2026-09-08&end_date=2026-09-08&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-7.1099&longitude=-55.9056&start_date=2026-09-13&end_date=2026-09-13&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 13.6,
+    "direcaoGraus": 58,
+    "dia": "2026-09-13",
+    "consultadoEm": "2026-10-14T15:45:45.052Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-7.1099&longitude=-55.9056&start_date=2026-09-13&end_date=2026-09-13&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-6.3751&longitude=-54.9538&start_date=2026-08-29&end_date=2026-08-29&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 10.4,
+    "direcaoGraus": 48,
+    "dia": "2026-08-29",
+    "consultadoEm": "2026-10-14T15:45:45.696Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-6.3751&longitude=-54.9538&start_date=2026-08-29&end_date=2026-08-29&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-10.6903&longitude=-60.7437&start_date=2026-09-19&end_date=2026-09-19&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 13.9,
+    "direcaoGraus": 211,
+    "dia": "2026-09-19",
+    "consultadoEm": "2026-10-14T15:45:46.345Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-10.6903&longitude=-60.7437&start_date=2026-09-19&end_date=2026-09-19&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-7.0571&longitude=-55.6817&start_date=2026-08-29&end_date=2026-08-29&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 9.8,
+    "direcaoGraus": 57,
+    "dia": "2026-08-29",
+    "consultadoEm": "2026-10-14T15:45:46.993Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-7.0571&longitude=-55.6817&start_date=2026-08-29&end_date=2026-08-29&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-6.6938&longitude=-59.1546&start_date=2026-09-13&end_date=2026-09-13&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 10.5,
+    "direcaoGraus": 108,
+    "dia": "2026-09-13",
+    "consultadoEm": "2026-10-14T15:45:47.635Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-6.6938&longitude=-59.1546&start_date=2026-09-13&end_date=2026-09-13&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-5.7247&longitude=-51.9705&start_date=2026-08-23&end_date=2026-08-23&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12.7,
+    "direcaoGraus": 51,
+    "dia": "2026-08-23",
+    "consultadoEm": "2026-10-14T15:45:48.283Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-5.7247&longitude=-51.9705&start_date=2026-08-23&end_date=2026-08-23&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-0.6958&longitude=-48.5750&start_date=2026-09-23&end_date=2026-09-23&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 17.8,
+    "direcaoGraus": 52,
+    "dia": "2026-09-23",
+    "consultadoEm": "2026-10-14T15:45:48.944Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-0.6958&longitude=-48.5750&start_date=2026-09-23&end_date=2026-09-23&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-7.0090&longitude=-60.1143&start_date=2026-08-21&end_date=2026-08-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 9.9,
+    "direcaoGraus": 162,
+    "dia": "2026-08-21",
+    "consultadoEm": "2026-10-14T15:45:49.593Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-7.0090&longitude=-60.1143&start_date=2026-08-21&end_date=2026-08-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-8.6035&longitude=-54.6844&start_date=2026-08-24&end_date=2026-08-24&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 11.9,
+    "direcaoGraus": 58,
+    "dia": "2026-08-24",
+    "consultadoEm": "2026-10-14T15:45:50.248Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-8.6035&longitude=-54.6844&start_date=2026-08-24&end_date=2026-08-24&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-6.6524&longitude=-56.3368&start_date=2026-08-21&end_date=2026-08-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 8.7,
+    "direcaoGraus": 131,
+    "dia": "2026-08-21",
+    "consultadoEm": "2026-10-14T15:45:50.886Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-6.6524&longitude=-56.3368&start_date=2026-08-21&end_date=2026-08-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-5.6378&longitude=-67.5587&start_date=2026-09-20&end_date=2026-09-20&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 7.7,
+    "direcaoGraus": 16,
+    "dia": "2026-09-20",
+    "consultadoEm": "2026-10-14T15:45:51.531Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-5.6378&longitude=-67.5587&start_date=2026-09-20&end_date=2026-09-20&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-9.1473&longitude=-61.3774&start_date=2026-08-22&end_date=2026-08-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 11.1,
+    "direcaoGraus": 163,
+    "dia": "2026-08-22",
+    "consultadoEm": "2026-10-14T15:45:52.175Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-9.1473&longitude=-61.3774&start_date=2026-08-22&end_date=2026-08-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.8183&longitude=-55.8917&start_date=2026-09-05&end_date=2026-09-05&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 13.5,
+    "direcaoGraus": 76,
+    "dia": "2026-09-05",
+    "consultadoEm": "2026-10-14T15:45:52.824Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.8183&longitude=-55.8917&start_date=2026-09-05&end_date=2026-09-05&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-5.7520&longitude=-51.7304&start_date=2026-09-13&end_date=2026-09-13&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 9.7,
+    "direcaoGraus": 32,
+    "dia": "2026-09-13",
+    "consultadoEm": "2026-10-14T15:45:53.473Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-5.7520&longitude=-51.7304&start_date=2026-09-13&end_date=2026-09-13&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.1562&longitude=-40.7235&start_date=2026-09-17&end_date=2026-09-17&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 26.3,
+    "direcaoGraus": 93,
+    "dia": "2026-09-17",
+    "consultadoEm": "2026-10-14T15:45:54.114Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.1562&longitude=-40.7235&start_date=2026-09-17&end_date=2026-09-17&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-7.3485&longitude=-39.0072&start_date=2026-09-17&end_date=2026-09-17&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 21.3,
+    "direcaoGraus": 140,
+    "dia": "2026-09-17",
+    "consultadoEm": "2026-10-14T15:45:54.759Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-7.3485&longitude=-39.0072&start_date=2026-09-17&end_date=2026-09-17&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-7.1380&longitude=-42.7834&start_date=2026-08-25&end_date=2026-08-25&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 26.5,
+    "direcaoGraus": 126,
+    "dia": "2026-08-25",
+    "consultadoEm": "2026-10-14T15:45:55.406Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-7.1380&longitude=-42.7834&start_date=2026-08-25&end_date=2026-08-25&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-7.0152&longitude=-41.4360&start_date=2026-08-14&end_date=2026-08-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 18.3,
+    "direcaoGraus": 132,
+    "dia": "2026-08-14",
+    "consultadoEm": "2026-10-14T15:45:56.051Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-7.0152&longitude=-41.4360&start_date=2026-08-14&end_date=2026-08-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-8.0637&longitude=-43.8281&start_date=2026-08-09&end_date=2026-08-09&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 17.7,
+    "direcaoGraus": 99,
+    "dia": "2026-08-09",
+    "consultadoEm": "2026-10-14T15:45:56.697Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-8.0637&longitude=-43.8281&start_date=2026-08-09&end_date=2026-08-09&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-8.2861&longitude=-39.9717&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 18.5,
+    "direcaoGraus": 120,
+    "dia": "2026-08-27",
+    "consultadoEm": "2026-10-14T15:45:57.346Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-8.2861&longitude=-39.9717&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-7.2458&longitude=-39.2277&start_date=2026-08-20&end_date=2026-08-20&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 14.9,
+    "direcaoGraus": 146,
+    "dia": "2026-08-20",
+    "consultadoEm": "2026-10-14T15:45:57.994Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-7.2458&longitude=-39.2277&start_date=2026-08-20&end_date=2026-08-20&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-7.1170&longitude=-42.8492&start_date=2026-08-30&end_date=2026-08-30&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 23.2,
+    "direcaoGraus": 116,
+    "dia": "2026-08-30",
+    "consultadoEm": "2026-10-14T15:45:58.640Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-7.1170&longitude=-42.8492&start_date=2026-08-30&end_date=2026-08-30&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-8.1017&longitude=-43.7784&start_date=2026-09-15&end_date=2026-09-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 14.6,
+    "direcaoGraus": 87,
+    "dia": "2026-09-15",
+    "consultadoEm": "2026-10-14T15:45:59.288Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-8.1017&longitude=-43.7784&start_date=2026-09-15&end_date=2026-09-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-6.4587&longitude=-40.9528&start_date=2026-09-23&end_date=2026-09-23&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 26.4,
+    "direcaoGraus": 98,
+    "dia": "2026-09-23",
+    "consultadoEm": "2026-10-14T15:45:59.935Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-6.4587&longitude=-40.9528&start_date=2026-09-23&end_date=2026-09-23&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.4854&longitude=-39.6259&start_date=2026-09-19&end_date=2026-09-19&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 24.6,
+    "direcaoGraus": 102,
+    "dia": "2026-09-19",
+    "consultadoEm": "2026-10-14T15:46:00.581Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.4854&longitude=-39.6259&start_date=2026-09-19&end_date=2026-09-19&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-9.7047&longitude=-43.4477&start_date=2026-09-08&end_date=2026-09-08&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 24.5,
+    "direcaoGraus": 103,
+    "dia": "2026-09-08",
+    "consultadoEm": "2026-10-14T15:46:01.226Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-9.7047&longitude=-43.4477&start_date=2026-09-08&end_date=2026-09-08&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-12.7118&longitude=-42.3526&start_date=2026-09-01&end_date=2026-09-01&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 29.7,
+    "direcaoGraus": 59,
+    "dia": "2026-09-01",
+    "consultadoEm": "2026-10-14T15:46:01.873Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-12.7118&longitude=-42.3526&start_date=2026-09-01&end_date=2026-09-01&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-7.1140&longitude=-40.4027&start_date=2026-08-24&end_date=2026-08-24&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 28.1,
+    "direcaoGraus": 140,
+    "dia": "2026-08-24",
+    "consultadoEm": "2026-10-14T15:46:02.522Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-7.1140&longitude=-40.4027&start_date=2026-08-24&end_date=2026-08-24&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.2119&longitude=-40.7242&start_date=2026-08-25&end_date=2026-08-25&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 21.2,
+    "direcaoGraus": 112,
+    "dia": "2026-08-25",
+    "consultadoEm": "2026-10-14T15:46:03.170Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.2119&longitude=-40.7242&start_date=2026-08-25&end_date=2026-08-25&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-9.7029&longitude=-43.3938&start_date=2026-09-12&end_date=2026-09-12&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 20.3,
+    "direcaoGraus": 98,
+    "dia": "2026-09-12",
+    "consultadoEm": "2026-10-14T15:46:03.817Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-9.7029&longitude=-43.3938&start_date=2026-09-12&end_date=2026-09-12&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-6.3054&longitude=-38.9104&start_date=2026-09-19&end_date=2026-09-19&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 21.1,
+    "direcaoGraus": 122,
+    "dia": "2026-09-19",
+    "consultadoEm": "2026-10-14T15:46:04.467Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-6.3054&longitude=-38.9104&start_date=2026-09-19&end_date=2026-09-19&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-9.4547&longitude=-40.5958&start_date=2026-09-17&end_date=2026-09-17&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 26,
+    "direcaoGraus": 124,
+    "dia": "2026-09-17",
+    "consultadoEm": "2026-10-14T15:46:05.110Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-9.4547&longitude=-40.5958&start_date=2026-09-17&end_date=2026-09-17&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-14.4138&longitude=-42.6095&start_date=2026-08-15&end_date=2026-08-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 28.7,
+    "direcaoGraus": 86,
+    "dia": "2026-08-15",
+    "consultadoEm": "2026-10-14T15:46:05.761Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-14.4138&longitude=-42.6095&start_date=2026-08-15&end_date=2026-08-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-5.2691&longitude=-38.9239&start_date=2026-08-25&end_date=2026-08-25&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 21.4,
+    "direcaoGraus": 120,
+    "dia": "2026-08-25",
+    "consultadoEm": "2026-10-14T15:46:06.402Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-5.2691&longitude=-38.9239&start_date=2026-08-25&end_date=2026-08-25&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-6.8510&longitude=-41.7105&start_date=2026-08-30&end_date=2026-08-30&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 24.5,
+    "direcaoGraus": 105,
+    "dia": "2026-08-30",
+    "consultadoEm": "2026-10-14T15:46:07.050Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-6.8510&longitude=-41.7105&start_date=2026-08-30&end_date=2026-08-30&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-6.9554&longitude=-43.1636&start_date=2026-08-25&end_date=2026-08-25&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 28.2,
+    "direcaoGraus": 127,
+    "dia": "2026-08-25",
+    "consultadoEm": "2026-10-14T15:46:07.695Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-6.9554&longitude=-43.1636&start_date=2026-08-25&end_date=2026-08-25&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-6.7908&longitude=-38.2374&start_date=2026-08-22&end_date=2026-08-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 13.9,
+    "direcaoGraus": 85,
+    "dia": "2026-08-22",
+    "consultadoEm": "2026-10-14T15:46:08.338Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-6.7908&longitude=-38.2374&start_date=2026-08-22&end_date=2026-08-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-9.6117&longitude=-43.9276&start_date=2026-09-21&end_date=2026-09-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 18.3,
+    "direcaoGraus": 110,
+    "dia": "2026-09-21",
+    "consultadoEm": "2026-10-14T15:46:08.988Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-9.6117&longitude=-43.9276&start_date=2026-09-21&end_date=2026-09-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-15.3754&longitude=-43.6407&start_date=2026-08-20&end_date=2026-08-20&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 11.3,
+    "direcaoGraus": 120,
+    "dia": "2026-08-20",
+    "consultadoEm": "2026-10-14T15:46:09.632Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-15.3754&longitude=-43.6407&start_date=2026-08-20&end_date=2026-08-20&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-7.0903&longitude=-40.3991&start_date=2026-09-17&end_date=2026-09-17&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 24.5,
+    "direcaoGraus": 124,
+    "dia": "2026-09-17",
+    "consultadoEm": "2026-10-14T15:46:10.275Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-7.0903&longitude=-40.3991&start_date=2026-09-17&end_date=2026-09-17&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-10.8118&longitude=-41.4048&start_date=2026-09-17&end_date=2026-09-17&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 28.2,
+    "direcaoGraus": 107,
+    "dia": "2026-09-17",
+    "consultadoEm": "2026-10-14T15:46:10.920Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-10.8118&longitude=-41.4048&start_date=2026-09-17&end_date=2026-09-17&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-7.5850&longitude=-40.3732&start_date=2026-09-15&end_date=2026-09-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 18.5,
+    "direcaoGraus": 123,
+    "dia": "2026-09-15",
+    "consultadoEm": "2026-10-14T15:46:11.568Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-7.5850&longitude=-40.3732&start_date=2026-09-15&end_date=2026-09-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.9996&longitude=-41.2856&start_date=2026-09-19&end_date=2026-09-19&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 26.3,
+    "direcaoGraus": 97,
+    "dia": "2026-09-19",
+    "consultadoEm": "2026-10-14T15:46:12.212Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.9996&longitude=-41.2856&start_date=2026-09-19&end_date=2026-09-19&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-14.7591&longitude=-41.8636&start_date=2026-09-14&end_date=2026-09-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 19.4,
+    "direcaoGraus": 82,
+    "dia": "2026-09-14",
+    "consultadoEm": "2026-10-14T15:46:12.858Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-14.7591&longitude=-41.8636&start_date=2026-09-14&end_date=2026-09-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-7.5279&longitude=-40.5670&start_date=2026-09-09&end_date=2026-09-09&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 23.8,
+    "direcaoGraus": 128,
+    "dia": "2026-09-09",
+    "consultadoEm": "2026-10-14T15:46:13.502Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-7.5279&longitude=-40.5670&start_date=2026-09-09&end_date=2026-09-09&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-6.9494&longitude=-41.9276&start_date=2026-08-04&end_date=2026-08-04&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 22.7,
+    "direcaoGraus": 127,
+    "dia": "2026-08-04",
+    "consultadoEm": "2026-10-14T15:46:14.143Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-6.9494&longitude=-41.9276&start_date=2026-08-04&end_date=2026-08-04&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.6763&longitude=-39.3393&start_date=2026-09-12&end_date=2026-09-12&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 20.8,
+    "direcaoGraus": 97,
+    "dia": "2026-09-12",
+    "consultadoEm": "2026-10-14T15:46:14.790Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.6763&longitude=-39.3393&start_date=2026-09-12&end_date=2026-09-12&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-4.1779&longitude=-40.7616&start_date=2026-08-14&end_date=2026-08-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 13.9,
+    "direcaoGraus": 104,
+    "dia": "2026-08-14",
+    "consultadoEm": "2026-10-14T15:46:15.438Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-4.1779&longitude=-40.7616&start_date=2026-08-14&end_date=2026-08-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-10.1840&longitude=-39.0658&start_date=2026-08-25&end_date=2026-08-25&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 23,
+    "direcaoGraus": 136,
+    "dia": "2026-08-25",
+    "consultadoEm": "2026-10-14T15:46:16.084Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-10.1840&longitude=-39.0658&start_date=2026-08-25&end_date=2026-08-25&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-7.8129&longitude=-40.2725&start_date=2026-09-06&end_date=2026-09-06&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 13.9,
+    "direcaoGraus": 98,
+    "dia": "2026-09-06",
+    "consultadoEm": "2026-10-14T15:46:16.731Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-7.8129&longitude=-40.2725&start_date=2026-09-06&end_date=2026-09-06&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-5.2010&longitude=-40.7154&start_date=2026-09-22&end_date=2026-09-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 17.7,
+    "direcaoGraus": 106,
+    "dia": "2026-09-22",
+    "consultadoEm": "2026-10-14T15:46:17.377Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-5.2010&longitude=-40.7154&start_date=2026-09-22&end_date=2026-09-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-5.8835&longitude=-38.2985&start_date=2026-09-22&end_date=2026-09-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 22.9,
+    "direcaoGraus": 126,
+    "dia": "2026-09-22",
+    "consultadoEm": "2026-10-14T15:46:18.026Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-5.8835&longitude=-38.2985&start_date=2026-09-22&end_date=2026-09-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-12.2561&longitude=-43.1458&start_date=2026-08-17&end_date=2026-08-17&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 21,
+    "direcaoGraus": 101,
+    "dia": "2026-08-17",
+    "consultadoEm": "2026-10-14T15:46:18.666Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-12.2561&longitude=-43.1458&start_date=2026-08-17&end_date=2026-08-17&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-9.4080&longitude=-37.8076&start_date=2026-08-07&end_date=2026-08-07&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 16.4,
+    "direcaoGraus": 119,
+    "dia": "2026-08-07",
+    "consultadoEm": "2026-10-14T15:46:19.309Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-9.4080&longitude=-37.8076&start_date=2026-08-07&end_date=2026-08-07&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-7.1314&longitude=-42.2383&start_date=2026-09-04&end_date=2026-09-04&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 15.8,
+    "direcaoGraus": 80,
+    "dia": "2026-09-04",
+    "consultadoEm": "2026-10-14T15:46:19.954Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-7.1314&longitude=-42.2383&start_date=2026-09-04&end_date=2026-09-04&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-7.8396&longitude=-41.0965&start_date=2026-09-22&end_date=2026-09-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 23.3,
+    "direcaoGraus": 120,
+    "dia": "2026-09-22",
+    "consultadoEm": "2026-10-14T15:46:20.604Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-7.8396&longitude=-41.0965&start_date=2026-09-22&end_date=2026-09-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-14.6376&longitude=-41.9564&start_date=2026-08-07&end_date=2026-08-07&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 13.4,
+    "direcaoGraus": 62,
+    "dia": "2026-08-07",
+    "consultadoEm": "2026-10-14T15:46:21.253Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-14.6376&longitude=-41.9564&start_date=2026-08-07&end_date=2026-08-07&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-6.8292&longitude=-45.0340&start_date=2026-09-15&end_date=2026-09-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 17.8,
+    "direcaoGraus": 46,
+    "dia": "2026-09-15",
+    "consultadoEm": "2026-10-14T15:46:21.898Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-6.8292&longitude=-45.0340&start_date=2026-09-15&end_date=2026-09-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-11.9617&longitude=-47.7524&start_date=2026-08-29&end_date=2026-08-29&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 17.1,
+    "direcaoGraus": 87,
+    "dia": "2026-08-29",
+    "consultadoEm": "2026-10-14T15:46:22.543Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-11.9617&longitude=-47.7524&start_date=2026-08-29&end_date=2026-08-29&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-9.5914&longitude=-46.5689&start_date=2026-09-15&end_date=2026-09-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 22.2,
+    "direcaoGraus": 69,
+    "dia": "2026-09-15",
+    "consultadoEm": "2026-10-14T15:46:23.190Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-9.5914&longitude=-46.5689&start_date=2026-09-15&end_date=2026-09-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-13.6563&longitude=-45.9706&start_date=2026-09-15&end_date=2026-09-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 20.1,
+    "direcaoGraus": 354,
+    "dia": "2026-09-15",
+    "consultadoEm": "2026-10-14T15:46:23.831Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-13.6563&longitude=-45.9706&start_date=2026-09-15&end_date=2026-09-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-9.2610&longitude=-46.2467&start_date=2026-09-23&end_date=2026-09-23&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 25.3,
+    "direcaoGraus": 265,
+    "dia": "2026-09-23",
+    "consultadoEm": "2026-10-14T15:46:24.480Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-9.2610&longitude=-46.2467&start_date=2026-09-23&end_date=2026-09-23&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-7.6504&longitude=-46.7655&start_date=2026-09-20&end_date=2026-09-20&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 28.6,
+    "direcaoGraus": 81,
+    "dia": "2026-09-20",
+    "consultadoEm": "2026-10-14T15:46:25.127Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-7.6504&longitude=-46.7655&start_date=2026-09-20&end_date=2026-09-20&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-14.3908&longitude=-52.0906&start_date=2026-08-11&end_date=2026-08-11&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 20.3,
+    "direcaoGraus": 109,
+    "dia": "2026-08-11",
+    "consultadoEm": "2026-10-14T15:46:25.776Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-14.3908&longitude=-52.0906&start_date=2026-08-11&end_date=2026-08-11&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-6.2250&longitude=-45.3030&start_date=2026-09-13&end_date=2026-09-13&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 16.5,
+    "direcaoGraus": 33,
+    "dia": "2026-09-13",
+    "consultadoEm": "2026-10-14T15:46:26.421Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-6.2250&longitude=-45.3030&start_date=2026-09-13&end_date=2026-09-13&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-9.1929&longitude=-44.7756&start_date=2026-08-14&end_date=2026-08-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 19.1,
+    "direcaoGraus": 109,
+    "dia": "2026-08-14",
+    "consultadoEm": "2026-10-14T15:46:27.068Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-9.1929&longitude=-44.7756&start_date=2026-08-14&end_date=2026-08-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-12.4920&longitude=-50.0210&start_date=2026-09-18&end_date=2026-09-18&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 24.1,
+    "direcaoGraus": 72,
+    "dia": "2026-09-18",
+    "consultadoEm": "2026-10-14T15:46:27.716Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-12.4920&longitude=-50.0210&start_date=2026-09-18&end_date=2026-09-18&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-13.9286&longitude=-58.2741&start_date=2026-08-21&end_date=2026-08-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 23,
+    "direcaoGraus": 155,
+    "dia": "2026-08-21",
+    "consultadoEm": "2026-10-14T15:46:28.361Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-13.9286&longitude=-58.2741&start_date=2026-08-21&end_date=2026-08-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-10.9743&longitude=-50.2871&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 15.2,
+    "direcaoGraus": 46,
+    "dia": "2026-08-26",
+    "consultadoEm": "2026-10-14T15:46:29.008Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-10.9743&longitude=-50.2871&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-16.7742&longitude=-48.6951&start_date=2026-08-15&end_date=2026-08-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 15.2,
+    "direcaoGraus": 51,
+    "dia": "2026-08-15",
+    "consultadoEm": "2026-10-14T15:46:29.653Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-16.7742&longitude=-48.6951&start_date=2026-08-15&end_date=2026-08-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-9.5984&longitude=-46.7586&start_date=2026-09-10&end_date=2026-09-10&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 29.2,
+    "direcaoGraus": 99,
+    "dia": "2026-09-10",
+    "consultadoEm": "2026-10-14T15:46:30.296Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-9.5984&longitude=-46.7586&start_date=2026-09-10&end_date=2026-09-10&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-8.9006&longitude=-45.0105&start_date=2026-09-17&end_date=2026-09-17&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 21.1,
+    "direcaoGraus": 94,
+    "dia": "2026-09-17",
+    "consultadoEm": "2026-10-14T15:46:30.943Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-8.9006&longitude=-45.0105&start_date=2026-09-17&end_date=2026-09-17&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-14.4908&longitude=-51.9355&start_date=2026-08-13&end_date=2026-08-13&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 15.8,
+    "direcaoGraus": 34,
+    "dia": "2026-08-13",
+    "consultadoEm": "2026-10-14T15:46:31.590Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-14.4908&longitude=-51.9355&start_date=2026-08-13&end_date=2026-08-13&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-15.0645&longitude=-47.0184&start_date=2026-08-15&end_date=2026-08-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 11.6,
+    "direcaoGraus": 342,
+    "dia": "2026-08-15",
+    "consultadoEm": "2026-10-14T15:46:32.236Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-15.0645&longitude=-47.0184&start_date=2026-08-15&end_date=2026-08-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-9.9859&longitude=-46.1116&start_date=2026-09-17&end_date=2026-09-17&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 28.6,
+    "direcaoGraus": 86,
+    "dia": "2026-09-17",
+    "consultadoEm": "2026-10-14T15:46:32.881Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-9.9859&longitude=-46.1116&start_date=2026-09-17&end_date=2026-09-17&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-9.0580&longitude=-45.9099&start_date=2026-08-22&end_date=2026-08-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 16.6,
+    "direcaoGraus": 73,
+    "dia": "2026-08-22",
+    "consultadoEm": "2026-10-14T15:46:33.526Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-9.0580&longitude=-45.9099&start_date=2026-08-22&end_date=2026-08-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-6.4959&longitude=-43.0533&start_date=2026-09-15&end_date=2026-09-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 14.8,
+    "direcaoGraus": 64,
+    "dia": "2026-09-15",
+    "consultadoEm": "2026-10-14T15:46:34.173Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-6.4959&longitude=-43.0533&start_date=2026-09-15&end_date=2026-09-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-10.0817&longitude=-45.6563&start_date=2026-09-18&end_date=2026-09-18&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 28.4,
+    "direcaoGraus": 100,
+    "dia": "2026-09-18",
+    "consultadoEm": "2026-10-14T15:46:34.820Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-10.0817&longitude=-45.6563&start_date=2026-09-18&end_date=2026-09-18&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-10.0066&longitude=-48.5703&start_date=2026-09-03&end_date=2026-09-03&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 11.8,
+    "direcaoGraus": 33,
+    "dia": "2026-09-03",
+    "consultadoEm": "2026-10-14T15:46:35.463Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-10.0066&longitude=-48.5703&start_date=2026-09-03&end_date=2026-09-03&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-10.8372&longitude=-50.1913&start_date=2026-09-18&end_date=2026-09-18&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 17.4,
+    "direcaoGraus": 77,
+    "dia": "2026-09-18",
+    "consultadoEm": "2026-10-14T15:46:36.109Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-10.8372&longitude=-50.1913&start_date=2026-09-18&end_date=2026-09-18&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-9.6061&longitude=-46.6065&start_date=2026-09-15&end_date=2026-09-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 22.2,
+    "direcaoGraus": 69,
+    "dia": "2026-09-15",
+    "consultadoEm": "2026-10-14T15:46:36.756Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-9.6061&longitude=-46.6065&start_date=2026-09-15&end_date=2026-09-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-8.9756&longitude=-45.0103&start_date=2026-09-12&end_date=2026-09-12&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 17.1,
+    "direcaoGraus": 69,
+    "dia": "2026-09-12",
+    "consultadoEm": "2026-10-14T15:46:37.399Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-8.9756&longitude=-45.0103&start_date=2026-09-12&end_date=2026-09-12&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-9.7529&longitude=-45.0629&start_date=2026-09-18&end_date=2026-09-18&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 24.1,
+    "direcaoGraus": 101,
+    "dia": "2026-09-18",
+    "consultadoEm": "2026-10-14T15:46:38.050Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-9.7529&longitude=-45.0629&start_date=2026-09-18&end_date=2026-09-18&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-8.9389&longitude=-45.7248&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 22.1,
+    "direcaoGraus": 83,
+    "dia": "2026-08-27",
+    "consultadoEm": "2026-10-14T15:46:38.694Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-8.9389&longitude=-45.7248&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-10.0763&longitude=-45.8244&start_date=2026-08-02&end_date=2026-08-02&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 23.5,
+    "direcaoGraus": 103,
+    "dia": "2026-08-02",
+    "consultadoEm": "2026-10-14T15:46:39.345Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-10.0763&longitude=-45.8244&start_date=2026-08-02&end_date=2026-08-02&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-6.9207&longitude=-47.4772&start_date=2026-08-21&end_date=2026-08-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 19.2,
+    "direcaoGraus": 65,
+    "dia": "2026-08-21",
+    "consultadoEm": "2026-10-14T15:46:39.994Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-6.9207&longitude=-47.4772&start_date=2026-08-21&end_date=2026-08-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-12.5594&longitude=-45.9316&start_date=2026-09-21&end_date=2026-09-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 16.8,
+    "direcaoGraus": 78,
+    "dia": "2026-09-21",
+    "consultadoEm": "2026-10-14T15:46:40.637Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-12.5594&longitude=-45.9316&start_date=2026-09-21&end_date=2026-09-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.1335&longitude=-43.2763&start_date=2026-08-11&end_date=2026-08-11&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 14.1,
+    "direcaoGraus": 61,
+    "dia": "2026-08-11",
+    "consultadoEm": "2026-10-14T15:46:41.286Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.1335&longitude=-43.2763&start_date=2026-08-11&end_date=2026-08-11&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-8.3823&longitude=-47.2451&start_date=2026-09-18&end_date=2026-09-18&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 23.6,
+    "direcaoGraus": 91,
+    "dia": "2026-09-18",
+    "consultadoEm": "2026-10-14T15:46:41.930Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-8.3823&longitude=-47.2451&start_date=2026-09-18&end_date=2026-09-18&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-7.6495&longitude=-46.1534&start_date=2026-09-17&end_date=2026-09-17&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 22.8,
+    "direcaoGraus": 76,
+    "dia": "2026-09-17",
+    "consultadoEm": "2026-10-14T15:46:42.577Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-7.6495&longitude=-46.1534&start_date=2026-09-17&end_date=2026-09-17&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-8.4859&longitude=-44.5649&start_date=2026-09-15&end_date=2026-09-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 19.9,
+    "direcaoGraus": 80,
+    "dia": "2026-09-15",
+    "consultadoEm": "2026-10-14T15:46:43.225Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-8.4859&longitude=-44.5649&start_date=2026-09-15&end_date=2026-09-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-13.3065&longitude=-51.4213&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 19.3,
+    "direcaoGraus": 18,
+    "dia": "2026-08-26",
+    "consultadoEm": "2026-10-14T15:46:43.872Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-13.3065&longitude=-51.4213&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-17.4344&longitude=-45.0715&start_date=2026-09-13&end_date=2026-09-13&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 23.2,
+    "direcaoGraus": 184,
+    "dia": "2026-09-13",
+    "consultadoEm": "2026-10-14T15:46:44.519Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-17.4344&longitude=-45.0715&start_date=2026-09-13&end_date=2026-09-13&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-16.4865&longitude=-43.4228&start_date=2026-09-15&end_date=2026-09-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 24.6,
+    "direcaoGraus": 94,
+    "dia": "2026-09-15",
+    "consultadoEm": "2026-10-14T15:46:45.166Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-16.4865&longitude=-43.4228&start_date=2026-09-15&end_date=2026-09-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-7.6501&longitude=-46.6992&start_date=2026-09-02&end_date=2026-09-02&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 13.4,
+    "direcaoGraus": 346,
+    "dia": "2026-09-02",
+    "consultadoEm": "2026-10-14T15:46:45.811Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-7.6501&longitude=-46.6992&start_date=2026-09-02&end_date=2026-09-02&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-17.6058&longitude=-49.8797&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 26.3,
+    "direcaoGraus": 148,
+    "dia": "2026-08-26",
+    "consultadoEm": "2026-10-14T15:46:46.456Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-17.6058&longitude=-49.8797&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-10.5040&longitude=-46.7134&start_date=2026-08-07&end_date=2026-08-07&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 17.3,
+    "direcaoGraus": 27,
+    "dia": "2026-08-07",
+    "consultadoEm": "2026-10-14T15:46:47.104Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-10.5040&longitude=-46.7134&start_date=2026-08-07&end_date=2026-08-07&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.6904&longitude=-44.6320&start_date=2026-09-04&end_date=2026-09-04&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 15.9,
+    "direcaoGraus": 37,
+    "dia": "2026-09-04",
+    "consultadoEm": "2026-10-14T15:46:47.755Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.6904&longitude=-44.6320&start_date=2026-09-04&end_date=2026-09-04&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-12.1477&longitude=-44.2563&start_date=2026-09-22&end_date=2026-09-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12,
+    "direcaoGraus": 90,
+    "dia": "2026-09-22",
+    "consultadoEm": "2026-10-14T15:46:48.394Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-12.1477&longitude=-44.2563&start_date=2026-09-22&end_date=2026-09-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-7.8196&longitude=-45.1193&start_date=2026-09-15&end_date=2026-09-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 23.8,
+    "direcaoGraus": 61,
+    "dia": "2026-09-15",
+    "consultadoEm": "2026-10-14T15:46:49.045Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-7.8196&longitude=-45.1193&start_date=2026-09-15&end_date=2026-09-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-19.8720&longitude=-40.1802&start_date=2026-08-28&end_date=2026-08-28&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 17.3,
+    "direcaoGraus": 32,
+    "dia": "2026-08-28",
+    "consultadoEm": "2026-10-14T15:46:49.687Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-19.8720&longitude=-40.1802&start_date=2026-08-28&end_date=2026-08-28&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-19.5169&longitude=-40.9832&start_date=2026-08-07&end_date=2026-08-07&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12.3,
+    "direcaoGraus": 109,
+    "dia": "2026-08-07",
+    "consultadoEm": "2026-10-14T15:46:50.335Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-19.5169&longitude=-40.9832&start_date=2026-08-07&end_date=2026-08-07&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-28.1764&longitude=-50.3948&start_date=2026-08-18&end_date=2026-08-18&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 27.9,
+    "direcaoGraus": 354,
+    "dia": "2026-08-18",
+    "consultadoEm": "2026-10-14T15:46:50.984Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-28.1764&longitude=-50.3948&start_date=2026-08-18&end_date=2026-08-18&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-20.7894&longitude=-43.0922&start_date=2026-08-05&end_date=2026-08-05&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 18.7,
+    "direcaoGraus": 25,
+    "dia": "2026-08-05",
+    "consultadoEm": "2026-10-14T15:46:51.631Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-20.7894&longitude=-43.0922&start_date=2026-08-05&end_date=2026-08-05&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-17.4228&longitude=-41.4751&start_date=2026-08-05&end_date=2026-08-05&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 11.3,
+    "direcaoGraus": 56,
+    "dia": "2026-08-05",
+    "consultadoEm": "2026-10-14T15:46:52.273Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-17.4228&longitude=-41.4751&start_date=2026-08-05&end_date=2026-08-05&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-22.9963&longitude=-52.4290&start_date=2026-08-13&end_date=2026-08-13&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 19.9,
+    "direcaoGraus": 358,
+    "dia": "2026-08-13",
+    "consultadoEm": "2026-10-14T15:46:52.916Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-22.9963&longitude=-52.4290&start_date=2026-08-13&end_date=2026-08-13&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-17.8925&longitude=-39.8736&start_date=2026-08-07&end_date=2026-08-07&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 15.5,
+    "direcaoGraus": 18,
+    "dia": "2026-08-07",
+    "consultadoEm": "2026-10-14T15:46:53.564Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-17.8925&longitude=-39.8736&start_date=2026-08-07&end_date=2026-08-07&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-13.3218&longitude=-40.4549&start_date=2026-09-01&end_date=2026-09-01&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 17.5,
+    "direcaoGraus": 54,
+    "dia": "2026-09-01",
+    "consultadoEm": "2026-10-14T15:46:54.206Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-13.3218&longitude=-40.4549&start_date=2026-09-01&end_date=2026-09-01&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-16.3648&longitude=-39.2045&start_date=2026-08-14&end_date=2026-08-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12.4,
+    "direcaoGraus": 14,
+    "dia": "2026-08-14",
+    "consultadoEm": "2026-10-14T15:46:54.854Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-16.3648&longitude=-39.2045&start_date=2026-08-14&end_date=2026-08-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-16.3078&longitude=-40.5246&start_date=2026-09-15&end_date=2026-09-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 15.1,
+    "direcaoGraus": 56,
+    "dia": "2026-09-15",
+    "consultadoEm": "2026-10-14T15:46:55.501Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-16.3078&longitude=-40.5246&start_date=2026-09-15&end_date=2026-09-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-29.0143&longitude=-49.5254&start_date=2026-09-08&end_date=2026-09-08&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 15.1,
+    "direcaoGraus": 82,
+    "dia": "2026-09-08",
+    "consultadoEm": "2026-10-14T15:46:56.151Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-29.0143&longitude=-49.5254&start_date=2026-09-08&end_date=2026-09-08&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-21.0693&longitude=-42.7691&start_date=2026-09-10&end_date=2026-09-10&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 22.9,
+    "direcaoGraus": 3,
+    "dia": "2026-09-10",
+    "consultadoEm": "2026-10-14T15:46:56.794Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-21.0693&longitude=-42.7691&start_date=2026-09-10&end_date=2026-09-10&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-16.5205&longitude=-41.6244&start_date=2026-09-20&end_date=2026-09-20&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 15.9,
+    "direcaoGraus": 93,
+    "dia": "2026-09-20",
+    "consultadoEm": "2026-10-14T15:46:57.438Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-16.5205&longitude=-41.6244&start_date=2026-09-20&end_date=2026-09-20&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-21.1295&longitude=-42.2474&start_date=2026-08-05&end_date=2026-08-05&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 7,
+    "direcaoGraus": 166,
+    "dia": "2026-08-05",
+    "consultadoEm": "2026-10-14T15:46:58.083Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-21.1295&longitude=-42.2474&start_date=2026-08-05&end_date=2026-08-05&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-15.3872&longitude=-41.1793&start_date=2026-08-22&end_date=2026-08-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 21.1,
+    "direcaoGraus": 57,
+    "dia": "2026-08-22",
+    "consultadoEm": "2026-10-14T15:46:58.726Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-15.3872&longitude=-41.1793&start_date=2026-08-22&end_date=2026-08-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-15.6646&longitude=-39.8469&start_date=2026-08-25&end_date=2026-08-25&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 17.1,
+    "direcaoGraus": 67,
+    "dia": "2026-08-25",
+    "consultadoEm": "2026-10-14T15:46:59.369Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-15.6646&longitude=-39.8469&start_date=2026-08-25&end_date=2026-08-25&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-28.5537&longitude=-50.1309&start_date=2026-08-03&end_date=2026-08-03&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12.5,
+    "direcaoGraus": 355,
+    "dia": "2026-08-03",
+    "consultadoEm": "2026-10-14T15:47:00.016Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-28.5537&longitude=-50.1309&start_date=2026-08-03&end_date=2026-08-03&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-29.3092&longitude=-50.6467&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 14.4,
+    "direcaoGraus": 25,
+    "dia": "2026-08-26",
+    "consultadoEm": "2026-10-14T15:47:00.659Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-29.3092&longitude=-50.6467&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-20.6884&longitude=-43.5704&start_date=2026-08-31&end_date=2026-08-31&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 18.3,
+    "direcaoGraus": 58,
+    "dia": "2026-08-31",
+    "consultadoEm": "2026-10-14T15:47:01.307Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-20.6884&longitude=-43.5704&start_date=2026-08-31&end_date=2026-08-31&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-22.6941&longitude=-43.7109&start_date=2026-08-05&end_date=2026-08-05&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 18.5,
+    "direcaoGraus": 350,
+    "dia": "2026-08-05",
+    "consultadoEm": "2026-10-14T15:47:01.951Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-22.6941&longitude=-43.7109&start_date=2026-08-05&end_date=2026-08-05&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-25.3208&longitude=-52.7793&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 25.9,
+    "direcaoGraus": 19,
+    "dia": "2026-08-27",
+    "consultadoEm": "2026-10-14T15:47:02.593Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-25.3208&longitude=-52.7793&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-17.2534&longitude=-41.0534&start_date=2026-09-05&end_date=2026-09-05&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 17.4,
+    "direcaoGraus": 12,
+    "dia": "2026-09-05",
+    "consultadoEm": "2026-10-14T15:47:03.242Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-17.2534&longitude=-41.0534&start_date=2026-09-05&end_date=2026-09-05&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-25.2443&longitude=-52.2550&start_date=2026-09-18&end_date=2026-09-18&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 18.8,
+    "direcaoGraus": 76,
+    "dia": "2026-09-18",
+    "consultadoEm": "2026-10-14T15:47:03.894Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-25.2443&longitude=-52.2550&start_date=2026-09-18&end_date=2026-09-18&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-21.1117&longitude=-45.6129&start_date=2026-08-20&end_date=2026-08-20&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 9.7,
+    "direcaoGraus": 49,
+    "dia": "2026-08-20",
+    "consultadoEm": "2026-10-14T15:47:04.538Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-21.1117&longitude=-45.6129&start_date=2026-08-20&end_date=2026-08-20&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-28.5729&longitude=-50.2336&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12.4,
+    "direcaoGraus": 15,
+    "dia": "2026-08-26",
+    "consultadoEm": "2026-10-14T15:47:05.187Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-28.5729&longitude=-50.2336&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-15.4456&longitude=-41.3717&start_date=2026-08-07&end_date=2026-08-07&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 15.4,
+    "direcaoGraus": 43,
+    "dia": "2026-08-07",
+    "consultadoEm": "2026-10-14T15:47:05.835Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-15.4456&longitude=-41.3717&start_date=2026-08-07&end_date=2026-08-07&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-17.8628&longitude=-42.0885&start_date=2026-08-07&end_date=2026-08-07&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 13.3,
+    "direcaoGraus": 359,
+    "dia": "2026-08-07",
+    "consultadoEm": "2026-10-14T15:47:06.480Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-17.8628&longitude=-42.0885&start_date=2026-08-07&end_date=2026-08-07&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-22.8621&longitude=-55.1199&start_date=2026-08-29&end_date=2026-08-29&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 28.2,
+    "direcaoGraus": 322,
+    "dia": "2026-08-29",
+    "consultadoEm": "2026-10-14T15:47:07.127Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-22.8621&longitude=-55.1199&start_date=2026-08-29&end_date=2026-08-29&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-18.1205&longitude=-40.2233&start_date=2026-09-15&end_date=2026-09-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 15.3,
+    "direcaoGraus": 49,
+    "dia": "2026-09-15",
+    "consultadoEm": "2026-10-14T15:47:07.776Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-18.1205&longitude=-40.2233&start_date=2026-09-15&end_date=2026-09-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-16.7077&longitude=-41.3273&start_date=2026-09-14&end_date=2026-09-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 20.6,
+    "direcaoGraus": 89,
+    "dia": "2026-09-14",
+    "consultadoEm": "2026-10-14T15:47:08.420Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-16.7077&longitude=-41.3273&start_date=2026-09-14&end_date=2026-09-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-18.4686&longitude=-40.1374&start_date=2026-09-23&end_date=2026-09-23&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 19.8,
+    "direcaoGraus": 46,
+    "dia": "2026-09-23",
+    "consultadoEm": "2026-10-14T15:47:09.067Z",
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-18.4686&longitude=-40.1374&start_date=2026-09-23&end_date=2026-09-23&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-26.5557&longitude=-50.7543&start_date=2026-08-21&end_date=2026-08-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 18.6,
+    "direcaoGraus": 249,
+    "dia": "2026-08-21",
+    "consultadoEm": "2026-10-14T15:54:18.187Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-26.5557&longitude=-50.7543&start_date=2026-08-21&end_date=2026-08-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-15.1263&longitude=-42.1292&start_date=2026-08-14&end_date=2026-08-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12.1,
+    "direcaoGraus": 78,
+    "dia": "2026-08-14",
+    "consultadoEm": "2026-10-14T15:54:20.444Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-15.1263&longitude=-42.1292&start_date=2026-08-14&end_date=2026-08-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-21.6197&longitude=-49.6046&start_date=2026-08-29&end_date=2026-08-29&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 22,
+    "direcaoGraus": 330,
+    "dia": "2026-08-29",
+    "consultadoEm": "2026-10-14T15:54:22.693Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-21.6197&longitude=-49.6046&start_date=2026-08-29&end_date=2026-08-29&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-14.6502&longitude=-40.7007&start_date=2026-09-14&end_date=2026-09-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 18.3,
+    "direcaoGraus": 89,
+    "dia": "2026-09-14",
+    "consultadoEm": "2026-10-14T15:54:24.938Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-14.6502&longitude=-40.7007&start_date=2026-09-14&end_date=2026-09-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-21.4093&longitude=-43.8895&start_date=2026-08-10&end_date=2026-08-10&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 27.1,
+    "direcaoGraus": 128,
+    "dia": "2026-08-10",
+    "consultadoEm": "2026-10-14T15:54:27.181Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-21.4093&longitude=-43.8895&start_date=2026-08-10&end_date=2026-08-10&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-28.2897&longitude=-50.4356&start_date=2026-08-23&end_date=2026-08-23&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12.5,
+    "direcaoGraus": 259,
+    "dia": "2026-08-23",
+    "consultadoEm": "2026-10-14T15:54:29.427Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-28.2897&longitude=-50.4356&start_date=2026-08-23&end_date=2026-08-23&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-15.6313&longitude=-41.2278&start_date=2026-08-04&end_date=2026-08-04&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 16.2,
+    "direcaoGraus": 106,
+    "dia": "2026-08-04",
+    "consultadoEm": "2026-10-14T15:54:31.673Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-15.6313&longitude=-41.2278&start_date=2026-08-04&end_date=2026-08-04&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-21.2214&longitude=-46.5344&start_date=2026-08-05&end_date=2026-08-05&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12.6,
+    "direcaoGraus": 21,
+    "dia": "2026-08-05",
+    "consultadoEm": "2026-10-14T15:54:33.913Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-21.2214&longitude=-46.5344&start_date=2026-08-05&end_date=2026-08-05&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-13.5493&longitude=-39.5911&start_date=2026-08-07&end_date=2026-08-07&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 11.1,
+    "direcaoGraus": 41,
+    "dia": "2026-08-07",
+    "consultadoEm": "2026-10-14T15:54:36.169Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-13.5493&longitude=-39.5911&start_date=2026-08-07&end_date=2026-08-07&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-14.7410&longitude=-40.7843&start_date=2026-08-20&end_date=2026-08-20&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 13.2,
+    "direcaoGraus": 88,
+    "dia": "2026-08-20",
+    "consultadoEm": "2026-10-14T15:54:38.412Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-14.7410&longitude=-40.7843&start_date=2026-08-20&end_date=2026-08-20&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-21.8691&longitude=-45.2779&start_date=2026-08-05&end_date=2026-08-05&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 13.8,
+    "direcaoGraus": 147,
+    "dia": "2026-08-05",
+    "consultadoEm": "2026-10-14T15:54:40.659Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-21.8691&longitude=-45.2779&start_date=2026-08-05&end_date=2026-08-05&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-19.6995&longitude=-43.2369&start_date=2026-08-09&end_date=2026-08-09&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 8.6,
+    "direcaoGraus": 360,
+    "dia": "2026-08-09",
+    "consultadoEm": "2026-10-14T15:54:42.905Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-19.6995&longitude=-43.2369&start_date=2026-08-09&end_date=2026-08-09&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-29.9374&longitude=-54.7756&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 20.8,
+    "direcaoGraus": 30,
+    "dia": "2026-08-27",
+    "consultadoEm": "2026-10-14T15:54:45.156Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-29.9374&longitude=-54.7756&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-30.1874&longitude=-54.9305&start_date=2026-09-14&end_date=2026-09-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12.3,
+    "direcaoGraus": 153,
+    "dia": "2026-09-14",
+    "consultadoEm": "2026-10-14T15:54:47.400Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-30.1874&longitude=-54.9305&start_date=2026-09-14&end_date=2026-09-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-29.3010&longitude=-53.4841&start_date=2026-09-08&end_date=2026-09-08&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12.5,
+    "direcaoGraus": 123,
+    "dia": "2026-09-08",
+    "consultadoEm": "2026-10-14T15:54:49.637Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-29.3010&longitude=-53.4841&start_date=2026-09-08&end_date=2026-09-08&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-28.3175&longitude=-55.3585&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 25.9,
+    "direcaoGraus": 16,
+    "dia": "2026-08-27",
+    "consultadoEm": "2026-10-14T15:54:51.886Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-28.3175&longitude=-55.3585&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-30.5945&longitude=-52.7766&start_date=2026-09-06&end_date=2026-09-06&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 18.1,
+    "direcaoGraus": 189,
+    "dia": "2026-09-06",
+    "consultadoEm": "2026-10-14T15:54:54.130Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-30.5945&longitude=-52.7766&start_date=2026-09-06&end_date=2026-09-06&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-31.0627&longitude=-53.0763&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 17.6,
+    "direcaoGraus": 46,
+    "dia": "2026-08-27",
+    "consultadoEm": "2026-10-14T15:54:56.378Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-31.0627&longitude=-53.0763&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-30.0288&longitude=-55.0549&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 26.2,
+    "direcaoGraus": 54,
+    "dia": "2026-08-27",
+    "consultadoEm": "2026-10-14T15:54:58.623Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-30.0288&longitude=-55.0549&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-30.2077&longitude=-54.5837&start_date=2026-08-24&end_date=2026-08-24&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 13.7,
+    "direcaoGraus": 110,
+    "dia": "2026-08-24",
+    "consultadoEm": "2026-10-14T15:55:00.867Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-30.2077&longitude=-54.5837&start_date=2026-08-24&end_date=2026-08-24&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-30.1919&longitude=-54.1352&start_date=2026-09-21&end_date=2026-09-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 22.7,
+    "direcaoGraus": 212,
+    "dia": "2026-09-21",
+    "consultadoEm": "2026-10-14T15:55:03.164Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-30.1919&longitude=-54.1352&start_date=2026-09-21&end_date=2026-09-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-30.6042&longitude=-54.9529&start_date=2026-09-09&end_date=2026-09-09&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 16.2,
+    "direcaoGraus": 112,
+    "dia": "2026-09-09",
+    "consultadoEm": "2026-10-14T15:55:05.404Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-30.6042&longitude=-54.9529&start_date=2026-09-09&end_date=2026-09-09&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-31.2971&longitude=-55.0668&start_date=2026-09-14&end_date=2026-09-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 15,
+    "direcaoGraus": 134,
+    "dia": "2026-09-14",
+    "consultadoEm": "2026-10-14T15:55:07.650Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-31.2971&longitude=-55.0668&start_date=2026-09-14&end_date=2026-09-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-30.6058&longitude=-53.0151&start_date=2026-09-09&end_date=2026-09-09&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 19.7,
+    "direcaoGraus": 120,
+    "dia": "2026-09-09",
+    "consultadoEm": "2026-10-14T15:55:09.895Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-30.6058&longitude=-53.0151&start_date=2026-09-09&end_date=2026-09-09&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-29.6748&longitude=-55.2746&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 28.3,
+    "direcaoGraus": 16,
+    "dia": "2026-08-27",
+    "consultadoEm": "2026-10-14T15:55:12.142Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-29.6748&longitude=-55.2746&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-28.9543&longitude=-55.6354&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 24.7,
+    "direcaoGraus": 19,
+    "dia": "2026-08-27",
+    "consultadoEm": "2026-10-14T15:55:14.392Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-28.9543&longitude=-55.6354&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-30.6035&longitude=-53.0023&start_date=2026-09-09&end_date=2026-09-09&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 19.7,
+    "direcaoGraus": 120,
+    "dia": "2026-09-09",
+    "consultadoEm": "2026-10-14T15:55:16.635Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-30.6035&longitude=-53.0023&start_date=2026-09-09&end_date=2026-09-09&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-29.8783&longitude=-56.9158&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 25.6,
+    "direcaoGraus": 21,
+    "dia": "2026-08-27",
+    "consultadoEm": "2026-10-14T15:55:18.882Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-29.8783&longitude=-56.9158&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-28.1937&longitude=-55.5091&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 25.1,
+    "direcaoGraus": 16,
+    "dia": "2026-08-27",
+    "consultadoEm": "2026-10-14T15:55:21.124Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-28.1937&longitude=-55.5091&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-30.6060&longitude=-53.0081&start_date=2026-09-09&end_date=2026-09-09&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 19.7,
+    "direcaoGraus": 120,
+    "dia": "2026-09-09",
+    "consultadoEm": "2026-10-14T15:55:23.369Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-30.6060&longitude=-53.0081&start_date=2026-09-09&end_date=2026-09-09&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-29.3795&longitude=-55.5165&start_date=2026-09-14&end_date=2026-09-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 18.8,
+    "direcaoGraus": 140,
+    "dia": "2026-09-14",
+    "consultadoEm": "2026-10-14T15:55:25.607Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-29.3795&longitude=-55.5165&start_date=2026-09-14&end_date=2026-09-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-28.5231&longitude=-55.4876&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 26.1,
+    "direcaoGraus": 14,
+    "dia": "2026-08-27",
+    "consultadoEm": "2026-10-14T15:55:27.845Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-28.5231&longitude=-55.4876&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-29.6046&longitude=-54.2768&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 11.2,
+    "direcaoGraus": 92,
+    "dia": "2026-08-26",
+    "consultadoEm": "2026-10-14T15:55:30.087Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-29.6046&longitude=-54.2768&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-31.0648&longitude=-53.0886&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 17.6,
+    "direcaoGraus": 46,
+    "dia": "2026-08-27",
+    "consultadoEm": "2026-10-14T15:55:32.323Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-31.0648&longitude=-53.0886&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-29.9357&longitude=-54.7648&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 20.8,
+    "direcaoGraus": 30,
+    "dia": "2026-08-27",
+    "consultadoEm": "2026-10-14T15:55:34.571Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-29.9357&longitude=-54.7648&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-30.0305&longitude=-55.0655&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 26.2,
+    "direcaoGraus": 54,
+    "dia": "2026-08-27",
+    "consultadoEm": "2026-10-14T15:55:36.819Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-30.0305&longitude=-55.0655&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-30.1700&longitude=-51.8644&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 14.8,
+    "direcaoGraus": 104,
+    "dia": "2026-08-26",
+    "consultadoEm": "2026-10-14T15:55:39.066Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-30.1700&longitude=-51.8644&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-30.5032&longitude=-52.6102&start_date=2026-09-09&end_date=2026-09-09&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 20.9,
+    "direcaoGraus": 131,
+    "dia": "2026-09-09",
+    "consultadoEm": "2026-10-14T15:55:41.310Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-30.5032&longitude=-52.6102&start_date=2026-09-09&end_date=2026-09-09&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-29.8561&longitude=-55.8624&start_date=2026-09-03&end_date=2026-09-03&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 24.3,
+    "direcaoGraus": 323,
+    "dia": "2026-09-03",
+    "consultadoEm": "2026-10-14T15:55:43.551Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-29.8561&longitude=-55.8624&start_date=2026-09-03&end_date=2026-09-03&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-31.0695&longitude=-53.0897&start_date=2026-09-08&end_date=2026-09-08&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12,
+    "direcaoGraus": 107,
+    "dia": "2026-09-08",
+    "consultadoEm": "2026-10-14T15:55:45.799Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-31.0695&longitude=-53.0897&start_date=2026-09-08&end_date=2026-09-08&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-30.6169&longitude=-54.4529&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 22.4,
+    "direcaoGraus": 51,
+    "dia": "2026-08-27",
+    "consultadoEm": "2026-10-14T15:55:48.048Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-30.6169&longitude=-54.4529&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-29.6825&longitude=-51.5893&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 10.4,
+    "direcaoGraus": 109,
+    "dia": "2026-08-26",
+    "consultadoEm": "2026-10-14T15:55:50.291Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-29.6825&longitude=-51.5893&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-29.3690&longitude=-55.5677&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 28.2,
+    "direcaoGraus": 20,
+    "dia": "2026-08-27",
+    "consultadoEm": "2026-10-14T15:55:52.537Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-29.3690&longitude=-55.5677&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-30.5930&longitude=-52.7664&start_date=2026-09-06&end_date=2026-09-06&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 18.1,
+    "direcaoGraus": 189,
+    "dia": "2026-09-06",
+    "consultadoEm": "2026-10-14T15:55:54.778Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-30.5930&longitude=-52.7664&start_date=2026-09-06&end_date=2026-09-06&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-28.1663&longitude=-55.3160&start_date=2026-08-05&end_date=2026-08-05&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 13.6,
+    "direcaoGraus": 54,
+    "dia": "2026-08-05",
+    "consultadoEm": "2026-10-14T15:55:57.023Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-28.1663&longitude=-55.3160&start_date=2026-08-05&end_date=2026-08-05&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-29.2965&longitude=-53.4796&start_date=2026-09-08&end_date=2026-09-08&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12.5,
+    "direcaoGraus": 123,
+    "dia": "2026-09-08",
+    "consultadoEm": "2026-10-14T15:55:59.274Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-29.2965&longitude=-53.4796&start_date=2026-09-08&end_date=2026-09-08&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-29.6658&longitude=-55.2765&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 28.3,
+    "direcaoGraus": 16,
+    "dia": "2026-08-27",
+    "consultadoEm": "2026-10-14T15:56:01.519Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-29.6658&longitude=-55.2765&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-29.6173&longitude=-54.2752&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 17,
+    "direcaoGraus": 108,
+    "dia": "2026-08-26",
+    "consultadoEm": "2026-10-14T15:56:03.764Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-29.6173&longitude=-54.2752&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-19.0691&longitude=-57.3800&start_date=2026-08-18&end_date=2026-08-18&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 19.1,
+    "direcaoGraus": 200,
+    "dia": "2026-08-18",
+    "consultadoEm": "2026-10-14T15:56:06.011Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-19.0691&longitude=-57.3800&start_date=2026-08-18&end_date=2026-08-18&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-20.9025&longitude=-57.8191&start_date=2026-08-17&end_date=2026-08-17&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 20.6,
+    "direcaoGraus": 17,
+    "dia": "2026-08-17",
+    "consultadoEm": "2026-10-14T15:56:08.253Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-20.9025&longitude=-57.8191&start_date=2026-08-17&end_date=2026-08-17&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-19.4811&longitude=-57.5624&start_date=2026-08-29&end_date=2026-08-29&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 26.1,
+    "direcaoGraus": 337,
+    "dia": "2026-08-29",
+    "consultadoEm": "2026-10-14T15:56:10.506Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-19.4811&longitude=-57.5624&start_date=2026-08-29&end_date=2026-08-29&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-20.8919&longitude=-57.6782&start_date=2026-09-20&end_date=2026-09-20&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 27.9,
+    "direcaoGraus": 14,
+    "dia": "2026-09-20",
+    "consultadoEm": "2026-10-14T15:56:12.748Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-20.8919&longitude=-57.6782&start_date=2026-09-20&end_date=2026-09-20&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-15.8440&longitude=-56.0951&start_date=2026-08-14&end_date=2026-08-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 17.7,
+    "direcaoGraus": 330,
+    "dia": "2026-08-14",
+    "consultadoEm": "2026-10-14T15:56:15.004Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-15.8440&longitude=-56.0951&start_date=2026-08-14&end_date=2026-08-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-17.1072&longitude=-56.8768&start_date=2026-09-08&end_date=2026-09-08&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 9.5,
+    "direcaoGraus": 170,
+    "dia": "2026-09-08",
+    "consultadoEm": "2026-10-14T15:56:17.252Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-17.1072&longitude=-56.8768&start_date=2026-09-08&end_date=2026-09-08&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-16.2147&longitude=-57.7790&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 13.4,
+    "direcaoGraus": 52,
+    "dia": "2026-08-26",
+    "consultadoEm": "2026-10-14T15:56:19.497Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-16.2147&longitude=-57.7790&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-15.8057&longitude=-56.1091&start_date=2026-08-16&end_date=2026-08-16&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 23.8,
+    "direcaoGraus": 11,
+    "dia": "2026-08-16",
+    "consultadoEm": "2026-10-14T15:56:21.746Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-15.8057&longitude=-56.1091&start_date=2026-08-16&end_date=2026-08-16&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-20.8575&longitude=-57.5384&start_date=2026-08-01&end_date=2026-08-01&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 22,
+    "direcaoGraus": 14,
+    "dia": "2026-08-01",
+    "consultadoEm": "2026-10-14T15:56:23.982Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-20.8575&longitude=-57.5384&start_date=2026-08-01&end_date=2026-08-01&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-17.1008&longitude=-56.8424&start_date=2026-09-04&end_date=2026-09-04&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 13.8,
+    "direcaoGraus": 316,
+    "dia": "2026-09-04",
+    "consultadoEm": "2026-10-14T15:56:26.227Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-17.1008&longitude=-56.8424&start_date=2026-09-04&end_date=2026-09-04&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-15.8149&longitude=-56.1077&start_date=2026-08-16&end_date=2026-08-16&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 23.8,
+    "direcaoGraus": 11,
+    "dia": "2026-08-16",
+    "consultadoEm": "2026-10-14T15:56:28.477Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-15.8149&longitude=-56.1077&start_date=2026-08-16&end_date=2026-08-16&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-18.2380&longitude=-55.4018&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 26.1,
+    "direcaoGraus": 132,
+    "dia": "2026-08-26",
+    "consultadoEm": "2026-10-14T15:56:30.716Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-18.2380&longitude=-55.4018&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-15.7565&longitude=-55.9980&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 17.5,
+    "direcaoGraus": 29,
+    "dia": "2026-08-27",
+    "consultadoEm": "2026-10-14T15:56:32.963Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-15.7565&longitude=-55.9980&start_date=2026-08-27&end_date=2026-08-27&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-17.1297&longitude=-55.9481&start_date=2026-08-29&end_date=2026-08-29&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 17.4,
+    "direcaoGraus": 340,
+    "dia": "2026-08-29",
+    "consultadoEm": "2026-10-14T15:56:35.202Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-17.1297&longitude=-55.9481&start_date=2026-08-29&end_date=2026-08-29&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-15.7699&longitude=-56.0386&start_date=2026-08-16&end_date=2026-08-16&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 21.8,
+    "direcaoGraus": 7,
+    "dia": "2026-08-16",
+    "consultadoEm": "2026-10-14T15:56:37.448Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-15.7699&longitude=-56.0386&start_date=2026-08-16&end_date=2026-08-16&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-20.7643&longitude=-57.8950&start_date=2026-09-04&end_date=2026-09-04&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 22.7,
+    "direcaoGraus": 339,
+    "dia": "2026-09-04",
+    "consultadoEm": "2026-10-14T15:56:39.694Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-20.7643&longitude=-57.8950&start_date=2026-09-04&end_date=2026-09-04&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-20.2729&longitude=-56.0474&start_date=2026-09-09&end_date=2026-09-09&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 18.6,
+    "direcaoGraus": 24,
+    "dia": "2026-09-09",
+    "consultadoEm": "2026-10-14T15:56:41.940Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-20.2729&longitude=-56.0474&start_date=2026-09-09&end_date=2026-09-09&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-15.7805&longitude=-56.0619&start_date=2026-08-16&end_date=2026-08-16&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 21.8,
+    "direcaoGraus": 7,
+    "dia": "2026-08-16",
+    "consultadoEm": "2026-10-14T15:56:44.185Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-15.7805&longitude=-56.0619&start_date=2026-08-16&end_date=2026-08-16&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-20.4840&longitude=-57.4721&start_date=2026-09-11&end_date=2026-09-11&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 25.9,
+    "direcaoGraus": 352,
+    "dia": "2026-09-11",
+    "consultadoEm": "2026-10-14T15:56:46.424Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-20.4840&longitude=-57.4721&start_date=2026-09-11&end_date=2026-09-11&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-20.8772&longitude=-57.7290&start_date=2026-08-01&end_date=2026-08-01&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 23.2,
+    "direcaoGraus": 11,
+    "dia": "2026-08-01",
+    "consultadoEm": "2026-10-14T15:56:48.668Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-20.8772&longitude=-57.7290&start_date=2026-08-01&end_date=2026-08-01&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-16.8654&longitude=-56.8021&start_date=2026-09-21&end_date=2026-09-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 22.8,
+    "direcaoGraus": 342,
+    "dia": "2026-09-21",
+    "consultadoEm": "2026-10-14T15:56:50.912Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-16.8654&longitude=-56.8021&start_date=2026-09-21&end_date=2026-09-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-16.4718&longitude=-57.1859&start_date=2026-08-22&end_date=2026-08-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12.2,
+    "direcaoGraus": 159,
+    "dia": "2026-08-22",
+    "consultadoEm": "2026-10-14T15:56:53.152Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-16.4718&longitude=-57.1859&start_date=2026-08-22&end_date=2026-08-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-20.2707&longitude=-56.0412&start_date=2026-09-09&end_date=2026-09-09&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 18.6,
+    "direcaoGraus": 24,
+    "dia": "2026-09-09",
+    "consultadoEm": "2026-10-14T15:56:55.398Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-20.2707&longitude=-56.0412&start_date=2026-09-09&end_date=2026-09-09&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-20.7825&longitude=-57.8497&start_date=2026-08-22&end_date=2026-08-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 10,
+    "direcaoGraus": 158,
+    "dia": "2026-08-22",
+    "consultadoEm": "2026-10-14T15:56:57.645Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-20.7825&longitude=-57.8497&start_date=2026-08-22&end_date=2026-08-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-19.1096&longitude=-57.3923&start_date=2026-08-31&end_date=2026-08-31&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 25.4,
+    "direcaoGraus": 338,
+    "dia": "2026-08-31",
+    "consultadoEm": "2026-10-14T15:56:59.894Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-19.1096&longitude=-57.3923&start_date=2026-08-31&end_date=2026-08-31&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-20.4313&longitude=-57.9950&start_date=2026-08-30&end_date=2026-08-30&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 20.2,
+    "direcaoGraus": 51,
+    "dia": "2026-08-30",
+    "consultadoEm": "2026-10-14T15:57:02.133Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-20.4313&longitude=-57.9950&start_date=2026-08-30&end_date=2026-08-30&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-19.4724&longitude=-57.5770&start_date=2026-08-29&end_date=2026-08-29&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 26.7,
+    "direcaoGraus": 337,
+    "dia": "2026-08-29",
+    "consultadoEm": "2026-10-14T15:57:04.380Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-19.4724&longitude=-57.5770&start_date=2026-08-29&end_date=2026-08-29&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-21.0261&longitude=-57.8333&start_date=2026-09-03&end_date=2026-09-03&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 18.2,
+    "direcaoGraus": 30,
+    "dia": "2026-09-03",
+    "consultadoEm": "2026-10-14T15:57:06.627Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-21.0261&longitude=-57.8333&start_date=2026-09-03&end_date=2026-09-03&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-15.7529&longitude=-56.0512&start_date=2026-08-16&end_date=2026-08-16&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 21.8,
+    "direcaoGraus": 7,
+    "dia": "2026-08-16",
+    "consultadoEm": "2026-10-14T15:57:08.865Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-15.7529&longitude=-56.0512&start_date=2026-08-16&end_date=2026-08-16&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-16.4743&longitude=-57.2001&start_date=2026-08-22&end_date=2026-08-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12.2,
+    "direcaoGraus": 159,
+    "dia": "2026-08-22",
+    "consultadoEm": "2026-10-14T15:57:11.106Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-16.4743&longitude=-57.2001&start_date=2026-08-22&end_date=2026-08-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-15.8883&longitude=-56.2268&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 18,
+    "direcaoGraus": 163,
+    "dia": "2026-08-26",
+    "consultadoEm": "2026-10-14T15:57:13.349Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-15.8883&longitude=-56.2268&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-19.1657&longitude=-57.3268&start_date=2026-09-04&end_date=2026-09-04&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 17.8,
+    "direcaoGraus": 318,
+    "dia": "2026-09-04",
+    "consultadoEm": "2026-10-14T15:57:15.596Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-19.1657&longitude=-57.3268&start_date=2026-09-04&end_date=2026-09-04&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-15.9113&longitude=-56.2163&start_date=2026-08-30&end_date=2026-08-30&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 15.4,
+    "direcaoGraus": 351,
+    "dia": "2026-08-30",
+    "consultadoEm": "2026-10-14T15:57:17.840Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-15.9113&longitude=-56.2163&start_date=2026-08-30&end_date=2026-08-30&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-16.2093&longitude=-57.7330&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 17,
+    "direcaoGraus": 57,
+    "dia": "2026-08-26",
+    "consultadoEm": "2026-10-14T15:57:20.084Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-16.2093&longitude=-57.7330&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-15.7621&longitude=-56.0499&start_date=2026-08-16&end_date=2026-08-16&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 21.8,
+    "direcaoGraus": 7,
+    "dia": "2026-08-16",
+    "consultadoEm": "2026-10-14T15:57:22.330Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-15.7621&longitude=-56.0499&start_date=2026-08-16&end_date=2026-08-16&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-16.8510&longitude=-56.7852&start_date=2026-09-21&end_date=2026-09-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 21.1,
+    "direcaoGraus": 341,
+    "dia": "2026-09-21",
+    "consultadoEm": "2026-10-14T15:57:24.574Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-16.8510&longitude=-56.7852&start_date=2026-09-21&end_date=2026-09-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-15.7370&longitude=-56.0420&start_date=2026-08-24&end_date=2026-08-24&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12.3,
+    "direcaoGraus": 187,
+    "dia": "2026-08-24",
+    "consultadoEm": "2026-10-14T15:57:26.825Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-15.7370&longitude=-56.0420&start_date=2026-08-24&end_date=2026-08-24&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-19.1490&longitude=-57.4236&start_date=2026-08-30&end_date=2026-08-30&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 17.4,
+    "direcaoGraus": 317,
+    "dia": "2026-08-30",
+    "consultadoEm": "2026-10-14T15:57:29.066Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-19.1490&longitude=-57.4236&start_date=2026-08-30&end_date=2026-08-30&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-21.0385&longitude=-57.8318&start_date=2026-09-03&end_date=2026-09-03&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 18.2,
+    "direcaoGraus": 30,
+    "dia": "2026-09-03",
+    "consultadoEm": "2026-10-14T15:57:31.307Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-21.0385&longitude=-57.8318&start_date=2026-09-03&end_date=2026-09-03&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-20.9328&longitude=-57.5707&start_date=2026-08-29&end_date=2026-08-29&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 23.3,
+    "direcaoGraus": 345,
+    "dia": "2026-08-29",
+    "consultadoEm": "2026-10-14T15:57:33.550Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-20.9328&longitude=-57.5707&start_date=2026-08-29&end_date=2026-08-29&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-20.9311&longitude=-57.5568&start_date=2026-08-29&end_date=2026-08-29&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 23.3,
+    "direcaoGraus": 345,
+    "dia": "2026-08-29",
+    "consultadoEm": "2026-10-14T15:57:35.790Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-20.9311&longitude=-57.5568&start_date=2026-08-29&end_date=2026-08-29&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-20.8828&longitude=-57.5187&start_date=2026-08-01&end_date=2026-08-01&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 21.6,
+    "direcaoGraus": 16,
+    "dia": "2026-08-01",
+    "consultadoEm": "2026-10-14T15:57:38.037Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-20.8828&longitude=-57.5187&start_date=2026-08-01&end_date=2026-08-01&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-20.9264&longitude=-57.5983&start_date=2026-08-22&end_date=2026-08-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 10.9,
+    "direcaoGraus": 139,
+    "dia": "2026-08-22",
+    "consultadoEm": "2026-10-14T15:57:40.278Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-20.9264&longitude=-57.5983&start_date=2026-08-22&end_date=2026-08-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-15.7672&longitude=-47.7735&start_date=2026-08-10&end_date=2026-08-10&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 18,
+    "direcaoGraus": 121,
+    "dia": "2026-08-10",
+    "consultadoEm": "2026-10-14T15:57:42.527Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-15.7672&longitude=-47.7735&start_date=2026-08-10&end_date=2026-08-10&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-16.0935&longitude=-47.8693&start_date=2026-09-10&end_date=2026-09-10&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 17.8,
+    "direcaoGraus": 36,
+    "dia": "2026-09-10",
+    "consultadoEm": "2026-10-14T15:57:44.770Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-16.0935&longitude=-47.8693&start_date=2026-09-10&end_date=2026-09-10&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-4.0779&longitude=-38.3041&start_date=2026-09-14&end_date=2026-09-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 18.8,
+    "direcaoGraus": 96,
+    "dia": "2026-09-14",
+    "consultadoEm": "2026-10-14T15:57:47.017Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-4.0779&longitude=-38.3041&start_date=2026-09-14&end_date=2026-09-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-23.3799&longitude=-46.9563&start_date=2026-08-21&end_date=2026-08-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 14.6,
+    "direcaoGraus": 302,
+    "dia": "2026-08-21",
+    "consultadoEm": "2026-10-14T15:57:49.257Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-23.3799&longitude=-46.9563&start_date=2026-08-21&end_date=2026-08-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.2000&longitude=-60.4316&start_date=2026-09-21&end_date=2026-09-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12.6,
+    "direcaoGraus": 53,
+    "dia": "2026-09-21",
+    "consultadoEm": "2026-10-14T15:57:51.496Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.2000&longitude=-60.4316&start_date=2026-09-21&end_date=2026-09-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-15.8112&longitude=-48.1825&start_date=2026-08-15&end_date=2026-08-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 13.9,
+    "direcaoGraus": 58,
+    "dia": "2026-08-15",
+    "consultadoEm": "2026-10-14T15:57:53.747Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-15.8112&longitude=-48.1825&start_date=2026-08-15&end_date=2026-08-15&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-2.9490&longitude=-60.1403&start_date=2026-09-14&end_date=2026-09-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 11.1,
+    "direcaoGraus": 78,
+    "dia": "2026-09-14",
+    "consultadoEm": "2026-10-14T15:57:55.991Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-2.9490&longitude=-60.1403&start_date=2026-09-14&end_date=2026-09-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.3517&longitude=-59.8491&start_date=2026-09-21&end_date=2026-09-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 13.9,
+    "direcaoGraus": 62,
+    "dia": "2026-09-21",
+    "consultadoEm": "2026-10-14T15:57:58.233Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.3517&longitude=-59.8491&start_date=2026-09-21&end_date=2026-09-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.4461&longitude=-60.2294&start_date=2026-09-06&end_date=2026-09-06&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 11.8,
+    "direcaoGraus": 77,
+    "dia": "2026-09-06",
+    "consultadoEm": "2026-10-14T15:58:00.482Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.4461&longitude=-60.2294&start_date=2026-09-06&end_date=2026-09-06&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.3687&longitude=-59.8423&start_date=2026-09-08&end_date=2026-09-08&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 8.4,
+    "direcaoGraus": 203,
+    "dia": "2026-09-08",
+    "consultadoEm": "2026-10-14T15:58:02.721Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.3687&longitude=-59.8423&start_date=2026-09-08&end_date=2026-09-08&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-15.9461&longitude=-47.8503&start_date=2026-08-16&end_date=2026-08-16&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 20.9,
+    "direcaoGraus": 65,
+    "dia": "2026-08-16",
+    "consultadoEm": "2026-10-14T15:58:04.969Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-15.9461&longitude=-47.8503&start_date=2026-08-16&end_date=2026-08-16&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-16.1054&longitude=-48.0326&start_date=2026-08-02&end_date=2026-08-02&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 21.1,
+    "direcaoGraus": 69,
+    "dia": "2026-08-02",
+    "consultadoEm": "2026-10-14T15:58:07.214Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-16.1054&longitude=-48.0326&start_date=2026-08-02&end_date=2026-08-02&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.4550&longitude=-60.2037&start_date=2026-09-22&end_date=2026-09-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 10.9,
+    "direcaoGraus": 40,
+    "dia": "2026-09-22",
+    "consultadoEm": "2026-10-14T15:58:09.460Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.4550&longitude=-60.2037&start_date=2026-09-22&end_date=2026-09-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-19.9071&longitude=-43.6408&start_date=2026-08-07&end_date=2026-08-07&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 20.5,
+    "direcaoGraus": 318,
+    "dia": "2026-08-07",
+    "consultadoEm": "2026-10-14T15:58:11.705Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-19.9071&longitude=-43.6408&start_date=2026-08-07&end_date=2026-08-07&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.4191&longitude=-59.9408&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 11.4,
+    "direcaoGraus": 36,
+    "dia": "2026-08-26",
+    "consultadoEm": "2026-10-14T15:58:13.948Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.4191&longitude=-59.9408&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-15.6029&longitude=-47.6444&start_date=2026-08-05&end_date=2026-08-05&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 16.9,
+    "direcaoGraus": 79,
+    "dia": "2026-08-05",
+    "consultadoEm": "2026-10-14T15:58:16.196Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-15.6029&longitude=-47.6444&start_date=2026-08-05&end_date=2026-08-05&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.2093&longitude=-60.0046&start_date=2026-09-19&end_date=2026-09-19&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12.9,
+    "direcaoGraus": 78,
+    "dia": "2026-09-19",
+    "consultadoEm": "2026-10-14T15:58:18.438Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.2093&longitude=-60.0046&start_date=2026-09-19&end_date=2026-09-19&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.3105&longitude=-59.7754&start_date=2026-09-14&end_date=2026-09-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 13.4,
+    "direcaoGraus": 67,
+    "dia": "2026-09-14",
+    "consultadoEm": "2026-10-14T15:58:20.684Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.3105&longitude=-59.7754&start_date=2026-09-14&end_date=2026-09-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.1255&longitude=-60.2674&start_date=2026-09-14&end_date=2026-09-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12.1,
+    "direcaoGraus": 96,
+    "dia": "2026-09-14",
+    "consultadoEm": "2026-10-14T15:58:22.927Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.1255&longitude=-60.2674&start_date=2026-09-14&end_date=2026-09-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-15.7743&longitude=-48.1345&start_date=2026-08-07&end_date=2026-08-07&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 15.5,
+    "direcaoGraus": 322,
+    "dia": "2026-08-07",
+    "consultadoEm": "2026-10-14T15:58:25.173Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-15.7743&longitude=-48.1345&start_date=2026-08-07&end_date=2026-08-07&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.3500&longitude=-59.7774&start_date=2026-09-22&end_date=2026-09-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12.5,
+    "direcaoGraus": 61,
+    "dia": "2026-09-22",
+    "consultadoEm": "2026-10-14T15:58:27.419Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.3500&longitude=-59.7774&start_date=2026-09-22&end_date=2026-09-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-4.1406&longitude=-38.5796&start_date=2026-09-06&end_date=2026-09-06&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 17.9,
+    "direcaoGraus": 81,
+    "dia": "2026-09-06",
+    "consultadoEm": "2026-10-14T15:58:29.665Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-4.1406&longitude=-38.5796&start_date=2026-09-06&end_date=2026-09-06&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-2.8710&longitude=-59.8622&start_date=2026-09-14&end_date=2026-09-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 13.2,
+    "direcaoGraus": 72,
+    "dia": "2026-09-14",
+    "consultadoEm": "2026-10-14T15:58:31.919Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-2.8710&longitude=-59.8622&start_date=2026-09-14&end_date=2026-09-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.3339&longitude=-59.8107&start_date=2026-09-22&end_date=2026-09-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12.5,
+    "direcaoGraus": 61,
+    "dia": "2026-09-22",
+    "consultadoEm": "2026-10-14T15:58:34.170Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.3339&longitude=-59.8107&start_date=2026-09-22&end_date=2026-09-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.4794&longitude=-60.0083&start_date=2026-09-06&end_date=2026-09-06&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12.1,
+    "direcaoGraus": 84,
+    "dia": "2026-09-06",
+    "consultadoEm": "2026-10-14T15:58:36.407Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.4794&longitude=-60.0083&start_date=2026-09-06&end_date=2026-09-06&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-2.7964&longitude=-59.8932&start_date=2026-09-19&end_date=2026-09-19&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 15.1,
+    "direcaoGraus": 98,
+    "dia": "2026-09-19",
+    "consultadoEm": "2026-10-14T15:58:38.653Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-2.7964&longitude=-59.8932&start_date=2026-09-19&end_date=2026-09-19&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.8884&longitude=-38.4029&start_date=2026-09-06&end_date=2026-09-06&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 20.2,
+    "direcaoGraus": 95,
+    "dia": "2026-09-06",
+    "consultadoEm": "2026-10-14T15:58:40.896Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.8884&longitude=-38.4029&start_date=2026-09-06&end_date=2026-09-06&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-23.5142&longitude=-46.1480&start_date=2026-08-02&end_date=2026-08-02&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 13.8,
+    "direcaoGraus": 45,
+    "dia": "2026-08-02",
+    "consultadoEm": "2026-10-14T15:58:43.140Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-23.5142&longitude=-46.1480&start_date=2026-08-02&end_date=2026-08-02&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-29.6872&longitude=-51.1741&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 11.3,
+    "direcaoGraus": 126,
+    "dia": "2026-08-26",
+    "consultadoEm": "2026-10-14T15:58:45.380Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-29.6872&longitude=-51.1741&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-15.9680&longitude=-48.2694&start_date=2026-09-21&end_date=2026-09-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 20.9,
+    "direcaoGraus": 6,
+    "dia": "2026-09-21",
+    "consultadoEm": "2026-10-14T15:58:47.624Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-15.9680&longitude=-48.2694&start_date=2026-09-21&end_date=2026-09-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.3685&longitude=-59.8473&start_date=2026-09-08&end_date=2026-09-08&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 8.4,
+    "direcaoGraus": 203,
+    "dia": "2026-09-08",
+    "consultadoEm": "2026-10-14T15:58:49.866Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.3685&longitude=-59.8473&start_date=2026-09-08&end_date=2026-09-08&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-19.8261&longitude=-43.9052&start_date=2026-08-21&end_date=2026-08-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 16.1,
+    "direcaoGraus": 282,
+    "dia": "2026-08-21",
+    "consultadoEm": "2026-10-14T15:58:52.119Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-19.8261&longitude=-43.9052&start_date=2026-08-21&end_date=2026-08-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.4819&longitude=-60.0129&start_date=2026-09-09&end_date=2026-09-09&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 11.8,
+    "direcaoGraus": 272,
+    "dia": "2026-09-09",
+    "consultadoEm": "2026-10-14T15:58:54.358Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.4819&longitude=-60.0129&start_date=2026-09-09&end_date=2026-09-09&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.3740&longitude=-59.8319&start_date=2026-09-14&end_date=2026-09-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12.6,
+    "direcaoGraus": 72,
+    "dia": "2026-09-14",
+    "consultadoEm": "2026-10-14T15:58:56.607Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.3740&longitude=-59.8319&start_date=2026-09-14&end_date=2026-09-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.3657&longitude=-59.8060&start_date=2026-09-06&end_date=2026-09-06&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12.7,
+    "direcaoGraus": 73,
+    "dia": "2026-09-06",
+    "consultadoEm": "2026-10-14T15:58:58.855Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.3657&longitude=-59.8060&start_date=2026-09-06&end_date=2026-09-06&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-29.8592&longitude=-51.5856&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12.3,
+    "direcaoGraus": 111,
+    "dia": "2026-08-26",
+    "consultadoEm": "2026-10-14T15:59:01.103Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-29.8592&longitude=-51.5856&start_date=2026-08-26&end_date=2026-08-26&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-15.7698&longitude=-47.7618&start_date=2026-08-08&end_date=2026-08-08&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 13.1,
+    "direcaoGraus": 325,
+    "dia": "2026-08-08",
+    "consultadoEm": "2026-10-14T15:59:03.347Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-15.7698&longitude=-47.7618&start_date=2026-08-08&end_date=2026-08-08&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-8.3385&longitude=-35.1495&start_date=2026-09-14&end_date=2026-09-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 18.3,
+    "direcaoGraus": 185,
+    "dia": "2026-09-14",
+    "consultadoEm": "2026-10-14T15:59:05.594Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-8.3385&longitude=-35.1495&start_date=2026-09-14&end_date=2026-09-14&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.5640&longitude=-59.9688&start_date=2026-09-22&end_date=2026-09-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 10.5,
+    "direcaoGraus": 66,
+    "dia": "2026-09-22",
+    "consultadoEm": "2026-10-14T15:59:07.837Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.5640&longitude=-59.9688&start_date=2026-09-22&end_date=2026-09-22&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.3782&longitude=-59.8964&start_date=2026-08-01&end_date=2026-08-01&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 13.1,
+    "direcaoGraus": 68,
+    "dia": "2026-08-01",
+    "consultadoEm": "2026-10-14T15:59:10.082Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.3782&longitude=-59.8964&start_date=2026-08-01&end_date=2026-08-01&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.3377&longitude=-59.8033&start_date=2026-09-19&end_date=2026-09-19&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 12.8,
+    "direcaoGraus": 95,
+    "dia": "2026-09-19",
+    "consultadoEm": "2026-10-14T15:59:12.328Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.3377&longitude=-59.8033&start_date=2026-09-19&end_date=2026-09-19&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-19.9921&longitude=-44.2352&start_date=2026-08-21&end_date=2026-08-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 17,
+    "direcaoGraus": 307,
+    "dia": "2026-08-21",
+    "consultadoEm": "2026-10-14T15:59:14.575Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-19.9921&longitude=-44.2352&start_date=2026-08-21&end_date=2026-08-21&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  },
+  "https://archive-api.open-meteo.com/v1/archive?latitude=-3.6917&longitude=-38.8102&start_date=2026-09-06&end_date=2026-09-06&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh": {
+    "velocidadeKmh": 19.2,
+    "direcaoGraus": 93,
+    "dia": "2026-09-06",
+    "consultadoEm": "2026-10-14T15:59:16.818Z",
+    "timeoutMs": 20000,
+    "url": "https://archive-api.open-meteo.com/v1/archive?latitude=-3.6917&longitude=-38.8102&start_date=2026-09-06&end_date=2026-09-06&daily=windspeed_10m_max%2Cwinddirection_10m_dominant&timezone=GMT&wind_speed_unit=kmh"
+  }
+}
