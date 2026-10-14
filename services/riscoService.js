@@ -115,7 +115,11 @@ function mapearPessoas(pessoasRisco) {
 // ------------------------------------------------------------
 // 7. Sigmoide para classificação final
 // ------------------------------------------------------------
-function sigmoide(x, k = 10, mu = 0.5) {
+// Parâmetros da sigmoide: inclinação (k) e ponto central (mu)
+const SIGMOIDE_K = 10;
+const SIGMOIDE_MU = 0.5;
+
+function sigmoide(x, k = SIGMOIDE_K, mu = SIGMOIDE_MU) {
   return 1 / (1 + Math.exp(-k * (x - mu)));
 }
 
@@ -452,5 +456,17 @@ module.exports = {
   PESOS_AHP_V2,
   PONTOS_BIOMA,
   PONTOS_TIPO_AREA,
-  PONTOS_FAUNA
+  PONTOS_FAUNA,
+  // Usados pela linha de base da validação (services/linhaBaseService.js)
+  mapearArea,
+  mapearVento,
+  mapearPessoas,
+  sigmoide,
+  classificar,
+  resolverBioma,
+  resolverTipoArea,
+  resolverFauna,
+  resolverRelevancia,
+  SIGMOIDE_K,
+  SIGMOIDE_MU
 };
