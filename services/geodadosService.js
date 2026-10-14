@@ -68,9 +68,9 @@ async function requisitar(url, tipo = 'json') {
     if (!resposta.ok) throw new Error(`HTTP ${resposta.status}`);
     return tipo === 'texto' ? await resposta.text() : await resposta.json();
   } catch (err) {
-    if (controlador.signal.aborted) throw new Error(`tempo limite de ${TIMEOUT_MS} ms`);
+    if (controlador.signal.aborted) throw new Error(`tempo limite de ${TIMEOUT_MS} ms`, { cause: err });
     // Em falha de rede, o motivo real (DNS, TLS, conexão recusada) vem em err.cause
-    throw new Error(err.cause?.code || err.message);
+    throw new Error(err.cause?.code || err.message, { cause: err });
   } finally {
     clearTimeout(temporizador);
   }
@@ -225,7 +225,7 @@ function areaProtegidaPelaLista(lista, latitude, longitude) {
       maisProxima = item;
     }
   }
-  const { bbox, ...atributos } = maisProxima;
+  const { bbox: _bbox, ...atributos } = maisProxima; // o retângulo não vai na resposta
   return {
     area: menorDistancia === 0 ? { ...atributos, aproximado: true } : null,
     faixa: faixaPorDistancia(menorDistancia),

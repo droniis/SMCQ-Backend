@@ -7,8 +7,10 @@
 // antes da validação (asserções de teste-irs-v2-mock.js):
 //   - pior caso    → CRITICO
 //   - melhor caso  → BAIXO
-//   - Pantanal, só bioma → diferente de BAIXO (o teste afirma só isso:
-//     assert.notEqual(nivel, 'BAIXO'); MODERADO também satisfaz)
+//   - Pantanal, só bioma → ALTO ou CRITICO. O teste afirma apenas
+//     assert.notEqual(nivel, 'BAIXO'); na validação adota-se a formulação
+//     do autor, "ALTO ou CRITICO", fixada na Etapa 2, antes do cálculo
+//     do IRS sobre os cenários. O teste do mock continua com "≠ BAIXO".
 // Nos demais cenários não há nível esperado documentado (null).
 // ============================================================
 
@@ -43,7 +45,7 @@ const MELHOR_CASO = {
 // Os 8 cenários da tabela comparativa v1 × v2
 const CENARIOS = [
   { nome: 'SP urbano',              alerta: { latitude: -23.5505, longitude: -46.6333, areaAfetada: 'GRANDE', vento: 'ALTO', pessoasRisco: true, zonaUrbana: true }, geo: geo({ bioma: 'MATA_ATLANTICA' }), nivelEsperado: null },
-  { nome: 'Pantanal, só bioma',     alerta: PANTANAL, geo: geo(), nivelEsperado: 'NAO_BAIXO' },
+  { nome: 'Pantanal, só bioma',     alerta: PANTANAL, geo: geo(), nivelEsperado: 'ALTO_OU_CRITICO' },
   { nome: 'Pantanal em UC + fauna', alerta: PANTANAL, geo: geo({ unidadeConservacao: { nome: 'Parna do Pantanal Matogrossense', esfera: 'federal' }, fauna: { total: 3, nivel: 'AMEACADA' } }), nivelEsperado: null },
   { nome: 'Amazônia, só bioma',     alerta: { ...PANTANAL, latitude: -3.4653, longitude: -62.2159 }, geo: geo({ bioma: 'AMAZONIA' }), nivelEsperado: null },
   { nome: 'Amazônia em TI + fauna', alerta: { ...PANTANAL, latitude: -3.4653, longitude: -62.2159 }, geo: geo({ bioma: 'AMAZONIA', terraIndigena: { nome: 'TI de teste' }, fauna: { total: 5, nivel: 'CRITICA' } }), nivelEsperado: null },
@@ -55,10 +57,10 @@ const CENARIOS = [
 // Confere um nível obtido com o esperado. null = sem nível esperado documentado.
 function acertou(nivelEsperado, nivelObtido) {
   if (nivelEsperado === null) return null;
-  if (nivelEsperado === 'NAO_BAIXO') return nivelObtido !== 'BAIXO';
+  if (nivelEsperado === 'ALTO_OU_CRITICO') return nivelObtido === 'ALTO' || nivelObtido === 'CRITICO';
   return nivelObtido === nivelEsperado;
 }
 
-const rotuloEsperado = (nivelEsperado) => (nivelEsperado === null ? '—' : nivelEsperado === 'NAO_BAIXO' ? '≠ BAIXO' : nivelEsperado);
+const rotuloEsperado = (nivelEsperado) => (nivelEsperado === null ? '—' : nivelEsperado === 'ALTO_OU_CRITICO' ? 'ALTO ou CRÍTICO' : nivelEsperado);
 
 module.exports = { PANTANAL, geo, PIOR_CASO, MELHOR_CASO, CENARIOS, acertou, rotuloEsperado };

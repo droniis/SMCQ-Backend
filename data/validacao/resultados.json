@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-10-14T16:57:25.548Z",
+  "geradoEm": "2026-10-14T17:25:35.238Z",
   "amostra": {
     "n": 294,
     "periodo": {
@@ -910,14 +910,14 @@
     },
     {
       "cenario": "Pantanal, só bioma",
-      "nivelEsperado": "≠ BAIXO",
+      "nivelEsperado": "ALTO ou CRÍTICO",
       "irs": 0.4702,
       "nivelIrs": "MODERADO",
       "escoreLinhaBase": 0.4657,
       "nivelLinhaBase": "MODERADO",
       "nivelIrsV1": "BAIXO",
-      "irsAcertou": true,
-      "linhaBaseAcertou": true
+      "irsAcertou": false,
+      "linhaBaseAcertou": false
     },
     {
       "cenario": "Pantanal em UC + fauna",

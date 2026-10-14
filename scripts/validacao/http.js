@@ -42,9 +42,9 @@ async function tentarUmaVez(url, corpoEmFluxo, timeoutMs) {
     return { ok: true, status: resposta.status, headers: resposta.headers, text: async () => texto, json: async () => JSON.parse(texto) };
   } catch (err) {
     encerrarPrazo();
-    if (controlador.signal.aborted) throw new Error(`tempo limite de ${timeoutMs} ms em ${url}`);
+    if (controlador.signal.aborted) throw new Error(`tempo limite de ${timeoutMs} ms em ${url}`, { cause: err });
     if (err.definitivo) throw err;
-    throw new Error(`${err.cause?.code || err.message} em ${url}`);
+    throw new Error(`${err.cause?.code || err.message} em ${url}`, { cause: err });
   }
 }
 

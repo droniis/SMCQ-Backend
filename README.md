@@ -19,6 +19,8 @@ O frontend (React + Vite) fica em um repositório separado: [SMCQ-TCC](https://g
 - [Estrutura de pastas](#estrutura-de-pastas)
 - [API](#api)
 - [Algoritmo de classificação de risco](#algoritmo-de-classificação-de-risco)
+- [Validação do IRS](#validação-do-irs)
+- [Testes e lint](#testes-e-lint)
 - [Limitações conhecidas](#limitações-conhecidas)
 - [Licença](#licença)
 
@@ -69,7 +71,15 @@ curl -X POST http://localhost:3000/api/login \
 SMCQ-Backend/
 ├── server.js               # Servidor Express: dados em memória, autenticação e rotas
 ├── services/
-│   └── riscoService.js     # Algoritmo multicritério de classificação de risco (IRS)
+│   ├── riscoService.js     # Algoritmo multicritério de classificação de risco (IRS)
+│   ├── geodadosService.js  # Bioma, UC, TI, fauna e focos (IBGE, ICMBio, FUNAI, GBIF, INPE)
+│   ├── cacheService.js     # Cache em memória com TTL
+│   ├── linhaBaseService.js # Linha de base da validação (média simples, sem AHP)
+│   └── metricasService.js  # Acurácia, matriz de confusão, recall e kappa ponderado
+├── scripts/validacao/      # Validação do IRS com focos reais do INPE
+├── data/validacao/         # Amostra, cache das consultas externas e resultados
+├── docs/validacao-irs.md   # Relatório da validação (Cap. 6 do TCC)
+├── tests/                  # Testes Jest
 ├── package.json
 ├── package-lock.json
 ├── README.md
@@ -182,10 +192,36 @@ S = 1 / (1 + e^(−10 · (IRS − 0,5)))
 
 As cidades de referência são São Paulo, Rio de Janeiro, Brasília, Belo Horizonte, Salvador, Manaus, Porto Alegre, Curitiba, Recife e Fortaleza.
 
+## Validação do IRS
+
+O IRS v2 foi validado com 294 focos de calor reais do INPE (agosto e setembro de 2026), comparado com uma linha de base sem pesos AHP e com o IRS v1. Método, resultados e limitações estão em [`docs/validacao-irs.md`](docs/validacao-irs.md).
+
+Para reproduzir:
+
+```bash
+npm install
+node scripts/validacao/coletar-dados.js     # baixa os CSVs mensais do INPE (~250 MB) para data/validacao/bruto/
+node scripts/validacao/preparar-amostra.js  # sorteia a amostra e monta as entradas do dia 0 e o gabarito
+node scripts/validacao/validar-irs.js       # calcula métricas, sensibilidade e cenários; grava data/validacao/resultados.json
+```
+
+- Os CSVs brutos não são versionados (`.gitignore`). O `data/validacao/bruto/fontes.json` registra a URL, a data e o SHA-256 de cada arquivo, para conferir se o download é o mesmo.
+- O vento (Open-Meteo) e os geodados ficam em cache em `data/validacao/cache/`. Com o cache versionado, a preparação não refaz nenhuma consulta externa e reproduz exatamente a amostra publicada.
+- O sorteio e o bootstrap usam semente fixa (`scripts/validacao/config.js`), onde também ficam todos os parâmetros da validação.
+- As entradas do IRS só usam dados do dia do foco. O teste `tests/vazamento.test.js` garante que os focos dos dias seguintes, que formam o gabarito, não influenciam o cálculo.
+
+## Testes e lint
+
+```bash
+npm test                  # testes Jest (tests/)
+npm run lint              # ESLint
+node teste-irs-v2-mock.js # testes do IRS v2 com geodados simulados
+```
+
 ## Limitações conhecidas
 
 - **Dados em memória.** Reiniciar o servidor apaga alertas e solicitações.
-- **Proximidade urbana restrita a 10 cidades.** O fator urbano cai a quase zero além de cerca de 25 km. Um alerta distante dessas cidades e sem pessoas em risco é sempre classificado como `BAIXO`, qualquer que seja a área ou o vento.
+- **Proximidade urbana restrita a 10 cidades.** O fator urbano cai a quase zero além de cerca de 25 km; na validação, ficou abaixo de 0,05 em 98,6% dos focos reais. Um alerta distante dessas cidades e sem pessoas em risco é sempre classificado como `BAIXO`, qualquer que seja a área ou o vento.
 - **Segredo do JWT e porta fixos no código.** Adequado apenas para desenvolvimento e demonstração.
 
 O modelo multicritério prioriza ocorrências com ameaça direta a populações urbanas, conforme o escopo do SMCQ. Trabalhos futuros podem incorporar um fator independente de risco ambiental para áreas remotas.

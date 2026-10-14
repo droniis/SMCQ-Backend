@@ -155,7 +155,7 @@ async function main() {
     } catch (err) {
       const faltam = amostra.filter(f => !cacheClima[urlClima(f)]).length;
       throw new Error(`${err.message}
-  Open-Meteo: ${amostra.length - faltam} de ${amostra.length} pontos em cache; faltam ${faltam} (parou no ponto ${i + 1})`);
+  Open-Meteo: ${amostra.length - faltam} de ${amostra.length} pontos em cache; faltam ${faltam} (parou no ponto ${i + 1})`, { cause: err });
     }
   }
 
