@@ -356,6 +356,10 @@ function resolverRelevancia(alerta, geodados) {
   } else if (Number.isFinite(geodados?.distanciaAreaProtegidaKm)) {
     distanciaKm = geodados.distanciaAreaProtegidaKm;
     fonte = 'geodados';
+  } else if (FAIXAS_RELEVANCIA.some(f => f.faixa === geodados?.faixaAreaProtegida)) {
+    // As bases públicas informam a faixa de distância, não a distância exata
+    const encontrada = FAIXAS_RELEVANCIA.find(f => f.faixa === geodados.faixaAreaProtegida);
+    return { distanciaKm: null, fator: encontrada.fator, faixa: encontrada.faixa, fonte: 'geodados' };
   } else if (alerta.proximaUC) {
     distanciaKm = 0; // proximidade declarada no registro, sem distância medida
     fonte = 'informado';
@@ -443,6 +447,7 @@ module.exports = {
   calcularDistancia,
   encontrarCidadeMaisProxima,
   identificarBiomaPorCentroides,
+  normalizarChave,
   PESOS_AHP,
   PESOS_AHP_V2,
   PONTOS_BIOMA,
