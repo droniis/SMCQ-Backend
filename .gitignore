@@ -12,3 +12,6 @@ Thumbs.db
 # Dados brutos da validação do IRS (~250 MB, reproduzíveis por scripts/validacao/coletar-dados.js)
 data/validacao/bruto/*.csv
 data/validacao/bruto/*.parcial
+
+# Relatório de cobertura dos testes (npm run test:coverage)
+coverage/

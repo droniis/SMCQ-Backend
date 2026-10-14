@@ -10,7 +10,11 @@
 // Regras comuns a todas as fontes:
 //   - tempo limite de 3 s por requisição (AbortController);
 //   - cache em memória de 1 h por ponto e fonte;
-//   - se a fonte falhar, usa-se um fallback local e o erro vai para o log.
+//   - se a fonte falhar, usa-se um fallback local e o erro vai para o log;
+//   - cada fonte registra quando o dado foi de fato obtido (obtidoEm),
+//     que se mantém quando o dado é reaproveitado do cache.
+// Os CSVs de focos do INPE são carregados em segundo plano ao subir o
+// servidor e renovados antes de expirar (aquecerFocosInpe).
 // Nenhuma função daqui rejeita por falha de rede: o sistema continua
 // funcionando sem internet, só com dados menos precisos.
 // ============================================================
@@ -60,15 +64,16 @@ function registrar(fonte, status, tempoMs, detalhe) {
 }
 
 // GET com tempo limite. O limite cobre também a leitura do corpo da resposta.
-async function requisitar(url, tipo = 'json') {
+// O aquecimento em segundo plano usa um limite maior: não há usuário esperando.
+async function requisitar(url, tipo = 'json', timeoutMs = TIMEOUT_MS) {
   const controlador = new AbortController();
-  const temporizador = setTimeout(() => controlador.abort(), TIMEOUT_MS);
+  const temporizador = setTimeout(() => controlador.abort(), timeoutMs);
   try {
     const resposta = await fetch(url, { headers: { 'User-Agent': USER_AGENT }, signal: controlador.signal });
     if (!resposta.ok) throw new Error(`HTTP ${resposta.status}`);
     return tipo === 'texto' ? await resposta.text() : await resposta.json();
   } catch (err) {
-    if (controlador.signal.aborted) throw new Error(`tempo limite de ${TIMEOUT_MS} ms`, { cause: err });
+    if (controlador.signal.aborted) throw new Error(`tempo limite de ${timeoutMs} ms`, { cause: err });
     // Em falha de rede, o motivo real (DNS, TLS, conexão recusada) vem em err.cause
     throw new Error(err.cause?.code || err.message, { cause: err });
   } finally {
@@ -96,7 +101,8 @@ async function consultarWfs(base, camada, filtro, campos) {
 }
 
 // Executa `buscar` com cache; se falhar, registra e devolve `fallback()`.
-// Resultado: { dados, fonte }, em que `fonte` diz de onde o dado veio.
+// Resultado: { dados, fonte, obtidoEm }, em que `fonte` diz de onde o dado veio e
+// `obtidoEm` quando ele foi obtido (no cache, continua a data da consulta original).
 async function comFallback({ rotulo, chave, fonte, fonteFallback, buscar, fallback }) {
   const emCache = cache.get(chave);
   if (emCache) {
@@ -106,11 +112,11 @@ async function comFallback({ rotulo, chave, fonte, fonteFallback, buscar, fallba
   const inicio = Date.now();
   let resultado;
   try {
-    resultado = { dados: await buscar(), fonte };
+    resultado = { dados: await buscar(), fonte, obtidoEm: new Date().toISOString() };
     cache.set(chave, resultado, TTL_MS);
     registrar(rotulo, 'sucesso', Date.now() - inicio);
   } catch (err) {
-    resultado = { dados: fallback(), fonte: fonteFallback };
+    resultado = { dados: fallback(), fonte: fonteFallback, obtidoEm: new Date().toISOString() };
     cache.set(chave, resultado, TTL_FALLBACK_MS);
     registrar(rotulo, 'fallback', Date.now() - inicio, err.message);
   }
@@ -379,14 +385,11 @@ function ultimosDias(dias) {
   });
 }
 
-// Baixa e interpreta o CSV de um dia. Guarda as coordenadas em vetores numéricos
-// e as linhas originais, lidas por inteiro só para os focos dentro do raio.
-async function carregarFocosDoDia(dia) {
-  const chave = `inpe:${dia}`;
-  const emCache = cache.get(chave);
-  if (emCache) return emCache;
+// Downloads em andamento, por dia: quem pede o mesmo arquivo espera o mesmo download
+const downloadsEmAndamento = new Map();
 
-  const texto = await requisitar(`${INPE_CSV}/focos_diario_br_${dia}.csv`, 'texto');
+async function baixarFocosDoDia(dia, timeoutMs) {
+  const texto = await requisitar(`${INPE_CSV}/focos_diario_br_${dia}.csv`, 'texto', timeoutMs);
   const [cabecalho, ...linhas] = texto.split('\n').map(l => l.trim()).filter(Boolean);
   const colunas = cabecalho.split(',');
   const indice = Object.fromEntries(['lat', 'lon', 'data_hora_gmt', 'satelite', 'municipio', 'estado'].map(c => [c, colunas.indexOf(c)]));
@@ -399,9 +402,37 @@ async function carregarFocosDoDia(dia) {
     lats[i] = Number(campos[indice.lat]);
     lons[i] = Number(campos[indice.lon]);
   });
-  const focosDoDia = { linhas, lats, lons, indice };
-  cache.set(chave, focosDoDia, TTL_MS);
-  return focosDoDia;
+  return { linhas, lats, lons, indice, baixadoEm: new Date().toISOString() };
+}
+
+// Devolve o CSV de um dia já interpretado: coordenadas em vetores numéricos e as linhas
+// originais, lidas por inteiro só para os focos dentro do raio.
+//   forcar    → baixa de novo mesmo com cache válido (renovação em segundo plano)
+//   timeoutMs → tempo limite do download
+// Se o download falhar, a falha fica guardada por 5 min (ex.: arquivo do dia ainda
+// não publicado), para não repetir a tentativa a cada requisição; uma renovação que
+// falha não apaga o arquivo bom que já estava em cache.
+async function carregarFocosDoDia(dia, { forcar = false, timeoutMs = TIMEOUT_MS } = {}) {
+  const chave = `inpe:${dia}`;
+  const emCache = cache.get(chave);
+  if (emCache && !forcar) {
+    if (emCache.erro) throw new Error(emCache.erro);
+    return emCache;
+  }
+  if (downloadsEmAndamento.has(dia)) return downloadsEmAndamento.get(dia);
+
+  const download = baixarFocosDoDia(dia, timeoutMs)
+    .then(focosDoDia => {
+      cache.set(chave, focosDoDia, TTL_MS);
+      return focosDoDia;
+    })
+    .catch(err => {
+      if (!emCache || emCache.erro) cache.set(chave, { erro: err.message }, TTL_FALLBACK_MS);
+      throw err;
+    })
+    .finally(() => downloadsEmAndamento.delete(dia));
+  downloadsEmAndamento.set(dia, download);
+  return download;
 }
 
 function focosNoRaio({ linhas, lats, lons, indice }, latitude, longitude, raioKm) {
@@ -433,10 +464,11 @@ function consultarFocos(latitude, longitude, raioKm) {
     fonteFallback: 'fallback-sem-dados',
     buscar: async () => {
       const dias = ultimosDias(DIAS_FOCOS);
-      const arquivos = await Promise.allSettled(dias.map(carregarFocosDoDia));
+      const arquivos = await Promise.allSettled(dias.map(dia => carregarFocosDoDia(dia)));
       const disponiveis = arquivos.filter(a => a.status === 'fulfilled');
       // Um dia sem arquivo é tolerado; sem nenhum, a fonte é considerada fora do ar
       if (disponiveis.length === 0) throw new Error(arquivos[0].reason.message);
+      const baixadosEm = disponiveis.map(a => a.value.baixadoEm).sort();
 
       const focos = disponiveis.flatMap(a => focosNoRaio(a.value, latitude, longitude, raioKm));
       focos.sort((a, b) => a.distanciaKm - b.distanciaKm);
@@ -446,12 +478,48 @@ function consultarFocos(latitude, longitude, raioKm) {
         totalSateliteReferencia: focos.filter(f => f.satelite === SATELITE_REFERENCIA).length,
         raioKm,
         diasConsultados: disponiveis.length,
+        // Data do download do CSV mais antigo usado: é a idade real destes focos
+        arquivosBaixadosEm: { maisAntigo: baixadosEm[0], maisRecente: baixadosEm[baixadosEm.length - 1] },
         // Os mais próximos do ponto
         focos: focos.slice(0, LIMITE_FOCOS_NA_RESPOSTA)
       };
     },
     fallback: () => ({ total: 0, ultimos7dias: 0, totalSateliteReferencia: 0, raioKm, diasConsultados: 0, focos: [] })
   });
+}
+
+// ------------------------------------------------------------
+// 5b. Aquecimento do cache do INPE
+//     Ao subir o servidor, baixa em segundo plano os CSVs dos
+//     últimos 7 dias e os renova a cada 45 min, antes de o cache
+//     (1 h) expirar. Assim nenhuma requisição de usuário espera o
+//     download. Falhas só vão para o log: a próxima renovação tenta
+//     de novo, e as requisições continuam com o fallback de sempre.
+//     Devolve uma função que para as renovações.
+// ------------------------------------------------------------
+const INTERVALO_RENOVACAO_INPE_MS = 45 * 60 * 1000;
+const TIMEOUT_AQUECIMENTO_MS = 60000; // sem usuário esperando, tolera conexão lenta
+
+async function renovarFocosInpe() {
+  const inicio = Date.now();
+  const dias = ultimosDias(DIAS_FOCOS);
+  const resultados = await Promise.allSettled(dias.map(dia => carregarFocosDoDia(dia, { forcar: true, timeoutMs: TIMEOUT_AQUECIMENTO_MS })));
+  const falhas = resultados
+    .map((r, i) => (r.status === 'rejected' ? `${dias[i]}: ${r.reason.message}` : null))
+    .filter(Boolean);
+  registrar('INPE-aquecimento', falhas.length === dias.length ? 'falha' : 'sucesso', Date.now() - inicio,
+    `${dias.length - falhas.length}/${dias.length} arquivos${falhas.length ? `; ${falhas.join('; ')}` : ''}`);
+  return { carregados: dias.length - falhas.length, falhas };
+}
+
+function aquecerFocosInpe(intervaloMs = INTERVALO_RENOVACAO_INPE_MS) {
+  // setImmediate: não atrasa a subida do servidor; catch: nunca derruba o processo
+  setImmediate(() => renovarFocosInpe().catch(err => registrar('INPE-aquecimento', 'falha', 0, err.message)));
+  const temporizador = setInterval(() => {
+    renovarFocosInpe().catch(err => registrar('INPE-aquecimento', 'falha', 0, err.message));
+  }, intervaloMs);
+  temporizador.unref(); // não impede o processo de terminar (ex.: nos testes)
+  return () => clearInterval(temporizador);
 }
 
 // ------------------------------------------------------------
@@ -504,7 +572,9 @@ async function obterGeodadosCompletos(lat, lng) {
   ]);
 
   // As consultas já tratam as próprias falhas; isto cobre um erro inesperado em uma delas
-  const valor = (resultado, reserva) => (resultado.status === 'fulfilled' ? resultado.value : { dados: reserva, fonte: 'fallback-erro-interno' });
+  const valor = (resultado, reserva) => (resultado.status === 'fulfilled'
+    ? resultado.value
+    : { dados: reserva, fonte: 'fallback-erro-interno', obtidoEm: new Date().toISOString() });
   const semArea = { area: null, faixa: FAIXAS[2], nomeProximo: null };
   const rBioma = valor(bioma, identificarBiomaPorCentroides(latitude, longitude).bioma);
   const rUc = valor(uc, semArea);
@@ -529,6 +599,16 @@ async function obterGeodadosCompletos(lat, lng) {
     fauna: rFauna.dados,
     focos: rFocos.dados,
     fontes: { bioma: rBioma.fonte, uc: rUc.fonte, ti: rTi.fonte, fauna: rFauna.fonte, focos: rFocos.fonte },
+    // Quando cada dado foi de fato obtido; num dado vindo do cache, é a data da consulta
+    // original. Para os focos, a data do download do CSV mais antigo usado.
+    obtidoEm: {
+      bioma: rBioma.obtidoEm,
+      uc: rUc.obtidoEm,
+      ti: rTi.obtidoEm,
+      fauna: rFauna.obtidoEm,
+      focos: rFocos.dados.arquivosBaixadosEm?.maisAntigo ?? rFocos.obtidoEm
+    },
+    // Quando este objeto foi montado (não indica a idade dos dados: ver obtidoEm)
     timestamp: new Date().toISOString()
   };
   registrar('TODAS', 'concluido', Date.now() - inicio, Object.values(geodados.fontes).join(' | '));
@@ -542,5 +622,7 @@ module.exports = {
   verificarFaunaAmeacada,
   buscarFocosProximos,
   obterGeodadosCompletos,
+  aquecerFocosInpe,
+  renovarFocosInpe,
   TIMEOUT_MS
 };

@@ -398,10 +398,17 @@ app.patch('/api/alertas/:id/solicitacoes-exclusao/:sid', (req, res) => {
 
 // ============================================================
 // INICIAR SERVIDOR
+// Só quando executado diretamente (node server.js). Importado pelos
+// testes (supertest), o app é exportado sem abrir porta nem iniciar
+// o aquecimento do cache do INPE.
 // ============================================================
-app.listen(PORT, () => {
+if (require.main === module) app.listen(PORT, () => {
     console.log(`🚀 SMCQ Protótipo rodando em http://localhost:${PORT}`);
     console.log(`   👤 Login: admin@smcq.com / admin123`);
     console.log(`   👤 Login: operador@smcq.com / operador123`);
     console.log(`   👤 Login: gestor@smcq.com / gestor123`);
+    // Baixa os focos do INPE em segundo plano, para nenhum POST esperar o download
+    geodadosService.aquecerFocosInpe();
 });
+
+module.exports = app;
