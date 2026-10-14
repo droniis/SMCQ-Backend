@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const classificacao = require('./services/classificacaoService');
 const geodadosService = require('./services/geodadosService');
+const ocorrencia = require('./services/ocorrenciaService');
 const { ehErroDeConexao, explicarErroBanco } = require('./db/conexao');
 
 const app = express();
@@ -104,9 +105,13 @@ app.post('/api/login', rota(async (req, res) => {
 // ============================================================
 app.use('/api', autenticarToken);
 
-// Listar alertas (sem os excluídos)
+// Listar alertas (sem os excluídos). Filtro opcional: ?tipoOcorrencia=QUEIMADA_VEGETACAO | INCENDIO_URBANO
 app.get('/api/alertas', rota(async (req, res) => {
-    res.json((await alertas.listarAtivos()).map(comVersao));
+    const { tipoOcorrencia } = req.query;
+    if (tipoOcorrencia !== undefined && !ocorrencia.tipoValido(tipoOcorrencia)) {
+        return res.status(400).json({ erro: `Tipo de ocorrência inválido: ${tipoOcorrencia}. Valores aceitos: ${ocorrencia.TIPOS_OCORRENCIA.join(', ')}` });
+    }
+    res.json((await alertas.listarAtivos({ tipoOcorrencia })).map(comVersao));
 }));
 
 // Geodados de um ponto, sem criar alerta. O frontend chama ao clicar no mapa:
@@ -126,12 +131,22 @@ app.get('/api/alertas/geodados-preview', async (req, res) => {
 
 // Criar novo alerta, classificado pelo IRS v2
 app.post('/api/alertas', rota(async (req, res) => {
-    const { titulo, descricao, areaAfetada, zonaUrbana, vento, pessoasRisco, latitude, longitude, estado, municipio } = req.body;
+    const { titulo, descricao, areaAfetada, vento, pessoasRisco, latitude, longitude } = req.body;
     if (!titulo || !areaAfetada || !vento || latitude === undefined || longitude === undefined) {
         return res.status(400).json({ erro: 'Título, área, vento e localização são obrigatórios' });
     }
     if (!classificacao.validarCoordenadas(latitude, longitude)) {
         return res.status(400).json({ erro: 'Coordenadas inválidas: latitude entre -90 e 90 e longitude entre -180 e 180' });
+    }
+    // Tipo de ocorrência: se vier junto com o antigo "zonaUrbana", prevalece o tipo (services/ocorrenciaService.js)
+    const { tipoOcorrencia, zonaUrbana, erro: erroTipo } = ocorrencia.resolverTipoOcorrencia(req.body);
+    if (erroTipo) {
+        return res.status(400).json({ erro: erroTipo });
+    }
+    // Incêndio urbano exige endereço; queimada em vegetação, só as coordenadas
+    const { endereco, erros: errosEndereco } = ocorrencia.lerEndereco(req.body, tipoOcorrencia);
+    if (errosEndereco.length > 0) {
+        return res.status(400).json({ erro: errosEndereco.join('; ') });
     }
     // Bioma e tipo de área corrigidos pelo operador prevalecem sobre os detectados
     const informados = classificacao.lerCamposInformados(req.body);
@@ -156,6 +171,7 @@ app.post('/api/alertas', rota(async (req, res) => {
     const novoAlerta = await alertas.criar({
         titulo,
         descricao: descricao || '',
+        tipoOcorrencia,
         status: 'NOVO',
         ...risco,
         direcaoVento,
@@ -163,14 +179,10 @@ app.post('/api/alertas', rota(async (req, res) => {
         // Coordenadas sempre como número (o banco as guarda em DOUBLE PRECISION)
         latitude: Number(latitude),
         longitude: Number(longitude),
-        estado: estado || '',
-        municipio: municipio || '',
-        cep: req.body.cep || '',
-        logradouro: req.body.logradouro || '',
-        numero: req.body.numero || '',
-        bairro: req.body.bairro || '',
+        ...endereco,
         areaAfetada,
-        zonaUrbana: zonaUrbana || false,
+        // Valor efetivo usado no cálculo (derivado do tipo de ocorrência, ou o enviado por cliente antigo)
+        zonaUrbana,
         vento,
         pessoasRisco: pessoasRisco || false,
         criadoPor: req.usuario.id,

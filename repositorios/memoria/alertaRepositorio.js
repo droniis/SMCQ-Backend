@@ -26,8 +26,11 @@ function marcarExcluido(alerta, usuarioId) {
   alerta.historico.push({ campo: 'excluido', valorAnterior: false, valorNovo: true, alteradoPor: usuarioId, alteradoEm: agora });
 }
 
-async function listarAtivos() {
-  return alertas.filter(a => !a.excluido).map(copia);
+// Filtro opcional: { tipoOcorrencia }
+async function listarAtivos({ tipoOcorrencia } = {}) {
+  return alertas
+    .filter(a => !a.excluido && (!tipoOcorrencia || a.tipoOcorrencia === tipoOcorrencia))
+    .map(copia);
 }
 
 async function buscarAtivo(id) {
