@@ -15,3 +15,6 @@ data/validacao/bruto/*.parcial
 
 # Relatório de cobertura dos testes (npm run test:coverage)
 coverage/
+
+# Backups do banco (npm run db:backup)
+backups/

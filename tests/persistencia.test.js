@@ -133,6 +133,45 @@ describe('API com falha no banco', () => {
   });
 });
 
+// Outra requisição altera o alerta entre a verificação da rota e a gravação no repositório
+describe('API com alteração concorrente', () => {
+  const comToken = (t = token) => ({ Authorization: `Bearer ${t}` });
+  const criarAlerta = async () => (await repositorios.alertas.criar({
+    titulo: 'concorrência', status: 'NOVO', latitude: -16, longitude: -56, criadoPor: 1, criadoEm: new Date().toISOString(),
+    historico: [], solicitacoesExclusao: [], excluido: false, excluidoEm: null
+  })).id;
+  const tokenOperador = async () => (await request(app).post('/api/login').send({ email: 'operador@smcq.com', senha: 'operador123' })).body.token;
+
+  test('alerta excluído durante a mudança de status → 404', async () => {
+    const id = await criarAlerta();
+    jest.spyOn(repositorios.alertas, 'atualizarStatus').mockResolvedValue(null);
+    expect((await request(app).patch(`/api/alertas/${id}/status`).set(comToken()).send({ status: 'RESOLVIDO' })).status).toBe(404);
+  });
+
+  test('alerta excluído durante a solicitação de exclusão → 404', async () => {
+    const id = await criarAlerta();
+    jest.spyOn(repositorios.alertas, 'criarSolicitacao').mockResolvedValue(null);
+    const r = await request(app).post(`/api/alertas/${id}/solicitacoes-exclusao`).set(comToken(await tokenOperador())).send({ motivo: 'x' });
+    expect(r.status).toBe(404);
+  });
+
+  test('banco fora do ar ao criar a solicitação → 503 (o erro não vira 409)', async () => {
+    const id = await criarAlerta();
+    jest.spyOn(repositorios.alertas, 'criarSolicitacao').mockRejectedValue(erroComCodigo('ECONNREFUSED'));
+    const r = await request(app).post(`/api/alertas/${id}/solicitacoes-exclusao`).set(comToken(await tokenOperador())).send({ motivo: 'x' });
+    expect(r.status).toBe(503);
+  });
+
+  test('solicitação avaliada por outro usuário no mesmo instante → 409', async () => {
+    const id = await criarAlerta();
+    const s = await repositorios.alertas.criarSolicitacao(id, 2, 'motivo');
+    jest.spyOn(repositorios.alertas, 'avaliarSolicitacao').mockResolvedValue(null);
+    const r = await request(app).patch(`/api/alertas/${id}/solicitacoes-exclusao/${s.id}`).set(comToken()).send({ decisao: 'APROVADA' });
+    expect(r.status).toBe(409);
+    expect(r.body.erro).toBe('Esta solicitação já foi avaliada');
+  });
+});
+
 describe('ehErroDeConexao', () => {
   test('reconhece falhas de conexão e não confunde com erros de dados', () => {
     expect(ehErroDeConexao(erroComCodigo('ECONNREFUSED'))).toBe(true);

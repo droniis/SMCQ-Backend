@@ -132,12 +132,11 @@ async function carregar(db, { id = null, incluirExcluidos = false } = {}) {
 
   const ids = rows.map(r => r.id);
   const classificacoes = rows.map(r => r.classificacao_id).filter(c => c !== null);
-  const [contribuicoes, historico, observacoes, solicitacoes] = await Promise.all([
-    db.query('SELECT * FROM contribuicao_criterio WHERE classificacao_id = ANY($1)', [classificacoes]),
-    db.query('SELECT * FROM historico_status WHERE alerta_id = ANY($1) ORDER BY alterado_em, id', [ids]),
-    db.query('SELECT * FROM observacao WHERE alerta_id = ANY($1) ORDER BY criado_em, id', [ids]),
-    db.query('SELECT * FROM solicitacao_exclusao WHERE alerta_id = ANY($1) ORDER BY id', [ids])
-  ]);
+  // Em sequência, não em paralelo: dentro de uma transação, db é uma única conexão
+  const contribuicoes = await db.query('SELECT * FROM contribuicao_criterio WHERE classificacao_id = ANY($1)', [classificacoes]);
+  const historico = await db.query('SELECT * FROM historico_status WHERE alerta_id = ANY($1) ORDER BY alterado_em, id', [ids]);
+  const observacoes = await db.query('SELECT * FROM observacao WHERE alerta_id = ANY($1) ORDER BY criado_em, id', [ids]);
+  const solicitacoes = await db.query('SELECT * FROM solicitacao_exclusao WHERE alerta_id = ANY($1) ORDER BY id', [ids]);
   const porClassificacao = agrupar(contribuicoes.rows, 'classificacao_id');
   const porAlerta = {
     historico: agrupar(historico.rows),
@@ -192,7 +191,7 @@ async function buscarAtivo(id) {
   return carregarUm(obterPool(), id);
 }
 
-// Alerta + localização + fatores de entrada + classificação + contribuições: tudo ou nada
+// Alerta + localização + fatores de entrada + classificação + contribuições + histórico: tudo ou nada
 async function criar(d) {
   return emTransacao(async (client) => {
     const { rows: [{ id }] } = await client.query(
@@ -223,6 +222,10 @@ async function criar(d) {
          VALUES ($1, $2, $3, $4, $5, $6)`,
         [classificacaoId, criterio, detalhe.fator, detalhe.peso, detalhe.contribuicao, json(detalhe)]
       );
+    }
+    // O 1º registro do histórico (criação com status Novo) vem montado pelo server.js
+    for (const h of d.historico || []) {
+      await registrarHistorico(client, id, h.campo, h.valorAnterior, h.valorNovo, h.alteradoPor, h.alteradoEm);
     }
     return carregarUm(client, id);
   });

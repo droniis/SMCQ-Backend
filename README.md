@@ -3,11 +3,12 @@
 ![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?logo=nodedotjs&logoColor=white)
 ![Express](https://img.shields.io/badge/Express-4.x-000000?logo=express&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-auth-000000?logo=jsonwebtokens&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-18-4169E1?logo=postgresql&logoColor=white)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 API REST do **SMCQ (Sistema de Monitoramento de Queimadas)**, desenvolvido como Trabalho de Conclusão de Curso. O backend autentica usuários, registra ocorrências de queimadas, classifica o risco de cada uma com um algoritmo multicritério e controla o fluxo de exclusão de alertas com aprovação.
 
-> **Protótipo acadêmico.** Os dados ficam em memória e são apagados a cada reinício do servidor. Não há banco de dados.
+> Os dados ficam no **PostgreSQL** e permanecem após reiniciar o servidor. Para demonstração rápida sem banco, há também o modo em memória (`PERSISTENCIA=memoria`), em que os dados se perdem a cada reinício.
 
 O frontend (React + Vite) fica em um repositório separado: [SMCQ-TCC](https://github.com/droniis/SMCQ-TCC).
 
@@ -17,6 +18,7 @@ O frontend (React + Vite) fica em um repositório separado: [SMCQ-TCC](https://g
 - [Instalação e execução](#instalação-e-execução)
 - [Usuários de teste](#usuários-de-teste)
 - [Estrutura de pastas](#estrutura-de-pastas)
+- [Banco de dados](#banco-de-dados)
 - [API](#api)
 - [Algoritmo de classificação de risco](#algoritmo-de-classificação-de-risco)
 - [Bases de dados externas](#bases-de-dados-externas)
@@ -34,6 +36,9 @@ O frontend (React + Vite) fica em um repositório separado: [SMCQ-TCC](https://g
 | [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) | Autenticação por token JWT (validade de 2 horas) |
 | [bcryptjs](https://github.com/dcodeIO/bcrypt.js) | Hash das senhas |
 | [cors](https://github.com/expressjs/cors) | Liberação de acesso para o frontend |
+| [PostgreSQL](https://www.postgresql.org/) 18 | Banco de dados relacional (sem PostGIS: distâncias pela fórmula de Haversine) |
+| [pg](https://node-postgres.com/) (node-postgres) | Driver de acesso ao PostgreSQL, com SQL escrito à mão (sem ORM) |
+| [dotenv](https://github.com/motdotla/dotenv) | Leitura das configurações e credenciais do arquivo `.env` |
 | [Jest](https://jestjs.io/) + [Supertest](https://github.com/ladjs/supertest) | Testes automatizados (unitários e da API); só em desenvolvimento |
 | [ESLint](https://eslint.org/) | Análise estática do código; só em desenvolvimento |
 
@@ -41,16 +46,53 @@ Desenvolvido e testado com Node.js 24.x.
 
 ## Instalação e execução
 
-Pré-requisito: Node.js 18 ou superior.
+Pré-requisitos: Node.js 18 ou superior e PostgreSQL 18 (versões 13 ou superiores também funcionam).
+
+**1. Código e dependências**
 
 ```bash
 git clone https://github.com/droniis/SMCQ-Backend.git
 cd SMCQ-Backend
 npm install
-node server.js
 ```
 
-O servidor sobe em `http://localhost:3000` (`npm start` faz o mesmo). A porta é fixa no `server.js`.
+**2. Banco de dados.** Instale o PostgreSQL (no Windows, pelo instalador oficial, que também instala o pgAdmin) e crie um banco vazio chamado `smcq`, pelo pgAdmin ou pelo terminal:
+
+```bash
+createdb -U postgres smcq
+```
+
+**3. Arquivo `.env`.** Copie o modelo e preencha:
+
+```bash
+copy .env.example .env      # Windows (no Linux/macOS: cp .env.example .env)
+```
+
+| Variável | O que colocar |
+| :--- | :--- |
+| `JWT_SECRET` | Segredo dos tokens. Gere um valor aleatório com `node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"` |
+| `PERSISTENCIA` | `postgres` (banco) ou `memoria` (dados somem ao reiniciar) |
+| `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER` | Conexão: `localhost`, `5432`, `smcq`, `postgres` |
+| `DB_PASSWORD` | Senha do usuário do PostgreSQL definida na instalação |
+| `PG_BIN` (opcional) | Pasta `bin` do PostgreSQL, se o `pg_dump` não estiver no PATH nem em `C:\Program Files\PostgreSQL` |
+| `BACKUP_RETENCAO` (opcional) | Quantos backups manter (padrão: 30) |
+
+O `.env` não vai para o git. Sem `JWT_SECRET`, o servidor se recusa a iniciar.
+
+**4. Tabelas e usuários de teste**
+
+```bash
+npm run db:init    # cria as tabelas e índices (pode ser repetido sem apagar dados)
+npm run db:seed    # cadastra os 3 usuários de teste, com senha em hash bcrypt
+```
+
+**5. Execução**
+
+```bash
+npm start
+```
+
+O servidor sobe em `http://localhost:3000` (a porta é fixa no `server.js`) e informa no log se conectou ao banco. Se o PostgreSQL estiver fora do ar, o servidor continua no ar, explica o problema no log e responde `503` até o banco voltar.
 
 Teste rápido:
 
@@ -72,7 +114,21 @@ curl -X POST http://localhost:3000/api/login \
 
 ```
 SMCQ-Backend/
-├── server.js               # Servidor Express: dados em memória, autenticação e rotas
+├── server.js               # Servidor Express: autenticação, rotas e tratamento de erros
+├── repositorios/           # Camada de persistência (mesma interface nas duas implementações)
+│   ├── index.js            # Escolhe a implementação pela variável PERSISTENCIA
+│   ├── postgres/           # PostgreSQL: SQL com o driver pg, transações
+│   └── memoria/            # Em memória: testes automatizados e demonstração sem banco
+├── db/
+│   ├── schema.sql          # Esquema do banco (tabelas, chaves e índices), idempotente
+│   ├── smcq-exemplo.sql    # Base de dados de exemplo: esquema + dados de demonstração
+│   ├── init.js, seed.js    # npm run db:init / db:seed
+│   ├── backup.js           # npm run db:backup (pg_dump)
+│   ├── gerar-exemplo.js    # npm run db:exemplo (gera o smcq-exemplo.sql)
+│   ├── conexao.js          # Configuração da conexão e mensagens de erro do banco
+│   ├── ferramentasPg.js    # Localiza e executa pg_dump e psql
+│   └── usuariosPadrao.js   # Usuários de teste
+├── backups/                # Backups gerados (fora do git)
 ├── services/
 │   ├── riscoService.js     # Algoritmo multicritério de classificação de risco (IRS v1 e v2)
 │   ├── classificacaoService.js # Liga o alerta ao IRS v2: geodados + valores informados + cálculo
@@ -87,12 +143,80 @@ SMCQ-Backend/
 │   ├── bases-de-dados.md   # Bases externas: dado usado, forma de acesso e licença
 │   ├── validacao-irs.md    # Relatório da validação (Cap. 6 do TCC)
 │   └── atualizacoes-tcc.md # Textos para atualizar o documento do TCC
-├── tests/                  # Testes Jest e Supertest (sem acesso à internet)
+├── tests/                  # Testes Jest e Supertest (sem internet e sem PostgreSQL)
+├── .env.example            # Modelo das variáveis de ambiente (o .env fica fora do git)
 ├── package.json
 ├── package-lock.json
 ├── README.md
 └── LICENSE
 ```
+
+## Banco de dados
+
+### Modelo
+
+O esquema completo está em [`db/schema.sql`](db/schema.sql). As 10 tabelas seguem o diagrama de classes do TCC:
+
+```
+usuario ─┬─< alerta ─┬── localizacao          (1:1) coordenadas e endereço
+         │           ├── fator_risco          (1:1) dados de ENTRADA do cálculo e geodados (JSONB)
+         │           ├── classificacao_risco  (1:1) RESULTADO: IRS, sigmoide, nível, versão do algoritmo
+         │           │       └─< contribuicao_criterio   uma linha por critério (9 no IRS v2)
+         │           ├─< historico_status     status e exclusão; o 1º registro é a criação
+         │           ├─< observacao
+         │           ├─< arquivo_anexo        estrutura prevista; ainda sem rota na API
+         │           └─< solicitacao_exclusao
+```
+
+- **Índices (RNF20)** para os filtros por data, status, nível de risco e região (estado/município), além de coordenadas.
+- **Regras garantidas pelo banco:** valores válidos de status, perfil e nível (`CHECK`) e no máximo uma solicitação de exclusão pendente por alerta (índice único parcial).
+- **Transações:** a criação do alerta (com classificação, contribuições e histórico), a mudança de status, a exclusão e a avaliação de solicitações gravam tudo ou nada.
+- **Senhas:** apenas o hash bcrypt (RNF03).
+- **Sem PostGIS:** as distâncias continuam calculadas na aplicação pela fórmula de Haversine (RNF17).
+
+A API devolve os alertas no mesmo formato JSON nos dois modos de persistência; o frontend não percebe diferença.
+
+### Backup (RNF07)
+
+```bash
+npm run db:backup
+```
+
+Gera `backups/smcq-AAAA-MM-DD_HH-MM-SS.sql` com o `pg_dump` (esquema + dados) e mantém os 30 mais recentes (`BACKUP_RETENCAO` no `.env`). Para restaurar (o arquivo apaga e recria as tabelas):
+
+```bash
+psql -U postgres -d smcq -f backups/smcq-2026-10-14_19-42-48.sql
+```
+
+**Agendamento diário no Windows (Agendador de Tarefas):**
+
+1. Abra o **Agendador de Tarefas** (`taskschd.msc`) e clique em **Criar Tarefa Básica…**
+2. Nome: `SMCQ - backup do banco`. Disparador: **Diariamente**, num horário em que o computador esteja ligado (ex.: 23:00).
+3. Ação: **Iniciar um programa**.
+   - Programa/script: `cmd.exe`
+   - Argumentos: `/c npm run db:backup >> backups\agendamento.log 2>&1`
+   - Iniciar em: a pasta do projeto (ex.: `C:\Users\<usuário>\Documentos\smcq-prototype`)
+4. Conclua e, nas **Propriedades** da tarefa, marque **Executar estando o usuário conectado ou não** e, em **Configurações**, **Executar a tarefa o mais cedo possível após uma inicialização agendada ser perdida**.
+5. Teste com o botão direito → **Executar** e confira o novo arquivo em `backups/` e o `backups\agendamento.log`.
+
+Ou, pelo **Prompt de Comando** (`cmd`, não o PowerShell, pois `%CD%` é sintaxe do cmd), na pasta do projeto:
+
+```bat
+schtasks /Create /TN "SMCQ - backup do banco" /SC DAILY /ST 23:00 /TR "cmd.exe /c cd /d \"%CD%\" && npm run db:backup >> backups\agendamento.log 2>&1"
+```
+
+O script sai com código diferente de zero em caso de falha, e o Agendador registra o resultado em **Último Resultado da Execução**. Recomenda-se copiar periodicamente a pasta `backups/` para outro disco ou para a nuvem.
+
+### Base de dados de exemplo
+
+[`db/smcq-exemplo.sql`](db/smcq-exemplo.sql) contém o esquema e dados de demonstração: os 3 usuários de teste e 6 alertas, um por bioma, classificados pelo IRS v2 com geodados reais e com status, observações e solicitações de exclusão (pendente, rejeitada e aprovada). Não contém senhas reais, apenas os hashes das senhas de demonstração da tabela [Usuários de teste](#usuários-de-teste). O arquivo não usa comandos exclusivos do `psql`, então também pode ser executado no Query Tool do pgAdmin.
+
+```bash
+createdb -U postgres smcq_demo
+psql -U postgres -d smcq_demo -f db/smcq-exemplo.sql
+```
+
+Para regenerá-lo: `npm run db:exemplo`. O script requer internet; cria e apaga bancos temporários próprios, sem tocar no banco `smcq`, e confere a restauração num banco vazio.
 
 ## API
 
@@ -105,6 +229,8 @@ Base: `http://localhost:3000/api`. Todas as rotas, exceto o login, exigem o cabe
 | `403` | Usuário autenticado sem permissão para a ação |
 | `404` | Alerta ou solicitação não encontrados |
 | `409` | Conflito (ex.: já existe solicitação de exclusão pendente) |
+| `500` | Erro interno inesperado (`{ "erro": "Erro interno do servidor" }`) |
+| `503` | Banco de dados indisponível no momento; o motivo fica no log do servidor |
 
 ### Autenticação
 
@@ -148,7 +274,9 @@ O alerta devolvido traz, além dos campos enviados:
 
 | Campo | Descrição |
 | :--- | :--- |
-| `id`, `status`, `criadoPor`, `criadoEm`, `atualizadoEm`, `historico`, `solicitacoesExclusao` | Como antes. `status`: `NOVO` \| `EM_ANALISE` \| `EM_ATENDIMENTO` \| `RESOLVIDO` |
+| `id`, `status`, `criadoPor`, `criadoEm`, `atualizadoEm`, `solicitacoesExclusao` | Como antes. `status`: `NOVO` \| `EM_ANALISE` \| `EM_ATENDIMENTO` \| `RESOLVIDO` |
+| `historico` | Alterações de status e a exclusão. O 1º registro é a criação (RNF04): `{ campo: "status", valorAnterior: null, valorNovo: "NOVO", alteradoPor: <criador> }` |
+| `latitude`, `longitude` | Sempre numéricos na resposta, mesmo se enviados como texto |
 | `risco` | Nível: `BAIXO` \| `MODERADO` \| `ALTO` \| `CRITICO` |
 | `irs` (e `pontuacaoRisco`, mesmo valor) | Índice de Risco Sintético, de 0 a 1 |
 | `sigmoide` | Valor da sigmoide do IRS, usado para o nível |
@@ -160,7 +288,7 @@ O alerta devolvido traz, além dos campos enviados:
 | `geodados` | Objeto completo do serviço de geodados, com `fontes` (de onde veio cada dado) e `obtidoEm` (quando cada dado foi obtido) |
 | `versaoAlgoritmo` | `"IRS v2"`. Alerta sem esse campo é tratado como `"IRS v1"` |
 
-**Alertas do IRS v1.** Como os alertas ficam só em memória, não há alertas antigos persistidos: depois de reiniciar o servidor, todos são calculados pelo v2. Por isso não há script de recálculo. Por precaução, um alerta sem `versaoAlgoritmo` aparece como `"IRS v1"` na listagem, e o `GET /alertas/:id/risco` dele continua recalculado pelo v1.
+**Alertas do IRS v1.** O banco de dados foi introduzido depois do IRS v2, então todos os alertas gravados são do v2 (a versão fica em `classificacao_risco.versao_algoritmo`). Por isso não há script de recálculo. Por precaução, um alerta sem `versaoAlgoritmo` aparece como `"IRS v1"` na listagem, e o `GET /alertas/:id/risco` dele continua recalculado pelo v1.
 
 Exemplo de resposta do `GET /alertas/:id/risco` (alerta no Pantanal, IRS v2):
 
@@ -263,31 +391,44 @@ node scripts/validacao/validar-irs.js       # calcula métricas, sensibilidade e
 npm test                  # testes Jest e Supertest (tests/)
 npm run test:coverage     # os mesmos testes, com relatório de cobertura (em coverage/)
 npm run lint              # ESLint
+npm run db:backup         # backup do banco em backups/ (requer PostgreSQL)
+npm run db:exemplo        # regenera db/smcq-exemplo.sql (requer PostgreSQL e internet)
 node teste-irs-v2-mock.js # testes do IRS v2 com geodados simulados
 ```
 
-Os testes nunca acessam a internet. `tests/helpers/semInternet.js` bloqueia a rede em todos eles, e as bases externas são simuladas por `tests/helpers/fetchFalso.js`. Os testes da API importam o `app` sem abrir porta.
+Os testes nunca acessam a internet nem dependem do PostgreSQL:
+- `tests/helpers/semInternet.js` bloqueia a rede, e as bases externas são simuladas por `tests/helpers/fetchFalso.js`;
+- `tests/helpers/ambienteTeste.js` força a persistência em memória, mesmo que o `.env` aponte para o banco;
+- o repositório PostgreSQL é testado com um driver simulado (`tests/postgresRepositorio.test.js` e `tests/postgresPool.test.js`). Esses testes conferem que o alerta remontado das tabelas é igual ao do repositório em memória e que as gravações usam transação (`COMMIT`, ou `ROLLBACK` em caso de falha);
+- os testes da API importam o `app` sem abrir porta.
 
-**Cobertura.** O escopo é o código da aplicação: `server.js` e `services/` (configurado em `jest.collectCoverageFrom`, no `package.json`). Os scripts de validação (`scripts/validacao/`) ficam fora: são ferramentas de linha de comando que dependem de rede, e só a biblioteca da amostra é testada (`tests/vazamento.test.js`). Resultado em 14/10/2026, com 105 testes:
+**Cobertura.** O escopo é o código da aplicação: `server.js`, `services/` e `repositorios/` (configurado em `jest.collectCoverageFrom`, no `package.json`). Ficam fora:
+- os scripts de validação (`scripts/validacao/`): são ferramentas de linha de comando que dependem de rede, e só a biblioteca da amostra é testada (`tests/vazamento.test.js`);
+- os scripts de banco (`db/`): foram verificados manualmente contra o PostgreSQL.
+
+Resultado em 14/10/2026, com 153 testes:
 
 | Escopo | Linhas | Instruções | Ramos | Funções |
 | :--- | ---: | ---: | ---: | ---: |
-| **Geral** (`server.js` + `services/`) | **94,9%** | 93,2% | 85,3% | 92,6% |
+| **Geral** (`server.js` + `services/` + `repositorios/`) | **95,2%** | 93,8% | 83,8% | 93,7% |
 | `services/riscoService.js` | 97,9% | 98,1% | 89,5% | 100% |
 | `services/classificacaoService.js` | 100% | 100% | 100% | 100% |
-| `server.js` | 93,3% | 92,1% | 91,1% | 96,9% |
+| `server.js` | 89,5% | 88,7% | 90,3% | 95,0% |
+| `repositorios/postgres/alertaRepositorio.js` | 100% | 97,4% | 77,3% | 100% |
+| `repositorios/memoria/alertaRepositorio.js` | 100% | 100% | 87,1% | 100% |
 | `services/geodadosService.js` | 94,5% | 90,2% | 72,5% | 86,4% |
 | `services/cacheService.js` | 64,7% | 60,0% | 44,4% | 60,0% |
 
-O RNF14 exige no mínimo 70%. O único arquivo abaixo disso é o `cacheService.js`, cuja parte não testada é a limpeza de entradas vencidas acima de 500 itens.
+O RNF14 exige no mínimo 70%. O único arquivo abaixo disso é o `cacheService.js`, cuja parte não testada é a limpeza de entradas vencidas acima de 500 itens. No `server.js`, ficam sem cobertura a recusa de iniciar com configuração inválida (`process.exit`) e o bloco que abre a porta.
 
 ## Limitações conhecidas
 
-- **Dados em memória.** Reiniciar o servidor apaga alertas e solicitações.
 - **Proximidade urbana restrita a 10 cidades.** O fator urbano cai a quase zero além de cerca de 25 km; na validação, ficou abaixo de 0,05 em 98,6% dos focos reais. No IRS v1, isso fazia todo alerta distante dessas cidades e sem pessoas em risco ser `BAIXO`. No v2, os critérios ambientais compensam em parte. Melhoria prevista: usar as sedes municipais do IBGE.
 - **Dependência de bases externas.** Sem resposta de uma base, o critério correspondente usa um valor de reserva (marcado em `geodados.fontes`), e o resultado fica menos preciso.
 - **Validação do IRS v2.** Concordância leve com o gabarito de propagação do fogo, sem superar a linha de base sem pesos AHP. Detalhes e limitações em [`docs/validacao-irs.md`](docs/validacao-irs.md).
-- **Segredo do JWT e porta fixos no código.** Adequado apenas para desenvolvimento e demonstração.
+- **Porta fixa no código (3000).** Adequado para desenvolvimento e demonstração.
+- **Anexos.** A tabela `arquivo_anexo` existe no banco, mas a API ainda não tem rota de envio de arquivos.
+- **Backup local.** O `db:backup` grava no mesmo computador do banco; a cópia para outro disco ou para a nuvem é manual.
 
 ## Licença
 

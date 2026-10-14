@@ -9,7 +9,9 @@
     "lint": "eslint .",
     "test:coverage": "jest --coverage",
     "db:init": "node db/init.js",
-    "db:seed": "node db/seed.js"
+    "db:seed": "node db/seed.js",
+    "db:backup": "node db/backup.js",
+    "db:exemplo": "node db/gerar-exemplo.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

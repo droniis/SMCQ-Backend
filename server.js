@@ -151,7 +151,8 @@ app.post('/api/alertas', rota(async (req, res) => {
     } catch (err) {
         return res.status(500).json({ erro: `Falha ao classificar o risco: ${err.message}` });
     }
-    // Alerta, classificação e contribuições gravados juntos (transação no PostgreSQL)
+    // Alerta, classificação, contribuições e o 1º registro do histórico gravados juntos (transação no PostgreSQL)
+    const criadoEm = new Date().toISOString();
     const novoAlerta = await alertas.criar({
         titulo,
         descricao: descricao || '',
@@ -173,9 +174,10 @@ app.post('/api/alertas', rota(async (req, res) => {
         vento,
         pessoasRisco: pessoasRisco || false,
         criadoPor: req.usuario.id,
-        criadoEm: new Date().toISOString(),
-        atualizadoEm: new Date().toISOString(),
-        historico: [],
+        criadoEm,
+        atualizadoEm: criadoEm,
+        // Auditoria da criação (RNF04): todo alerta nasce com um registro de histórico, status Novo
+        historico: [{ campo: 'status', valorAnterior: null, valorNovo: 'NOVO', alteradoPor: req.usuario.id, alteradoEm: criadoEm }],
         solicitacoesExclusao: [],
         excluido: false,
         excluidoEm: null

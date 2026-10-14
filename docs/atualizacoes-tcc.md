@@ -1,6 +1,6 @@
 # Atualizações do documento do TCC para o IRS v2
 
-Textos para colar no documento do TCC, refletindo a integração do IRS v2 (Etapas C a F, outubro de 2026).
+Textos para colar no documento do TCC, refletindo a integração do IRS v2 (Etapas C a F) e a persistência em banco de dados (Etapa G, Seção 5 deste arquivo), outubro de 2026.
 
 > **Atenção:** o documento do TCC não estava disponível durante a redação. Os textos foram escritos a partir do sistema implementado, sem comparação com a redação atual. As seções são indicadas pelos identificadores usados no projeto (RF05, UC07, HU10, RNF01, RNF14, Quadro 2, Capítulos 5 a 7). Antes de colar, confira a numeração e ajuste os termos ao glossário do documento.
 
@@ -129,7 +129,9 @@ Texto sugerido para a verificação do requisito:
 
 ### 4.5 RNF14: cobertura de testes (mínimo de 70%)
 
-> A suíte de testes automatizados reúne 105 testes (Jest e Supertest), executados sem acesso à internet. A cobertura de linhas do código da aplicação (servidor e serviços) é de 94,9%. No serviço de classificação de risco (`riscoService`), é de 97,9%.
+> A suíte de testes automatizados reúne 153 testes (Jest e Supertest), executados sem acesso à internet e sem depender do banco de dados. A cobertura de linhas do código da aplicação (servidor, serviços e camada de persistência) é de 95,2%. No serviço de classificação de risco (`riscoService`), é de 97,9%.
+
+(Números atualizados na Etapa G; a versão anterior deste texto citava 105 testes e 94,9%.)
 
 O escopo e os números por arquivo estão no README, seção "Testes e lint".
 
@@ -154,3 +156,83 @@ Acrescentar, conforme o que for citado no texto final:
 - IBGE, ICMBio, FUNAI e GBIF, como fontes dos dados ambientais.
 
 Para estas últimas, os links e as datas de acesso estão em [`bases-de-dados.md`](bases-de-dados.md).
+
+---
+
+## 5. Persistência em banco de dados (Etapa G, outubro de 2026)
+
+Até a Etapa F, os dados ficavam em memória e se perdiam a cada reinício do servidor. Na Etapa G, eles passaram a ser gravados no PostgreSQL, conforme previsto na documentação. As rotas da API, os formatos de resposta e as regras de permissão não mudaram.
+
+### 5.1 Quadro 2: tecnologias (acrescentar)
+
+| Tecnologia | Versão | Finalidade no SMCQ |
+| :--- | :--- | :--- |
+| PostgreSQL | 18 | Sistema gerenciador de banco de dados relacional. Armazena usuários, ocorrências, classificações de risco, histórico, observações e solicitações de exclusão |
+| node-postgres (`pg`) | 8 | Driver de acesso ao PostgreSQL a partir do Node.js, com consultas SQL parametrizadas, sem ORM |
+| dotenv | 18 | Leitura das credenciais e configurações a partir de variáveis de ambiente (arquivo `.env`, fora do controle de versão) |
+| pg_dump | 18 | Geração das cópias de segurança do banco (RNF07) |
+
+Texto sugerido para acompanhar o quadro:
+
+> O armazenamento utiliza o PostgreSQL 18 **sem a extensão espacial PostGIS**. As consultas geográficas do sistema se limitam a distâncias entre pontos, como a proximidade de cidades e de unidades de conservação, calculadas na aplicação pela fórmula de Haversine, conforme admitido pelo RNF17. Latitude e longitude são gravadas em colunas numéricas de precisão dupla, com índice, o que permite filtrar por região com consultas comuns. A adoção do PostGIS fica como evolução possível, caso o sistema passe a exigir operações espaciais mais complexas, como a interseção de polígonos.
+
+### 5.2 Seção 5.1: arquitetura do backend (camada de persistência)
+
+Texto sugerido:
+
+> O backend foi organizado em três camadas:
+> - **rotas** (`server.js`): autenticação, validação das entradas e regras de permissão;
+> - **serviços** (`services/`): classificação de risco e consulta aos dados ambientais;
+> - **persistência** (`repositorios/`): acesso aos dados.
+>
+> A camada de persistência segue o padrão **Repositório** e oferece duas implementações com a mesma interface:
+> - a do **PostgreSQL**, usada na execução real;
+> - uma **em memória**, usada nos testes automatizados e em demonstrações sem banco.
+>
+> A implementação é escolhida pela variável de ambiente `PERSISTENCIA`. Assim, as rotas não dependem do mecanismo de armazenamento, e a suíte de testes roda sem um servidor de banco instalado.
+>
+> O repositório PostgreSQL decompõe cada ocorrência nas tabelas do modelo de dados e a remonta no mesmo formato JSON devolvido pela API. As operações que envolvem mais de uma tabela são executadas em uma única **transação**: ou tudo é gravado, ou nada é. São elas:
+> - o registro da ocorrência, que grava alerta, localização, fatores de risco, classificação, contribuições dos critérios e o primeiro registro do histórico;
+> - a mudança de status, com o registro no histórico;
+> - a exclusão lógica;
+> - a avaliação de uma solicitação de exclusão.
+>
+> Se o banco de dados estiver indisponível, o servidor permanece em execução, registra a causa no log e responde às requisições com o código HTTP 503. O acesso é restabelecido automaticamente quando o banco volta a operar.
+
+### 5.3 Modelo de dados (diagrama de classes ou modelo físico)
+
+Tabelas criadas a partir do diagrama de classes (script completo em `db/schema.sql`):
+
+| Tabela | Conteúdo | Relação |
+| :--- | :--- | :--- |
+| `usuario` | Nome, e-mail, hash da senha (bcrypt) e perfil | — |
+| `alerta` | Título, descrição, status, autor, datas e exclusão lógica | N:1 com `usuario` |
+| `localizacao` | Latitude, longitude e endereço | 1:1 com `alerta` |
+| `fator_risco` | Dados de entrada do cálculo: área, vento, pessoas em risco, bioma, tipo de área, fauna, proximidade de UC e geodados (JSONB) | 1:1 com `alerta` |
+| `classificacao_risco` | Resultado: IRS, sigmoide, nível e versão do algoritmo | 1:1 com `alerta` |
+| `contribuicao_criterio` | Fator, peso e contribuição de cada critério | 1:N com `classificacao_risco` (9 no IRS v2) |
+| `historico_status` | Campo alterado, valores anterior e novo, autor e data | 1:N com `alerta` |
+| `observacao` | Texto, autor e data | 1:N com `alerta` |
+| `arquivo_anexo` | Nome, caminho, tipo e tamanho do arquivo | 1:N com `alerta` (estrutura prevista, ainda sem rota na API) |
+| `solicitacao_exclusao` | Motivo, situação, decisão e autores | 1:N com `alerta` |
+
+Se o diagrama de classes do documento não separar "dados de entrada" (`fator_risco`) de "resultado" (`classificacao_risco`, `contribuicao_criterio`), ajustá-lo conforme a tabela acima.
+
+### 5.4 Requisitos não funcionais atendidos ou reforçados
+
+- **RNF03 (senhas protegidas):** o banco guarda apenas o hash bcrypt das senhas. As credenciais do banco e o segredo dos tokens JWT ficam em variáveis de ambiente, fora do código e do controle de versão; sem o segredo, o servidor não inicia.
+- **RNF04 (auditoria):** cada ocorrência nasce com um registro de histórico, "Novo", com o autor e a data. Mudanças de status e exclusões também geram registros. A exclusão é lógica: a ocorrência permanece no banco para consulta.
+- **RNF07 (backup):** o comando `npm run db:backup` gera uma cópia datada do banco com o `pg_dump` e mantém as 30 mais recentes. O agendamento diário é feito pelo Agendador de Tarefas do Windows (instruções no README).
+- **RNF17 (cálculo geográfico):** distâncias pela fórmula de Haversine, sem PostGIS.
+- **RNF20 (filtros):** índices por data de registro, status, nível de risco e região (estado e município).
+
+### 5.5 Entrega da base de dados
+
+O arquivo `db/smcq-exemplo.sql` atende ao item "base de dados" da entrega. Ele contém o esquema completo e dados de demonstração:
+- 3 usuários;
+- 6 ocorrências, uma por bioma, classificadas pelo IRS v2 com dados ambientais reais;
+- histórico, observações e solicitações de exclusão.
+
+Não contém senhas reais, apenas os hashes das senhas de demonstração. Pode ser carregado com `psql` ou pelo pgAdmin. Sugestão de texto para o apêndice ou para a seção de entrega:
+
+> A base de dados acompanha o código-fonte no arquivo `db/smcq-exemplo.sql`, que cria as dez tabelas do modelo e insere dados de demonstração. Para carregá-la, basta criar um banco vazio no PostgreSQL e executar o arquivo (`psql -U postgres -d smcq -f db/smcq-exemplo.sql`).

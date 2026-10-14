@@ -285,12 +285,33 @@ describe('regressão: rotas existentes', () => {
     for (const a of r.body) expect(a.versaoAlgoritmo).toBe('IRS v2');
   });
 
+  test('a criação gera o 1º registro do histórico (status Novo, sem valor anterior, pelo criador)', async () => {
+    const r = await criar({}, 'operador');
+    expect(r.status).toBe(201);
+    expect(r.body.historico).toEqual([
+      { campo: 'status', valorAnterior: null, valorNovo: 'NOVO', alteradoPor: 2, alteradoEm: r.body.criadoEm }
+    ]);
+    expect(r.body.atualizadoEm).toBe(r.body.criadoEm);
+    // O registro é persistido, não só devolvido na resposta
+    const lido = (await request(app).get('/api/alertas').set(comToken('gestor'))).body.find(a => a.id === r.body.id);
+    expect(lido.historico).toEqual(r.body.historico);
+  });
+
+  test('exclusão acrescenta o registro "excluido" depois do da criação', async () => {
+    const { id } = (await criar()).body;
+    const del = await request(app).delete(`/api/alertas/${id}`).set(comToken('admin'));
+    expect(del.body.historico.map(h => h.campo)).toEqual(['status', 'excluido']);
+    expect(del.body.historico[1]).toMatchObject({ valorAnterior: false, valorNovo: true, alteradoPor: 1 });
+  });
+
   test('PATCH status: válido → 200 com histórico; inválido → 400; inexistente → 404', async () => {
     const { id } = (await criar()).body;
     const r = await request(app).patch(`/api/alertas/${id}/status`).set(comToken('operador')).send({ status: 'EM_ANALISE' });
     expect(r.status).toBe(200);
     expect(r.body.status).toBe('EM_ANALISE');
-    expect(r.body.historico[0]).toMatchObject({ campo: 'status', valorAnterior: 'NOVO', valorNovo: 'EM_ANALISE' });
+    // historico[0] é o registro da criação; a mudança de status vem em seguida
+    expect(r.body.historico).toHaveLength(2);
+    expect(r.body.historico[1]).toMatchObject({ campo: 'status', valorAnterior: 'NOVO', valorNovo: 'EM_ANALISE' });
     expect((await request(app).patch(`/api/alertas/${id}/status`).set(comToken('operador')).send({ status: 'XYZ' })).status).toBe(400);
     expect((await request(app).patch('/api/alertas/99999/status').set(comToken('operador')).send({ status: 'NOVO' })).status).toBe(404);
   });
