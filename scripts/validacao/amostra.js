@@ -188,8 +188,12 @@ function montarEntradasDia0(foco, visao, clima, geodados) {
 
   // Área afetada: focos a até 1 km no mesmo dia, incluindo o próprio
   const nDia0 = visao.contarNoDia(foco.dia, foco.lat, foco.lon, config.RAIO_AREA_KM);
+  // dA/dt: OUTROS focos a até 1 km no dia 0 − focos a até 1 km no dia −1, mínimo 0.
+  // O próprio foco fica de fora: contado, todo foco novo e isolado daria dA/dt = 1
+  // (na 1ª versão da amostra, 292 de 294 focos tinham dA/dt ≥ 1).
+  const nOutrosDia0 = visao.contarNoDia(foco.dia, foco.lat, foco.lon, config.RAIO_AREA_KM, foco.id);
   const nDiaAnterior = visao.contarNoDia(somarDias(foco.dia, -1), foco.lat, foco.lon, config.RAIO_AREA_KM);
-  const dA_dt = Math.max(0, nDia0 - nDiaAnterior);
+  const dA_dt = Math.max(0, nOutrosDia0 - nDiaAnterior);
 
   const { cidade, distanciaKm } = distanciaCidade(foco);
   const direcaoVento = direcaoParaOndeSopra(clima.direcaoGraus);
@@ -214,7 +218,7 @@ function montarEntradasDia0(foco, visao, clima, geodados) {
   return {
     alerta,
     geodados: geodadosIrs,
-    proxies: { nFocos1kmDia0: nDia0, nFocos1kmDiaAnterior: nDiaAnterior, cidadeProxima: cidade.nome, distanciaCidadeKm: distanciaKm }
+    proxies: { nFocos1kmDia0: nDia0, nOutrosFocos1kmDia0: nOutrosDia0, nFocos1kmDiaAnterior: nDiaAnterior, cidadeProxima: cidade.nome, distanciaCidadeKm: distanciaKm }
   };
 }
 
@@ -243,11 +247,31 @@ function limitesQuartis(contagens) {
   return { q1: quantil(contagens, 0.25), q2: quantil(contagens, 0.5), q3: quantil(contagens, 0.75) };
 }
 
+// Opção A (plano original do Cap. 6, análise SECUNDÁRIA):
 // ≤ Q1 → BAIXO · (Q1, Q2] → MODERADO · (Q2, Q3] → ALTO · > Q3 → CRÍTICO
 function nivelGabarito(n, { q1, q2, q3 }) {
   if (n <= q1) return 'BAIXO';
   if (n <= q2) return 'MODERADO';
   if (n <= q3) return 'ALTO';
+  return 'CRITICO';
+}
+
+// Opção B (análise PRINCIPAL). Na amostra, 62% dos focos tiveram contagem 0, o que
+// faz Q1 = Q2 = 0 e esvazia o nível MODERADO na opção A. Regra definida antes do
+// cálculo do IRS sobre a amostra:
+//   contagem 0 → BAIXO ("sem propagação");
+//   contagens > 0 divididas pelos tercis T1 e T2 (mesmo método de quantil):
+//   ≤ T1 → MODERADO · (T1, T2] → ALTO · > T2 → CRÍTICO.
+// Desempate: um valor igual a um limite fica no nível de baixo.
+function limitesTercisPositivos(contagens) {
+  const positivas = contagens.filter(n => n > 0);
+  return { t1: quantil(positivas, 1 / 3), t2: quantil(positivas, 2 / 3), nPositivas: positivas.length };
+}
+
+function nivelGabaritoTercis(n, { t1, t2 }) {
+  if (n === 0) return 'BAIXO';
+  if (n <= t1) return 'MODERADO';
+  if (n <= t2) return 'ALTO';
   return 'CRITICO';
 }
 
@@ -266,5 +290,7 @@ module.exports = {
   calcularGabarito,
   quantil,
   limitesQuartis,
-  nivelGabarito
+  nivelGabarito,
+  limitesTercisPositivos,
+  nivelGabaritoTercis
 };

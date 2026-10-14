@@ -1,5 +1,5 @@
 {
-  "geradoEm": "2026-10-14T16:02:52.601Z",
+  "geradoEm": "2026-10-14T16:54:42.638Z",
   "parametros": {
     "PERIODO": {
       "inicio": "2026-08-01",
@@ -92,6 +92,19 @@
   },
   "concordanciaBiomaInpeIbge": 268,
   "gabarito": {
+    "regraPrincipal": "B: 0 → BAIXO; contagens > 0 por tercis (≤ T1 MODERADO, ≤ T2 ALTO, > T2 CRÍTICO; empate fica no nível de baixo)",
+    "tercisPositivos": {
+      "t1": 2,
+      "t2": 5,
+      "nPositivas": 112
+    },
+    "porNivelTercis": {
+      "BAIXO": 182,
+      "MODERADO": 52,
+      "CRITICO": 36,
+      "ALTO": 24
+    },
+    "regraSecundaria": "A: quartis (≤ Q1 BAIXO, ≤ Q2 MODERADO, ≤ Q3 ALTO, > Q3 CRÍTICO)",
     "quartis": {
       "q1": 0,
       "q2": 0,
@@ -100,7 +113,7 @@
     "minimo": 0,
     "maximo": 40,
     "zeros": 182,
-    "porNivel": {
+    "porNivelQuartis": {
       "BAIXO": 182,
       "ALTO": 52,
       "CRITICO": 60
@@ -119,7 +132,11 @@
       "false": 251,
       "true": 43
     },
-    "dA_dtPositivo": 292
+    "dA_dt": {
+      "0": 220,
+      "1": 62,
+      "2": 12
+    }
   },
   "openMeteo": {
     "pontosPorTimeoutMs": {

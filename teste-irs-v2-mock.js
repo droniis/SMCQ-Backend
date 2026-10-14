@@ -24,19 +24,9 @@ function teste(nome, fn) {
 
 const proximo = (a, b) => Math.abs(a - b) < 1e-9;
 
-// Alerta de referência: ponto remoto no Pantanal, sem pessoas em risco
-const PANTANAL = { latitude: -16.6869, longitude: -56.6744, areaAfetada: 'GRANDE', vento: 'ALTO', pessoasRisco: false };
-
-// Geodados no formato de geodadosService.obterGeodadosCompletos (Etapa B)
-const geo = (campos = {}) => ({
-  bioma: 'PANTANAL',
-  fonteBioma: 'mock',
-  unidadeConservacao: null,
-  terraIndigena: null,
-  fauna: { total: 0, nivel: 'SEM_ESPECIES', especies: [] },
-  focos: { total: 0, ultimos7dias: 0 },
-  ...campos
-});
+// Alerta de referência (PANTANAL), geodados simulados (geo) e cenários: definidos em
+// scripts/validacao/cenarios-controlados.js, compartilhados com a validação do IRS
+const { PANTANAL, geo, PIOR_CASO, MELHOR_CASO, CENARIOS: cenarios } = require('./scripts/validacao/cenarios-controlados');
 
 console.log('\nEstrutura e pesos');
 teste('os pesos v2 somam 1,00', () => {
@@ -50,14 +40,8 @@ teste('o detalhamento traz os 9 critérios e as contribuições somam o IRS', ()
   assert.ok(Math.abs(soma - irs) < 0.001, `soma = ${soma}, irs = ${irs}`);
 });
 teste('IRS e sigmoide ficam entre 0 e 1 no pior e no melhor caso', () => {
-  const pior = calcularRiscoAvancadoV2(
-    { latitude: -23.5505, longitude: -46.6333, areaAfetada: 'GRANDE', vento: 'ALTO', pessoasRisco: true, dA_dt: 5 },
-    geo({ bioma: 'AMAZONIA', terraIndigena: { nome: 'TI de teste' }, fauna: { total: 9, nivel: 'CRITICA' } })
-  );
-  const melhor = calcularRiscoAvancadoV2(
-    { latitude: -10, longitude: -50, areaAfetada: 'PEQUENA', vento: 'BAIXO', pessoasRisco: false, zonaUrbana: true },
-    geo({ bioma: 'URBANO', fauna: null })
-  );
+  const pior = calcularRiscoAvancadoV2(PIOR_CASO.alerta, PIOR_CASO.geo);
+  const melhor = calcularRiscoAvancadoV2(MELHOR_CASO.alerta, MELHOR_CASO.geo);
   for (const r of [pior, melhor]) {
     assert.ok(r.irs >= 0 && r.irs <= 1, `irs = ${r.irs}`);
     assert.ok(r.sigmoide >= 0 && r.sigmoide <= 1, `sigmoide = ${r.sigmoide}`);
@@ -150,16 +134,7 @@ teste('ponto remoto no Pantanal deixa de ser BAIXO (era BAIXO no v1)', () => {
 // ------------------------------------------------------------
 // Tabela comparativa v1 × v2 (informativa, sem asserções)
 // ------------------------------------------------------------
-const cenarios = [
-  { nome: 'SP urbano',                alerta: { latitude: -23.5505, longitude: -46.6333, areaAfetada: 'GRANDE', vento: 'ALTO', pessoasRisco: true, zonaUrbana: true }, geo: geo({ bioma: 'MATA_ATLANTICA' }) },
-  { nome: 'Pantanal, só bioma',       alerta: PANTANAL, geo: geo() },
-  { nome: 'Pantanal em UC + fauna',   alerta: PANTANAL, geo: geo({ unidadeConservacao: { nome: 'Parna do Pantanal Matogrossense', esfera: 'federal' }, fauna: { total: 3, nivel: 'AMEACADA' } }) },
-  { nome: 'Amazônia, só bioma',       alerta: { ...PANTANAL, latitude: -3.4653, longitude: -62.2159 }, geo: geo({ bioma: 'AMAZONIA' }) },
-  { nome: 'Amazônia em TI + fauna',   alerta: { ...PANTANAL, latitude: -3.4653, longitude: -62.2159 }, geo: geo({ bioma: 'AMAZONIA', terraIndigena: { nome: 'TI de teste' }, fauna: { total: 5, nivel: 'CRITICA' } }) },
-  { nome: 'Cerrado (Brasília)',       alerta: { latitude: -15.7939, longitude: -47.8828, areaAfetada: 'MEDIA', vento: 'MODERADO', pessoasRisco: false }, geo: geo({ bioma: 'CERRADO' }) },
-  { nome: 'Caatinga (Recife)',        alerta: { latitude: -8.0476, longitude: -34.8770, areaAfetada: 'PEQUENA', vento: 'BAIXO', pessoasRisco: false }, geo: geo({ bioma: 'CAATINGA' }) },
-  { nome: 'Pampa (Porto Alegre)',     alerta: { latitude: -30.0346, longitude: -51.2177, areaAfetada: 'PEQUENA', vento: 'BAIXO', pessoasRisco: false }, geo: geo({ bioma: 'PAMPA' }) }
-];
+// Os 8 cenários vêm de scripts/validacao/cenarios-controlados.js (importados no início)
 
 console.log('\nComparativo v1 × v2 (geodados mockados)');
 console.table(cenarios.map(({ nome, alerta, geo: g }) => {

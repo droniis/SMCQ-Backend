@@ -6,12 +6,14 @@
 // 3. Monta as entradas do IRS só com dados do dia 0:
 //      - lat/lon e bioma ........ CSV do INPE
 //      - área afetada ........... focos a até 1 km no mesmo dia (proxy)
-//      - dA/dt .................. focos a até 1 km: dia 0 − dia −1 (mín. 0)
+//      - dA/dt .................. outros focos a até 1 km no dia 0 − focos
+//                                 a até 1 km no dia −1 (mín. 0)
 //      - pessoas em risco ....... a até 50 km de uma das 10 cidades (proxy)
 //      - vento .................. Open-Meteo, dia 0 (cache em disco)
 //      - UC, TI, fauna .......... geodadosService (cache em disco)
 // 4. Calcula o gabarito (focos a até 10 km nos dias 1 a 7) e as
-//    faixas por quartis.
+//    faixas: 0 → BAIXO e tercis das contagens > 0 (principal);
+//    quartis (secundária, plano original).
 // 5. Salva data/validacao/amostra.csv, amostra.json e amostra-meta.json.
 //
 // Rodar: node scripts/validacao/preparar-amostra.js
@@ -168,7 +170,11 @@ async function main() {
     return { foco, entradas, clima: clima[foco.id], geo, gabaritoN: A.calcularGabarito(foco, indice) };
   });
   const quartis = A.limitesQuartis(registros.map(r => r.gabaritoN));
-  for (const r of registros) r.gabaritoNivel = A.nivelGabarito(r.gabaritoN, quartis);
+  const tercis = A.limitesTercisPositivos(registros.map(r => r.gabaritoN));
+  for (const r of registros) {
+    r.gabaritoNivel = A.nivelGabaritoTercis(r.gabaritoN, tercis);      // opção B: principal
+    r.gabaritoNivelQuartis = A.nivelGabarito(r.gabaritoN, quartis);    // opção A: secundária
+  }
 
   // amostra.json: entradas exatas do IRS, lidas pela Etapa 3
   const json = registros.map(r => ({
@@ -177,11 +183,11 @@ async function main() {
     dia0: r.foco.dia,
     alerta: r.entradas.alerta,
     geodados: r.entradas.geodados,
-    gabarito: { nFocos10km7dias: r.gabaritoN, nivel: r.gabaritoNivel }
+    gabarito: { nFocos10km7dias: r.gabaritoN, nivel: r.gabaritoNivel, nivelQuartis: r.gabaritoNivelQuartis }
   }));
 
   // amostra.csv: uma linha por foco, legível em planilha
-  const csv = registros.map(({ foco, entradas: { alerta, geodados, proxies }, clima: c, geo, gabaritoN, gabaritoNivel }) => ({
+  const csv = registros.map(({ foco, entradas: { alerta, geodados, proxies }, clima: c, geo, gabaritoN, gabaritoNivel, gabaritoNivelQuartis }) => ({
     id: foco.id,
     estrato: foco.estrato,
     dia0: foco.dia,
@@ -197,6 +203,7 @@ async function main() {
     precipitacao: foco.precipitacao,
     risco_fogo_inpe: foco.riscoFogo,
     n_focos_1km_dia0: proxies.nFocos1kmDia0,
+    n_outros_focos_1km_dia0: proxies.nOutrosFocos1kmDia0,
     n_focos_1km_dia_menos1: proxies.nFocos1kmDiaAnterior,
     area_afetada: alerta.areaAfetada,
     dA_dt: alerta.dA_dt,
@@ -225,7 +232,8 @@ async function main() {
     geodados_tentativas: geo.tentativas,
     geodados_consultado_em: geo.consultadoEm,
     gabarito_n_focos_10km_7d: gabaritoN,
-    gabarito_nivel: gabaritoNivel
+    gabarito_nivel: gabaritoNivel,
+    gabarito_nivel_quartis: gabaritoNivelQuartis
   }));
 
   const contagens = registros.map(r => r.gabaritoN);
@@ -243,17 +251,21 @@ async function main() {
     porBiomaInpe: contar(registros, r => r.foco.bioma),
     concordanciaBiomaInpeIbge: registros.filter(r => r.entradas.alerta.bioma === r.geo.resultado.bioma).length,
     gabarito: {
+      regraPrincipal: 'B: 0 → BAIXO; contagens > 0 por tercis (≤ T1 MODERADO, ≤ T2 ALTO, > T2 CRÍTICO; empate fica no nível de baixo)',
+      tercisPositivos: tercis,
+      porNivelTercis: contar(registros, r => r.gabaritoNivel),
+      regraSecundaria: 'A: quartis (≤ Q1 BAIXO, ≤ Q2 MODERADO, ≤ Q3 ALTO, > Q3 CRÍTICO)',
       quartis,
       minimo: Math.min(...contagens),
       maximo: Math.max(...contagens),
       zeros: contagens.filter(n => n === 0).length,
-      porNivel: contar(registros, r => r.gabaritoNivel)
+      porNivelQuartis: contar(registros, r => r.gabaritoNivelQuartis)
     },
     proxies: {
       areaAfetada: contar(registros, r => r.entradas.alerta.areaAfetada),
       vento: contar(registros, r => r.entradas.alerta.vento),
       pessoasRisco: contar(registros, r => String(r.entradas.alerta.pessoasRisco)),
-      dA_dtPositivo: registros.filter(r => r.entradas.alerta.dA_dt > 0).length
+      dA_dt: contar(registros, r => String(r.entradas.alerta.dA_dt))
     },
     openMeteo: {
       // Entradas antigas do cache, sem o campo, foram obtidas com o limite original de 10 s
@@ -280,8 +292,9 @@ async function main() {
   console.log('Por bioma (CSV do INPE, incluindo o estrato urbano):', meta.porBiomaInpe);
   console.log(`Bioma INPE = bioma IBGE em ${meta.concordanciaBiomaInpeIbge}/${meta.n}`);
   console.log('Gabarito (focos a ≤ 10 km nos 7 dias seguintes):');
-  console.log(`  mín ${meta.gabarito.minimo} · Q1 ${quartis.q1} · Q2 ${quartis.q2} · Q3 ${quartis.q3} · máx ${meta.gabarito.maximo} · zeros ${meta.gabarito.zeros}`);
-  console.log('  por nível:', meta.gabarito.porNivel);
+  console.log(`  mín ${meta.gabarito.minimo} · máx ${meta.gabarito.maximo} · zeros ${meta.gabarito.zeros}`);
+  console.log(`  B (principal): T1 ${tercis.t1} · T2 ${tercis.t2} (sobre ${tercis.nPositivas} contagens > 0) →`, meta.gabarito.porNivelTercis);
+  console.log(`  A (secundária): Q1 ${quartis.q1} · Q2 ${quartis.q2} · Q3 ${quartis.q3} →`, meta.gabarito.porNivelQuartis);
   console.log('Proxies:', meta.proxies);
   console.log('Fontes:', JSON.stringify(meta.fontes, null, 2));
   console.log(`Focos com algum fallback de geodados: ${meta.geodadosComFallback}`);

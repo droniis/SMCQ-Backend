@@ -1,0 +1,4813 @@
+{
+  "geradoEm": "2026-10-14T16:57:25.548Z",
+  "amostra": {
+    "n": 294,
+    "periodo": {
+      "inicio": "2026-08-01",
+      "fim": "2026-09-30",
+      "ultimoDia0Sorteavel": "2026-09-23"
+    },
+    "satelite": "AQUA_M-T",
+    "gabarito": {
+      "regraPrincipal": "B: 0 → BAIXO; contagens > 0 por tercis (≤ T1 MODERADO, ≤ T2 ALTO, > T2 CRÍTICO; empate fica no nível de baixo)",
+      "tercisPositivos": {
+        "t1": 2,
+        "t2": 5,
+        "nPositivas": 112
+      },
+      "porNivelTercis": {
+        "BAIXO": 182,
+        "MODERADO": 52,
+        "CRITICO": 36,
+        "ALTO": 24
+      },
+      "regraSecundaria": "A: quartis (≤ Q1 BAIXO, ≤ Q2 MODERADO, ≤ Q3 ALTO, > Q3 CRÍTICO)",
+      "quartis": {
+        "q1": 0,
+        "q2": 0,
+        "q3": 2
+      },
+      "minimo": 0,
+      "maximo": 40,
+      "zeros": 182,
+      "porNivelQuartis": {
+        "BAIXO": 182,
+        "ALTO": 52,
+        "CRITICO": 60
+      }
+    }
+  },
+  "versaoIrs": "calcularRiscoAvancadoV2 (pesos PESOS_AHP_V2), services/riscoService.js",
+  "metricas": {
+    "principal": {
+      "IRS v2": {
+        "acuracia": 0.35034013605442177,
+        "kappaPonderadoQuadratico": 0.11136776920430558,
+        "recallPorNivel": {
+          "BAIXO": 0.36813186813186816,
+          "MODERADO": 0.4807692307692308,
+          "ALTO": 0.3333333333333333,
+          "CRITICO": 0.08333333333333333
+        },
+        "matrizConfusao": [
+          [
+            67,
+            74,
+            34,
+            7
+          ],
+          [
+            12,
+            25,
+            13,
+            2
+          ],
+          [
+            5,
+            9,
+            8,
+            2
+          ],
+          [
+            7,
+            22,
+            4,
+            3
+          ]
+        ],
+        "distribuicaoObtida": {
+          "BAIXO": 91,
+          "MODERADO": 130,
+          "ALTO": 59,
+          "CRITICO": 14
+        }
+      },
+      "IRS v1": {
+        "acuracia": 0.5952380952380952,
+        "kappaPonderadoQuadratico": 0.01931480510400274,
+        "recallPorNivel": {
+          "BAIXO": 0.9615384615384616,
+          "MODERADO": 0,
+          "ALTO": 0,
+          "CRITICO": 0
+        },
+        "matrizConfusao": [
+          [
+            175,
+            7,
+            0,
+            0
+          ],
+          [
+            52,
+            0,
+            0,
+            0
+          ],
+          [
+            22,
+            2,
+            0,
+            0
+          ],
+          [
+            33,
+            3,
+            0,
+            0
+          ]
+        ],
+        "distribuicaoObtida": {
+          "BAIXO": 282,
+          "MODERADO": 12,
+          "ALTO": 0,
+          "CRITICO": 0
+        }
+      },
+      "Linha de base": {
+        "acuracia": 0.2925170068027211,
+        "kappaPonderadoQuadratico": 0.11389432032488345,
+        "recallPorNivel": {
+          "BAIXO": 0.2967032967032967,
+          "MODERADO": 0.46153846153846156,
+          "ALTO": 0.20833333333333334,
+          "CRITICO": 0.08333333333333333
+        },
+        "matrizConfusao": [
+          [
+            54,
+            84,
+            32,
+            12
+          ],
+          [
+            11,
+            24,
+            15,
+            2
+          ],
+          [
+            4,
+            10,
+            5,
+            5
+          ],
+          [
+            5,
+            21,
+            7,
+            3
+          ]
+        ],
+        "distribuicaoObtida": {
+          "BAIXO": 74,
+          "MODERADO": 139,
+          "ALTO": 59,
+          "CRITICO": 22
+        }
+      },
+      "Ref.: sempre BAIXO": {
+        "acuracia": 0.6190476190476191,
+        "kappaPonderadoQuadratico": 0,
+        "recallPorNivel": {
+          "BAIXO": 1,
+          "MODERADO": 0,
+          "ALTO": 0,
+          "CRITICO": 0
+        },
+        "matrizConfusao": [
+          [
+            182,
+            0,
+            0,
+            0
+          ],
+          [
+            52,
+            0,
+            0,
+            0
+          ],
+          [
+            24,
+            0,
+            0,
+            0
+          ],
+          [
+            36,
+            0,
+            0,
+            0
+          ]
+        ],
+        "distribuicaoObtida": {
+          "BAIXO": 294,
+          "MODERADO": 0,
+          "ALTO": 0,
+          "CRITICO": 0
+        }
+      }
+    },
+    "secundaria": {
+      "IRS v2": {
+        "acuracia": 0.2891156462585034,
+        "kappaPonderadoQuadratico": 0.1290632506004803,
+        "recallPorNivel": {
+          "BAIXO": 0.36813186813186816,
+          "MODERADO": null,
+          "ALTO": 0.25,
+          "CRITICO": 0.08333333333333333
+        },
+        "matrizConfusao": [
+          [
+            67,
+            74,
+            34,
+            7
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            12,
+            25,
+            13,
+            2
+          ],
+          [
+            12,
+            31,
+            12,
+            5
+          ]
+        ],
+        "distribuicaoObtida": {
+          "BAIXO": 91,
+          "MODERADO": 130,
+          "ALTO": 59,
+          "CRITICO": 14
+        }
+      },
+      "IRS v1": {
+        "acuracia": 0.5952380952380952,
+        "kappaPonderadoQuadratico": 0.009251052514956615,
+        "recallPorNivel": {
+          "BAIXO": 0.9615384615384616,
+          "MODERADO": null,
+          "ALTO": 0,
+          "CRITICO": 0
+        },
+        "matrizConfusao": [
+          [
+            175,
+            7,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            52,
+            0,
+            0,
+            0
+          ],
+          [
+            55,
+            5,
+            0,
+            0
+          ]
+        ],
+        "distribuicaoObtida": {
+          "BAIXO": 282,
+          "MODERADO": 12,
+          "ALTO": 0,
+          "CRITICO": 0
+        }
+      },
+      "Linha de base": {
+        "acuracia": 0.2619047619047619,
+        "kappaPonderadoQuadratico": 0.12909082036015818,
+        "recallPorNivel": {
+          "BAIXO": 0.2967032967032967,
+          "MODERADO": null,
+          "ALTO": 0.28846153846153844,
+          "CRITICO": 0.13333333333333333
+        },
+        "matrizConfusao": [
+          [
+            54,
+            84,
+            32,
+            12
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            11,
+            24,
+            15,
+            2
+          ],
+          [
+            9,
+            31,
+            12,
+            8
+          ]
+        ],
+        "distribuicaoObtida": {
+          "BAIXO": 74,
+          "MODERADO": 139,
+          "ALTO": 59,
+          "CRITICO": 22
+        }
+      },
+      "Ref.: sempre BAIXO": {
+        "acuracia": 0.6190476190476191,
+        "kappaPonderadoQuadratico": 0,
+        "recallPorNivel": {
+          "BAIXO": 1,
+          "MODERADO": null,
+          "ALTO": 0,
+          "CRITICO": 0
+        },
+        "matrizConfusao": [
+          [
+            182,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            52,
+            0,
+            0,
+            0
+          ],
+          [
+            60,
+            0,
+            0,
+            0
+          ]
+        ],
+        "distribuicaoObtida": {
+          "BAIXO": 294,
+          "MODERADO": 0,
+          "ALTO": 0,
+          "CRITICO": 0
+        }
+      }
+    }
+  },
+  "intervalosConfianca": {
+    "principal": {
+      "reamostragens": 2000,
+      "semente": 20261025,
+      "IRS v2|acuracia": {
+        "ic95": [
+          0.29591836734693877,
+          0.40816326530612246
+        ],
+        "validas": 2000
+      },
+      "IRS v2|kappa": {
+        "ic95": [
+          0.00882836553847488,
+          0.20921571491164015
+        ],
+        "validas": 2000
+      },
+      "IRS v1|acuracia": {
+        "ic95": [
+          0.5374149659863946,
+          0.6530612244897959
+        ],
+        "validas": 2000
+      },
+      "IRS v1|kappa": {
+        "ic95": [
+          -0.01656543346217565,
+          0.060638411444432494
+        ],
+        "validas": 2000
+      },
+      "Linha de base|acuracia": {
+        "ic95": [
+          0.24149659863945577,
+          0.3469387755102041
+        ],
+        "validas": 2000
+      },
+      "Linha de base|kappa": {
+        "ic95": [
+          0.019081134395966926,
+          0.21005373784096315
+        ],
+        "validas": 2000
+      },
+      "IRS v2 − Linha de base|acuracia": {
+        "ic95": [
+          0.020408163265306145,
+          0.09183673469387754
+        ],
+        "validas": 2000
+      },
+      "IRS v2 − Linha de base|kappa": {
+        "ic95": [
+          -0.052517636794563116,
+          0.04194450371293801
+        ],
+        "validas": 2000
+      }
+    },
+    "secundaria": {
+      "reamostragens": 2000,
+      "semente": 20261025,
+      "IRS v2|acuracia": {
+        "ic95": [
+          0.23809523809523808,
+          0.3435374149659864
+        ],
+        "validas": 2000
+      },
+      "IRS v2|kappa": {
+        "ic95": [
+          0.02216066481994483,
+          0.22957323298620225
+        ],
+        "validas": 2000
+      },
+      "IRS v1|acuracia": {
+        "ic95": [
+          0.5374149659863946,
+          0.6530612244897959
+        ],
+        "validas": 2000
+      },
+      "IRS v1|kappa": {
+        "ic95": [
+          -0.01624083977025159,
+          0.0377930860140302
+        ],
+        "validas": 2000
+      },
+      "Linha de base|acuracia": {
+        "ic95": [
+          0.2108843537414966,
+          0.3163265306122449
+        ],
+        "validas": 2000
+      },
+      "Linha de base|kappa": {
+        "ic95": [
+          0.025604184028276578,
+          0.22672913327579836
+        ],
+        "validas": 2000
+      },
+      "IRS v2 − Linha de base|acuracia": {
+        "ic95": [
+          -0.003401360544217691,
+          0.05782312925170066
+        ],
+        "validas": 2000
+      },
+      "IRS v2 − Linha de base|kappa": {
+        "ic95": [
+          -0.048660131335271584,
+          0.04721240711183694
+        ],
+        "validas": 2000
+      }
+    }
+  },
+  "porEstrato": [
+    {
+      "estrato": "Amazônia",
+      "n": 43,
+      "gabarito": {
+        "BAIXO": 15,
+        "MODERADO": 12,
+        "ALTO": 6,
+        "CRITICO": 10
+      },
+      "IRS v2": {
+        "acuracia": 0.16279069767441862,
+        "kappa": -0.14081632653061216
+      },
+      "IRS v1": {
+        "acuracia": 0.3488372093023256,
+        "kappa": 0
+      },
+      "Linha de base": {
+        "acuracia": 0.16279069767441862,
+        "kappa": -0.10610932475884227
+      }
+    },
+    {
+      "estrato": "Caatinga",
+      "n": 43,
+      "gabarito": {
+        "BAIXO": 27,
+        "MODERADO": 8,
+        "ALTO": 3,
+        "CRITICO": 5
+      },
+      "IRS v2": {
+        "acuracia": 0.4883720930232558,
+        "kappa": 0.04076923076923078
+      },
+      "IRS v1": {
+        "acuracia": 0.627906976744186,
+        "kappa": 0
+      },
+      "Linha de base": {
+        "acuracia": 0.4186046511627907,
+        "kappa": 0.00434153400868309
+      }
+    },
+    {
+      "estrato": "Cerrado",
+      "n": 43,
+      "gabarito": {
+        "BAIXO": 19,
+        "MODERADO": 9,
+        "ALTO": 5,
+        "CRITICO": 10
+      },
+      "IRS v2": {
+        "acuracia": 0.3488372093023256,
+        "kappa": 0.020748987854250944
+      },
+      "IRS v1": {
+        "acuracia": 0.4418604651162791,
+        "kappa": 0
+      },
+      "Linha de base": {
+        "acuracia": 0.2558139534883721,
+        "kappa": 0.05615109749872427
+      }
+    },
+    {
+      "estrato": "Mata Atlântica",
+      "n": 43,
+      "gabarito": {
+        "BAIXO": 33,
+        "MODERADO": 8,
+        "ALTO": 2,
+        "CRITICO": 0
+      },
+      "IRS v2": {
+        "acuracia": 0.20930232558139536,
+        "kappa": -0.061728395061728225
+      },
+      "IRS v1": {
+        "acuracia": 0.7674418604651163,
+        "kappa": 0
+      },
+      "Linha de base": {
+        "acuracia": 0.20930232558139536,
+        "kappa": -0.11398963730569966
+      }
+    },
+    {
+      "estrato": "Pampa",
+      "n": 36,
+      "gabarito": {
+        "BAIXO": 36,
+        "MODERADO": 0,
+        "ALTO": 0,
+        "CRITICO": 0
+      },
+      "IRS v2": {
+        "acuracia": 0.9722222222222222,
+        "kappa": 0
+      },
+      "IRS v1": {
+        "acuracia": 1,
+        "kappa": null
+      },
+      "Linha de base": {
+        "acuracia": 0.7777777777777778,
+        "kappa": 0
+      }
+    },
+    {
+      "estrato": "Pantanal",
+      "n": 43,
+      "gabarito": {
+        "BAIXO": 26,
+        "MODERADO": 9,
+        "ALTO": 3,
+        "CRITICO": 5
+      },
+      "IRS v2": {
+        "acuracia": 0.23255813953488372,
+        "kappa": -0.06752730883813296
+      },
+      "IRS v1": {
+        "acuracia": 0.6046511627906976,
+        "kappa": 0
+      },
+      "Linha de base": {
+        "acuracia": 0.20930232558139536,
+        "kappa": -0.10704607046070458
+      }
+    },
+    {
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "n": 43,
+      "gabarito": {
+        "BAIXO": 26,
+        "MODERADO": 6,
+        "ALTO": 5,
+        "CRITICO": 6
+      },
+      "IRS v2": {
+        "acuracia": 0.13953488372093023,
+        "kappa": 0.06845753899480123
+      },
+      "IRS v1": {
+        "acuracia": 0.4418604651162791,
+        "kappa": 0.09617834394904456
+      },
+      "Linha de base": {
+        "acuracia": 0.09302325581395349,
+        "kappa": 0.06241023632328013
+      }
+    }
+  ],
+  "escores": {
+    "IRS v2": {
+      "minimo": 0.2706,
+      "mediana": 0.4313,
+      "maximo": 0.6736,
+      "percentualAbaixoDe005": 0
+    },
+    "IRS v1": {
+      "minimo": 0.0738,
+      "mediana": 0.1028,
+      "maximo": 0.4786,
+      "percentualAbaixoDe005": 0
+    },
+    "Linha de base": {
+      "minimo": 0.2723,
+      "mediana": 0.44599999999999995,
+      "maximo": 0.7254,
+      "percentualAbaixoDe005": 0
+    }
+  },
+  "urbano": {
+    "irsV2FatorExponencial": {
+      "minimo": 0,
+      "mediana": 0,
+      "maximo": 0.1295,
+      "percentualAbaixoDe005": 0.9863945578231292
+    },
+    "linhaBaseLinear": {
+      "minimo": 0,
+      "mediana": 0,
+      "maximo": 0.7956,
+      "percentualAbaixoDe005": 0.8605442176870748
+    },
+    "distanciaKm": {
+      "minimo": 10.22,
+      "mediana": 433.095,
+      "maximo": 1254.74,
+      "percentualAbaixoDe005": 0
+    }
+  },
+  "reprodutibilidade": {
+    "execucoes": 2,
+    "n": 294,
+    "identicos": 294,
+    "percentual": 1,
+    "sha256Execucao1": "b1a6d6ca2d8fd9eb4c9d0eaa4b14c22190f755e5297cc164a54b3ac577024bd3",
+    "sha256Execucao2": "b1a6d6ca2d8fd9eb4c9d0eaa4b14c22190f755e5297cc164a54b3ac577024bd3"
+  },
+  "sensibilidade": {
+    "variacao": 0.1,
+    "renormalizacao": "todos os pesos divididos pela nova soma",
+    "tabela": [
+      {
+        "criterio": "area",
+        "pesoOriginal": 0.1,
+        "mais10": {
+          "pesoNovo": 0.10891089108910892,
+          "mudaram": 3,
+          "percentual": 0.01020408163265306
+        },
+        "menos10": {
+          "pesoNovo": 0.09090909090909093,
+          "mudaram": 1,
+          "percentual": 0.003401360544217687
+        },
+        "qualquer": {
+          "mudaram": 4,
+          "percentual": 0.013605442176870748
+        }
+      },
+      {
+        "criterio": "urbano",
+        "pesoOriginal": 0.15,
+        "mais10": {
+          "pesoNovo": 0.1625615763546798,
+          "mudaram": 9,
+          "percentual": 0.030612244897959183
+        },
+        "menos10": {
+          "pesoNovo": 0.13705583756345177,
+          "mudaram": 8,
+          "percentual": 0.027210884353741496
+        },
+        "qualquer": {
+          "mudaram": 17,
+          "percentual": 0.05782312925170068
+        }
+      },
+      {
+        "criterio": "vento",
+        "pesoOriginal": 0.06,
+        "mais10": {
+          "pesoNovo": 0.06560636182902585,
+          "mudaram": 1,
+          "percentual": 0.003401360544217687
+        },
+        "menos10": {
+          "pesoNovo": 0.05432595573440644,
+          "mudaram": 2,
+          "percentual": 0.006802721088435374
+        },
+        "qualquer": {
+          "mudaram": 3,
+          "percentual": 0.01020408163265306
+        }
+      },
+      {
+        "criterio": "pessoas",
+        "pesoOriginal": 0.14,
+        "mais10": {
+          "pesoNovo": 0.15187376725838267,
+          "mudaram": 8,
+          "percentual": 0.027210884353741496
+        },
+        "menos10": {
+          "pesoNovo": 0.12778904665314406,
+          "mudaram": 6,
+          "percentual": 0.02040816326530612
+        },
+        "qualquer": {
+          "mudaram": 14,
+          "percentual": 0.047619047619047616
+        }
+      },
+      {
+        "criterio": "tempo",
+        "pesoOriginal": 0.06,
+        "mais10": {
+          "pesoNovo": 0.06560636182902585,
+          "mudaram": 2,
+          "percentual": 0.006802721088435374
+        },
+        "menos10": {
+          "pesoNovo": 0.05432595573440644,
+          "mudaram": 1,
+          "percentual": 0.003401360544217687
+        },
+        "qualquer": {
+          "mudaram": 3,
+          "percentual": 0.01020408163265306
+        }
+      },
+      {
+        "criterio": "bioma",
+        "pesoOriginal": 0.2,
+        "mais10": {
+          "pesoNovo": 0.21568627450980393,
+          "mudaram": 8,
+          "percentual": 0.027210884353741496
+        },
+        "menos10": {
+          "pesoNovo": 0.18367346938775514,
+          "mudaram": 8,
+          "percentual": 0.027210884353741496
+        },
+        "qualquer": {
+          "mudaram": 16,
+          "percentual": 0.05442176870748299
+        }
+      },
+      {
+        "criterio": "tipoArea",
+        "pesoOriginal": 0.12,
+        "mais10": {
+          "pesoNovo": 0.13043478260869565,
+          "mudaram": 1,
+          "percentual": 0.003401360544217687
+        },
+        "menos10": {
+          "pesoNovo": 0.10931174089068826,
+          "mudaram": 2,
+          "percentual": 0.006802721088435374
+        },
+        "qualquer": {
+          "mudaram": 3,
+          "percentual": 0.01020408163265306
+        }
+      },
+      {
+        "criterio": "fauna",
+        "pesoOriginal": 0.1,
+        "mais10": {
+          "pesoNovo": 0.10891089108910892,
+          "mudaram": 4,
+          "percentual": 0.013605442176870748
+        },
+        "menos10": {
+          "pesoNovo": 0.09090909090909093,
+          "mudaram": 2,
+          "percentual": 0.006802721088435374
+        },
+        "qualquer": {
+          "mudaram": 6,
+          "percentual": 0.02040816326530612
+        }
+      },
+      {
+        "criterio": "relevancia",
+        "pesoOriginal": 0.07,
+        "mais10": {
+          "pesoNovo": 0.07646474677259188,
+          "mudaram": 1,
+          "percentual": 0.003401360544217687
+        },
+        "menos10": {
+          "pesoNovo": 0.06344410876132932,
+          "mudaram": 2,
+          "percentual": 0.006802721088435374
+        },
+        "qualquer": {
+          "mudaram": 3,
+          "percentual": 0.01020408163265306
+        }
+      }
+    ]
+  },
+  "cenarios": [
+    {
+      "cenario": "Pior caso (todos os critérios no máximo)",
+      "nivelEsperado": "CRITICO",
+      "irs": 0.9912,
+      "nivelIrs": "CRITICO",
+      "escoreLinhaBase": 0.9861,
+      "nivelLinhaBase": "CRITICO",
+      "nivelIrsV1": "CRITICO",
+      "irsAcertou": true,
+      "linhaBaseAcertou": true
+    },
+    {
+      "cenario": "Melhor caso (todos os critérios no mínimo)",
+      "nivelEsperado": "BAIXO",
+      "irs": 0.1937,
+      "nivelIrs": "BAIXO",
+      "escoreLinhaBase": 0.2306,
+      "nivelLinhaBase": "BAIXO",
+      "nivelIrsV1": "BAIXO",
+      "irsAcertou": true,
+      "linhaBaseAcertou": true
+    },
+    {
+      "cenario": "SP urbano",
+      "nivelEsperado": "—",
+      "irs": 0.7262,
+      "nivelIrs": "CRITICO",
+      "escoreLinhaBase": 0.6639,
+      "nivelLinhaBase": "CRITICO",
+      "nivelIrsV1": "CRITICO",
+      "irsAcertou": null,
+      "linhaBaseAcertou": null
+    },
+    {
+      "cenario": "Pantanal, só bioma",
+      "nivelEsperado": "≠ BAIXO",
+      "irs": 0.4702,
+      "nivelIrs": "MODERADO",
+      "escoreLinhaBase": 0.4657,
+      "nivelLinhaBase": "MODERADO",
+      "nivelIrsV1": "BAIXO",
+      "irsAcertou": true,
+      "linhaBaseAcertou": true
+    },
+    {
+      "cenario": "Pantanal em UC + fauna",
+      "nivelEsperado": "—",
+      "irs": 0.6412,
+      "nivelIrs": "CRITICO",
+      "escoreLinhaBase": 0.6657,
+      "nivelLinhaBase": "CRITICO",
+      "nivelIrsV1": "BAIXO",
+      "irsAcertou": null,
+      "linhaBaseAcertou": null
+    },
+    {
+      "cenario": "Amazônia, só bioma",
+      "nivelEsperado": "—",
+      "irs": 0.4713,
+      "nivelIrs": "MODERADO",
+      "escoreLinhaBase": 0.4667,
+      "nivelLinhaBase": "MODERADO",
+      "nivelIrsV1": "BAIXO",
+      "irsAcertou": null,
+      "linhaBaseAcertou": null
+    },
+    {
+      "cenario": "Amazônia em TI + fauna",
+      "nivelEsperado": "—",
+      "irs": 0.6623,
+      "nivelIrs": "CRITICO",
+      "escoreLinhaBase": 0.6889,
+      "nivelLinhaBase": "CRITICO",
+      "nivelIrsV1": "BAIXO",
+      "irsAcertou": null,
+      "linhaBaseAcertou": null
+    },
+    {
+      "cenario": "Cerrado (Brasília)",
+      "nivelEsperado": "—",
+      "irs": 0.5068,
+      "nivelIrs": "ALTO",
+      "escoreLinhaBase": 0.485,
+      "nivelLinhaBase": "MODERADO",
+      "nivelIrsV1": "ALTO",
+      "irsAcertou": null,
+      "linhaBaseAcertou": null
+    },
+    {
+      "cenario": "Caatinga (Recife)",
+      "nivelEsperado": "—",
+      "irs": 0.4369,
+      "nivelIrs": "MODERADO",
+      "escoreLinhaBase": 0.4189,
+      "nivelLinhaBase": "MODERADO",
+      "nivelIrsV1": "ALTO",
+      "irsAcertou": null,
+      "linhaBaseAcertou": null
+    },
+    {
+      "cenario": "Pampa (Porto Alegre)",
+      "nivelEsperado": "—",
+      "irs": 0.4169,
+      "nivelIrs": "MODERADO",
+      "escoreLinhaBase": 0.4078,
+      "nivelLinhaBase": "MODERADO",
+      "nivelIrsV1": "ALTO",
+      "irsAcertou": null,
+      "linhaBaseAcertou": null
+    }
+  ],
+  "porFoco": [
+    {
+      "id": "22fcae89-8772-338f-9acd-12ff43277cc4",
+      "estrato": "Amazônia",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4313,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0773,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.434,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "5474ec97-e827-3770-9233-1d79f4635bec",
+      "estrato": "Amazônia",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.447,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1008,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4665,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "add771ef-9884-314f-98e1-f7ad1b81b63f",
+      "estrato": "Amazônia",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.4693,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.173,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4745,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "fe62ffd7-e2e8-39e8-acea-bb81f05b2aa7",
+      "estrato": "Amazônia",
+      "gabaritoN": 2,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.3764,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0819,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3633,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "b283cec5-9f5a-30a8-ba2d-d49642244cec",
+      "estrato": "Amazônia",
+      "gabaritoN": 2,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.4341,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0934,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.433,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "179cb7ba-d2b0-32bd-a210-d4209b4b6fb0",
+      "estrato": "Amazônia",
+      "gabaritoN": 11,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.4538,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.081,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.462,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "c713e7fc-f25c-3bb1-9dc2-e4f3a02d5cce",
+      "estrato": "Amazônia",
+      "gabaritoN": 36,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.441,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0919,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4533,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "523cc0ba-a23e-37cc-b790-e856553b83df",
+      "estrato": "Amazônia",
+      "gabaritoN": 14,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.4626,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0943,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4785,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "9ef4c067-5ff4-31a4-b78d-a6fda37f6606",
+      "estrato": "Amazônia",
+      "gabaritoN": 2,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.4171,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.098,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.417,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "cb06dfc0-0140-3669-93b3-619b0d7c81d8",
+      "estrato": "Amazônia",
+      "gabaritoN": 26,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.4872,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1011,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5114,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "4b25bbc0-8284-3528-bf58-54a2204b1461",
+      "estrato": "Amazônia",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.5864,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.1913,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.6316,
+      "nivelLinhaBase": "CRITICO"
+    },
+    {
+      "id": "7d90c556-6202-39ae-be59-2f10dfeaa86f",
+      "estrato": "Amazônia",
+      "gabaritoN": 5,
+      "gabarito": "ALTO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.4205,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.103,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4284,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "17fc557a-afa7-360b-b607-7e065d2dc667",
+      "estrato": "Amazônia",
+      "gabaritoN": 4,
+      "gabarito": "ALTO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.4295,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0866,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4247,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "635d8d69-a818-3b6b-af46-f1499e32ed5c",
+      "estrato": "Amazônia",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4133,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0922,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4093,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "4510f334-59e9-352f-b5dd-11b2a2751f2a",
+      "estrato": "Amazônia",
+      "gabaritoN": 5,
+      "gabarito": "ALTO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.4596,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1017,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4683,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "61e6c755-649a-3a11-8fe4-04394c542b96",
+      "estrato": "Amazônia",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4297,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0749,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4285,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "61289ada-20d1-3373-a50e-1d63e9f16384",
+      "estrato": "Amazônia",
+      "gabaritoN": 2,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.5347,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.0943,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5453,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "9bfe9a67-f891-3e0c-a2ec-402558fbe937",
+      "estrato": "Amazônia",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4396,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1017,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4462,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "6306ac04-6094-3317-9052-bb84576c7c80",
+      "estrato": "Amazônia",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4488,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1034,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4755,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "cb3024f3-8ad4-31b4-b169-299c7de42324",
+      "estrato": "Amazônia",
+      "gabaritoN": 3,
+      "gabarito": "ALTO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.419,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1023,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4145,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "336b7193-0c1c-308b-bfa8-600f43e9852e",
+      "estrato": "Amazônia",
+      "gabaritoN": 40,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.4863,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0997,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5088,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "60189c48-770e-338d-9328-820bbd88b30d",
+      "estrato": "Amazônia",
+      "gabaritoN": 2,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.4898,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1737,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4978,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "ff155d0a-a768-309e-a8b6-42615728efac",
+      "estrato": "Amazônia",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4214,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0745,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4047,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "7262ce8e-0af7-3ece-91da-3ecce6f0b747",
+      "estrato": "Amazônia",
+      "gabaritoN": 4,
+      "gabarito": "ALTO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.4341,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0814,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4405,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "6e4caf50-a3f9-341c-a41b-f4e486238f4b",
+      "estrato": "Amazônia",
+      "gabaritoN": 2,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.513,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.1785,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5299,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "f2d29e55-6611-3cc4-841f-cbde956e6fe7",
+      "estrato": "Amazônia",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.5399,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.1768,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.57,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "8c8e4436-5da0-3469-ba9c-aace2e408375",
+      "estrato": "Amazônia",
+      "gabaritoN": 8,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.462,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0933,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4773,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "dbdc968e-bf87-32e6-ba65-5acbdc2ddca3",
+      "estrato": "Amazônia",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.5856,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.1674,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.6006,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "7740070f-68a7-3da8-b515-ee3f22ac7730",
+      "estrato": "Amazônia",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4923,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1775,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5047,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "c4be99bf-761f-355d-bd25-bbdc600c18be",
+      "estrato": "Amazônia",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.5333,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.0922,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5426,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "b45e9a10-fe5f-3d16-81be-d491abdba262",
+      "estrato": "Amazônia",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.5535,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.0926,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5653,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "13a9cb74-3b09-3ec9-b671-148bdfd1d571",
+      "estrato": "Amazônia",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.5398,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.102,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5582,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "de855fd7-af9a-32db-9b74-391d645b5537",
+      "estrato": "Amazônia",
+      "gabaritoN": 5,
+      "gabarito": "ALTO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.5862,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.1683,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.6018,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "5190104f-413e-3667-89d2-3a7dc43f21fb",
+      "estrato": "Amazônia",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.4689,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1723,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4737,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "eb821a41-a103-3f87-a29e-cec69a9e0422",
+      "estrato": "Amazônia",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.5163,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.0968,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5263,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "61f466df-3a4b-37da-8837-45ac55382ff6",
+      "estrato": "Amazônia",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4732,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0801,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.483,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "19ebdc1b-dc9b-3cbb-942d-a6e10f071087",
+      "estrato": "Amazônia",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4482,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1027,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4712,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "978fb235-f5f5-3e83-a33c-e5096c20b0bb",
+      "estrato": "Amazônia",
+      "gabaritoN": 21,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.481,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0918,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4977,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "86922931-ef21-361f-99f6-c3e3440b4e9f",
+      "estrato": "Amazônia",
+      "gabaritoN": 10,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.4488,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1035,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4764,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "3e1aef2c-55c6-319f-b8bf-359c57310506",
+      "estrato": "Amazônia",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.5061,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.1562,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5199,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "2f24c16f-1bcb-3903-8a7b-6429d862fe6b",
+      "estrato": "Amazônia",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4395,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1016,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4458,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "a6acbfee-de9e-335d-b042-008c2cdda9f5",
+      "estrato": "Amazônia",
+      "gabaritoN": 7,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.44,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1023,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4477,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "bcac97ee-3ce6-3535-b421-461582a35e78",
+      "estrato": "Amazônia",
+      "gabaritoN": 6,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.5662,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.1682,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5794,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "38838aae-c79a-3711-9262-5e4f1ca99405",
+      "estrato": "Caatinga",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4142,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1503,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4581,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "0fda13ae-3628-3f3a-908e-86eb2ad143b1",
+      "estrato": "Caatinga",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4971,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.2253,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5953,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "a021d26d-edc7-3280-97c6-6b7e4f576959",
+      "estrato": "Caatinga",
+      "gabaritoN": 23,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.3346,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0956,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.363,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "1ffe8ae7-3f69-37af-827d-878d7814eb9e",
+      "estrato": "Caatinga",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.31,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0888,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3274,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "c820f685-38f5-3bab-b1ff-d847808f4e5d",
+      "estrato": "Caatinga",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3771,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.1547,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4066,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "3aae1ba8-1c00-3a4c-8da4-09a503d8d434",
+      "estrato": "Caatinga",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.312,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0918,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.331,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "45c569a0-d0dc-3501-bf7c-2f04ffea38cc",
+      "estrato": "Caatinga",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3779,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0991,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4188,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "72983ac2-767a-3f21-9f90-13c13634d183",
+      "estrato": "Caatinga",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3311,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0905,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3598,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "9bd3217c-bb03-3ddc-a499-d95023c45cea",
+      "estrato": "Caatinga",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.323,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0768,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3441,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "6d7c65d5-c82e-3f68-815d-91a9a2e07b49",
+      "estrato": "Caatinga",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3616,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.1629,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3941,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "22bc2399-f30c-39bc-acbb-290d43c5de86",
+      "estrato": "Caatinga",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.361,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0738,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3958,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "a213bb0c-233a-3eb8-a13c-075450e71aa0",
+      "estrato": "Caatinga",
+      "gabaritoN": 32,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.3451,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.1516,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.383,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "4e141556-9d89-3de1-bb7b-afc33c6a6a9a",
+      "estrato": "Caatinga",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3036,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0792,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3286,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "fa6d5cd0-ea15-3082-bb18-5149e012b60c",
+      "estrato": "Caatinga",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4479,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1141,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4965,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "3cdd9e7e-91c6-3043-b89a-809756ae03c4",
+      "estrato": "Caatinga",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3612,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0741,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3982,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "2a562fd1-1466-35f5-ab9a-5d5b1a21024e",
+      "estrato": "Caatinga",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.302,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0768,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3257,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "bb788689-436b-3d6c-a5fa-a5a11930e2e1",
+      "estrato": "Caatinga",
+      "gabaritoN": 2,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.3477,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.1154,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.375,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "c2387b3b-e849-3564-8ccd-e3216ff5ead9",
+      "estrato": "Caatinga",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3229,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0766,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3589,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "e7b78481-063a-315d-9dee-3496a1baf55c",
+      "estrato": "Caatinga",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3407,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0748,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3669,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "aef75e03-6489-3d60-b7ec-8720510d8b1e",
+      "estrato": "Caatinga",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3979,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1874,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4315,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "8cba4137-0157-3a88-b4b9-21d1127e2a8d",
+      "estrato": "Caatinga",
+      "gabaritoN": 5,
+      "gabarito": "ALTO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.3625,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.1643,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.395,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "ab456453-18c1-360b-9a38-e32c43860612",
+      "estrato": "Caatinga",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3136,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0942,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3399,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "ac57bc47-3600-3073-bff2-47799e76199e",
+      "estrato": "Caatinga",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.33,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0888,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3496,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "09afad90-cd29-32d8-b225-60fa14995736",
+      "estrato": "Caatinga",
+      "gabaritoN": 8,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.402,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.15,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4398,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "366fb259-e492-3726-bf48-f65ad0fb8f22",
+      "estrato": "Caatinga",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.4129,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.2024,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4807,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "e81e662f-ee2f-3571-bd05-5e6ca566bb92",
+      "estrato": "Caatinga",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.4953,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1819,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5504,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "8096b084-9371-31dc-8a15-2a40453fa3a1",
+      "estrato": "Caatinga",
+      "gabaritoN": 6,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.4171,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1773,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4939,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "072be46d-77f2-3465-886e-c5b65e70ef5f",
+      "estrato": "Caatinga",
+      "gabaritoN": 3,
+      "gabarito": "ALTO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.485,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1665,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5328,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "47e88326-b6b8-34c2-84c8-e93c6f7846b4",
+      "estrato": "Caatinga",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4615,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0745,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5105,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "786d3cfb-a12d-30a0-b104-3a8dec72ccea",
+      "estrato": "Caatinga",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.2706,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0747,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.2723,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "49415740-f2ab-31be-b9f8-e9c6676bd3a6",
+      "estrato": "Caatinga",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.3422,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.1085,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.393,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "d16a4b46-a682-3256-b511-b5c3efb09dec",
+      "estrato": "Caatinga",
+      "gabaritoN": 3,
+      "gabarito": "ALTO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.3365,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0986,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3648,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "f12a2de5-1b7d-3af6-8b17-c235c4a4b97f",
+      "estrato": "Caatinga",
+      "gabaritoN": 2,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.34,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0738,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3632,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "ac3e8513-0154-3409-8389-f79e9086cc6f",
+      "estrato": "Caatinga",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3619,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0752,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.385,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "11d579e1-1a2b-3069-ba38-3bd5cba80b98",
+      "estrato": "Caatinga",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4169,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1544,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4645,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "1aca6e28-4585-3e61-afb7-f58aed3bae18",
+      "estrato": "Caatinga",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3283,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0848,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3559,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "f3f6da5b-ff33-3c55-9ca7-81b9a8932f0c",
+      "estrato": "Caatinga",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3235,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0791,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3371,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "1da0b79d-d781-343f-99b0-f8e6343d3452",
+      "estrato": "Caatinga",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3541,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.1234,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3919,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "b7918a72-3208-36f3-90cd-e571a22b4a0c",
+      "estrato": "Caatinga",
+      "gabaritoN": 19,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.321,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0738,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3518,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "5e49e7bd-99b8-3bcf-b1c5-35672578b684",
+      "estrato": "Caatinga",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3979,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1558,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4305,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "b93d0a00-692a-39a3-abb7-3d8df329177d",
+      "estrato": "Caatinga",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3215,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0761,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3317,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "baa64325-58fb-3e15-87e3-d1dd265c2f8d",
+      "estrato": "Caatinga",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3929,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1784,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4372,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "eff2bd70-33f3-39b8-a86e-d4e6719b6d9c",
+      "estrato": "Caatinga",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3228,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.1497,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3257,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "3f169e38-f96a-3220-aa0c-b96801466d19",
+      "estrato": "Cerrado",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3954,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1763,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4307,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "3f3d4fed-d2a6-3dd3-bda1-39dd43b55587",
+      "estrato": "Cerrado",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.3308,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0899,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3399,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "60cf0780-cfa1-38ab-ab21-db0ea7aabe31",
+      "estrato": "Cerrado",
+      "gabaritoN": 11,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.3996,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1197,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4446,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "dee5db26-2f8e-3ab0-bca1-3517b2a806cc",
+      "estrato": "Cerrado",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4141,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1234,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4475,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "5bdc0d5b-d389-32e8-9c94-b647d37518ae",
+      "estrato": "Cerrado",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.3943,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0938,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4286,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "b1efa5b8-cb58-38b0-b20a-c781a4aa5434",
+      "estrato": "Cerrado",
+      "gabaritoN": 2,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.3665,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.1121,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3952,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "e88550a2-e692-31cf-8425-57d6f8c2345c",
+      "estrato": "Cerrado",
+      "gabaritoN": 22,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.409,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0738,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4513,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "65da5d2f-15b0-34ed-a351-b12f986b229f",
+      "estrato": "Cerrado",
+      "gabaritoN": 4,
+      "gabarito": "ALTO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.4658,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1527,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4919,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "c1ca1e65-62f7-3418-aec4-b0cdf76af9f8",
+      "estrato": "Cerrado",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3412,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0741,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3476,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "f6841d6d-66a0-31c9-8cf2-cfb16eb81f78",
+      "estrato": "Cerrado",
+      "gabaritoN": 17,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.3557,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0958,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3854,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "d255a1c0-6e8c-35ab-82c1-2035185597f5",
+      "estrato": "Cerrado",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.5222,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.1623,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5714,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "e89db8ca-de6f-317b-a28c-96fa5d577520",
+      "estrato": "Cerrado",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4539,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0931,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4882,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "5c228cff-8f76-3581-bd38-0efa773ec4c6",
+      "estrato": "Cerrado",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3612,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0741,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3696,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "249856f5-9cc3-3da1-84d4-a5907a9387e5",
+      "estrato": "Cerrado",
+      "gabaritoN": 7,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.4141,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1801,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4493,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "8cb6a7c3-1ce8-3bad-8238-698fe6818d81",
+      "estrato": "Cerrado",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4371,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.113,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4735,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "85f33524-5296-3ac3-b50a-5e3b22aa5985",
+      "estrato": "Cerrado",
+      "gabaritoN": 11,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.4161,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0845,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4556,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "a1265f07-2031-3fb5-a5d5-98eea1ea8ac9",
+      "estrato": "Cerrado",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.3336,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0943,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3452,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "06127001-f98b-304f-b7de-1b492753381c",
+      "estrato": "Cerrado",
+      "gabaritoN": 5,
+      "gabarito": "ALTO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.5207,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.19,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5665,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "0a98e07a-ce70-3def-924c-af5333e5afb9",
+      "estrato": "Cerrado",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3963,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0968,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4264,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "07c8cc42-632f-3dba-bbd7-ecdf3f757fa0",
+      "estrato": "Cerrado",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.32,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0739,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3122,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "75d9cf78-4bd6-3877-8502-2e0ebd52ff9d",
+      "estrato": "Cerrado",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.5047,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.1093,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.549,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "13aa0e9e-65c8-3d03-8b62-b317ed5fd4a2",
+      "estrato": "Cerrado",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3985,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1001,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4316,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "1a3c3718-07ab-3873-a196-f413e63ff46c",
+      "estrato": "Cerrado",
+      "gabaritoN": 18,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.4688,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0856,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5013,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "98994f36-0961-3000-97e6-24dabf843707",
+      "estrato": "Cerrado",
+      "gabaritoN": 11,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.3995,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1195,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4445,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "5522f7d1-e4a7-3cf1-918a-93d1bab88d0d",
+      "estrato": "Cerrado",
+      "gabaritoN": 16,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.3558,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0989,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3963,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "f675588f-39f0-303b-8d1a-8b800265cacd",
+      "estrato": "Cerrado",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3656,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.1107,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3943,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "bbcba4c9-f236-3c04-9016-0404c25c8493",
+      "estrato": "Cerrado",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.409,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1158,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.442,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "cbfda14b-5789-362e-a557-2e35658e346f",
+      "estrato": "Cerrado",
+      "gabaritoN": 3,
+      "gabarito": "ALTO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.5381,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.2087,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.6177,
+      "nivelLinhaBase": "CRITICO"
+    },
+    {
+      "id": "40e3cdee-1a72-3a84-8b05-9c0de13356b9",
+      "estrato": "Cerrado",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3835,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0955,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4246,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "d7b13f47-6acf-383b-ba8d-1e705ecb7a5c",
+      "estrato": "Cerrado",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3895,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.1747,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4105,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "62002a2b-ac58-3935-a34e-5ad19241128b",
+      "estrato": "Cerrado",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3619,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0767,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3662,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "a0a309e8-15ca-33f7-8d27-2c6f3cfccc28",
+      "estrato": "Cerrado",
+      "gabaritoN": 2,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.4622,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1055,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5023,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "6c7f6a9d-2d0a-3a1a-a04f-7fdda43cebec",
+      "estrato": "Cerrado",
+      "gabaritoN": 10,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.3485,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.1165,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3647,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "aaaff7ff-0eff-361b-9647-65dfa2d463d8",
+      "estrato": "Cerrado",
+      "gabaritoN": 11,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.368,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.1801,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.406,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "616c4f58-7223-35b1-b00e-bed43d960ac4",
+      "estrato": "Cerrado",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.5487,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.1947,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.6247,
+      "nivelLinhaBase": "CRITICO"
+    },
+    {
+      "id": "c040c8e7-289f-3ebb-9b20-0a2c011ec706",
+      "estrato": "Cerrado",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3624,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0774,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3822,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "e7f021ed-c37d-3095-a96c-3a826ec327f1",
+      "estrato": "Cerrado",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4342,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1817,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4614,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "3870df6c-f70b-363a-aab4-ec2c23c9bbc8",
+      "estrato": "Cerrado",
+      "gabaritoN": 5,
+      "gabarito": "ALTO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.3301,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.1024,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3592,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "5edcb201-3cf4-3cf2-8f70-af96d0f1dbdf",
+      "estrato": "Cerrado",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4182,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.2105,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4743,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "82a12a42-4aa2-3a86-a61a-4ef418aa31dd",
+      "estrato": "Cerrado",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.4005,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.103,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4394,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "96c66b10-3acb-3de8-91a1-25c03f901af0",
+      "estrato": "Cerrado",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.364,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0798,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3715,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "114c134f-d171-3cbc-aa58-a6085624556b",
+      "estrato": "Cerrado",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3279,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0991,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3522,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "957db90c-3926-39f2-b227-d659264d74ad",
+      "estrato": "Cerrado",
+      "gabaritoN": 5,
+      "gabarito": "ALTO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.3728,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.1497,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3886,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "b2f2e894-ca40-32a2-ae11-45f0f3c9a494",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 2,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.5362,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.0967,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5595,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "45273ee6-55f9-3e37-9749-67fb9a9fe4f3",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4397,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1019,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4579,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "5b77f9f5-e703-30c2-b264-3d727f15302c",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.4698,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.2052,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4786,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "fc333946-09e0-3f48-9cfe-4e9c1a104891",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4073,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0833,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4096,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "7a614238-c697-3197-97d7-bb8be4955383",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4206,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1032,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4404,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "f16be80d-3d94-3517-a188-1e492d81958a",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.3962,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0981,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.395,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "f52699d2-745d-3c95-980a-681ffa0c8cb7",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4378,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0991,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4521,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "e10769e4-2925-382f-b54d-a31075e6b7bd",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.401,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0753,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3852,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "fbb47985-a8ae-31e8-a6a1-f68740ad73a0",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.421,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0738,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4113,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "a8456eb1-eea7-3958-9423-312e536c251a",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4219,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0752,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4182,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "5a41e0fc-5ee2-3bb1-89d1-deaba90abcea",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.44,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1023,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.459,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "6d9475b9-4f7e-3809-a94c-09eba1450b4c",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4556,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0837,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4882,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "0d654779-f79d-3ea1-a622-968b7d2e1726",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.395,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0963,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3924,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "c81591b1-2d80-33e6-ac42-13f13adea25b",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4235,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0775,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4234,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "b632a2ac-b9bf-364a-9d6a-9959357e0c2f",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3602,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0742,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3539,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "6860747e-133c-3004-b803-16e1e8104fce",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.4234,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0773,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.423,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "77b32a68-3948-3890-b2d2-10b78ca58fc0",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4173,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0998,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.42,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "238ae38a-6cd1-363a-bd3c-04477bebd19f",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4405,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1031,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.462,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "f887f055-8935-374e-bedf-d302d6be4811",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4825,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1628,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4951,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "b413fefd-341a-3b83-acce-d21821ad479f",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.5169,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.1723,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5514,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "ec7d646d-d9a3-304c-a473-aa10d6be32ed",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 3,
+      "gabarito": "ALTO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.4429,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0947,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4736,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "de29f0c2-e94e-32ae-a35a-685a9075276e",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4718,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1767,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4919,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "9fec016e-6f88-351f-8da9-516abb0bd6ee",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4823,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1504,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4971,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "b7b8e4c6-1896-344d-a468-fe9df3368006",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.4129,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1498,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3934,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "56296977-8118-3cc1-bc6c-723050840359",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4193,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1027,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4269,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "3b632858-b947-3c9e-87c6-d3de8cb46f51",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.3801,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0739,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3569,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "e2bbcdf0-6a34-3a34-b190-9eae253fb023",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.471,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1754,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4895,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "4099ef04-4ae0-35b9-a7a9-4676db0f761d",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4662,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1296,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4979,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "0ccc9756-4e9a-392c-8aff-7339af1fc50f",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4405,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.103,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4614,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "dbee15e6-44d8-3acf-85a8-3399e6c09e03",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4536,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1226,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.469,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "cf3c95d0-32de-3b21-955f-5412c5ad36ea",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.44,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1023,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.459,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "6f852301-43d1-35fc-a63f-78a3d0a5619e",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4404,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1029,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4611,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "9369c03f-fb88-311f-8ddc-c3654045239a",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3515,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0746,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3385,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "5829523f-f086-3d63-b46e-7428c8566576",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4174,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.13,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4206,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "c84a11e4-936c-350e-b4f5-9698097c4020",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4019,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0767,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3884,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "74fd8f57-22eb-33ff-a640-1bb5b6dc7e6f",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4535,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1225,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4689,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "7becb02e-f1cc-396a-9e2e-22684c27d183",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 3,
+      "gabarito": "ALTO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.3842,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0801,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3719,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "80d030f3-4143-3f71-b754-64ff610940d6",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.385,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0813,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3736,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "41954de2-cc2c-3507-84c9-f8414682c303",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4193,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1027,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.427,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "1e3108a6-b19b-3519-93d3-34992d2d0bec",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4007,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0748,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3838,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "373b31b8-eaf6-324c-8def-023d316a1ddd",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 2,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.4019,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0766,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3882,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "0ca1af22-492b-3152-84d1-3b55c730c804",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4278,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.084,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4327,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "b5044535-59f9-320e-9df8-c14c5b038282",
+      "estrato": "Mata Atlântica",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4338,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0931,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4437,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "509a3fe0-a5a0-356a-b615-b6e76d340e04",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3104,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0894,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3479,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "ee23bd05-5b66-3ef9-ac00-648e37cdd11d",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3058,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0825,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3307,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "214efad9-5b2d-3b02-9337-e43ef42fbfbc",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3741,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.1502,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4074,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "15e385ad-a346-3441-8505-8a961488529c",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.322,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.1069,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3587,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "f5aec249-015b-36e5-813c-3a1e6f8d9f66",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3885,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.1717,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4394,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "98d037ca-528b-3e44-8339-af1be416662a",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3003,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0743,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3152,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "7878801d-47d8-3c7a-87f3-01a7bb0bcdd8",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3248,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0795,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3734,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "42146f19-62b9-38a4-ba8a-c9e973c47be0",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3008,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.075,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3176,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "9da70f72-7874-38e6-892f-4f351f589ba9",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3312,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.1206,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3675,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "063043fc-21a4-3395-918a-f6cf34cccdb6",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3224,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0759,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3534,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "a4e0f094-516d-32af-8cd2-355d67c0f161",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3053,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0817,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3297,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "0db284df-5918-3285-8141-8bfd0476b31c",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.377,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.1546,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4175,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "afa145c4-cc83-3e10-a64f-435c5b24c4a8",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.337,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0979,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3866,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "42df6725-c15c-3996-a874-57a3623e7732",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.318,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.1008,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.355,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "438c39a8-101f-37ff-ba26-177d9e0d3951",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.377,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.1546,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4175,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "aa85cf15-6dc1-387f-ab5e-6cbafc5914ce",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3132,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0936,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3507,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "fd17cd1a-22c9-3546-b6fa-f1016407c110",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3223,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.1072,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3589,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "15b15660-a1fd-3cf4-8b90-d1871135dc48",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3992,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1804,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4731,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "403cbb1a-cece-36f7-bbbb-f2a7bdf01528",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3025,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0775,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3233,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "deae9f12-e9e2-3205-91f3-3ef7ba415628",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3217,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.1063,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3584,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "f5e721d3-8a20-3526-8f23-05cb6cd5926a",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3201,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0739,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3346,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "e973d213-8c57-333a-8224-1f17af5dac5f",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3003,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0743,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3152,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "fcecf348-bf7e-37c4-b0d8-78e9ceb40020",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3104,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0894,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3479,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "f2fa3f4e-ebb9-3f86-bf38-0b0b79e776ae",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3248,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0795,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3734,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "8c647a82-1333-3863-999c-6b6e96b98302",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.301,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0753,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3185,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "9612ac0c-2959-3e10-b86b-5c81cb6d79c5",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3098,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0885,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3473,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "665dfc29-8018-30f6-9771-9e8d4bd1b336",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3533,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.1223,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4021,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "56f0c50c-1eef-3a6e-8c57-362befd7a495",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.303,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0783,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3247,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "f7d747d8-29d8-3041-9fe7-4fcb7bbc1e63",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3024,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0775,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3378,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "b911c3d1-457c-35ca-b117-21a001224479",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3219,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0751,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3514,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "cef05424-f62c-3531-99d7-6d8f13c09a74",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3159,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0977,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3532,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "978d63e8-e015-3ac8-a259-394dd3d70344",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3675,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.1717,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4061,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "ed91f4f9-28b1-3407-baef-c10008f6a426",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.305,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0813,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3292,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "deda1675-f80b-3e06-9ffe-6a78f2dc9d0f",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3741,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.1502,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4074,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "5bec0097-ed73-348a-88d3-efe79f74fc55",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3371,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0979,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3867,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "ffe36ae4-5bdd-3c81-92fc-6173bd02c860",
+      "estrato": "Pampa",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3202,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.074,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3359,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "688c7e60-0087-316c-8a58-67deedcd88ac",
+      "estrato": "Pantanal",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.4161,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.098,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4059,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "0387915f-b617-3293-be1b-982638f9de61",
+      "estrato": "Pantanal",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.5774,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.185,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5967,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "2e5ba122-d2b3-3c8a-a4ad-b9f330268aac",
+      "estrato": "Pantanal",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4895,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.2048,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4892,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "04d2fea2-e243-32c0-9e80-771eea43fcb3",
+      "estrato": "Pantanal",
+      "gabaritoN": 3,
+      "gabarito": "ALTO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.5257,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.1109,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5389,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "8729cf67-dfce-36f7-96c4-fab85f18460a",
+      "estrato": "Pantanal",
+      "gabaritoN": 9,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.4558,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.096,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4586,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "35121037-a935-3fbf-9c4f-9e4758d85db1",
+      "estrato": "Pantanal",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4834,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1641,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4856,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "61798e98-b1c2-3f7f-ab9e-fc17bf5d0ab5",
+      "estrato": "Pantanal",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4218,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0766,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3993,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "251dc98c-13fb-3513-a176-424771a3f26e",
+      "estrato": "Pantanal",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.457,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0978,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4644,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "917031d6-48cb-381b-b3f0-5149bad04978",
+      "estrato": "Pantanal",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.5259,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.1112,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5391,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "158733a1-98c8-30cb-9929-6ab9f4fc3590",
+      "estrato": "Pantanal",
+      "gabaritoN": 3,
+      "gabarito": "ALTO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.4697,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1501,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4749,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "4b5d27bd-d9dd-36f1-890d-a336c1258bd1",
+      "estrato": "Pantanal",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.457,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0978,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4643,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "51ff1f18-c057-3770-b64a-68f5c5b0183b",
+      "estrato": "Pantanal",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.3899,
+      "nivelIrsV2": "BAIXO",
+      "irsV1": 0.0887,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3807,
+      "nivelLinhaBase": "BAIXO"
+    },
+    {
+      "id": "b746fa01-71d6-3f62-aca6-c48eb88516a1",
+      "estrato": "Pantanal",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4461,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0815,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4406,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "89572fa6-9329-3669-898b-858c28936330",
+      "estrato": "Pantanal",
+      "gabaritoN": 10,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.4327,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0914,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4305,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "bbc72e25-d419-34db-b94b-8a95ffa713c8",
+      "estrato": "Pantanal",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.5113,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.1759,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5246,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "c3d8fd9b-d2e6-3c7c-a8ff-89282652b66b",
+      "estrato": "Pantanal",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.4638,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1261,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.483,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "880bd163-58ee-3c93-9561-e045f0ab228e",
+      "estrato": "Pantanal",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.586,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.168,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.6013,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "f439388e-7e80-3a1d-b2e8-3afd567ed1a9",
+      "estrato": "Pantanal",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.5112,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.1758,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5245,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "fa02a9e2-735c-35fc-be9b-94f86c7977cd",
+      "estrato": "Pantanal",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.5333,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.1222,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5465,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "8205595b-db96-37fa-ae13-b8fde3f80a76",
+      "estrato": "Pantanal",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.5795,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.1882,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5987,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "66465055-33da-3d23-b2f6-b1bdd2c8a9a3",
+      "estrato": "Pantanal",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4446,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1092,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.449,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "877052c5-3c49-3b43-a493-fd8cda69926b",
+      "estrato": "Pantanal",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.448,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0843,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4442,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "c38056fe-164b-30ca-af2d-b87dc4ae9cd5",
+      "estrato": "Pantanal",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.586,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.168,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.6013,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "74325f90-0579-34e3-963b-00956ba18980",
+      "estrato": "Pantanal",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4313,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0772,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4339,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "d1284e27-649b-3c97-b00b-21c9d2918bdc",
+      "estrato": "Pantanal",
+      "gabaritoN": 6,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.4208,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1049,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4131,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "8c50a9ad-3fa8-3d20-8317-e0075bac4867",
+      "estrato": "Pantanal",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.4336,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0928,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.439,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "a39427bb-50a0-36c5-8c7c-33fb4b0bd8cb",
+      "estrato": "Pantanal",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4895,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.2048,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4892,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "b9fd4f9c-6d72-3b53-a57e-e1d33ac16c7b",
+      "estrato": "Pantanal",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4384,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0879,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4486,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "395b9aae-0575-38c5-9653-b077def7e68a",
+      "estrato": "Pantanal",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4585,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4657,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "e8e52ccb-3126-3673-8641-2e951fe13e8e",
+      "estrato": "Pantanal",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.448,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0844,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4443,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "b063ed22-c7c9-3d7b-99fd-253aa169ee38",
+      "estrato": "Pantanal",
+      "gabaritoN": 7,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.4271,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0845,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4111,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "b016f993-57ef-3a46-9879-0a6d767b0bfd",
+      "estrato": "Pantanal",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.4137,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0943,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4008,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "46fa3a38-4dd3-3b18-a7d8-2460dc2893c5",
+      "estrato": "Pantanal",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4313,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0908,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4186,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "731bcb44-09b3-3a5b-92e8-5c3cf3d41827",
+      "estrato": "Pantanal",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4214,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0759,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.3978,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "e1f220de-fee9-3f12-920e-62f2d3121f0e",
+      "estrato": "Pantanal",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4585,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4657,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "b6f7dfc1-6bc9-3085-8601-d7af5c104fce",
+      "estrato": "Pantanal",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.445,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.1098,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4493,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "73100a2f-5536-3887-8415-461038183f8e",
+      "estrato": "Pantanal",
+      "gabaritoN": 2,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.452,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0904,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4515,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "1d0b9f22-8dba-3443-8618-9bffaa45baa6",
+      "estrato": "Pantanal",
+      "gabaritoN": 12,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.4139,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0946,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4012,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "742b055a-dda2-3484-8515-ecaf50c60f3a",
+      "estrato": "Pantanal",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4384,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.0879,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4486,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "04ac65ae-07be-3133-beff-db5ece683f11",
+      "estrato": "Pantanal",
+      "gabaritoN": 2,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.5344,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.1239,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5479,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "bd9daba5-bc61-33c7-b1bf-0f3a90f44f28",
+      "estrato": "Pantanal",
+      "gabaritoN": 2,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.5344,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.1239,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5479,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "18b4c22e-e90f-3a0d-a233-8b5e48824045",
+      "estrato": "Pantanal",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.578,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.186,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5973,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "a11fbfe0-d7a0-348d-8d57-d91df8d0b6df",
+      "estrato": "Pantanal",
+      "gabaritoN": 4,
+      "gabarito": "ALTO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.5016,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.0747,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4947,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "92dd05a9-9ca4-300d-8cd2-6b320a9b5f03",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.5793,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.3968,
+      "nivelIrsV1": "MODERADO",
+      "linhaBase": 0.6699,
+      "nivelLinhaBase": "CRITICO"
+    },
+    {
+      "id": "692a24d6-80ec-3f6e-bda6-44b076a9ccda",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.6042,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.4135,
+      "nivelIrsV1": "MODERADO",
+      "linhaBase": 0.6517,
+      "nivelLinhaBase": "CRITICO"
+    },
+    {
+      "id": "6a6d5190-2c05-31b6-a6d0-ececad0facae",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.5451,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.358,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.582,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "cd9ffd33-0c5e-3f5e-ac42-f4664004f6e8",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.5808,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.3637,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.6026,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "77b07a27-1c53-3b4b-9fa6-aed543dcb7ee",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.6348,
+      "nivelIrsV2": "CRITICO",
+      "irsV1": 0.4112,
+      "nivelIrsV1": "MODERADO",
+      "linhaBase": 0.6076,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "54b22ba1-3d54-34c5-9b0f-35ee8777079f",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.6225,
+      "nivelIrsV2": "CRITICO",
+      "irsV1": 0.3363,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.6591,
+      "nivelLinhaBase": "CRITICO"
+    },
+    {
+      "id": "ac27e241-a76c-3685-aad3-ca79358e853b",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.5885,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.3471,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.6134,
+      "nivelLinhaBase": "CRITICO"
+    },
+    {
+      "id": "32dcbdb0-96c2-3968-95f7-dd8517707044",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 8,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.5926,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.3515,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.6028,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "636f2db3-d366-3a40-81be-64fb385c2179",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.5839,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.3381,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.562,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "a2a6ff5f-99df-3ef4-a72a-22fc7021659f",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 11,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.649,
+      "nivelIrsV2": "CRITICO",
+      "irsV1": 0.4327,
+      "nivelIrsV1": "MODERADO",
+      "linhaBase": 0.6643,
+      "nivelLinhaBase": "CRITICO"
+    },
+    {
+      "id": "98981fd1-47ee-3369-80bf-2ea430309f86",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 2,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.6411,
+      "nivelIrsV2": "CRITICO",
+      "irsV1": 0.3701,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.7254,
+      "nivelLinhaBase": "CRITICO"
+    },
+    {
+      "id": "428c5144-6d80-3533-9255-489856770018",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.5545,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.3421,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.6019,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "23502ed8-23f7-307a-806b-37b737a6b51a",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 1,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.5812,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.3342,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5531,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "18636f2f-8ab4-33db-a6fd-c0a4671778ea",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.5684,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.3453,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5982,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "e03817d3-5903-30d3-8117-915d49167f66",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.5848,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.3397,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5829,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "3d86f1db-adc2-3c6d-9213-9f04279300ef",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.6207,
+      "nivelIrsV2": "CRITICO",
+      "irsV1": 0.4383,
+      "nivelIrsV1": "MODERADO",
+      "linhaBase": 0.6871,
+      "nivelLinhaBase": "CRITICO"
+    },
+    {
+      "id": "ac1f191a-92f2-34e5-91d1-f9b59a56e329",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.6629,
+      "nivelIrsV2": "CRITICO",
+      "irsV1": 0.4786,
+      "nivelIrsV1": "MODERADO",
+      "linhaBase": 0.7074,
+      "nivelLinhaBase": "CRITICO"
+    },
+    {
+      "id": "ea2e8017-b9b4-3389-ada0-0c656956c889",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 13,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.5959,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.3563,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.6037,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "f890531d-a762-3968-9efe-75563ebd995d",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.5817,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.3357,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5856,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "3d8d142a-5dc3-3499-bf52-0c80d2b833b9",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.6383,
+      "nivelIrsV2": "CRITICO",
+      "irsV1": 0.3606,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.7025,
+      "nivelLinhaBase": "CRITICO"
+    },
+    {
+      "id": "a5599cd9-0252-3ec1-95fb-7b2d464a19f3",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.594,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.3534,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5941,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "513e3a85-64da-3795-9431-0fb77530472c",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.5081,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.3445,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5203,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "ed37f94c-17cc-3727-b192-6b3dac38ab6e",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 3,
+      "gabarito": "ALTO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.5988,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.3607,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.6145,
+      "nivelLinhaBase": "CRITICO"
+    },
+    {
+      "id": "84dafb25-49c2-3ac7-9c76-05a1aa5c1ad4",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.5937,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.3531,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.6021,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "8305288d-4779-3250-bf61-0ba510f4a927",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 3,
+      "gabarito": "ALTO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.6711,
+      "nivelIrsV2": "CRITICO",
+      "irsV1": 0.4237,
+      "nivelIrsV1": "MODERADO",
+      "linhaBase": 0.6847,
+      "nivelLinhaBase": "CRITICO"
+    },
+    {
+      "id": "00b1e9c2-8342-3774-ad7c-2adc2c17e0e5",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.6682,
+      "nivelIrsV2": "CRITICO",
+      "irsV1": 0.4541,
+      "nivelIrsV1": "MODERADO",
+      "linhaBase": 0.7046,
+      "nivelLinhaBase": "CRITICO"
+    },
+    {
+      "id": "d82536ea-212f-346f-99a8-d9e50d0e5c76",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.5362,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.3889,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.6097,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "40bf7b29-7866-35f4-b241-ed90871e952a",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 2,
+      "gabarito": "MODERADO",
+      "gabaritoQuartis": "ALTO",
+      "irsV2": 0.5784,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.3599,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5655,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "085e2f16-a5b9-35f5-ac5e-065def5e186a",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4662,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.3417,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4986,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "7fd61358-fc1e-37b7-854f-8652d95d4b57",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.5588,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.3486,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5903,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "1b2c4072-9ad3-3936-b471-3c6952e0616e",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 10,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.6491,
+      "nivelIrsV2": "CRITICO",
+      "irsV1": 0.4329,
+      "nivelIrsV1": "MODERADO",
+      "linhaBase": 0.6653,
+      "nivelLinhaBase": "CRITICO"
+    },
+    {
+      "id": "8fac9bd1-8c82-3e11-9992-082bea3aebf1",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.601,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.4742,
+      "nivelIrsV1": "MODERADO",
+      "linhaBase": 0.672,
+      "nivelLinhaBase": "CRITICO"
+    },
+    {
+      "id": "f410ab1d-bc5d-34e6-a336-2012f0c292d3",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.6184,
+      "nivelIrsV2": "CRITICO",
+      "irsV1": 0.3479,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.6254,
+      "nivelLinhaBase": "CRITICO"
+    },
+    {
+      "id": "f0fc6392-6b91-357c-a9aa-072d01c10360",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 22,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.5942,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.3538,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5989,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "6ddab2de-490b-3f15-83a9-faf701077bf8",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 3,
+      "gabarito": "ALTO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.6479,
+      "nivelIrsV2": "CRITICO",
+      "irsV1": 0.4309,
+      "nivelIrsV1": "MODERADO",
+      "linhaBase": 0.6571,
+      "nivelLinhaBase": "CRITICO"
+    },
+    {
+      "id": "4e875501-2b30-39d4-bf72-d5c0bc4c7a94",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.4611,
+      "nivelIrsV2": "MODERADO",
+      "irsV1": 0.334,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.4776,
+      "nivelLinhaBase": "MODERADO"
+    },
+    {
+      "id": "c11818aa-4e1c-34c8-84be-49ae0411cb28",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 3,
+      "gabarito": "ALTO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.5656,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.3725,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.6461,
+      "nivelLinhaBase": "CRITICO"
+    },
+    {
+      "id": "c7d82849-35e6-3456-81a4-c2cbf3a026f7",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.5787,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.3604,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5785,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "8e2e61e5-3df8-38e1-ab30-3da52a26965c",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.616,
+      "nivelIrsV2": "CRITICO",
+      "irsV1": 0.3443,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.6001,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "cff8188e-49aa-38e4-af3c-55c87a9362bb",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.5918,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.3503,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.6017,
+      "nivelLinhaBase": "ALTO"
+    },
+    {
+      "id": "678911ce-9c74-37f5-874a-627e9e272dbb",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 9,
+      "gabarito": "CRITICO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.6736,
+      "nivelIrsV2": "CRITICO",
+      "irsV1": 0.4622,
+      "nivelIrsV1": "MODERADO",
+      "linhaBase": 0.7252,
+      "nivelLinhaBase": "CRITICO"
+    },
+    {
+      "id": "f6e1beb7-7e4b-333d-9616-a1fe94eddbf9",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 0,
+      "gabarito": "BAIXO",
+      "gabaritoQuartis": "BAIXO",
+      "irsV2": 0.6053,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.3586,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.6447,
+      "nivelLinhaBase": "CRITICO"
+    },
+    {
+      "id": "d3b94bab-3975-3e96-9e40-ad2faecf7520",
+      "estrato": "Urbano (≤ 50 km de uma das 10 cidades)",
+      "gabaritoN": 3,
+      "gabarito": "ALTO",
+      "gabaritoQuartis": "CRITICO",
+      "irsV2": 0.5293,
+      "nivelIrsV2": "ALTO",
+      "irsV1": 0.3346,
+      "nivelIrsV1": "BAIXO",
+      "linhaBase": 0.5748,
+      "nivelLinhaBase": "ALTO"
+    }
+  ]
+}

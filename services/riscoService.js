@@ -382,10 +382,12 @@ function resolverRelevancia(alerta, geodados) {
 //     sem ele (ou com campos ausentes), cada critério ambiental cai para
 //     o campo informado no alerta e, por fim, para o valor padrão — o
 //     bioma, para a lista de centróides.
+//     `pesos` é opcional e só existe para a análise de sensibilidade da
+//     validação (scripts/validacao/validar-irs.js); sem ele, valem os
+//     pesos AHP v2 de sempre.
 // ------------------------------------------------------------
-function calcularRiscoAvancadoV2(alerta, geodados = null) {
+function calcularRiscoAvancadoV2(alerta, geodados = null, pesos = PESOS_AHP_V2) {
   const { latitude, longitude, areaAfetada, vento, pessoasRisco } = alerta;
-  const pesos = PESOS_AHP_V2;
 
   // 1 a 5. Critérios herdados do v1 (mesmos fatores, pesos novos)
   const fArea = mapearArea(areaAfetada);

@@ -11,7 +11,7 @@
       "direcaoVento": 184,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -58,7 +58,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -73,7 +74,7 @@
       "direcaoVento": 322,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -120,7 +121,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -135,7 +137,7 @@
       "direcaoVento": 239,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -182,7 +184,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -197,7 +200,7 @@
       "direcaoVento": 247,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -233,7 +236,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 2,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -248,7 +252,7 @@
       "direcaoVento": 235,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -340,7 +344,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 2,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -355,7 +360,7 @@
       "direcaoVento": 202,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -457,7 +462,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 11,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -472,7 +478,7 @@
       "direcaoVento": 274,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -524,7 +530,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 36,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -539,7 +546,7 @@
       "direcaoVento": 236,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -616,7 +623,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 14,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -631,7 +639,7 @@
       "direcaoVento": 244,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -678,7 +686,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 2,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -693,7 +702,7 @@
       "direcaoVento": 283,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -830,7 +839,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 26,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -845,7 +855,7 @@
       "direcaoVento": 246,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 3,
+      "dA_dt": 2,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -892,7 +902,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -907,7 +918,7 @@
       "direcaoVento": 326,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -959,7 +970,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 5,
-      "nivel": "CRITICO"
+      "nivel": "ALTO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -974,7 +986,7 @@
       "direcaoVento": 134,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -1096,7 +1108,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 4,
-      "nivel": "CRITICO"
+      "nivel": "ALTO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -1111,7 +1124,7 @@
       "direcaoVento": 216,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -1188,7 +1201,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -1203,7 +1217,7 @@
       "direcaoVento": 246,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -1320,7 +1334,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 5,
-      "nivel": "CRITICO"
+      "nivel": "ALTO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -1335,7 +1350,7 @@
       "direcaoVento": 236,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -1377,7 +1392,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -1392,7 +1408,7 @@
       "direcaoVento": 236,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -1458,7 +1474,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 2,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -1473,7 +1490,7 @@
       "direcaoVento": 29,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -1555,7 +1572,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -1570,7 +1588,7 @@
       "direcaoVento": 248,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -1612,7 +1630,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -1627,7 +1646,7 @@
       "direcaoVento": 245,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -1716,7 +1735,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 3,
-      "nivel": "CRITICO"
+      "nivel": "ALTO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -1731,7 +1751,7 @@
       "direcaoVento": 274,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -1868,7 +1888,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 40,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -1883,7 +1904,7 @@
       "direcaoVento": 233,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -2020,7 +2041,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 2,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -2035,7 +2057,7 @@
       "direcaoVento": 236,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -2087,7 +2109,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -2102,7 +2125,7 @@
       "direcaoVento": 170,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -2149,7 +2172,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 4,
-      "nivel": "CRITICO"
+      "nivel": "ALTO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -2164,7 +2188,7 @@
       "direcaoVento": 193,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -2281,7 +2305,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 2,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -2296,7 +2321,7 @@
       "direcaoVento": 285,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -2428,7 +2453,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -2443,7 +2469,7 @@
       "direcaoVento": 240,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -2520,7 +2546,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 8,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -2535,7 +2562,7 @@
       "direcaoVento": 231,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -2646,7 +2673,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -2661,7 +2689,7 @@
       "direcaoVento": 317,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -2713,7 +2741,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -2728,7 +2757,7 @@
       "direcaoVento": 238,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -2829,7 +2858,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -2930,7 +2960,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -2945,7 +2976,7 @@
       "direcaoVento": 31,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -3002,7 +3033,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -3017,7 +3049,7 @@
       "direcaoVento": 237,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -3128,7 +3160,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 5,
-      "nivel": "CRITICO"
+      "nivel": "ALTO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -3143,7 +3176,7 @@
       "direcaoVento": 288,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -3195,7 +3228,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -3210,7 +3244,7 @@
       "direcaoVento": 231,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -3267,7 +3301,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -3282,7 +3317,7 @@
       "direcaoVento": 232,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -3419,7 +3454,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -3434,7 +3470,7 @@
       "direcaoVento": 342,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -3476,7 +3512,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -3491,7 +3528,7 @@
       "direcaoVento": 238,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -3628,7 +3665,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 21,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -3643,7 +3681,7 @@
       "direcaoVento": 311,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -3725,7 +3763,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 10,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -3740,7 +3779,7 @@
       "direcaoVento": 196,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -3852,7 +3891,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -3867,7 +3907,7 @@
       "direcaoVento": 343,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -3939,7 +3979,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -3954,7 +3995,7 @@
       "direcaoVento": 256,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -4071,7 +4112,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 7,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -4086,7 +4128,7 @@
       "direcaoVento": 212,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -4143,7 +4185,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 6,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -4158,7 +4201,7 @@
       "direcaoVento": 273,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -4250,7 +4293,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -4265,7 +4309,7 @@
       "direcaoVento": 320,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 3,
+      "dA_dt": 2,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -4352,7 +4396,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -4367,7 +4412,7 @@
       "direcaoVento": 306,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -4411,7 +4456,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 23,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -4426,7 +4472,7 @@
       "direcaoVento": 312,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -4470,7 +4516,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -4485,7 +4532,7 @@
       "direcaoVento": 279,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -4527,7 +4574,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -4542,7 +4590,7 @@
       "direcaoVento": 300,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -4581,7 +4629,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -4596,7 +4645,7 @@
       "direcaoVento": 326,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -4688,7 +4737,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -4703,7 +4753,7 @@
       "direcaoVento": 296,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -4747,7 +4797,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -4762,7 +4813,7 @@
       "direcaoVento": 267,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -4804,7 +4855,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -4819,7 +4871,7 @@
       "direcaoVento": 278,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -4858,7 +4910,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -4873,7 +4926,7 @@
       "direcaoVento": 282,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -4975,7 +5028,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -4990,7 +5044,7 @@
       "direcaoVento": 283,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -5026,7 +5080,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 32,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -5041,7 +5096,7 @@
       "direcaoVento": 239,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -5080,7 +5135,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -5095,7 +5151,7 @@
       "direcaoVento": 320,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -5151,7 +5207,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -5166,7 +5223,7 @@
       "direcaoVento": 292,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -5258,7 +5315,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -5273,7 +5331,7 @@
       "direcaoVento": 278,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -5312,7 +5370,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -5327,7 +5386,7 @@
       "direcaoVento": 302,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -5386,7 +5445,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 2,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -5401,7 +5461,7 @@
       "direcaoVento": 304,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -5458,7 +5518,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -5473,7 +5534,7 @@
       "direcaoVento": 266,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -5567,7 +5628,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -5582,7 +5644,7 @@
       "direcaoVento": 300,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -5646,7 +5708,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -5661,7 +5724,7 @@
       "direcaoVento": 285,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -5705,7 +5768,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 5,
-      "nivel": "CRITICO"
+      "nivel": "ALTO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -5720,7 +5784,7 @@
       "direcaoVento": 307,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -5769,7 +5833,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -5784,7 +5849,7 @@
       "direcaoVento": 265,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -5853,7 +5918,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -5868,7 +5934,7 @@
       "direcaoVento": 290,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -5920,7 +5986,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 8,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -5935,7 +6002,7 @@
       "direcaoVento": 300,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 3,
+      "dA_dt": 2,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -5994,7 +6061,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -6009,7 +6077,7 @@
       "direcaoVento": 304,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -6065,7 +6133,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -6080,7 +6149,7 @@
       "direcaoVento": 287,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 3,
+      "dA_dt": 2,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -6137,7 +6206,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 6,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -6152,7 +6222,7 @@
       "direcaoVento": 303,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -6198,7 +6268,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 3,
-      "nivel": "CRITICO"
+      "nivel": "ALTO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -6213,7 +6284,7 @@
       "direcaoVento": 277,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -6294,7 +6365,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -6309,7 +6381,7 @@
       "direcaoVento": 262,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -6342,7 +6414,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -6357,7 +6430,7 @@
       "direcaoVento": 308,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -6393,7 +6466,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -6408,7 +6482,7 @@
       "direcaoVento": 307,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -6452,7 +6526,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 3,
-      "nivel": "CRITICO"
+      "nivel": "ALTO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -6467,7 +6542,7 @@
       "direcaoVento": 277,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -6576,7 +6651,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 2,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -6591,7 +6667,7 @@
       "direcaoVento": 284,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -6683,7 +6759,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -6698,7 +6775,7 @@
       "direcaoVento": 316,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -6775,7 +6852,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -6790,7 +6868,7 @@
       "direcaoVento": 278,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -6832,7 +6910,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -6847,7 +6926,7 @@
       "direcaoVento": 286,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -6901,7 +6980,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -6916,7 +6996,7 @@
       "direcaoVento": 306,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -6973,7 +7053,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -6988,7 +7069,7 @@
       "direcaoVento": 281,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -7040,7 +7121,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 19,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -7055,7 +7137,7 @@
       "direcaoVento": 299,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -7112,7 +7194,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -7127,7 +7210,7 @@
       "direcaoVento": 260,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -7166,7 +7249,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -7181,7 +7265,7 @@
       "direcaoVento": 300,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -7233,7 +7317,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -7248,7 +7333,7 @@
       "direcaoVento": 242,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -7281,7 +7366,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -7296,7 +7382,7 @@
       "direcaoVento": 226,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 3,
+      "dA_dt": 2,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -7335,7 +7421,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -7350,7 +7437,7 @@
       "direcaoVento": 267,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -7404,7 +7491,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -7419,7 +7507,7 @@
       "direcaoVento": 249,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -7461,7 +7549,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 11,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -7476,7 +7565,7 @@
       "direcaoVento": 174,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -7588,7 +7677,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -7603,7 +7693,7 @@
       "direcaoVento": 85,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -7650,7 +7740,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -7665,7 +7756,7 @@
       "direcaoVento": 261,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -7707,7 +7798,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 2,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -7722,7 +7814,7 @@
       "direcaoVento": 289,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -7819,7 +7911,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 22,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -7834,7 +7927,7 @@
       "direcaoVento": 213,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -7875,7 +7968,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 4,
-      "nivel": "CRITICO"
+      "nivel": "ALTO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -7890,7 +7984,7 @@
       "direcaoVento": 289,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -7932,7 +8026,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -7947,7 +8042,7 @@
       "direcaoVento": 252,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -7999,7 +8094,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 17,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -8014,7 +8110,7 @@
       "direcaoVento": 335,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -8076,7 +8172,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -8091,7 +8188,7 @@
       "direcaoVento": 226,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -8172,7 +8269,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -8187,7 +8285,7 @@
       "direcaoVento": 231,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -8264,7 +8362,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -8279,7 +8378,7 @@
       "direcaoVento": 279,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -8321,7 +8420,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 7,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -8336,7 +8436,7 @@
       "direcaoVento": 274,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -8376,7 +8476,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -8391,7 +8492,7 @@
       "direcaoVento": 214,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -8493,7 +8594,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 11,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -8508,7 +8610,7 @@
       "direcaoVento": 162,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -8557,7 +8659,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -8572,7 +8675,7 @@
       "direcaoVento": 266,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -8623,7 +8726,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 5,
-      "nivel": "CRITICO"
+      "nivel": "ALTO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -8638,7 +8742,7 @@
       "direcaoVento": 253,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -8685,7 +8789,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -8700,7 +8805,7 @@
       "direcaoVento": 244,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -8744,7 +8849,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -8759,7 +8865,7 @@
       "direcaoVento": 280,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -8825,7 +8931,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -8840,7 +8947,7 @@
       "direcaoVento": 213,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -8962,7 +9069,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -8977,7 +9085,7 @@
       "direcaoVento": 257,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -9073,7 +9181,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 18,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -9088,7 +9197,7 @@
       "direcaoVento": 249,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -9130,7 +9239,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 11,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -9145,7 +9255,7 @@
       "direcaoVento": 249,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -9181,7 +9291,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 16,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -9196,7 +9307,7 @@
       "direcaoVento": 281,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -9248,7 +9359,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -9263,7 +9375,7 @@
       "direcaoVento": 263,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -9305,7 +9417,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -9320,7 +9433,7 @@
       "direcaoVento": 283,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 3,
+      "dA_dt": 2,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -9381,7 +9494,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 3,
-      "nivel": "CRITICO"
+      "nivel": "ALTO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -9396,7 +9510,7 @@
       "direcaoVento": 245,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -9463,7 +9577,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -9478,7 +9593,7 @@
       "direcaoVento": 258,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -9537,7 +9652,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -9552,7 +9668,7 @@
       "direcaoVento": 241,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -9621,7 +9737,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -9636,7 +9753,7 @@
       "direcaoVento": 271,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -9683,7 +9800,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 2,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -9698,7 +9816,7 @@
       "direcaoVento": 256,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -9742,7 +9860,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 10,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -9757,7 +9876,7 @@
       "direcaoVento": 260,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 3,
+      "dA_dt": 2,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -9790,7 +9909,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 11,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -9805,7 +9925,7 @@
       "direcaoVento": 198,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 3,
+      "dA_dt": 2,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -9862,7 +9982,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -9877,7 +9998,7 @@
       "direcaoVento": 4,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -9956,7 +10077,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -9971,7 +10093,7 @@
       "direcaoVento": 274,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -10025,7 +10147,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -10040,7 +10163,7 @@
       "direcaoVento": 166,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -10076,7 +10199,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 5,
-      "nivel": "CRITICO"
+      "nivel": "ALTO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -10091,7 +10215,7 @@
       "direcaoVento": 328,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 3,
+      "dA_dt": 2,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -10135,7 +10259,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -10150,7 +10275,7 @@
       "direcaoVento": 207,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -10232,7 +10357,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -10247,7 +10373,7 @@
       "direcaoVento": 217,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -10341,7 +10467,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -10356,7 +10483,7 @@
       "direcaoVento": 270,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -10392,7 +10519,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -10407,7 +10535,7 @@
       "direcaoVento": 241,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -10451,7 +10579,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 5,
-      "nivel": "CRITICO"
+      "nivel": "ALTO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -10466,7 +10595,7 @@
       "direcaoVento": 212,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -10608,7 +10737,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 2,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -10623,7 +10753,7 @@
       "direcaoVento": 289,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -10760,7 +10890,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -10775,7 +10906,7 @@
       "direcaoVento": 174,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -10879,7 +11010,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -10894,7 +11026,7 @@
       "direcaoVento": 205,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -10971,7 +11103,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -10986,7 +11119,7 @@
       "direcaoVento": 236,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -11033,7 +11166,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -11048,7 +11182,7 @@
       "direcaoVento": 178,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -11122,7 +11256,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -11137,7 +11272,7 @@
       "direcaoVento": 198,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -11274,7 +11409,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -11289,7 +11425,7 @@
       "direcaoVento": 234,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -11353,7 +11489,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -11368,7 +11505,7 @@
       "direcaoVento": 194,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -11505,7 +11642,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -11520,7 +11658,7 @@
       "direcaoVento": 236,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -11617,7 +11755,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -11632,7 +11771,7 @@
       "direcaoVento": 262,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -11769,7 +11908,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -11784,7 +11924,7 @@
       "direcaoVento": 183,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -11921,7 +12061,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -11936,7 +12077,7 @@
       "direcaoVento": 273,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -11990,7 +12131,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -12005,7 +12147,7 @@
       "direcaoVento": 346,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -12142,7 +12284,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -12157,7 +12300,7 @@
       "direcaoVento": 237,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -12206,7 +12349,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -12221,7 +12365,7 @@
       "direcaoVento": 247,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -12358,7 +12502,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -12373,7 +12518,7 @@
       "direcaoVento": 175,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -12507,7 +12652,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -12522,7 +12668,7 @@
       "direcaoVento": 205,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -12659,7 +12805,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -12674,7 +12821,7 @@
       "direcaoVento": 238,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -12811,7 +12958,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -12826,7 +12974,7 @@
       "direcaoVento": 170,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -12963,7 +13111,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -12978,7 +13127,7 @@
       "direcaoVento": 199,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -13070,7 +13219,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 3,
-      "nivel": "CRITICO"
+      "nivel": "ALTO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -13085,7 +13235,7 @@
       "direcaoVento": 192,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -13152,7 +13302,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -13167,7 +13318,7 @@
       "direcaoVento": 256,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -13239,7 +13390,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -13254,7 +13406,7 @@
       "direcaoVento": 229,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -13308,7 +13460,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -13323,7 +13476,7 @@
       "direcaoVento": 195,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -13437,7 +13590,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -13452,7 +13606,7 @@
       "direcaoVento": 223,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -13506,7 +13660,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -13521,7 +13676,7 @@
       "direcaoVento": 179,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -13568,7 +13723,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -13583,7 +13739,7 @@
       "direcaoVento": 142,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -13635,7 +13791,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -13650,7 +13807,7 @@
       "direcaoVento": 229,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -13787,7 +13944,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -13802,7 +13960,7 @@
       "direcaoVento": 269,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -13864,7 +14022,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -13879,7 +14038,7 @@
       "direcaoVento": 226,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -14016,7 +14175,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -14031,7 +14191,7 @@
       "direcaoVento": 69,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -14118,7 +14278,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -14133,7 +14294,7 @@
       "direcaoVento": 258,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -14169,7 +14330,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -14184,7 +14346,7 @@
       "direcaoVento": 150,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -14258,7 +14420,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -14273,7 +14436,7 @@
       "direcaoVento": 269,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -14387,7 +14550,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -14402,7 +14566,7 @@
       "direcaoVento": 308,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -14514,7 +14678,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -14529,7 +14694,7 @@
       "direcaoVento": 79,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -14643,7 +14808,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 3,
-      "nivel": "CRITICO"
+      "nivel": "ALTO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -14658,7 +14824,7 @@
       "direcaoVento": 286,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -14712,7 +14878,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -14727,7 +14894,7 @@
       "direcaoVento": 201,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -14816,7 +14983,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -14831,7 +14999,7 @@
       "direcaoVento": 221,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -14945,7 +15113,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -14960,7 +15129,7 @@
       "direcaoVento": 268,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -15039,7 +15208,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 2,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -15054,7 +15224,7 @@
       "direcaoVento": 327,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -15126,7 +15296,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -15141,7 +15312,7 @@
       "direcaoVento": 180,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -15278,7 +15449,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -15293,7 +15465,7 @@
       "direcaoVento": 210,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -15377,7 +15549,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -15392,7 +15565,7 @@
       "direcaoVento": 333,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -15471,7 +15644,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -15486,7 +15660,7 @@
       "direcaoVento": 303,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -15573,7 +15747,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -15588,7 +15763,7 @@
       "direcaoVento": 196,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -15672,7 +15847,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -15687,7 +15863,7 @@
       "direcaoVento": 9,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -15754,7 +15930,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -15769,7 +15946,7 @@
       "direcaoVento": 226,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -15823,7 +16000,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -15838,7 +16016,7 @@
       "direcaoVento": 234,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -15925,7 +16103,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -15940,7 +16119,7 @@
       "direcaoVento": 290,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -16034,7 +16213,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -16049,7 +16229,7 @@
       "direcaoVento": 32,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -16138,7 +16318,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -16153,7 +16334,7 @@
       "direcaoVento": 292,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -16230,7 +16411,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -16245,7 +16427,7 @@
       "direcaoVento": 314,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -16299,7 +16481,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -16314,7 +16497,7 @@
       "direcaoVento": 300,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -16376,7 +16559,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -16391,7 +16575,7 @@
       "direcaoVento": 196,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -16483,7 +16667,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -16498,7 +16683,7 @@
       "direcaoVento": 199,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -16562,7 +16747,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -16577,7 +16763,7 @@
       "direcaoVento": 300,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -16639,7 +16825,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -16654,7 +16841,7 @@
       "direcaoVento": 201,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -16748,7 +16935,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -16763,7 +16951,7 @@
       "direcaoVento": 196,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -16867,7 +17055,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -16882,7 +17071,7 @@
       "direcaoVento": 300,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 3,
+      "dA_dt": 2,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -16944,7 +17133,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -16959,7 +17149,7 @@
       "direcaoVento": 320,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -17028,7 +17218,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -17043,7 +17234,7 @@
       "direcaoVento": 194,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -17117,7 +17308,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -17132,7 +17324,7 @@
       "direcaoVento": 272,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -17246,7 +17438,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -17261,7 +17454,7 @@
       "direcaoVento": 226,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -17315,7 +17508,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -17330,7 +17524,7 @@
       "direcaoVento": 210,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -17414,7 +17608,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -17429,7 +17624,7 @@
       "direcaoVento": 234,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -17516,7 +17711,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -17531,7 +17727,7 @@
       "direcaoVento": 284,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -17620,7 +17816,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -17635,7 +17832,7 @@
       "direcaoVento": 311,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -17684,7 +17881,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -17699,7 +17897,7 @@
       "direcaoVento": 143,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -17781,7 +17979,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -17796,7 +17995,7 @@
       "direcaoVento": 287,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -17850,7 +18049,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -17865,7 +18065,7 @@
       "direcaoVento": 231,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -17939,7 +18139,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -17954,7 +18155,7 @@
       "direcaoVento": 289,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -18051,7 +18252,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -18066,7 +18268,7 @@
       "direcaoVento": 200,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -18135,7 +18337,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -18150,7 +18353,7 @@
       "direcaoVento": 9,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -18214,7 +18417,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -18229,7 +18433,7 @@
       "direcaoVento": 234,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -18323,7 +18527,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -18338,7 +18543,7 @@
       "direcaoVento": 303,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -18425,7 +18630,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -18440,7 +18646,7 @@
       "direcaoVento": 196,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -18532,7 +18738,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -18547,7 +18754,7 @@
       "direcaoVento": 288,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -18656,7 +18863,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -18671,7 +18879,7 @@
       "direcaoVento": 20,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -18780,7 +18988,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -18795,7 +19004,7 @@
       "direcaoVento": 197,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -18842,7 +19051,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -18857,7 +19067,7 @@
       "direcaoVento": 157,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -18956,7 +19166,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -18971,7 +19182,7 @@
       "direcaoVento": 194,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -19023,7 +19234,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 3,
-      "nivel": "CRITICO"
+      "nivel": "ALTO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -19038,7 +19250,7 @@
       "direcaoVento": 150,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -19175,7 +19387,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 9,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -19190,7 +19403,7 @@
       "direcaoVento": 350,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -19327,7 +19540,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -19342,7 +19556,7 @@
       "direcaoVento": 232,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -19471,7 +19685,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -19486,7 +19701,7 @@
       "direcaoVento": 191,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -19623,7 +19838,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -19638,7 +19854,7 @@
       "direcaoVento": 194,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -19690,7 +19906,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -19705,7 +19922,7 @@
       "direcaoVento": 136,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -19842,7 +20059,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 3,
-      "nivel": "CRITICO"
+      "nivel": "ALTO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -19857,7 +20075,7 @@
       "direcaoVento": 191,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -19994,7 +20212,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -20009,7 +20228,7 @@
       "direcaoVento": 312,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -20058,7 +20277,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -20073,7 +20293,7 @@
       "direcaoVento": 209,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -20210,7 +20430,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -20225,7 +20446,7 @@
       "direcaoVento": 160,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -20302,7 +20523,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 10,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -20317,7 +20539,7 @@
       "direcaoVento": 187,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -20454,7 +20676,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -20469,7 +20692,7 @@
       "direcaoVento": 159,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -20511,7 +20734,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -20526,7 +20750,7 @@
       "direcaoVento": 204,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -20668,7 +20892,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -20683,7 +20908,7 @@
       "direcaoVento": 187,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -20820,7 +21045,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -20835,7 +21061,7 @@
       "direcaoVento": 172,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -20897,7 +21123,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -20912,7 +21139,7 @@
       "direcaoVento": 191,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -20964,7 +21191,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -20979,7 +21207,7 @@
       "direcaoVento": 162,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -21116,7 +21344,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -21131,7 +21360,7 @@
       "direcaoVento": 339,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -21268,7 +21497,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -21283,7 +21513,7 @@
       "direcaoVento": 204,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -21425,7 +21655,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -21440,7 +21671,7 @@
       "direcaoVento": 338,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -21482,7 +21713,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -21611,7 +21843,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 6,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -21626,7 +21859,7 @@
       "direcaoVento": 231,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -21718,7 +21951,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -21733,7 +21967,7 @@
       "direcaoVento": 157,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -21832,7 +22066,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -21847,7 +22082,7 @@
       "direcaoVento": 210,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -21894,7 +22129,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -21909,7 +22145,7 @@
       "direcaoVento": 187,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -22046,7 +22282,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -22061,7 +22298,7 @@
       "direcaoVento": 339,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -22198,7 +22435,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -22213,7 +22451,7 @@
       "direcaoVento": 343,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -22347,7 +22585,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 7,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -22362,7 +22601,7 @@
       "direcaoVento": 138,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -22476,7 +22715,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -22491,7 +22731,7 @@
       "direcaoVento": 171,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -22625,7 +22865,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -22640,7 +22881,7 @@
       "direcaoVento": 237,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -22769,7 +23010,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -22784,7 +23026,7 @@
       "direcaoVento": 187,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -22921,7 +23163,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -22936,7 +23179,7 @@
       "direcaoVento": 161,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -23073,7 +23316,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -23088,7 +23332,7 @@
       "direcaoVento": 7,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -23225,7 +23469,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 2,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -23240,7 +23485,7 @@
       "direcaoVento": 137,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -23354,7 +23599,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 12,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -23369,7 +23615,7 @@
       "direcaoVento": 210,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -23416,7 +23662,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -23431,7 +23678,7 @@
       "direcaoVento": 165,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -23483,7 +23730,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 2,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -23498,7 +23746,7 @@
       "direcaoVento": 165,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -23550,7 +23798,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 2,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -23565,7 +23814,7 @@
       "direcaoVento": 196,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -23617,7 +23866,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -23632,7 +23882,7 @@
       "direcaoVento": 319,
       "pessoasRisco": false,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PANTANAL"
     },
     "geodados": {
@@ -23684,7 +23934,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 4,
-      "nivel": "CRITICO"
+      "nivel": "ALTO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -23699,7 +23950,7 @@
       "direcaoVento": 301,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -23836,7 +24087,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -23851,7 +24103,7 @@
       "direcaoVento": 216,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -23988,7 +24240,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -24003,7 +24256,7 @@
       "direcaoVento": 276,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -24140,7 +24393,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -24155,7 +24409,7 @@
       "direcaoVento": 122,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -24292,7 +24546,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -24307,7 +24562,7 @@
       "direcaoVento": 233,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -24444,7 +24699,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -24459,7 +24715,7 @@
       "direcaoVento": 238,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -24600,7 +24856,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -24615,7 +24872,7 @@
       "direcaoVento": 258,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -24752,7 +25009,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -24767,7 +25025,7 @@
       "direcaoVento": 242,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -24904,7 +25162,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 8,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -24919,7 +25178,7 @@
       "direcaoVento": 257,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -25056,7 +25315,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -25071,7 +25331,7 @@
       "direcaoVento": 23,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -25208,7 +25468,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 11,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -25223,7 +25484,7 @@
       "direcaoVento": 245,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -25364,7 +25625,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 2,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -25379,7 +25641,7 @@
       "direcaoVento": 249,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -25516,7 +25778,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -25531,7 +25794,7 @@
       "direcaoVento": 220,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -25668,7 +25931,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 1,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -25683,7 +25947,7 @@
       "direcaoVento": 138,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -25820,7 +26084,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -25835,7 +26100,7 @@
       "direcaoVento": 216,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -25972,7 +26237,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -25987,7 +26253,7 @@
       "direcaoVento": 259,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -26124,7 +26390,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -26139,7 +26406,7 @@
       "direcaoVento": 258,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -26276,7 +26543,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -26291,7 +26559,7 @@
       "direcaoVento": 247,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -26428,7 +26696,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 13,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -26443,7 +26712,7 @@
       "direcaoVento": 276,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -26580,7 +26849,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -26595,7 +26865,7 @@
       "direcaoVento": 142,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -26736,7 +27006,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -26751,7 +27022,7 @@
       "direcaoVento": 241,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -26888,7 +27159,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -26903,7 +27175,7 @@
       "direcaoVento": 261,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -27040,7 +27312,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -27055,7 +27328,7 @@
       "direcaoVento": 252,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -27192,7 +27465,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 3,
-      "nivel": "CRITICO"
+      "nivel": "ALTO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -27207,7 +27481,7 @@
       "direcaoVento": 241,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -27344,7 +27618,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -27359,7 +27634,7 @@
       "direcaoVento": 264,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -27496,7 +27771,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 3,
-      "nivel": "CRITICO"
+      "nivel": "ALTO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -27511,7 +27787,7 @@
       "direcaoVento": 278,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 3,
+      "dA_dt": 2,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -27648,7 +27924,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -27663,7 +27940,7 @@
       "direcaoVento": 275,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -27800,7 +28077,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -27815,7 +28093,7 @@
       "direcaoVento": 225,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -27952,7 +28230,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 2,
-      "nivel": "ALTO"
+      "nivel": "MODERADO",
+      "nivelQuartis": "ALTO"
     }
   },
   {
@@ -27967,7 +28246,7 @@
       "direcaoVento": 306,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -28104,7 +28383,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -28119,7 +28399,7 @@
       "direcaoVento": 186,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -28256,7 +28536,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -28271,7 +28552,7 @@
       "direcaoVento": 23,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -28408,7 +28689,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 10,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -28423,7 +28705,7 @@
       "direcaoVento": 102,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -28560,7 +28842,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -28575,7 +28858,7 @@
       "direcaoVento": 92,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -28712,7 +28995,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -28727,7 +29011,7 @@
       "direcaoVento": 252,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -28864,7 +29148,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 22,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -28879,7 +29164,7 @@
       "direcaoVento": 253,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 2,
+      "dA_dt": 1,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -29016,7 +29301,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 3,
-      "nivel": "CRITICO"
+      "nivel": "ALTO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -29031,7 +29317,7 @@
       "direcaoVento": 291,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "PAMPA"
     },
     "geodados": {
@@ -29143,7 +29429,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -29158,7 +29445,7 @@
       "direcaoVento": 145,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CERRADO"
     },
     "geodados": {
@@ -29295,7 +29582,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 3,
-      "nivel": "CRITICO"
+      "nivel": "ALTO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -29310,7 +29598,7 @@
       "direcaoVento": 5,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -29447,7 +29735,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -29462,7 +29751,7 @@
       "direcaoVento": 246,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -29599,7 +29888,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -29614,7 +29904,7 @@
       "direcaoVento": 248,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -29751,7 +30041,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -29766,7 +30057,7 @@
       "direcaoVento": 275,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 3,
+      "dA_dt": 2,
       "bioma": "AMAZONIA"
     },
     "geodados": {
@@ -29903,7 +30194,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 9,
-      "nivel": "CRITICO"
+      "nivel": "CRITICO",
+      "nivelQuartis": "CRITICO"
     }
   },
   {
@@ -29918,7 +30210,7 @@
       "direcaoVento": 127,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "MATA_ATLANTICA"
     },
     "geodados": {
@@ -30055,7 +30347,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 0,
-      "nivel": "BAIXO"
+      "nivel": "BAIXO",
+      "nivelQuartis": "BAIXO"
     }
   },
   {
@@ -30070,7 +30363,7 @@
       "direcaoVento": 273,
       "pessoasRisco": true,
       "zonaUrbana": false,
-      "dA_dt": 1,
+      "dA_dt": 0,
       "bioma": "CAATINGA"
     },
     "geodados": {
@@ -30207,7 +30500,8 @@
     },
     "gabarito": {
       "nFocos10km7dias": 3,
-      "nivel": "CRITICO"
+      "nivel": "ALTO",
+      "nivelQuartis": "CRITICO"
     }
   }
 ]

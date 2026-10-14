@@ -68,17 +68,25 @@ describe('vazamento de dados: entradas do dia 0', () => {
     expect(alerta.areaAfetada).toBe('MEDIA');
   });
 
-  test('dA/dt usa só o PASSADO: (focos a 1 km no dia 0) − (no dia −1), mínimo 0', () => {
+  test('dA/dt usa só o PASSADO: (OUTROS focos a 1 km no dia 0) − (no dia −1), mínimo 0', () => {
     const { alerta, proxies } = entradasCom([...PASSADO, ...FUTURO]);
+    expect(proxies.nOutrosFocos1kmDia0).toBe(2);  // h1, h2 (sem o próprio f0)
     expect(proxies.nFocos1kmDiaAnterior).toBe(1); // o1; o2 é do dia −5
-    expect(alerta.dA_dt).toBe(3 - 1);
+    expect(alerta.dA_dt).toBe(2 - 1);
 
     // Mudar o dia −1 muda dA/dt...
-    const maisOntem = entradasCom([...PASSADO, foco('o3', '2026-08-14', 0.2), foco('o4', '2026-08-14', 0.4), foco('o5', '2026-08-14', 0.6)]);
-    expect(maisOntem.alerta.dA_dt).toBe(0); // 3 − 4 < 0 → 0
+    const maisOntem = entradasCom([...PASSADO, foco('o3', '2026-08-14', 0.2), foco('o4', '2026-08-14', 0.4)]);
+    expect(maisOntem.alerta.dA_dt).toBe(0); // 2 − 3 < 0 → 0
     // ...mudar o dia +1 não
     const maisAmanha = entradasCom([...PASSADO, foco('a1', '2026-08-16', 0.2), foco('a2', '2026-08-16', 0.4)]);
-    expect(maisAmanha.alerta.dA_dt).toBe(2);
+    expect(maisAmanha.alerta.dA_dt).toBe(1);
+  });
+
+  test('dA/dt não conta o próprio foco: foco novo e isolado → 0', () => {
+    const { alerta, proxies } = entradasCom([FOCO]);
+    expect(proxies.nFocos1kmDia0).toBe(1);      // a área continua contando o próprio
+    expect(proxies.nOutrosFocos1kmDia0).toBe(0);
+    expect(alerta.dA_dt).toBe(0);
   });
 
   test('os focos "recentes" do geodadosService (data da consulta) não chegam ao IRS', () => {
@@ -139,5 +147,13 @@ describe('sorteio e quartis', () => {
     expect(A.limitesQuartis([8, 1, 2, 3, 4, 5, 6, 7])).toEqual({ q1: 2.75, q2: 4.5, q3: 6.25 });
     const q = { q1: 2.75, q2: 4.5, q3: 6.25 };
     expect([1, 3, 5, 7].map(n => A.nivelGabarito(n, q))).toEqual(['BAIXO', 'MODERADO', 'ALTO', 'CRITICO']);
+  });
+
+  test('opção B: 0 → BAIXO; tercis só das contagens > 0; empate fica no nível de baixo', () => {
+    // positivas 1,2,3,4,5,6,7: h = 6p → T1 = valor de índice 2 = 3 · T2 = índice 4 = 5
+    const t = A.limitesTercisPositivos([0, 0, 0, 7, 1, 2, 3, 4, 5, 6]);
+    expect(t).toEqual({ t1: 3, t2: 5, nPositivas: 7 });
+    expect([0, 1, 3, 4, 5, 6].map(n => A.nivelGabaritoTercis(n, t)))
+      .toEqual(['BAIXO', 'MODERADO', 'MODERADO', 'ALTO', 'ALTO', 'CRITICO']);
   });
 });
