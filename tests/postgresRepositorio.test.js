@@ -10,7 +10,7 @@
 const { classificarComGeodados } = require('../services/classificacaoService');
 
 // Banco falso (prefixo "mock" exigido pelo jest.mock)
-const mockBanco = { tabelas: {}, consultas: [], falharEm: null, respostas: [] };
+const mockBanco = { tabelas: {}, consultas: [], parametros: [], falharEm: null, respostas: [] };
 
 jest.mock('../repositorios/postgres/pool', () => {
   const bd = { query: (sql, params) => mockExecutar(sql, params) };
@@ -46,6 +46,7 @@ function comoPg(linha) {
 async function mockExecutar(sql, params = []) {
   const texto = sql.replace(/\s+/g, ' ').trim();
   mockBanco.consultas.push(texto);
+  mockBanco.parametros.push(params);
   if (mockBanco.falharEm && texto.includes(mockBanco.falharEm)) {
     throw Object.assign(new Error(`falha simulada em ${mockBanco.falharEm}`), { code: '23514' });
   }
@@ -84,7 +85,7 @@ function dadosDoAlerta() {
   const criadoEm = '2026-10-14T12:00:00.123Z';
   // Campos na mesma ordem em que o POST /api/alertas os monta
   return {
-    titulo: 'Queimada', descricao: '', status: 'NOVO', ...risco,
+    titulo: 'Queimada', descricao: '', tipoOcorrencia: 'QUEIMADA_VEGETACAO', status: 'NOVO', ...risco,
     geodados: { fontes: { bioma: 'IBGE WFS' }, obtidoEm: { bioma: criadoEm }, bioma: 'PANTANAL' },
     direcaoVento: entrada.direcaoVento, dA_dt: entrada.dA_dt, latitude: entrada.latitude, longitude: entrada.longitude,
     estado: 'MT', municipio: 'Poconé', cep: '', logradouro: '', numero: '', bairro: '',
@@ -104,7 +105,7 @@ beforeAll(() => {
 });
 
 beforeEach(() => {
-  Object.assign(mockBanco, { tabelas: {}, consultas: [], falharEm: null, respostas: [] });
+  Object.assign(mockBanco, { tabelas: {}, consultas: [], parametros: [], falharEm: null, respostas: [] });
 });
 
 describe('criar: ida e volta pelas tabelas', () => {
@@ -122,6 +123,7 @@ describe('criar: ida e volta pelas tabelas', () => {
     expect(mockBanco.consultas[0]).toBe('BEGIN');
     expect(mockBanco.consultas).toContain('COMMIT');
     expect(t.alerta).toHaveLength(1);
+    expect(t.alerta[0]).toMatchObject({ titulo: 'Queimada', tipo_ocorrencia: 'QUEIMADA_VEGETACAO' });
     expect(t.localizacao[0]).toMatchObject({ alerta_id: 7, latitude: -16.68, municipio: 'Poconé' });
     expect(t.fator_risco[0]).toMatchObject({ alerta_id: 7, area_afetada: 'GRANDE', bioma: 'PANTANAL', bioma_origem: 'informado' });
     expect(t.classificacao_risco[0]).toMatchObject({ alerta_id: 7, versao_algoritmo: 'IRS v2' });
@@ -134,6 +136,34 @@ describe('criar: ida e volta pelas tabelas', () => {
     await expect(pg.criar(dadosDoAlerta())).rejects.toMatchObject({ code: '23514' });
     expect(mockBanco.consultas).toContain('ROLLBACK');
     expect(mockBanco.consultas).not.toContain('COMMIT');
+  });
+
+  test('INCENDIO_URBANO volta do banco com o tipo gravado', async () => {
+    const doBanco = await pg.criar({ ...dadosDoAlerta(), tipoOcorrencia: 'INCENDIO_URBANO', zonaUrbana: true });
+    expect(doBanco.tipoOcorrencia).toBe('INCENDIO_URBANO');
+    expect(doBanco.zonaUrbana).toBe(true);
+  });
+});
+
+describe('listarAtivos: filtro por tipo de ocorrência', () => {
+  const consultaPrincipal = () => {
+    const i = mockBanco.consultas.findIndex(c => c.startsWith('SELECT a.*'));
+    return { sql: mockBanco.consultas[i], params: mockBanco.parametros[i] };
+  };
+
+  test('com tipoOcorrencia → WHERE a.tipo_ocorrencia = $1, parametrizado', async () => {
+    await pg.listarAtivos({ tipoOcorrencia: 'INCENDIO_URBANO' });
+    const { sql, params } = consultaPrincipal();
+    expect(sql).toContain('WHERE NOT a.excluido AND a.tipo_ocorrencia = $1');
+    expect(params).toEqual(['INCENDIO_URBANO']);
+  });
+
+  test('sem filtro → só os não excluídos, sem parâmetros', async () => {
+    await pg.listarAtivos();
+    const { sql, params } = consultaPrincipal();
+    expect(sql).toContain('WHERE NOT a.excluido ORDER BY');
+    expect(sql).not.toContain('tipo_ocorrencia =');
+    expect(params).toEqual([]);
   });
 });
 

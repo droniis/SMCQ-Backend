@@ -55,6 +55,7 @@ function montarAlerta(r, { contribuicoes, historico, observacoes, solicitacoes }
     id: r.id,
     titulo: r.titulo,
     descricao: r.descricao,
+    tipoOcorrencia: r.tipo_ocorrencia,
     status: r.status,
     bioma: r.bioma,
     biomaOrigem: r.bioma_origem,
@@ -106,13 +107,17 @@ function montarAlerta(r, { contribuicoes, historico, observacoes, solicitacoes }
 }
 
 // Carrega alertas completos. db = pool ou client de uma transação em andamento.
-async function carregar(db, { id = null, incluirExcluidos = false } = {}) {
+async function carregar(db, { id = null, incluirExcluidos = false, tipoOcorrencia = null } = {}) {
   const filtros = [];
   const params = [];
   if (!incluirExcluidos) filtros.push('NOT a.excluido');
   if (id !== null) {
     params.push(id);
     filtros.push(`a.id = $${params.length}`);
+  }
+  if (tipoOcorrencia) {
+    params.push(tipoOcorrencia);
+    filtros.push(`a.tipo_ocorrencia = $${params.length}`);
   }
   const { rows } = await db.query(
     `SELECT a.*,
@@ -183,8 +188,9 @@ async function marcarExcluido(client, id, usuarioId, agora) {
 // Operações usadas pelas rotas (mesma interface do repositório em memória)
 // ------------------------------------------------------------
 
-async function listarAtivos() {
-  return carregar(obterPool());
+// Filtro opcional: { tipoOcorrencia }
+async function listarAtivos({ tipoOcorrencia } = {}) {
+  return carregar(obterPool(), { tipoOcorrencia: tipoOcorrencia || null });
 }
 
 async function buscarAtivo(id) {
@@ -195,9 +201,9 @@ async function buscarAtivo(id) {
 async function criar(d) {
   return emTransacao(async (client) => {
     const { rows: [{ id }] } = await client.query(
-      `INSERT INTO alerta (titulo, descricao, status, criado_por, criado_em, atualizado_em)
-       VALUES ($1, $2, $3, $4, $5, $6) RETURNING id`,
-      [d.titulo, d.descricao, d.status, d.criadoPor, d.criadoEm, d.atualizadoEm]
+      `INSERT INTO alerta (titulo, descricao, tipo_ocorrencia, status, criado_por, criado_em, atualizado_em)
+       VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id`,
+      [d.titulo, d.descricao, d.tipoOcorrencia, d.status, d.criadoPor, d.criadoEm, d.atualizadoEm]
     );
     await client.query(
       `INSERT INTO localizacao (alerta_id, latitude, longitude, estado, municipio, cep, logradouro, numero, bairro)

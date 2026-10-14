@@ -45,6 +45,13 @@ CREATE TABLE IF NOT EXISTS alerta (
   excluido_por   INTEGER      REFERENCES usuario (id)
 );
 
+-- Tipo de ocorrência (Etapa H). Migração idempotente: em banco que já tem
+-- alertas, o DEFAULT preenche os existentes com QUEIMADA_VEGETACAO; se a
+-- coluna já existe, o comando inteiro (inclusive o CHECK) é ignorado.
+ALTER TABLE alerta ADD COLUMN IF NOT EXISTS tipo_ocorrencia VARCHAR(20) NOT NULL
+  DEFAULT 'QUEIMADA_VEGETACAO'
+  CHECK (tipo_ocorrencia IN ('QUEIMADA_VEGETACAO', 'INCENDIO_URBANO'));
+
 -- ------------------------------------------------------------
 -- Localização do alerta (1:1)
 -- ------------------------------------------------------------
@@ -70,7 +77,7 @@ CREATE TABLE IF NOT EXISTS fator_risco (
   vento               VARCHAR(10)      NOT NULL,                -- BAIXO | MODERADO | ALTO
   direcao_vento       DOUBLE PRECISION NOT NULL DEFAULT 45,     -- graus
   pessoas_risco       BOOLEAN          NOT NULL DEFAULT FALSE,
-  zona_urbana         BOOLEAN          NOT NULL DEFAULT FALSE,
+  zona_urbana         BOOLEAN          NOT NULL DEFAULT FALSE,  -- efetiva: derivada de alerta.tipo_ocorrencia
   da_dt               DOUBLE PRECISION NOT NULL DEFAULT 0,      -- taxa de crescimento da área
   bioma               VARCHAR(30),
   bioma_origem        VARCHAR(10) CHECK (bioma_origem IN ('detectado', 'informado')),
@@ -166,6 +173,7 @@ CREATE TABLE IF NOT EXISTS solicitacao_exclusao (
 -- ------------------------------------------------------------
 CREATE INDEX IF NOT EXISTS idx_alerta_criado_em  ON alerta (criado_em DESC) WHERE NOT excluido;
 CREATE INDEX IF NOT EXISTS idx_alerta_status     ON alerta (status)         WHERE NOT excluido;
+CREATE INDEX IF NOT EXISTS idx_alerta_tipo_ocorr ON alerta (tipo_ocorrencia) WHERE NOT excluido;
 CREATE INDEX IF NOT EXISTS idx_classif_nivel     ON classificacao_risco (nivel);
 CREATE INDEX IF NOT EXISTS idx_local_regiao      ON localizacao (estado, municipio);
 CREATE INDEX IF NOT EXISTS idx_local_coordenadas ON localizacao (latitude, longitude);   -- recorte por caixa antes do Haversine
