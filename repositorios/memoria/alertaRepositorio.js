@@ -67,6 +67,22 @@ async function adicionarObservacao(id, texto, usuarioId) {
   return copia(alerta);
 }
 
+// Edição dos dados da ocorrência. aplicar(alertaAtual) → { dados, risco, historico } (edicaoService.aplicarEdicao)
+// decide o que muda e pode lançar erro (ex.: ALERTA_RESOLVIDO), caso em que nada é alterado.
+// → o alerta atualizado (ou o mesmo, se nada mudou); null se não existe
+async function editar(id, usuarioId, aplicar) {
+  const alerta = ativo(id);
+  if (!alerta) return null;
+  const { dados, risco, historico } = aplicar(copia(alerta));
+  if (historico.length === 0 && !risco) return copia(alerta);
+  const agora = new Date().toISOString();
+  Object.assign(alerta, dados);
+  if (risco) Object.assign(alerta, structuredClone(risco));
+  alerta.atualizadoEm = agora;
+  for (const h of historico) alerta.historico.push({ ...h, alteradoPor: usuarioId, alteradoEm: agora });
+  return copia(alerta);
+}
+
 // Exclusão direta: as solicitações pendentes ficam atendidas (APROVADA)
 async function excluir(id, usuarioId) {
   const alerta = ativo(id);
@@ -141,6 +157,7 @@ module.exports = {
   criar,
   atualizarStatus,
   adicionarObservacao,
+  editar,
   excluir,
   criarSolicitacao,
   listarSolicitacoes,

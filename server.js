@@ -7,6 +7,8 @@ const classificacao = require('./services/classificacaoService');
 const geodadosService = require('./services/geodadosService');
 const ocorrencia = require('./services/ocorrenciaService');
 const statusService = require('./services/statusService');
+const edicao = require('./services/edicaoService');
+const usuarioService = require('./services/usuarioService');
 const { ehErroDeConexao, explicarErroBanco } = require('./db/conexao');
 
 const app = express();
@@ -42,20 +44,32 @@ const rota = (fn) => (req, res, next) => Promise.resolve(fn(req, res, next)).cat
 
 // ============================================================
 // FUNÇÃO DE AUTENTICAÇÃO (MIDDLEWARE)
+// O token identifica o usuário; perfil e situação vêm do banco a cada
+// requisição. Assim, desativar um usuário ou mudar o perfil dele vale
+// na hora, sem esperar o token expirar.
 // ============================================================
-function autenticarToken(req, res, next) {
+async function autenticarToken(req, res, next) {
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
     if (!token) {
         return res.status(401).json({ erro: 'Token não fornecido' });
     }
+    let decoded;
     try {
-        const decoded = jwt.verify(token, JWT_SECRET);
-        req.usuario = decoded;
-        next();
+        decoded = jwt.verify(token, JWT_SECRET);
     } catch (err) {
         // 401 = sessão inválida ou expirada; 403 fica reservado para permissão negada
         return res.status(401).json({ erro: 'Token inválido ou expirado' });
+    }
+    try {
+        const usuario = await usuarios.buscarPorId(decoded.id);
+        if (!usuario || !usuario.ativo) {
+            return res.status(401).json({ erro: 'Sessão encerrada: usuário desativado ou inexistente' });
+        }
+        req.usuario = { id: usuario.id, nome: usuario.nome, email: usuario.email, perfil: usuario.perfil, senhaProvisoria: usuario.senhaProvisoria };
+        next();
+    } catch (err) {
+        next(err); // banco fora do ar → 503 no tratador de erros
     }
 }
 
@@ -98,6 +112,9 @@ async function comNomes(alerta) {
 
 const TAMANHO_MAXIMO_OBSERVACAO = 2000;
 
+// Custo do hash bcrypt (RNF03). Nos testes, um custo menor só para acelerar a suíte.
+const CUSTO_BCRYPT = process.env.NODE_ENV === 'test' ? 4 : 10;
+
 // ============================================================
 // ROTA DE LOGIN (PÚBLICA)
 // ============================================================
@@ -107,8 +124,12 @@ app.post('/api/login', rota(async (req, res) => {
     if (!usuario) {
         return res.status(401).json({ erro: 'Usuário não encontrado' });
     }
-    if (!bcrypt.compareSync(senha, usuario.senhaHash)) {
+    if (typeof senha !== 'string' || !bcrypt.compareSync(senha, usuario.senhaHash)) {
         return res.status(401).json({ erro: 'Senha incorreta' });
+    }
+    // Conferido depois da senha, para não revelar a situação da conta a quem não a conhece
+    if (!usuario.ativo) {
+        return res.status(401).json({ erro: 'Usuário desativado. Procure o gestor do sistema.' });
     }
     const token = jwt.sign(
         { id: usuario.id, email: usuario.email, perfil: usuario.perfil },
@@ -121,7 +142,9 @@ app.post('/api/login', rota(async (req, res) => {
             id: usuario.id,
             nome: usuario.nome,
             email: usuario.email,
-            perfil: usuario.perfil
+            perfil: usuario.perfil,
+            // true → o frontend leva à troca de senha; as demais rotas respondem 403 até lá
+            senhaProvisoria: usuario.senhaProvisoria
         }
     });
 }));
@@ -130,6 +153,61 @@ app.post('/api/login', rota(async (req, res) => {
 // ROTAS PROTEGIDAS (REQUEREM TOKEN)
 // ============================================================
 app.use('/api', autenticarToken);
+
+// Troca de senha obrigatória no primeiro acesso: com senha provisória, só as rotas
+// de "Meu perfil" respondem; as demais devolvem 403 com o código TROCA_SENHA_OBRIGATORIA.
+app.use('/api', (req, res, next) => {
+    if (req.usuario.senhaProvisoria && !/^\/perfil(\/|$)/.test(req.path)) {
+        return res.status(403).json({
+            erro: 'Troque a senha provisória antes de continuar',
+            codigo: 'TROCA_SENHA_OBRIGATORIA'
+        });
+    }
+    next();
+});
+
+// ============================================================
+// MEU PERFIL (UC04): todo usuário, sobre si mesmo
+// ============================================================
+app.get('/api/perfil', rota(async (req, res) => {
+    res.json(usuarioService.publico(await usuarios.buscarPorId(req.usuario.id)));
+}));
+
+// Editar o próprio nome e e-mail. O perfil não muda por aqui (422).
+app.patch('/api/perfil', rota(async (req, res) => {
+    const { campos, erros, mudaPerfil } = usuarioService.lerPerfilProprio(req.body, req.usuario.perfil);
+    if (mudaPerfil) {
+        return res.status(422).json({ erro: 'Você não pode alterar o seu próprio perfil' });
+    }
+    if (erros.length > 0) {
+        return res.status(400).json({ erro: erros.join('; ') });
+    }
+    const atualizado = await comEmailUnico(res, () => usuarios.atualizar(
+        req.usuario.id,
+        req.usuario.id,
+        (atual) => usuarioService.aplicarPerfilProprio(atual, campos)
+    ));
+    if (atualizado) res.json(usuarioService.publico(atualizado));
+}));
+
+// Alterar a própria senha informando a atual (UC04 passos 4 a 6).
+// Senha atual errada → 422 (não 401, que o frontend trata como sessão expirada).
+app.patch('/api/perfil/senha', rota(async (req, res) => {
+    const { senhaAtual, novaSenha, erros } = usuarioService.lerTrocaSenha(req.body || {});
+    if (erros.length > 0) {
+        return res.status(400).json({ erro: erros.join('; ') });
+    }
+    const atual = await usuarios.buscarPorId(req.usuario.id);
+    if (!(await bcrypt.compare(senhaAtual, atual.senhaHash))) {
+        return res.status(422).json({ erro: 'Senha atual incorreta' });
+    }
+    if (senhaAtual === novaSenha) {
+        return res.status(422).json({ erro: 'A nova senha deve ser diferente da atual' });
+    }
+    const senhaHash = await bcrypt.hash(novaSenha, CUSTO_BCRYPT);
+    const atualizado = await usuarios.atualizar(req.usuario.id, req.usuario.id, () => usuarioService.aplicarTrocaSenha(senhaHash));
+    res.json(usuarioService.publico(atualizado));
+}));
 
 // Listar alertas (sem os excluídos). Filtro opcional: ?tipoOcorrencia=QUEIMADA_VEGETACAO | INCENDIO_URBANO
 app.get('/api/alertas', rota(async (req, res) => {
@@ -243,6 +321,43 @@ app.get('/api/alertas/:id/risco', rota(async (req, res) => {
     res.json(classificacao.detalhamentoDoRisco(alerta));
 }));
 
+// Lê e valida a edição pedida para um alerta ativo. → { alerta, campos } ou, se recusada, { status, erro }.
+// Ordem: inexistente → 404; resolvido → 422; campo não editável → 422; valor inválido → 400.
+async function prepararEdicao(id, corpo) {
+    const alerta = await alertas.buscarAtivo(id);
+    if (!alerta) return { status: 404, erro: 'Alerta não encontrado' };
+    if (alerta.status === 'RESOLVIDO') return { status: 422, erro: 'Alerta resolvido não pode ser editado' };
+    const { campos, erros, naoEditaveis } = edicao.lerEdicao(corpo);
+    if (naoEditaveis.length > 0) {
+        return {
+            status: 422,
+            erro: `Campos não editáveis: ${naoEditaveis.join(', ')}. Editáveis: ${edicao.CAMPOS_EDITAVEIS.join(', ')} (localização e tipo de ocorrência não podem ser alterados)`
+        };
+    }
+    if (erros.length > 0) return { status: 400, erro: erros.join('; ') };
+    return { alerta, campos };
+}
+
+// Simula a edição sem gravar: mostra se o nível de risco mudaria (aviso antes de salvar).
+// Usa os geodados gravados no alerta; não consulta as bases externas.
+app.post('/api/alertas/:id/risco/simulacao', rota(async (req, res) => {
+    const preparo = await prepararEdicao(parseInt(req.params.id), req.body);
+    if (preparo.erro) {
+        return res.status(preparo.status).json({ erro: preparo.erro });
+    }
+    const { alerta, campos } = preparo;
+    const { risco } = edicao.aplicarEdicao(alerta, campos);
+    res.json({
+        alertaId: alerta.id,
+        recalculado: Boolean(risco),
+        nivelAtual: alerta.risco,
+        nivelNovo: risco ? risco.risco : alerta.risco,
+        irsAtual: alerta.irs,
+        irsNovo: risco ? risco.irs : alerta.irs,
+        mudaNivel: Boolean(risco) && risco.risco !== alerta.risco
+    });
+}));
+
 // Geodados do alerta: os gravados na criação; se não houver, consulta em tempo real (sem gravar)
 app.get('/api/alertas/:id/geodados', rota(async (req, res) => {
     const alerta = await alertas.buscarAtivo(parseInt(req.params.id));
@@ -260,6 +375,29 @@ app.get('/api/alertas/:id/geodados', rota(async (req, res) => {
         res.json({ alertaId: alerta.id, origem: 'tempo-real', geodados });
     } catch (err) {
         res.status(500).json({ erro: `Falha ao obter geodados: ${err.message}` });
+    }
+}));
+
+// Editar a ocorrência (RF11, HU04): todos os perfis. Corpo parcial com os campos editáveis.
+// Se mudar uma entrada do cálculo, o IRS é recalculado com os geodados gravados, na mesma transação.
+app.patch('/api/alertas/:id', rota(async (req, res) => {
+    const id = parseInt(req.params.id);
+    const preparo = await prepararEdicao(id, req.body);
+    if (preparo.erro) {
+        return res.status(preparo.status).json({ erro: preparo.erro });
+    }
+    try {
+        // A edição é reaplicada sobre o alerta travado no repositório (pode ter mudado desde a leitura)
+        const alerta = await alertas.editar(id, req.usuario.id, (atual) => edicao.aplicarEdicao(atual, preparo.campos));
+        if (!alerta) {
+            return res.status(404).json({ erro: 'Alerta não encontrado' }); // excluído enquanto a requisição chegava
+        }
+        res.json(await comNomes(alerta));
+    } catch (err) {
+        if (err.code === 'ALERTA_RESOLVIDO') {
+            return res.status(422).json({ erro: 'Alerta resolvido não pode ser editado' });
+        }
+        throw err;
     }
 }));
 
@@ -401,12 +539,149 @@ app.patch('/api/alertas/:id/solicitacoes-exclusao/:sid', rota(async (req, res) =
 }));
 
 // ============================================================
+// GESTÃO DE USUÁRIOS (RF04, UC08, HU02)
+// Matriz de permissões em services/usuarioService.js. As regras são
+// conferidas aqui (resposta rápida) e de novo no repositório, com o
+// usuário alvo travado, pois ele pode ter mudado entre uma e outra.
+// Nada é apagado: desativar é exclusão lógica (ativo = false).
+// ============================================================
+
+// Só GESTOR e ADMINISTRADOR entram na gestão de usuários
+function exigirGestaoDeUsuarios(req, res, next) {
+    if (!usuarioService.podeGerenciar(req.usuario)) {
+        return res.status(403).json({ erro: usuarioService.MENSAGENS.gerenciar });
+    }
+    next();
+}
+
+// Responde 409 quando o repositório acusa e-mail repetido
+async function comEmailUnico(res, operacao) {
+    try {
+        return await operacao();
+    } catch (err) {
+        if (err.code === 'EMAIL_DUPLICADO') {
+            res.status(409).json({ erro: 'Já existe um usuário com este e-mail' });
+            return undefined;
+        }
+        throw err;
+    }
+}
+
+// Usuário alvo da rota (:id) → o usuário, ou responde 404 e devolve null
+async function carregarAlvo(req, res) {
+    const alvo = await usuarios.buscarPorId(parseInt(req.params.id));
+    if (!alvo) {
+        res.status(404).json({ erro: 'Usuário não encontrado' });
+        return null;
+    }
+    return alvo;
+}
+
+// Listar usuários. Filtros opcionais: ?perfil=ADMINISTRADOR|GESTOR|OPERADOR e ?ativo=true|false
+app.get('/api/usuarios', exigirGestaoDeUsuarios, rota(async (req, res) => {
+    const { perfil, ativo } = req.query;
+    if (perfil !== undefined && !usuarioService.PERFIS.includes(perfil)) {
+        return res.status(400).json({ erro: `Perfil inválido: ${perfil}. Valores aceitos: ${usuarioService.PERFIS.join(', ')}` });
+    }
+    if (ativo !== undefined && !['true', 'false'].includes(ativo)) {
+        return res.status(400).json({ erro: 'Filtro "ativo" inválido: use true ou false' });
+    }
+    const lista = await usuarios.listar({ perfil: perfil || null, ativo: ativo === undefined ? null : ativo === 'true' });
+    res.json(lista.map(usuarioService.publico));
+}));
+
+app.get('/api/usuarios/:id', exigirGestaoDeUsuarios, rota(async (req, res) => {
+    const alvo = await carregarAlvo(req, res);
+    if (alvo) res.json(usuarioService.publico(alvo));
+}));
+
+// Auditoria das ações sobre um usuário (quem fez, o quê, quando)
+app.get('/api/usuarios/:id/auditoria', exigirGestaoDeUsuarios, rota(async (req, res) => {
+    const alvo = await carregarAlvo(req, res);
+    if (alvo) res.json(await usuarios.listarAuditoria(alvo.id));
+}));
+
+// Cadastrar usuário (só GESTOR). A senha informada é provisória: troca obrigatória no primeiro acesso.
+app.post('/api/usuarios', rota(async (req, res) => {
+    if (!usuarioService.podeCadastrar(req.usuario)) {
+        return res.status(403).json({ erro: usuarioService.MENSAGENS.cadastrar });
+    }
+    const { dados, erros } = usuarioService.lerCadastro(req.body || {});
+    if (erros.length > 0) {
+        return res.status(400).json({ erro: erros.join('; ') });
+    }
+    const senhaHash = await bcrypt.hash(dados.senha, CUSTO_BCRYPT);
+    const criado = await comEmailUnico(res, () => usuarios.criar(
+        { nome: dados.nome, email: dados.email, perfil: dados.perfil, senhaHash, senhaProvisoria: true },
+        req.usuario.id
+    ));
+    if (criado) res.status(201).json(usuarioService.publico(criado));
+}));
+
+// Editar usuário: nome, e-mail, perfil e senha provisória, conforme a matriz de permissões
+app.patch('/api/usuarios/:id', rota(async (req, res) => {
+    if (!usuarioService.podeGerenciar(req.usuario)) {
+        return res.status(403).json({ erro: usuarioService.MENSAGENS.editar });
+    }
+    const alvo = await carregarAlvo(req, res);
+    if (!alvo) return;
+    if (!usuarioService.podeEditar(req.usuario, alvo)) {
+        return res.status(403).json({ erro: usuarioService.MENSAGENS.editar });
+    }
+    const { campos, erros } = usuarioService.lerEdicao(req.body);
+    if (erros.length > 0) {
+        return res.status(400).json({ erro: erros.join('; ') });
+    }
+    const { senha, ...outros } = campos;
+    const novos = senha === undefined ? outros : { ...outros, senhaHash: await bcrypt.hash(senha, CUSTO_BCRYPT) };
+    const atualizado = await comEmailUnico(res, () => usuarios.atualizar(
+        alvo.id,
+        req.usuario.id,
+        (atual, contexto) => usuarioService.aplicarEdicao(req.usuario, atual, novos, contexto)
+    ));
+    if (atualizado === undefined) return; // 409 já respondido
+    if (!atualizado) {
+        return res.status(404).json({ erro: 'Usuário não encontrado' });
+    }
+    res.json(usuarioService.publico(atualizado));
+}));
+
+// Desativar ({ ativo: false }) ou reativar ({ ativo: true }) um usuário
+app.patch('/api/usuarios/:id/ativo', rota(async (req, res) => {
+    if (!usuarioService.podeGerenciar(req.usuario)) {
+        return res.status(403).json({ erro: usuarioService.MENSAGENS.ativo });
+    }
+    const alvo = await carregarAlvo(req, res);
+    if (!alvo) return;
+    if (!usuarioService.podeAlterarAtivo(req.usuario, alvo)) {
+        return res.status(403).json({ erro: usuarioService.MENSAGENS.ativo });
+    }
+    const { ativo } = req.body || {};
+    if (typeof ativo !== 'boolean') {
+        return res.status(400).json({ erro: 'Informe "ativo": true (reativar) ou false (desativar)' });
+    }
+    const atualizado = await usuarios.atualizar(
+        alvo.id,
+        req.usuario.id,
+        (atual, contexto) => usuarioService.aplicarAtivo(req.usuario, atual, ativo, contexto)
+    );
+    if (!atualizado) {
+        return res.status(404).json({ erro: 'Usuário não encontrado' });
+    }
+    res.json(usuarioService.publico(atualizado));
+}));
+
+// ============================================================
 // TRATAMENTO DE ERROS
 // Banco fora do ar → 503 com mensagem clara (e o motivo no log);
 // dado que o banco recusa (tamanho, formato) → 400; demais → 500.
 // Erros do próprio Express (ex.: JSON malformado) seguem o tratamento padrão.
 // ============================================================
 app.use((err, req, res, next) => {
+    // Regra de negócio ou permissão recusada nos serviços (usuarioService.ErroHttp): 403, 422...
+    if (err instanceof usuarioService.ErroHttp) {
+        return res.status(err.statusHttp).json({ erro: err.message });
+    }
     if (err.status || err.statusCode) return next(err);
     if (ehErroDeConexao(err)) {
         console.error(`[banco] ${req.method} ${req.originalUrl}: ${explicarErroBanco(err)}`);

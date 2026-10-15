@@ -94,6 +94,27 @@ describe('repositório em memória', () => {
     expect((await repositorios.alertas.atualizarStatus(id, 'EM_ANALISE', 1)).status).toBe('EM_ANALISE');
   });
 
+  test('editar aplica a edição e registra o histórico; se a regra recusar, nada muda', async () => {
+    const { id } = await repositorios.alertas.criar(dados());
+    const editado = await repositorios.alertas.editar(id, 3, () => ({
+      dados: { titulo: 'novo' }, risco: null, historico: [{ campo: 'titulo', valorAnterior: 'teste', valorNovo: 'novo' }]
+    }));
+    expect(editado.titulo).toBe('novo');
+    expect(editado.historico).toEqual([expect.objectContaining({ campo: 'titulo', alteradoPor: 3, alteradoEm: editado.atualizadoEm })]);
+    const recusar = () => { throw Object.assign(new Error('x'), { code: 'ALERTA_RESOLVIDO' }); };
+    await expect(repositorios.alertas.editar(id, 3, recusar)).rejects.toMatchObject({ code: 'ALERTA_RESOLVIDO' });
+    expect((await repositorios.alertas.buscarAtivo(id)).historico).toHaveLength(1);
+  });
+
+  test('editar entrega uma cópia: alterar o alerta recebido não altera o guardado', async () => {
+    const { id } = await repositorios.alertas.criar(dados());
+    await repositorios.alertas.editar(id, 3, (atual) => {
+      atual.titulo = 'alterado por fora';
+      return { dados: {}, risco: null, historico: [] };
+    });
+    expect((await repositorios.alertas.buscarAtivo(id)).titulo).toBe('teste');
+  });
+
   test('nomesPorIds resolve os nomes dos usuários padrão', async () => {
     expect(await repositorios.usuarios.nomesPorIds([1, 3, 3, null])).toEqual({ 1: 'Admin', 3: 'Gestor' });
   });
@@ -104,6 +125,7 @@ describe('repositório em memória', () => {
     expect(await repositorios.alertas.buscarAtivo(id)).toBeNull();
     expect(await repositorios.alertas.atualizarStatus(id, 'RESOLVIDO', 1)).toBeNull();
     expect(await repositorios.alertas.adicionarObservacao(id, 'x', 1)).toBeNull();
+    expect(await repositorios.alertas.editar(id, 1, () => ({ dados: {}, risco: null, historico: [] }))).toBeNull();
     expect(await repositorios.alertas.excluir(id, 1)).toBeNull();
     expect(await repositorios.alertas.criarSolicitacao(id, 2, 'x')).toBeNull();
     expect(await repositorios.alertas.avaliarSolicitacao(id, 1, 'APROVADA', '', 1)).toBeNull();

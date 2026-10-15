@@ -74,10 +74,19 @@ describe('obterPool e encerrar', () => {
 describe('usuarioRepositorio (PostgreSQL)', () => {
   const usuarios = require('../repositorios/postgres/usuarioRepositorio');
 
-  test('buscarPorEmail devolve o usuário ativo com senhaHash, sem a coluna senha_hash', async () => {
-    mockPool.query.mockResolvedValueOnce({ rows: [{ id: 1, nome: 'Admin', email: 'admin@smcq.com', senha_hash: '$2a$10$x', perfil: 'ADMINISTRADOR' }] });
-    expect(await usuarios.buscarPorEmail('admin@smcq.com')).toEqual({ id: 1, nome: 'Admin', email: 'admin@smcq.com', perfil: 'ADMINISTRADOR', senhaHash: '$2a$10$x' });
-    expect(mockPool.query.mock.calls[0][0]).toMatch(/WHERE email = \$1 AND ativo/);
+  test('buscarPorEmail devolve o usuário com senhaHash (sem a coluna senha_hash), inclusive desativado, sem diferenciar maiúsculas', async () => {
+    const criado = new Date('2026-10-01T12:00:00.000Z');
+    mockPool.query.mockResolvedValueOnce({ rows: [{
+      id: 1, nome: 'Admin', email: 'admin@smcq.com', senha_hash: '$2a$10$x', perfil: 'ADMINISTRADOR',
+      ativo: false, senha_provisoria: false, criado_em: criado, atualizado_em: criado
+    }] });
+    expect(await usuarios.buscarPorEmail(' Admin@SMCQ.com ')).toEqual({
+      id: 1, nome: 'Admin', email: 'admin@smcq.com', perfil: 'ADMINISTRADOR', ativo: false, senhaProvisoria: false,
+      criadoEm: '2026-10-01T12:00:00.000Z', atualizadoEm: '2026-10-01T12:00:00.000Z', senhaHash: '$2a$10$x'
+    });
+    // O login confere "ativo" para explicar o motivo; a consulta não filtra
+    expect(mockPool.query.mock.calls[0][0]).toMatch(/WHERE lower\(email\) = lower\(\$1\)$/);
+    expect(mockPool.query.mock.calls[0][1]).toEqual(['Admin@SMCQ.com']);
   });
 
   test('e-mail não cadastrado → null', async () => {
