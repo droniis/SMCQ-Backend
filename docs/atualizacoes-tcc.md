@@ -1,8 +1,8 @@
 # Atualizações do documento do TCC para o IRS v2
 
-Textos para colar no documento do TCC, refletindo a integração do IRS v2 (Etapas C a F) e a persistência em banco de dados (Etapa G, Seção 5 deste arquivo), outubro de 2026.
+Textos para colar no documento do TCC, refletindo a integração do IRS v2 (Etapas C a F), a persistência em banco de dados (Etapa G, Seção 5 deste arquivo) e o tipo de ocorrência (Etapa H, Seção 6), outubro de 2026.
 
-> **Atenção:** o documento do TCC não estava disponível durante a redação. Os textos foram escritos a partir do sistema implementado, sem comparação com a redação atual. As seções são indicadas pelos identificadores usados no projeto (RF05, UC07, HU10, RNF01, RNF14, Quadro 2, Capítulos 5 a 7). Antes de colar, confira a numeração e ajuste os termos ao glossário do documento.
+> **Atenção:** o documento do TCC não estava disponível durante a redação. Os textos foram escritos a partir do sistema implementado, sem comparação com a redação atual. As seções são indicadas pelos identificadores usados no projeto (RF05, RF07, UC03, UC07, HU10, RNF01, RNF14, Quadro 2, Capítulos 5 a 7). Antes de colar, confira a numeração e ajuste os termos ao glossário do documento.
 
 ---
 
@@ -26,7 +26,7 @@ Textos para colar no documento do TCC, refletindo a integração do IRS v2 (Etap
 
 ## 2. UC07: passo 2 do fluxo principal (dados lidos para a classificação)
 
-> **2.** O sistema lê os dados da ocorrência informados pelo operador: coordenadas, área afetada, intensidade e direção do vento, taxa de propagação, presença de pessoas em risco, indicação de zona urbana e, quando corrigidos pelo operador, bioma e tipo de área. Para as coordenadas da ocorrência, o sistema obtém das bases públicas:
+> **2.** O sistema lê os dados da ocorrência informados pelo operador: coordenadas, área afetada, intensidade e direção do vento, taxa de propagação, presença de pessoas em risco, tipo de ocorrência (queimada em vegetação ou incêndio em área urbana) e, quando corrigidos pelo operador, bioma e tipo de área. Para as coordenadas da ocorrência, o sistema obtém das bases públicas:
 >
 > - o bioma (IBGE);
 > - a unidade de conservação que contém o ponto ou está próxima (ICMBio);
@@ -206,7 +206,7 @@ Tabelas criadas a partir do diagrama de classes (script completo em `db/schema.s
 | Tabela | Conteúdo | Relação |
 | :--- | :--- | :--- |
 | `usuario` | Nome, e-mail, hash da senha (bcrypt) e perfil | — |
-| `alerta` | Título, descrição, status, autor, datas e exclusão lógica | N:1 com `usuario` |
+| `alerta` | Título, descrição, tipo de ocorrência, status, autor, datas e exclusão lógica | N:1 com `usuario` |
 | `localizacao` | Latitude, longitude e endereço | 1:1 com `alerta` |
 | `fator_risco` | Dados de entrada do cálculo: área, vento, pessoas em risco, bioma, tipo de área, fauna, proximidade de UC e geodados (JSONB) | 1:1 com `alerta` |
 | `classificacao_risco` | Resultado: IRS, sigmoide, nível e versão do algoritmo | 1:1 com `alerta` |
@@ -230,9 +230,123 @@ Se o diagrama de classes do documento não separar "dados de entrada" (`fator_ri
 
 O arquivo `db/smcq-exemplo.sql` atende ao item "base de dados" da entrega. Ele contém o esquema completo e dados de demonstração:
 - 3 usuários;
-- 6 ocorrências, uma por bioma, classificadas pelo IRS v2 com dados ambientais reais;
+- 7 ocorrências classificadas pelo IRS v2 com dados ambientais reais: 6 queimadas em vegetação, uma por bioma, e 1 incêndio em área urbana;
 - histórico, observações e solicitações de exclusão.
 
 Não contém senhas reais, apenas os hashes das senhas de demonstração. Pode ser carregado com `psql` ou pelo pgAdmin. Sugestão de texto para o apêndice ou para a seção de entrega:
 
 > A base de dados acompanha o código-fonte no arquivo `db/smcq-exemplo.sql`, que cria as dez tabelas do modelo e insere dados de demonstração. Para carregá-la, basta criar um banco vazio no PostgreSQL e executar o arquivo (`psql -U postgres -d smcq -f db/smcq-exemplo.sql`).
+
+---
+
+## 6. Tipo de ocorrência (Etapa H, outubro de 2026)
+
+O formulário de registro priorizava o endereço urbano (CEP, rua, número e bairro antes do mapa), o que dificultava o registro de queimadas em vegetação, que não têm rua nem número. Além disso, a marcação "Zona urbana" podia contradizer o tipo de área detectado. A Etapa H substituiu essa marcação pelo **tipo de ocorrência**, primeiro campo do formulário, que adapta a tela e define valores padrão. **A fórmula, os pesos, as tabelas de pontuação e os limiares do IRS v2 não mudaram.**
+
+### 6.1 RF07: registrar ocorrência (nova redação)
+
+> **RF07 – Registrar ocorrência.** O sistema deve permitir ao operador registrar uma ocorrência de fogo, informando primeiro o **tipo de ocorrência**: *queimada em vegetação* ou *incêndio em área urbana*. O formulário deve se adaptar ao tipo:
+> - **Queimada em vegetação:** a localização é definida pelo ponto, marcado no mapa, obtido pela localização do dispositivo (GPS) ou digitado em latitude e longitude. O município e a UF são preenchidos automaticamente a partir do ponto, e o endereço é opcional.
+> - **Incêndio em área urbana:** são obrigatórios o logradouro (ou um ponto de referência), o bairro, o município e a UF; o CEP e o número são opcionais. O mapa posiciona o ponto a partir do endereço.
+>
+> O operador também informa o título, a descrição, a área afetada, a intensidade do vento e a presença de pessoas em risco. O tipo de ocorrência define valores padrão, que o operador pode alterar: para incêndio em área urbana, o tipo de área "urbana" e a marcação de pessoas em risco. Uma terra indígena ou unidade de conservação detectada no ponto prevalece sobre o tipo de área padrão.
+
+Se o RF07 do documento tiver outra numeração ou outro escopo, aplicar a redação ao requisito de registro de ocorrência.
+
+### 6.2 UC03: registrar ocorrência
+
+**Novo passo**, no início do fluxo principal (renumerar os seguintes):
+
+> **1.** O operador seleciona o tipo de ocorrência: queimada em vegetação ou incêndio em área urbana. O sistema adapta o formulário ao tipo escolhido e aplica os valores padrão correspondentes.
+
+**Passo de localização** (substitui o passo em que o operador informa o endereço):
+
+> **N.** O operador define o local da ocorrência. Em incêndio em área urbana, informa o endereço (logradouro ou ponto de referência, bairro, município e UF; CEP e número são opcionais), e o sistema posiciona o ponto no mapa. Em queimada em vegetação, marca o ponto no mapa. O sistema consulta os dados ambientais do ponto e os exibe.
+
+**Novo fluxo alternativo:**
+
+> **FA – Local sem endereço (no passo de localização).** Se a ocorrência for uma queimada em vegetação sem logradouro, o operador define o local por um dos meios:
+> 1. clica no mapa;
+> 2. usa a localização do dispositivo ("Usar minha localização");
+> 3. digita a latitude e a longitude, por exemplo as obtidas pelo GPS de uma brigada.
+>
+> O sistema valida as coordenadas (latitude entre −90 e 90 e longitude entre −180 e 180) e avisa se o ponto parece estar fora do Brasil. Em seguida, posiciona o ponto e preenche automaticamente o município e a UF por geocodificação reversa. O operador pode corrigi-los e, opcionalmente, acrescentar um endereço. Se a permissão de localização for negada, o sistema informa o motivo e mantém disponíveis as outras duas formas. O caso de uso prossegue no passo seguinte.
+
+**Exceção sugerida:**
+
+> **FE – Endereço incompleto em incêndio urbano.** Se faltar logradouro (ou ponto de referência), bairro, município ou UF, o sistema não registra a ocorrência e indica os campos que faltam.
+
+### 6.3 Diagrama de classes
+
+Acrescentar a enumeração **`TipoOcorrencia`** e o atributo **`tipoOcorrencia`** na classe **`Alerta`**:
+
+```
+«enumeration»
+TipoOcorrencia
+--------------------
+QUEIMADA_VEGETACAO
+INCENDIO_URBANO
+
+Alerta
+--------------------
+...
+- tipoOcorrencia : TipoOcorrencia
+...
+```
+
+A associação é de `Alerta` para `TipoOcorrencia` (cada alerta tem exatamente um tipo). Na classe de dados de entrada do cálculo (`FatorRisco`, se existir no diagrama), o atributo `zonaUrbana : boolean` pode ser mantido com a observação "derivado do tipo de ocorrência".
+
+Versão em Mermaid, caso o diagrama seja mantido nesse formato:
+
+```mermaid
+classDiagram
+  class TipoOcorrencia {
+    <<enumeration>>
+    QUEIMADA_VEGETACAO
+    INCENDIO_URBANO
+  }
+  class Alerta {
+    -titulo: String
+    -descricao: String
+    -tipoOcorrencia: TipoOcorrencia
+    -status: StatusAlerta
+  }
+  Alerta --> "1" TipoOcorrencia
+```
+
+### 6.4 Modelo de dados
+
+Nova coluna na tabela `alerta` (a linha da tabela `alerta` na Seção 5.3 já foi atualizada):
+
+| Coluna | Tipo | Restrições | Descrição |
+| :--- | :--- | :--- | :--- |
+| `tipo_ocorrencia` | `VARCHAR(20)` | `NOT NULL`, `DEFAULT 'QUEIMADA_VEGETACAO'`, `CHECK (tipo_ocorrencia IN ('QUEIMADA_VEGETACAO', 'INCENDIO_URBANO'))`, índice | Tipo da ocorrência |
+
+Texto sugerido:
+
+> A coluna foi acrescentada por uma migração idempotente (`ALTER TABLE ... ADD COLUMN IF NOT EXISTS`) no próprio script do esquema. Assim, um banco existente é atualizado com o mesmo comando de criação, sem perda de dados. As ocorrências registradas antes da mudança receberam o tipo "queimada em vegetação". A coluna `fator_risco.zona_urbana` foi mantida e passou a registrar a zona urbana efetivamente usada no cálculo, derivada do tipo de ocorrência.
+
+Para o dicionário de dados da API (Seção 3.2), acrescentar:
+
+| Campo | Tipo | Descrição |
+| :--- | :--- | :--- |
+| `tipoOcorrencia` | texto | `QUEIMADA_VEGETACAO` ou `INCENDIO_URBANO` |
+
+### 6.5 API (Capítulo 5)
+
+| Método | Rota | Alteração |
+| :--- | :--- | :--- |
+| POST | `/api/alertas` | Aceita `tipoOcorrencia`. Em `INCENDIO_URBANO`, exige logradouro (ou ponto de referência), bairro, município e UF válida e, se informado, CEP de 8 dígitos; responde 400 com os campos que faltam. |
+| GET | `/api/alertas` | Devolve `tipoOcorrencia` em cada ocorrência e aceita o filtro opcional `?tipoOcorrencia=`. |
+
+Texto sugerido sobre a compatibilidade:
+
+> Para não afetar clientes da versão anterior, a API continua aceitando o campo `zonaUrbana`. Quando a requisição traz `tipoOcorrencia`, ele prevalece e o campo antigo é ignorado. Quando traz apenas `zonaUrbana`, a ocorrência é registrada como queimada em vegetação e o cálculo usa o valor recebido, como antes. Testes automatizados comprovam que, com as mesmas entradas, o índice é idêntico ao calculado antes da mudança.
+
+### 6.6 Painel de controle (Dashboard)
+
+Novo gráfico **"Ocorrências por tipo"** e novo filtro global **"Tipo de ocorrência"**. Texto sugerido:
+
+> O painel de controle apresenta o gráfico "Ocorrências por tipo", com a quantidade de queimadas em vegetação e de incêndios em área urbana no período selecionado. O gráfico pode ser exibido em pizza, barras ou tabela e respeita os filtros globais, entre eles o novo filtro por tipo de ocorrência, que também vale para a lista de alertas e para o mapa. A contagem por tipo também integra o relatório consolidado exportado em CSV.
+
+Na lista de alertas e nos detalhes da ocorrência, o tipo aparece como um rótulo com ícone (árvore para vegetação e edifício para área urbana). A exportação CSV da lista ganhou a coluna "Tipo de ocorrência".

@@ -26,14 +26,17 @@ const SAIDA = path.join(__dirname, 'smcq-exemplo.sql');
 const TABELAS = ['usuario', 'alerta', 'localizacao', 'fator_risco', 'classificacao_risco', 'contribuicao_criterio',
   'historico_status', 'observacao', 'arquivo_anexo', 'solicitacao_exclusao'];
 
-// Ocorrências de demonstração, uma por bioma
+// Ocorrências de demonstração: uma queimada em vegetação por bioma e um incêndio urbano
+// (endereço com ponto de referência, sem número). Como o frontend, enviam tipoOcorrencia, não zonaUrbana.
+const VEGETACAO = 'QUEIMADA_VEGETACAO';
 const ALERTAS = [
-  { titulo: 'Queimada próxima à Transpantaneira', descricao: 'Fumaça intensa avistada por moradores', areaAfetada: 'GRANDE', vento: 'ALTO', pessoasRisco: true, latitude: -16.68, longitude: -56.67, estado: 'MT', municipio: 'Poconé' },
-  { titulo: 'Foco em área de pastagem', descricao: 'Fogo em pasto seco às margens da rodovia', areaAfetada: 'MEDIA', vento: 'MODERADO', pessoasRisco: false, latitude: -14.13, longitude: -47.51, estado: 'GO', municipio: 'Alto Paraíso de Goiás' },
-  { titulo: 'Incêndio em área de floresta', descricao: 'Coluna de fumaça visível da BR-163', areaAfetada: 'GRANDE', vento: 'ALTO', pessoasRisco: false, latitude: -7.04, longitude: -55.42, estado: 'PA', municipio: 'Novo Progresso' },
-  { titulo: 'Queima de vegetação de caatinga', descricao: 'Pequeno foco controlado por brigadistas', areaAfetada: 'PEQUENA', vento: 'BAIXO', pessoasRisco: false, latitude: -9.39, longitude: -40.5, estado: 'PE', municipio: 'Petrolina' },
-  { titulo: 'Fogo em encosta de mata', descricao: 'Fogo próximo a residências', areaAfetada: 'MEDIA', vento: 'MODERADO', pessoasRisco: true, latitude: -22.95, longitude: -43.25, estado: 'RJ', municipio: 'Rio de Janeiro', zonaUrbana: true },
-  { titulo: 'Queimada em campo nativo', descricao: 'Registro de teste: será excluído após aprovação', areaAfetada: 'PEQUENA', vento: 'MODERADO', pessoasRisco: false, latitude: -30.89, longitude: -55.53, estado: 'RS', municipio: "Sant'Ana do Livramento" }
+  { tipoOcorrencia: VEGETACAO, titulo: 'Queimada próxima à Transpantaneira', descricao: 'Fumaça intensa avistada por moradores', areaAfetada: 'GRANDE', vento: 'ALTO', pessoasRisco: true, latitude: -16.68, longitude: -56.67, estado: 'MT', municipio: 'Poconé' },
+  { tipoOcorrencia: VEGETACAO, titulo: 'Foco em área de pastagem', descricao: 'Fogo em pasto seco às margens da rodovia', areaAfetada: 'MEDIA', vento: 'MODERADO', pessoasRisco: false, latitude: -14.13, longitude: -47.51, estado: 'GO', municipio: 'Alto Paraíso de Goiás' },
+  { tipoOcorrencia: VEGETACAO, titulo: 'Incêndio em área de floresta', descricao: 'Coluna de fumaça visível da BR-163', areaAfetada: 'GRANDE', vento: 'ALTO', pessoasRisco: false, latitude: -7.04, longitude: -55.42, estado: 'PA', municipio: 'Novo Progresso' },
+  { tipoOcorrencia: VEGETACAO, titulo: 'Queima de vegetação de caatinga', descricao: 'Pequeno foco controlado por brigadistas', areaAfetada: 'PEQUENA', vento: 'BAIXO', pessoasRisco: false, latitude: -9.39, longitude: -40.5, estado: 'PE', municipio: 'Petrolina' },
+  { tipoOcorrencia: VEGETACAO, titulo: 'Fogo em encosta de mata', descricao: 'Fogo próximo a residências', areaAfetada: 'MEDIA', vento: 'MODERADO', pessoasRisco: true, latitude: -22.95, longitude: -43.25, estado: 'RJ', municipio: 'Rio de Janeiro' },
+  { tipoOcorrencia: VEGETACAO, titulo: 'Queimada em campo nativo', descricao: 'Registro de teste: será excluído após aprovação', areaAfetada: 'PEQUENA', vento: 'MODERADO', pessoasRisco: false, latitude: -30.89, longitude: -55.53, estado: 'RS', municipio: "Sant'Ana do Livramento" },
+  { tipoOcorrencia: 'INCENDIO_URBANO', titulo: 'Incêndio em terreno baldio', descricao: 'Fogo em entulho e mato seco, fumaça atingindo prédios vizinhos', areaAfetada: 'PEQUENA', vento: 'MODERADO', pessoasRisco: true, latitude: -23.551269, longitude: -46.634371, cep: '01001000', logradouro: 'Terreno baldio próximo à Praça da Sé', numero: 'S/N', bairro: 'Sé', estado: 'SP', municipio: 'São Paulo' }
 ];
 
 async function comBancoAdministrativo(sql) {
@@ -81,9 +84,9 @@ async function popularPelaApi() {
     for (const dados of ALERTAS) {
       const a = await api('POST', '/alertas', operador, dados);
       ids.push(a.id);
-      console.log(`   ➕ #${a.id} ${a.municipio}/${a.estado}: ${a.bioma}, risco ${a.risco} (IRS ${a.irs})`);
+      console.log(`   ➕ #${a.id} ${a.tipoOcorrencia} ${a.municipio}/${a.estado}: ${a.bioma}, ${a.tipoArea}, risco ${a.risco} (IRS ${a.irs})`);
     }
-    const [pantanal, cerrado, amazonia, caatinga, mata, pampa] = ids;
+    const [pantanal, cerrado, amazonia, caatinga, mata, pampa, urbano] = ids;
     await api('PATCH', `/alertas/${pantanal}/status`, gestor, { status: 'EM_ANALISE' });
     await api('PATCH', `/alertas/${pantanal}/status`, gestor, { status: 'EM_ATENDIMENTO' });
     await api('POST', `/alertas/${pantanal}/observacoes`, operador, { observacao: 'Brigada do PREVFOGO acionada' });
@@ -91,6 +94,8 @@ async function popularPelaApi() {
     await api('PATCH', `/alertas/${caatinga}/status`, gestor, { status: 'RESOLVIDO' });
     await api('POST', `/alertas/${caatinga}/observacoes`, operador, { observacao: 'Foco extinto pela brigada municipal' });
     await api('POST', `/alertas/${mata}/observacoes`, operador, { observacao: 'Defesa Civil notificada' });
+    await api('PATCH', `/alertas/${urbano}/status`, gestor, { status: 'EM_ATENDIMENTO' });
+    await api('POST', `/alertas/${urbano}/observacoes`, operador, { observacao: 'Corpo de Bombeiros no local' });
     // Solicitação rejeitada, solicitação pendente e solicitação aprovada (exclusão lógica)
     const rejeitada = await api('POST', `/alertas/${cerrado}/solicitacoes-exclusao`, operador, { motivo: 'Possível duplicidade' });
     await api('PATCH', `/alertas/${cerrado}/solicitacoes-exclusao/${rejeitada.id}`, gestor, { decisao: 'REJEITADA', resposta: 'Ocorrências distintas' });
@@ -113,7 +118,8 @@ function exportar() {
 -- Gerado por "npm run db:exemplo" em ${new Date().toISOString().slice(0, 10)}.
 --
 -- Contém o esquema completo (db/schema.sql) e dados de demonstração:
--- 3 usuários e ${ALERTAS.length} alertas classificados pelo IRS v2 com geodados reais.
+-- 3 usuários e ${ALERTAS.length} alertas classificados pelo IRS v2 com geodados reais
+-- (${ALERTAS.filter(a => a.tipoOcorrencia === VEGETACAO).length} queimadas em vegetação, uma por bioma, e ${ALERTAS.filter(a => a.tipoOcorrencia !== VEGETACAO).length} incêndio em área urbana).
 --
 -- Senhas: apenas hashes bcrypt das senhas de DEMONSTRAÇÃO
 -- (admin@smcq.com / admin123, operador@smcq.com / operador123,

@@ -169,7 +169,8 @@ usuario ─┬─< alerta ─┬── localizacao          (1:1) coordenadas e 
 ```
 
 - **Índices (RNF20)** para os filtros por data, status, nível de risco e região (estado/município), além de coordenadas.
-- **Regras garantidas pelo banco:** valores válidos de status, perfil e nível (`CHECK`) e no máximo uma solicitação de exclusão pendente por alerta (índice único parcial).
+- **Regras garantidas pelo banco:** valores válidos de status, perfil, nível e tipo de ocorrência (`CHECK`) e no máximo uma solicitação de exclusão pendente por alerta (índice único parcial).
+- **Tipo de ocorrência:** coluna `alerta.tipo_ocorrencia` (`QUEIMADA_VEGETACAO` | `INCENDIO_URBANO`), criada por migração idempotente no próprio `schema.sql` (`ALTER TABLE ... ADD COLUMN IF NOT EXISTS`, com `CHECK` e `DEFAULT 'QUEIMADA_VEGETACAO'`). Num banco que já tem alertas, basta rodar `npm run db:init`: a coluna é criada, os alertas existentes ficam como `QUEIMADA_VEGETACAO` e nenhum dado é apagado. `fator_risco.zona_urbana` continua existindo e grava a zona urbana efetivamente usada no cálculo.
 - **Transações:** a criação do alerta (com classificação, contribuições e histórico), a mudança de status, a exclusão e a avaliação de solicitações gravam tudo ou nada.
 - **Senhas:** apenas o hash bcrypt (RNF03).
 - **Sem PostGIS:** as distâncias continuam calculadas na aplicação pela fórmula de Haversine (RNF17).
@@ -209,7 +210,7 @@ O script sai com código diferente de zero em caso de falha, e o Agendador regis
 
 ### Base de dados de exemplo
 
-[`db/smcq-exemplo.sql`](db/smcq-exemplo.sql) contém o esquema e dados de demonstração: os 3 usuários de teste e 6 alertas, um por bioma, classificados pelo IRS v2 com geodados reais e com status, observações e solicitações de exclusão (pendente, rejeitada e aprovada). Não contém senhas reais, apenas os hashes das senhas de demonstração da tabela [Usuários de teste](#usuários-de-teste). O arquivo não usa comandos exclusivos do `psql`, então também pode ser executado no Query Tool do pgAdmin.
+[`db/smcq-exemplo.sql`](db/smcq-exemplo.sql) contém o esquema e dados de demonstração: os 3 usuários de teste e 7 alertas (6 queimadas em vegetação, uma por bioma, e 1 incêndio em área urbana com ponto de referência no lugar da rua), classificados pelo IRS v2 com geodados reais e com status, observações e solicitações de exclusão (pendente, rejeitada e aprovada). Não contém senhas reais, apenas os hashes das senhas de demonstração da tabela [Usuários de teste](#usuários-de-teste). O arquivo não usa comandos exclusivos do `psql`, então também pode ser executado no Query Tool do pgAdmin.
 
 ```bash
 createdb -U postgres smcq_demo
@@ -242,7 +243,7 @@ Base: `http://localhost:3000/api`. Todas as rotas, exceto o login, exigem o cabe
 
 | Método | Rota | Descrição |
 | :--- | :--- | :--- |
-| `GET` | `/alertas` | Lista os alertas ativos (os excluídos não aparecem) |
+| `GET` | `/alertas` | Lista os alertas ativos (os excluídos não aparecem). Filtro opcional `?tipoOcorrencia=QUEIMADA_VEGETACAO\|INCENDIO_URBANO`; valor fora da lista → `400` |
 | `GET` | `/alertas/geodados-preview?lat=X&lng=Y` | Geodados de um ponto (bioma, UC, TI, fauna, focos), sem criar alerta. `400` se `lat`/`lng` forem inválidos |
 | `POST` | `/alertas` | Registra um alerta e calcula o risco pelo IRS v2 |
 | `GET` | `/alertas/:id/risco` | Detalha o cálculo de risco do alerta |
@@ -255,20 +256,22 @@ Corpo do `POST /alertas`:
 | Campo | Tipo | Obrigatório | Observação |
 | :--- | :--- | :--- | :--- |
 | `titulo` | texto | sim | |
+| `tipoOcorrencia` | `QUEIMADA_VEGETACAO` \| `INCENDIO_URBANO` | não | Padrão `QUEIMADA_VEGETACAO`. Define o endereço exigido e o padrão da zona urbana (ver [Tipo de ocorrência](#tipo-de-ocorrência)). Valor fora da lista → `400` |
 | `areaAfetada` | `PEQUENA` \| `MEDIA` \| `GRANDE` | sim | |
 | `vento` | `BAIXO` \| `MODERADO` \| `ALTO` | sim | Intensidade do vento |
 | `latitude`, `longitude` | número | sim | |
 | `descricao` | texto | não | |
-| `estado`, `municipio` | texto | não | |
-| `cep`, `logradouro`, `numero`, `bairro` | texto | não | |
-| `pessoasRisco` | booleano | não | Padrão `false` |
-| `zonaUrbana` | booleano | não | Sem UC/TI no ponto e sem tipo de área informado, define o tipo de área: urbana (`true`) ou rural |
+| `estado`, `municipio` | texto | só em `INCENDIO_URBANO` | `estado` é a UF; no incêndio urbano, uma das 27 siglas |
+| `logradouro`, `bairro` | texto | só em `INCENDIO_URBANO` | `logradouro` aceita rua ou ponto de referência (ex.: "terreno baldio próximo à Rua X") |
+| `cep`, `numero` | texto | não | No incêndio urbano, o CEP, se informado, deve ter 8 dígitos; `numero` aceita "S/N" |
+| `pessoasRisco` | booleano | não | Padrão `false` em qualquer tipo de ocorrência |
+| `zonaUrbana` | booleano | não | **Mantido para clientes antigos.** Ignorado quando vem `tipoOcorrencia` |
 | `direcaoVento` | número (graus) | não | Para onde o vento sopra: 0 = norte, sentido horário. Padrão `45` |
 | `dA_dt` | número | não | Taxa de crescimento da área. Padrão `0` |
 | `bioma` | `AMAZONIA` \| `PANTANAL` \| `MATA_ATLANTICA` \| `CERRADO` \| `CAATINGA` \| `PAMPA` \| `URBANO` \| `OUTRO` | não | Correção do operador: prevalece sobre o bioma detectado. Aceita nome por extenso (`"Mata Atlântica"`). Valor fora da lista → `400` |
 | `tipoArea` | `TERRA_INDIGENA` \| `UC_FEDERAL` \| `UC_ESTADUAL` \| `APP` \| `RESERVA_LEGAL` \| `RURAL` \| `URBANA` | não | Correção do operador: prevalece sobre o tipo detectado. Valor fora da lista → `400` |
 
-Latitude e longitude fora da faixa válida (ou não numéricas) → `400`. Falha das bases externas **não** impede o registro: o serviço de geodados usa um valor de reserva (fallback) e registra a fonte usada.
+Latitude e longitude fora da faixa válida (ou não numéricas) → `400`. Texto de endereço maior que a coluna do banco (ex.: `logradouro` acima de 200 caracteres) → `400`. Falha das bases externas **não** impede o registro: o serviço de geodados usa um valor de reserva (fallback) e registra a fonte usada.
 
 O alerta devolvido traz, além dos campos enviados:
 
@@ -277,6 +280,9 @@ O alerta devolvido traz, além dos campos enviados:
 | `id`, `status`, `criadoPor`, `criadoEm`, `atualizadoEm`, `solicitacoesExclusao` | Como antes. `status`: `NOVO` \| `EM_ANALISE` \| `EM_ATENDIMENTO` \| `RESOLVIDO` |
 | `historico` | Alterações de status e a exclusão. O 1º registro é a criação (RNF04): `{ campo: "status", valorAnterior: null, valorNovo: "NOVO", alteradoPor: <criador> }` |
 | `latitude`, `longitude` | Sempre numéricos na resposta, mesmo se enviados como texto |
+| `tipoOcorrencia` | `QUEIMADA_VEGETACAO` \| `INCENDIO_URBANO` |
+| `zonaUrbana` | Zona urbana efetivamente usada no cálculo (derivada do tipo de ocorrência ou enviada por cliente antigo) |
+| `estado`, `municipio`, `cep`, `logradouro`, `numero`, `bairro` | Gravados sem espaços nas pontas; vazios quando não informados |
 | `risco` | Nível: `BAIXO` \| `MODERADO` \| `ALTO` \| `CRITICO` |
 | `irs` (e `pontuacaoRisco`, mesmo valor) | Índice de Risco Sintético, de 0 a 1 |
 | `sigmoide` | Valor da sigmoide do IRS, usado para o nível |
@@ -314,6 +320,29 @@ Exemplo de resposta do `GET /alertas/:id/risco` (alerta no Pantanal, IRS v2):
 ```
 
 **Desempenho.** O frontend chama o `geodados-preview` quando o usuário escolhe o local no mapa. O resultado fica em cache (1 h), e o `POST` seguinte no mesmo ponto não faz nenhuma consulta externa (cerca de 2 ms). Ao subir, o servidor carrega em segundo plano os CSVs de focos do INPE e os renova a cada 45 min. Em 14/10/2026, um `POST` num ponto nunca consultado levou de 0,2 a 1,0 s.
+
+### Tipo de ocorrência
+
+O primeiro campo do formulário de ocorrência. Ele adapta o formulário e define **valores padrão** de entradas que já existiam; não entra na fórmula do IRS (pesos, tabelas e limiares não mudaram).
+
+| | `QUEIMADA_VEGETACAO` | `INCENDIO_URBANO` |
+| :--- | :--- | :--- |
+| Localização exigida | Só as coordenadas | Coordenadas + `logradouro` (rua ou ponto de referência), `bairro`, `municipio` e `estado` (UF) |
+| Zona urbana usada no cálculo | `false` | `true` |
+| Tipo de área, se não houver UC/TI no ponto nem tipo informado | `RURAL` | `URBANA` |
+| `pessoasRisco` omitido | `false` | `false` (o formulário marca por padrão, de forma visível e editável) |
+
+Uma Terra Indígena ou Unidade de Conservação detectada no ponto continua prevalecendo, e o `tipoArea` informado pelo operador prevalece sobre tudo, como antes.
+
+**Compatibilidade com o campo antigo `zonaUrbana`.** A API continua aceitando o campo; o frontend deixou de enviá-lo.
+
+| Corpo recebido | `tipoOcorrencia` gravado | Zona urbana usada no cálculo |
+| :--- | :--- | :--- |
+| `tipoOcorrencia` (com ou sem `zonaUrbana`) | o enviado | `tipoOcorrencia === "INCENDIO_URBANO"`; o `zonaUrbana` enviado é **ignorado** |
+| só `zonaUrbana` (cliente antigo) | `QUEIMADA_VEGETACAO` | o `zonaUrbana` enviado, como antes |
+| nenhum dos dois | `QUEIMADA_VEGETACAO` | `false` |
+
+Assim, um cliente antigo obtém exatamente o mesmo IRS de antes e não passa a ter o endereço exigido. `tests/tipoOcorrencia.test.js` comprova que, com as mesmas entradas, o resultado é idêntico ao da referência gerada antes da mudança (`tests/fixtures/irs-v2-referencia.json`), pelo caminho antigo e pelo novo. A regra fica em [`services/ocorrenciaService.js`](services/ocorrenciaService.js).
 
 ### Exclusão de alertas
 
@@ -406,16 +435,17 @@ Os testes nunca acessam a internet nem dependem do PostgreSQL:
 - os scripts de validação (`scripts/validacao/`): são ferramentas de linha de comando que dependem de rede, e só a biblioteca da amostra é testada (`tests/vazamento.test.js`);
 - os scripts de banco (`db/`): foram verificados manualmente contra o PostgreSQL.
 
-Resultado em 14/10/2026, com 153 testes:
+Resultado em 14/10/2026, com 180 testes:
 
 | Escopo | Linhas | Instruções | Ramos | Funções |
 | :--- | ---: | ---: | ---: | ---: |
-| **Geral** (`server.js` + `services/` + `repositorios/`) | **95,2%** | 93,8% | 83,8% | 93,7% |
+| **Geral** (`server.js` + `services/` + `repositorios/`) | **95,4%** | 94,1% | 84,2% | 93,9% |
 | `services/riscoService.js` | 97,9% | 98,1% | 89,5% | 100% |
 | `services/classificacaoService.js` | 100% | 100% | 100% | 100% |
-| `server.js` | 89,5% | 88,7% | 90,3% | 95,0% |
-| `repositorios/postgres/alertaRepositorio.js` | 100% | 97,4% | 77,3% | 100% |
-| `repositorios/memoria/alertaRepositorio.js` | 100% | 100% | 87,1% | 100% |
+| `services/ocorrenciaService.js` | 100% | 100% | 100% | 100% |
+| `server.js` | 90,1% | 89,3% | 89,7% | 95,0% |
+| `repositorios/postgres/alertaRepositorio.js` | 100% | 97,4% | 77,8% | 100% |
+| `repositorios/memoria/alertaRepositorio.js` | 100% | 100% | 85,7% | 100% |
 | `services/geodadosService.js` | 94,5% | 90,2% | 72,5% | 86,4% |
 | `services/cacheService.js` | 64,7% | 60,0% | 44,4% | 60,0% |
 
