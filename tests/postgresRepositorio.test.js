@@ -8,6 +8,7 @@
 // gravações acontecem em transação.
 // ============================================================
 const { classificarComGeodados } = require('../services/classificacaoService');
+const { aplicarEdicao } = require('../services/edicaoService');
 
 // Banco falso (prefixo "mock" exigido pelo jest.mock)
 const mockBanco = { tabelas: {}, consultas: [], parametros: [], falharEm: null, respostas: [] };
@@ -172,7 +173,8 @@ describe('alterações em alerta inexistente ou excluído devolvem null (→ 404
     ['atualizarStatus', () => pg.atualizarStatus(1, 'RESOLVIDO', 1)],
     ['adicionarObservacao', () => pg.adicionarObservacao(1, 'x', 1)],
     ['excluir', () => pg.excluir(1, 1)],
-    ['avaliarSolicitacao', () => pg.avaliarSolicitacao(1, 1, 'APROVADA', '', 1)]
+    ['avaliarSolicitacao', () => pg.avaliarSolicitacao(1, 1, 'APROVADA', '', 1)],
+    ['editar', () => pg.editar(1, 1, () => { throw new Error('não deveria ser chamado'); })]
   ])('%s', async (_nome, operacao) => {
     expect(await operacao()).toBeNull();
     expect(mockBanco.consultas.some(c => /^(INSERT|UPDATE)/.test(c))).toBe(false);
@@ -241,6 +243,89 @@ describe('alterações de um alerta existente', () => {
     const s = await pg.avaliarSolicitacao(7, 5, 'APROVADA', 'ok', 1);
     expect(s).toMatchObject({ id: 5, status: 'APROVADA', resolvidoPor: 1, resposta: 'ok' });
     expect(mockBanco.consultas.some(q => q.startsWith('UPDATE alerta SET excluido = TRUE'))).toBe(true);
+  });
+});
+
+describe('editar: tudo numa transação, com o alerta travado', () => {
+  const travar = () => mockBanco.respostas.push({ quando: /FOR UPDATE/, resultado: { rows: [{}], rowCount: 1 } });
+  const escritas = () => mockBanco.consultas.filter(c => /^(INSERT|UPDATE|DELETE)/.test(c));
+
+  beforeEach(async () => {
+    await pg.criar(dadosDoAlerta());
+    mockBanco.consultas = [];
+    mockBanco.parametros = [];
+  });
+
+  test('entrada do cálculo alterada: dados, fatores, classificação, contribuições e histórico, nessa ordem', async () => {
+    travar();
+    const calc = classificarComGeodados(
+      { latitude: -16.68, longitude: -56.67, areaAfetada: 'GRANDE', vento: 'BAIXO', pessoasRisco: true, zonaUrbana: false, direcaoVento: 45, dA_dt: 0 },
+      { bioma: 'PANTANAL', tipoArea: null },
+      dadosDoAlerta().geodados
+    );
+    await pg.editar(7, 3, (atual) => aplicarEdicao(atual, { vento: 'BAIXO' }));
+    const c = mockBanco.consultas;
+    expect(c[0]).toBe('BEGIN');
+    expect(c[1]).toContain('FOR UPDATE');
+    expect(c.at(-1)).toBe('COMMIT');
+    const e = escritas();
+    expect(e[0]).toMatch(/^UPDATE alerta SET titulo/);
+    expect(e[1]).toMatch(/^UPDATE fator_risco SET area_afetada/);
+    expect(e[2]).toMatch(/^UPDATE fator_risco SET bioma/);
+    expect(e[3]).toMatch(/^INSERT INTO classificacao_risco .* ON CONFLICT \(alerta_id\) DO UPDATE/);
+    expect(e[4]).toBe('DELETE FROM contribuicao_criterio WHERE classificacao_id = $1');
+    expect(e.slice(5, 14).every(q => q.startsWith('INSERT INTO contribuicao_criterio'))).toBe(true);
+    expect(e.slice(14).every(q => q.startsWith('INSERT INTO historico_status'))).toBe(true);
+    // Parâmetros: nova classificação e o vento no histórico, pelo usuário 3
+    const i = c.findIndex(q => q.startsWith('INSERT INTO classificacao_risco'));
+    expect(mockBanco.parametros[i].slice(0, 5)).toEqual([7, 'IRS v2', calc.irs, calc.sigmoide, calc.risco]);
+    expect(mockBanco.tabelas.historico_status[1]).toMatchObject({ campo: 'vento', valor_anterior: '"ALTO"', valor_novo: '"BAIXO"', alterado_por: 3 });
+  });
+
+  test('só título: não toca na classificação nem nas contribuições', async () => {
+    travar();
+    await pg.editar(7, 2, (atual) => aplicarEdicao(atual, { titulo: 'Queimada controlada' }));
+    const e = escritas();
+    expect(e.some(q => /classificacao_risco|contribuicao_criterio|SET bioma/.test(q))).toBe(false);
+    expect(e.filter(q => q.startsWith('INSERT INTO historico_status'))).toHaveLength(1);
+  });
+
+  test('nada mudou: nenhuma escrita', async () => {
+    travar();
+    const alerta = await pg.editar(7, 2, (atual) => aplicarEdicao(atual, { titulo: 'Queimada' }));
+    expect(escritas()).toEqual([]);
+    expect(alerta.id).toBe(7);
+    expect(mockBanco.consultas.at(-1)).toBe('COMMIT');
+  });
+
+  test('regra recusada com o alerta travado (ex.: resolvido) → erro, ROLLBACK e nada gravado', async () => {
+    travar();
+    const recusar = () => { throw Object.assign(new Error('resolvido'), { code: 'ALERTA_RESOLVIDO' }); };
+    await expect(pg.editar(7, 2, recusar)).rejects.toMatchObject({ code: 'ALERTA_RESOLVIDO' });
+    expect(escritas()).toEqual([]);
+    expect(mockBanco.consultas).toContain('ROLLBACK');
+    expect(mockBanco.consultas).not.toContain('COMMIT');
+  });
+
+  test('falha do banco no meio da gravação → ROLLBACK e o erro chega a quem chamou', async () => {
+    travar();
+    mockBanco.falharEm = 'DELETE FROM contribuicao_criterio';
+    await expect(pg.editar(7, 2, (atual) => aplicarEdicao(atual, { vento: 'BAIXO' }))).rejects.toMatchObject({ code: '23514' });
+    expect(mockBanco.consultas).toContain('ROLLBACK');
+    expect(mockBanco.consultas).not.toContain('COMMIT');
+  });
+
+  test('a função de edição recebe o alerta lido dentro da transação, depois da trava', async () => {
+    travar();
+    let lidoEm = -1;
+    await pg.editar(7, 2, (atual) => {
+      lidoEm = mockBanco.consultas.length;
+      expect(atual).toMatchObject({ id: 7, titulo: 'Queimada', vento: 'ALTO' });
+      return { dados: {}, risco: null, historico: [] };
+    });
+    const trava = mockBanco.consultas.findIndex(q => q.includes('FOR UPDATE'));
+    expect(trava).toBeGreaterThan(0);
+    expect(lidoEm).toBeGreaterThan(trava);
   });
 });
 

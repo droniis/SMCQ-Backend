@@ -7,6 +7,7 @@ const classificacao = require('./services/classificacaoService');
 const geodadosService = require('./services/geodadosService');
 const ocorrencia = require('./services/ocorrenciaService');
 const statusService = require('./services/statusService');
+const edicao = require('./services/edicaoService');
 const { ehErroDeConexao, explicarErroBanco } = require('./db/conexao');
 
 const app = express();
@@ -243,6 +244,43 @@ app.get('/api/alertas/:id/risco', rota(async (req, res) => {
     res.json(classificacao.detalhamentoDoRisco(alerta));
 }));
 
+// Lê e valida a edição pedida para um alerta ativo. → { alerta, campos } ou, se recusada, { status, erro }.
+// Ordem: inexistente → 404; resolvido → 422; campo não editável → 422; valor inválido → 400.
+async function prepararEdicao(id, corpo) {
+    const alerta = await alertas.buscarAtivo(id);
+    if (!alerta) return { status: 404, erro: 'Alerta não encontrado' };
+    if (alerta.status === 'RESOLVIDO') return { status: 422, erro: 'Alerta resolvido não pode ser editado' };
+    const { campos, erros, naoEditaveis } = edicao.lerEdicao(corpo);
+    if (naoEditaveis.length > 0) {
+        return {
+            status: 422,
+            erro: `Campos não editáveis: ${naoEditaveis.join(', ')}. Editáveis: ${edicao.CAMPOS_EDITAVEIS.join(', ')} (localização e tipo de ocorrência não podem ser alterados)`
+        };
+    }
+    if (erros.length > 0) return { status: 400, erro: erros.join('; ') };
+    return { alerta, campos };
+}
+
+// Simula a edição sem gravar: mostra se o nível de risco mudaria (aviso antes de salvar).
+// Usa os geodados gravados no alerta; não consulta as bases externas.
+app.post('/api/alertas/:id/risco/simulacao', rota(async (req, res) => {
+    const preparo = await prepararEdicao(parseInt(req.params.id), req.body);
+    if (preparo.erro) {
+        return res.status(preparo.status).json({ erro: preparo.erro });
+    }
+    const { alerta, campos } = preparo;
+    const { risco } = edicao.aplicarEdicao(alerta, campos);
+    res.json({
+        alertaId: alerta.id,
+        recalculado: Boolean(risco),
+        nivelAtual: alerta.risco,
+        nivelNovo: risco ? risco.risco : alerta.risco,
+        irsAtual: alerta.irs,
+        irsNovo: risco ? risco.irs : alerta.irs,
+        mudaNivel: Boolean(risco) && risco.risco !== alerta.risco
+    });
+}));
+
 // Geodados do alerta: os gravados na criação; se não houver, consulta em tempo real (sem gravar)
 app.get('/api/alertas/:id/geodados', rota(async (req, res) => {
     const alerta = await alertas.buscarAtivo(parseInt(req.params.id));
@@ -260,6 +298,29 @@ app.get('/api/alertas/:id/geodados', rota(async (req, res) => {
         res.json({ alertaId: alerta.id, origem: 'tempo-real', geodados });
     } catch (err) {
         res.status(500).json({ erro: `Falha ao obter geodados: ${err.message}` });
+    }
+}));
+
+// Editar a ocorrência (RF11, HU04): todos os perfis. Corpo parcial com os campos editáveis.
+// Se mudar uma entrada do cálculo, o IRS é recalculado com os geodados gravados, na mesma transação.
+app.patch('/api/alertas/:id', rota(async (req, res) => {
+    const id = parseInt(req.params.id);
+    const preparo = await prepararEdicao(id, req.body);
+    if (preparo.erro) {
+        return res.status(preparo.status).json({ erro: preparo.erro });
+    }
+    try {
+        // A edição é reaplicada sobre o alerta travado no repositório (pode ter mudado desde a leitura)
+        const alerta = await alertas.editar(id, req.usuario.id, (atual) => edicao.aplicarEdicao(atual, preparo.campos));
+        if (!alerta) {
+            return res.status(404).json({ erro: 'Alerta não encontrado' }); // excluído enquanto a requisição chegava
+        }
+        res.json(await comNomes(alerta));
+    } catch (err) {
+        if (err.code === 'ALERTA_RESOLVIDO') {
+            return res.status(422).json({ erro: 'Alerta resolvido não pode ser editado' });
+        }
+        throw err;
     }
 }));
 

@@ -176,6 +176,17 @@ async function registrarHistorico(client, alertaId, campo, valorAnterior, valorN
   );
 }
 
+// Uma linha por critério do IRS
+async function inserirContribuicoes(client, classificacaoId, detalhes) {
+  for (const [criterio, detalhe] of Object.entries(detalhes || {})) {
+    await client.query(
+      `INSERT INTO contribuicao_criterio (classificacao_id, criterio, fator, peso, contribuicao, detalhe)
+       VALUES ($1, $2, $3, $4, $5, $6)`,
+      [classificacaoId, criterio, detalhe.fator, detalhe.peso, detalhe.contribuicao, json(detalhe)]
+    );
+  }
+}
+
 // Exclusão lógica: o alerta continua guardado para auditoria, mas some das listagens
 async function marcarExcluido(client, id, usuarioId, agora) {
   await client.query(
@@ -223,13 +234,7 @@ async function criar(d) {
        VALUES ($1, $2, $3, $4, $5, $6) RETURNING id`,
       [id, d.versaoAlgoritmo, d.irs, d.sigmoide, d.risco, d.criadoEm]
     );
-    for (const [criterio, detalhe] of Object.entries(d.detalhes || {})) {
-      await client.query(
-        `INSERT INTO contribuicao_criterio (classificacao_id, criterio, fator, peso, contribuicao, detalhe)
-         VALUES ($1, $2, $3, $4, $5, $6)`,
-        [classificacaoId, criterio, detalhe.fator, detalhe.peso, detalhe.contribuicao, json(detalhe)]
-      );
-    }
+    await inserirContribuicoes(client, classificacaoId, d.detalhes);
     // O 1º registro do histórico (criação com status Novo) vem montado pelo server.js
     for (const h of d.historico || []) {
       await registrarHistorico(client, id, h.campo, h.valorAnterior, h.valorNovo, h.alteradoPor, h.alteradoEm);
@@ -261,6 +266,53 @@ async function adicionarObservacao(id, texto, usuarioId) {
       [id, texto, usuarioId, agora]
     );
     await client.query('UPDATE alerta SET atualizado_em = $2 WHERE id = $1', [id, agora]);
+    return carregarUm(client, id);
+  });
+}
+
+// Edição dos dados da ocorrência, tudo numa transação com o alerta travado:
+// alerta (título, descrição), fator_risco (entradas do cálculo), classificacao_risco e
+// contribuicao_criterio (se o IRS foi recalculado) e um registro de histórico por campo alterado.
+// aplicar(alertaAtual) → { dados, risco, historico } (edicaoService.aplicarEdicao); se lançar erro, ROLLBACK.
+// → o alerta atualizado (ou o mesmo, se nada mudou); null se não existe
+async function editar(id, usuarioId, aplicar) {
+  return emTransacao(async (client) => {
+    if (!(await travarAtivo(client, id))) return null;
+    const atual = await carregarUm(client, id);
+    const { dados: d, risco, historico } = aplicar(atual);
+    if (historico.length === 0 && !risco) return atual;
+    const agora = new Date().toISOString();
+    await client.query(
+      'UPDATE alerta SET titulo = $2, descricao = $3, atualizado_em = $4 WHERE id = $1',
+      [id, d.titulo, d.descricao, agora]
+    );
+    await client.query(
+      'UPDATE fator_risco SET area_afetada = $2, vento = $3, pessoas_risco = $4 WHERE alerta_id = $1',
+      [id, d.areaAfetada, d.vento, d.pessoasRisco]
+    );
+    if (risco) {
+      await client.query(
+        `UPDATE fator_risco SET bioma = $2, bioma_origem = $3, tipo_area = $4, tipo_area_origem = $5,
+                                area_critica_fauna = $6, proxima_uc = $7
+          WHERE alerta_id = $1`,
+        [id, risco.bioma, risco.biomaOrigem, risco.tipoArea, risco.tipoAreaOrigem, risco.areaCriticaFauna, risco.proximaUC]
+      );
+      // Substitui o resultado anterior (1:1 com o alerta); o nível anterior fica no histórico
+      const { rows: [{ id: classificacaoId }] } = await client.query(
+        `INSERT INTO classificacao_risco (alerta_id, versao_algoritmo, irs, sigmoide, nivel, calculado_em)
+         VALUES ($1, $2, $3, $4, $5, $6)
+         ON CONFLICT (alerta_id) DO UPDATE
+            SET versao_algoritmo = EXCLUDED.versao_algoritmo, irs = EXCLUDED.irs, sigmoide = EXCLUDED.sigmoide,
+                nivel = EXCLUDED.nivel, calculado_em = EXCLUDED.calculado_em
+         RETURNING id`,
+        [id, risco.versaoAlgoritmo, risco.irs, risco.sigmoide, risco.risco, agora]
+      );
+      await client.query('DELETE FROM contribuicao_criterio WHERE classificacao_id = $1', [classificacaoId]);
+      await inserirContribuicoes(client, classificacaoId, risco.detalhes);
+    }
+    for (const h of historico) {
+      await registrarHistorico(client, id, h.campo, h.valorAnterior, h.valorNovo, usuarioId, agora);
+    }
     return carregarUm(client, id);
   });
 }
@@ -347,6 +399,7 @@ module.exports = {
   criar,
   atualizarStatus,
   adicionarObservacao,
+  editar,
   excluir,
   criarSolicitacao,
   listarSolicitacoes,
