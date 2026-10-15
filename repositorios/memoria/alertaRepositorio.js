@@ -5,6 +5,7 @@
 // estado guardado sem passar pelo repositório.
 // ============================================================
 const { nomeDoUsuario } = require('./usuarioRepositorio');
+const { transicaoPermitida, erroTransicao } = require('../../services/statusService');
 
 const alertas = [];
 let alertaIdCounter = 1;
@@ -44,9 +45,11 @@ async function criar(dados) {
   return copia(alerta);
 }
 
+// → o alerta atualizado; null se não existe; erro TRANSICAO_INVALIDA se a mudança não é permitida
 async function atualizarStatus(id, status, usuarioId) {
   const alerta = ativo(id);
   if (!alerta) return null;
+  if (!transicaoPermitida(alerta.status, status)) throw erroTransicao(alerta.status, status);
   const agora = new Date().toISOString();
   alerta.historico.push({ campo: 'status', valorAnterior: alerta.status, valorNovo: status, alteradoPor: usuarioId, alteradoEm: agora });
   alerta.status = status;
@@ -114,7 +117,8 @@ async function listarSolicitacoes({ solicitadoPor = null, status = null } = {}) 
   )
     .filter(s => solicitadoPor === null || s.solicitadoPor === solicitadoPor)
     .filter(s => !status || s.status === status)
-    .sort((a, b) => b.criadoEm.localeCompare(a.criadoEm));
+    // Mesma ordem do PostgreSQL: mais recentes primeiro; no mesmo instante, a de maior id
+    .sort((a, b) => b.criadoEm.localeCompare(a.criadoEm) || b.id - a.id);
 }
 
 // Aprova ou rejeita uma solicitação PENDENTE; aprovada, exclui o alerta.

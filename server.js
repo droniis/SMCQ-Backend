@@ -6,6 +6,7 @@ const bcrypt = require('bcryptjs');
 const classificacao = require('./services/classificacaoService');
 const geodadosService = require('./services/geodadosService');
 const ocorrencia = require('./services/ocorrenciaService');
+const statusService = require('./services/statusService');
 const { ehErroDeConexao, explicarErroBanco } = require('./db/conexao');
 
 const app = express();
@@ -71,6 +72,31 @@ function comVersao(alerta) {
     if (!alerta.versaoAlgoritmo) alerta.versaoAlgoritmo = classificacao.versaoDoAlerta(alerta);
     return alerta;
 }
+
+// Alerta com o nome de cada autor (criação, histórico, observações, solicitações),
+// resolvido pelo id do usuário. Usuários desativados continuam com o nome nos registros.
+async function comNomes(alerta) {
+    const historico = alerta.historico || [];
+    const observacoes = alerta.observacoes || [];
+    const solicitacoes = alerta.solicitacoesExclusao || [];
+    const nomes = await usuarios.nomesPorIds([
+        alerta.criadoPor,
+        ...historico.map(h => h.alteradoPor),
+        ...observacoes.map(o => o.criadoPor),
+        ...solicitacoes.flatMap(s => [s.solicitadoPor, s.resolvidoPor])
+    ]);
+    const nome = (id) => (id == null ? null : nomes[id] ?? null);
+    const resultado = {
+        ...comVersao(alerta),
+        criadoPorNome: nome(alerta.criadoPor),
+        historico: historico.map(h => ({ ...h, alteradoPorNome: nome(h.alteradoPor) })),
+        solicitacoesExclusao: solicitacoes.map(s => ({ ...s, solicitadoPorNome: nome(s.solicitadoPor), resolvidoPorNome: nome(s.resolvidoPor) }))
+    };
+    if (alerta.observacoes) resultado.observacoes = observacoes.map(o => ({ ...o, criadoPorNome: nome(o.criadoPor) }));
+    return resultado;
+}
+
+const TAMANHO_MAXIMO_OBSERVACAO = 2000;
 
 // ============================================================
 // ROTA DE LOGIN (PÚBLICA)
@@ -197,6 +223,15 @@ app.post('/api/alertas', rota(async (req, res) => {
     res.status(201).json(novoAlerta);
 }));
 
+// Um alerta, com os nomes dos autores (tela de Detalhes)
+app.get('/api/alertas/:id', rota(async (req, res) => {
+    const alerta = await alertas.buscarAtivo(parseInt(req.params.id));
+    if (!alerta) {
+        return res.status(404).json({ erro: 'Alerta não encontrado' });
+    }
+    res.json(await comNomes(alerta));
+}));
+
 // Detalhamento do cálculo de risco do alerta (IRS, sigmoide e contribuição de cada critério).
 // IRS v2: o cálculo gravado na criação. Alerta antigo do v1: recalculado pelo v1, como antes.
 app.get('/api/alertas/:id/risco', rota(async (req, res) => {
@@ -228,33 +263,49 @@ app.get('/api/alertas/:id/geodados', rota(async (req, res) => {
     }
 }));
 
-// Atualizar status do alerta (o status anterior vai para o histórico)
+// Atualizar status do alerta (o status anterior vai para o histórico).
+// Só as transições do UC05 FA01 (services/statusService.js); as demais → 422, sem alterar nada.
 app.patch('/api/alertas/:id/status', rota(async (req, res) => {
     const id = parseInt(req.params.id);
     const { status } = req.body;
     if (!(await alertas.buscarAtivo(id))) {
         return res.status(404).json({ erro: 'Alerta não encontrado' });
     }
-    const statusValidos = ['NOVO', 'EM_ANALISE', 'EM_ATENDIMENTO', 'RESOLVIDO'];
-    if (!statusValidos.includes(status)) {
+    if (!statusService.statusValido(status)) {
         return res.status(400).json({ erro: 'Status inválido' });
     }
-    const alerta = await alertas.atualizarStatus(id, status, req.usuario.id);
+    try {
+        const alerta = await alertas.atualizarStatus(id, status, req.usuario.id);
+        if (!alerta) {
+            return res.status(404).json({ erro: 'Alerta não encontrado' }); // excluído enquanto a requisição chegava
+        }
+        res.json(await comNomes(alerta));
+    } catch (err) {
+        if (err.code === 'TRANSICAO_INVALIDA') {
+            return res.status(422).json({ erro: 'Transição de status não permitida' });
+        }
+        throw err;
+    }
+}));
+
+// Adicionar observação (texto obrigatório, até 2.000 caracteres)
+app.post('/api/alertas/:id/observacoes', rota(async (req, res) => {
+    const id = parseInt(req.params.id);
+    if (!(await alertas.buscarAtivo(id))) {
+        return res.status(404).json({ erro: 'Alerta não encontrado' });
+    }
+    const observacao = typeof req.body.observacao === 'string' ? req.body.observacao.trim() : '';
+    if (!observacao) {
+        return res.status(400).json({ erro: 'O texto da observação é obrigatório' });
+    }
+    if (observacao.length > TAMANHO_MAXIMO_OBSERVACAO) {
+        return res.status(400).json({ erro: `A observação aceita no máximo ${TAMANHO_MAXIMO_OBSERVACAO} caracteres` });
+    }
+    const alerta = await alertas.adicionarObservacao(id, observacao, req.usuario.id);
     if (!alerta) {
         return res.status(404).json({ erro: 'Alerta não encontrado' }); // excluído enquanto a requisição chegava
     }
-    res.json(alerta);
-}));
-
-// Adicionar observação
-app.post('/api/alertas/:id/observacoes', rota(async (req, res) => {
-    const id = parseInt(req.params.id);
-    const { observacao } = req.body;
-    const alerta = await alertas.adicionarObservacao(id, observacao, req.usuario.id);
-    if (!alerta) {
-        return res.status(404).json({ erro: 'Alerta não encontrado' });
-    }
-    res.json(alerta);
+    res.json(await comNomes(alerta));
 }));
 
 // ============================================================
@@ -301,16 +352,22 @@ app.post('/api/alertas/:id/solicitacoes-exclusao', rota(async (req, res) => {
     }
 }));
 
+const SITUACOES_SOLICITACAO = ['PENDENTE', 'APROVADA', 'REJEITADA'];
+
 // Listar solicitações de exclusão: Administrador e Gestor veem todas; o Operador, só as próprias.
 // Aceita ?status=PENDENTE|APROVADA|REJEITADA
 app.get('/api/solicitacoes-exclusao', rota(async (req, res) => {
+    const { status } = req.query;
+    if (status && !SITUACOES_SOLICITACAO.includes(status)) {
+        return res.status(400).json({ erro: `Situação inválida: ${status}. Valores aceitos: ${SITUACOES_SOLICITACAO.join(', ')}` });
+    }
     res.json(await alertas.listarSolicitacoes({
         solicitadoPor: podeExcluirDireto(req) ? null : req.usuario.id,
-        status: req.query.status || null
+        status: status || null
     }));
 }));
 
-// Aprovar ou rejeitar uma solicitação de exclusão (Administrador e Gestor)
+// Aprovar ou rejeitar uma solicitação de exclusão (Administrador e Gestor). A rejeição exige resposta.
 app.patch('/api/alertas/:id/solicitacoes-exclusao/:sid', rota(async (req, res) => {
     if (!podeExcluirDireto(req)) {
         return res.status(403).json({ erro: 'Apenas administradores e gestores podem avaliar solicitações de exclusão' });
@@ -325,14 +382,18 @@ app.patch('/api/alertas/:id/solicitacoes-exclusao/:sid', rota(async (req, res) =
     if (!solicitacao) {
         return res.status(404).json({ erro: 'Solicitação não encontrada' });
     }
-    const { decisao, resposta } = req.body;
+    const { decisao } = req.body;
     if (!['APROVADA', 'REJEITADA'].includes(decisao)) {
         return res.status(400).json({ erro: 'Decisão inválida: use APROVADA ou REJEITADA' });
+    }
+    const resposta = typeof req.body.resposta === 'string' ? req.body.resposta.trim() : '';
+    if (decisao === 'REJEITADA' && !resposta) {
+        return res.status(400).json({ erro: 'Informe a resposta ao solicitante para rejeitar a solicitação' });
     }
     if (solicitacao.status !== 'PENDENTE') {
         return res.status(409).json({ erro: 'Esta solicitação já foi avaliada' });
     }
-    const avaliada = await alertas.avaliarSolicitacao(id, sid, decisao, typeof resposta === 'string' ? resposta.trim() : '', req.usuario.id);
+    const avaliada = await alertas.avaliarSolicitacao(id, sid, decisao, resposta, req.usuario.id);
     if (!avaliada) {
         return res.status(409).json({ erro: 'Esta solicitação já foi avaliada' }); // avaliada por outro usuário no mesmo instante
     }

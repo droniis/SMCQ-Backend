@@ -21,4 +21,9 @@ function nomeDoUsuario(id) {
   return usuario ? usuario.nome : null;
 }
 
-module.exports = { buscarPorEmail, nomeDoUsuario };
+// Nomes dos autores (alertas, histórico, observações) → { [id]: nome }. Inclui usuários desativados.
+async function nomesPorIds(ids) {
+  return Object.fromEntries([...new Set(ids)].filter(id => id != null).map(id => [id, nomeDoUsuario(id)]));
+}
+
+module.exports = { buscarPorEmail, nomeDoUsuario, nomesPorIds };

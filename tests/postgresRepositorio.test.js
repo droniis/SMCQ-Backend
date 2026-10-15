@@ -198,6 +198,23 @@ describe('alterações de um alerta existente', () => {
     expect(mockBanco.tabelas.historico_status[1]).toMatchObject({ campo: 'status', valor_anterior: '"NOVO"', valor_novo: '"EM_ANALISE"', alterado_por: 3 });
   });
 
+  test('atualizarStatus com transição proibida → erro TRANSICAO_INVALIDA, ROLLBACK e nada gravado', async () => {
+    mockBanco.respostas.push({ quando: /FOR UPDATE/, resultado: { rows: [{ status: 'RESOLVIDO' }], rowCount: 1 } });
+    await expect(pg.atualizarStatus(7, 'EM_ANALISE', 3)).rejects.toMatchObject({ code: 'TRANSICAO_INVALIDA' });
+    expect(mockBanco.consultas.some(c => /^(INSERT|UPDATE)/.test(c))).toBe(false);
+    expect(mockBanco.consultas).toContain('ROLLBACK');
+    expect(mockBanco.consultas).not.toContain('COMMIT');
+    expect(mockBanco.tabelas.historico_status).toHaveLength(1);
+  });
+
+  test('atualizarStatus confere a transição pelo status lido COM a trava, não por um lido antes', async () => {
+    // Outro usuário levou o alerta a EM_ATENDIMENTO; quem chega pedindo EM_ATENDIMENTO de novo recebe o erro
+    mockBanco.respostas.push({ quando: /FOR UPDATE/, resultado: { rows: [{ status: 'EM_ATENDIMENTO' }], rowCount: 1 } });
+    await expect(pg.atualizarStatus(7, 'EM_ATENDIMENTO', 3)).rejects.toMatchObject({ code: 'TRANSICAO_INVALIDA' });
+    const trava = mockBanco.consultas.findIndex(c => c.includes('FOR UPDATE'));
+    expect(mockBanco.consultas[trava - 1]).toBe('BEGIN');
+  });
+
   test('excluir: exclusão lógica, histórico "excluido" e aprovação das pendentes na mesma transação', async () => {
     mockBanco.respostas.push({ quando: /FOR UPDATE/, resultado: { rows: [{}], rowCount: 1 } });
     await pg.excluir(7, 1);
@@ -256,6 +273,24 @@ describe('solicitações de exclusão', () => {
       resolvidoPor: null, resposta: '', alertaId: 7, alertaTitulo: 'Queimada', alertaExcluido: false,
       solicitadoPorNome: 'Operador', resolvidoPorNome: null
     }]);
+  });
+});
+
+describe('usuários: nomes dos autores', () => {
+  let usuariosPg;
+  beforeAll(() => { usuariosPg = require('../repositorios/postgres/usuarioRepositorio'); });
+
+  test('nomesPorIds consulta uma vez, sem repetidos nem nulos, inclusive usuários desativados', async () => {
+    mockBanco.respostas.push({ quando: /FROM usuario WHERE id = ANY/, resultado: { rows: [{ id: 1, nome: 'Admin' }, { id: 2, nome: 'Operador' }] } });
+    expect(await usuariosPg.nomesPorIds([1, 2, 2, null, undefined])).toEqual({ 1: 'Admin', 2: 'Operador' });
+    const i = mockBanco.consultas.findIndex(c => c.includes('FROM usuario WHERE id = ANY'));
+    expect(mockBanco.consultas[i]).not.toContain('ativo');
+    expect(mockBanco.parametros[i]).toEqual([[1, 2]]);
+  });
+
+  test('nomesPorIds sem ids → objeto vazio, sem consultar o banco', async () => {
+    expect(await usuariosPg.nomesPorIds([null])).toEqual({});
+    expect(mockBanco.consultas).toEqual([]);
   });
 });
 
