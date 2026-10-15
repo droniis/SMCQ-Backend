@@ -8,6 +8,7 @@ const geodadosService = require('./services/geodadosService');
 const ocorrencia = require('./services/ocorrenciaService');
 const statusService = require('./services/statusService');
 const edicao = require('./services/edicaoService');
+const usuarioService = require('./services/usuarioService');
 const { ehErroDeConexao, explicarErroBanco } = require('./db/conexao');
 
 const app = express();
@@ -43,20 +44,32 @@ const rota = (fn) => (req, res, next) => Promise.resolve(fn(req, res, next)).cat
 
 // ============================================================
 // FUNÇÃO DE AUTENTICAÇÃO (MIDDLEWARE)
+// O token identifica o usuário; perfil e situação vêm do banco a cada
+// requisição. Assim, desativar um usuário ou mudar o perfil dele vale
+// na hora, sem esperar o token expirar.
 // ============================================================
-function autenticarToken(req, res, next) {
+async function autenticarToken(req, res, next) {
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
     if (!token) {
         return res.status(401).json({ erro: 'Token não fornecido' });
     }
+    let decoded;
     try {
-        const decoded = jwt.verify(token, JWT_SECRET);
-        req.usuario = decoded;
-        next();
+        decoded = jwt.verify(token, JWT_SECRET);
     } catch (err) {
         // 401 = sessão inválida ou expirada; 403 fica reservado para permissão negada
         return res.status(401).json({ erro: 'Token inválido ou expirado' });
+    }
+    try {
+        const usuario = await usuarios.buscarPorId(decoded.id);
+        if (!usuario || !usuario.ativo) {
+            return res.status(401).json({ erro: 'Sessão encerrada: usuário desativado ou inexistente' });
+        }
+        req.usuario = { id: usuario.id, nome: usuario.nome, email: usuario.email, perfil: usuario.perfil, senhaProvisoria: usuario.senhaProvisoria };
+        next();
+    } catch (err) {
+        next(err); // banco fora do ar → 503 no tratador de erros
     }
 }
 
@@ -99,6 +112,9 @@ async function comNomes(alerta) {
 
 const TAMANHO_MAXIMO_OBSERVACAO = 2000;
 
+// Custo do hash bcrypt (RNF03). Nos testes, um custo menor só para acelerar a suíte.
+const CUSTO_BCRYPT = process.env.NODE_ENV === 'test' ? 4 : 10;
+
 // ============================================================
 // ROTA DE LOGIN (PÚBLICA)
 // ============================================================
@@ -108,8 +124,12 @@ app.post('/api/login', rota(async (req, res) => {
     if (!usuario) {
         return res.status(401).json({ erro: 'Usuário não encontrado' });
     }
-    if (!bcrypt.compareSync(senha, usuario.senhaHash)) {
+    if (typeof senha !== 'string' || !bcrypt.compareSync(senha, usuario.senhaHash)) {
         return res.status(401).json({ erro: 'Senha incorreta' });
+    }
+    // Conferido depois da senha, para não revelar a situação da conta a quem não a conhece
+    if (!usuario.ativo) {
+        return res.status(401).json({ erro: 'Usuário desativado. Procure o gestor do sistema.' });
     }
     const token = jwt.sign(
         { id: usuario.id, email: usuario.email, perfil: usuario.perfil },
@@ -462,12 +482,149 @@ app.patch('/api/alertas/:id/solicitacoes-exclusao/:sid', rota(async (req, res) =
 }));
 
 // ============================================================
+// GESTÃO DE USUÁRIOS (RF04, UC08, HU02)
+// Matriz de permissões em services/usuarioService.js. As regras são
+// conferidas aqui (resposta rápida) e de novo no repositório, com o
+// usuário alvo travado, pois ele pode ter mudado entre uma e outra.
+// Nada é apagado: desativar é exclusão lógica (ativo = false).
+// ============================================================
+
+// Só GESTOR e ADMINISTRADOR entram na gestão de usuários
+function exigirGestaoDeUsuarios(req, res, next) {
+    if (!usuarioService.podeGerenciar(req.usuario)) {
+        return res.status(403).json({ erro: usuarioService.MENSAGENS.gerenciar });
+    }
+    next();
+}
+
+// Responde 409 quando o repositório acusa e-mail repetido
+async function comEmailUnico(res, operacao) {
+    try {
+        return await operacao();
+    } catch (err) {
+        if (err.code === 'EMAIL_DUPLICADO') {
+            res.status(409).json({ erro: 'Já existe um usuário com este e-mail' });
+            return undefined;
+        }
+        throw err;
+    }
+}
+
+// Usuário alvo da rota (:id) → o usuário, ou responde 404 e devolve null
+async function carregarAlvo(req, res) {
+    const alvo = await usuarios.buscarPorId(parseInt(req.params.id));
+    if (!alvo) {
+        res.status(404).json({ erro: 'Usuário não encontrado' });
+        return null;
+    }
+    return alvo;
+}
+
+// Listar usuários. Filtros opcionais: ?perfil=ADMINISTRADOR|GESTOR|OPERADOR e ?ativo=true|false
+app.get('/api/usuarios', exigirGestaoDeUsuarios, rota(async (req, res) => {
+    const { perfil, ativo } = req.query;
+    if (perfil !== undefined && !usuarioService.PERFIS.includes(perfil)) {
+        return res.status(400).json({ erro: `Perfil inválido: ${perfil}. Valores aceitos: ${usuarioService.PERFIS.join(', ')}` });
+    }
+    if (ativo !== undefined && !['true', 'false'].includes(ativo)) {
+        return res.status(400).json({ erro: 'Filtro "ativo" inválido: use true ou false' });
+    }
+    const lista = await usuarios.listar({ perfil: perfil || null, ativo: ativo === undefined ? null : ativo === 'true' });
+    res.json(lista.map(usuarioService.publico));
+}));
+
+app.get('/api/usuarios/:id', exigirGestaoDeUsuarios, rota(async (req, res) => {
+    const alvo = await carregarAlvo(req, res);
+    if (alvo) res.json(usuarioService.publico(alvo));
+}));
+
+// Auditoria das ações sobre um usuário (quem fez, o quê, quando)
+app.get('/api/usuarios/:id/auditoria', exigirGestaoDeUsuarios, rota(async (req, res) => {
+    const alvo = await carregarAlvo(req, res);
+    if (alvo) res.json(await usuarios.listarAuditoria(alvo.id));
+}));
+
+// Cadastrar usuário (só GESTOR). A senha informada é provisória: troca obrigatória no primeiro acesso.
+app.post('/api/usuarios', rota(async (req, res) => {
+    if (!usuarioService.podeCadastrar(req.usuario)) {
+        return res.status(403).json({ erro: usuarioService.MENSAGENS.cadastrar });
+    }
+    const { dados, erros } = usuarioService.lerCadastro(req.body || {});
+    if (erros.length > 0) {
+        return res.status(400).json({ erro: erros.join('; ') });
+    }
+    const senhaHash = await bcrypt.hash(dados.senha, CUSTO_BCRYPT);
+    const criado = await comEmailUnico(res, () => usuarios.criar(
+        { nome: dados.nome, email: dados.email, perfil: dados.perfil, senhaHash, senhaProvisoria: true },
+        req.usuario.id
+    ));
+    if (criado) res.status(201).json(usuarioService.publico(criado));
+}));
+
+// Editar usuário: nome, e-mail, perfil e senha provisória, conforme a matriz de permissões
+app.patch('/api/usuarios/:id', rota(async (req, res) => {
+    if (!usuarioService.podeGerenciar(req.usuario)) {
+        return res.status(403).json({ erro: usuarioService.MENSAGENS.editar });
+    }
+    const alvo = await carregarAlvo(req, res);
+    if (!alvo) return;
+    if (!usuarioService.podeEditar(req.usuario, alvo)) {
+        return res.status(403).json({ erro: usuarioService.MENSAGENS.editar });
+    }
+    const { campos, erros } = usuarioService.lerEdicao(req.body);
+    if (erros.length > 0) {
+        return res.status(400).json({ erro: erros.join('; ') });
+    }
+    const { senha, ...outros } = campos;
+    const novos = senha === undefined ? outros : { ...outros, senhaHash: await bcrypt.hash(senha, CUSTO_BCRYPT) };
+    const atualizado = await comEmailUnico(res, () => usuarios.atualizar(
+        alvo.id,
+        req.usuario.id,
+        (atual, contexto) => usuarioService.aplicarEdicao(req.usuario, atual, novos, contexto)
+    ));
+    if (atualizado === undefined) return; // 409 já respondido
+    if (!atualizado) {
+        return res.status(404).json({ erro: 'Usuário não encontrado' });
+    }
+    res.json(usuarioService.publico(atualizado));
+}));
+
+// Desativar ({ ativo: false }) ou reativar ({ ativo: true }) um usuário
+app.patch('/api/usuarios/:id/ativo', rota(async (req, res) => {
+    if (!usuarioService.podeGerenciar(req.usuario)) {
+        return res.status(403).json({ erro: usuarioService.MENSAGENS.ativo });
+    }
+    const alvo = await carregarAlvo(req, res);
+    if (!alvo) return;
+    if (!usuarioService.podeAlterarAtivo(req.usuario, alvo)) {
+        return res.status(403).json({ erro: usuarioService.MENSAGENS.ativo });
+    }
+    const { ativo } = req.body || {};
+    if (typeof ativo !== 'boolean') {
+        return res.status(400).json({ erro: 'Informe "ativo": true (reativar) ou false (desativar)' });
+    }
+    const atualizado = await usuarios.atualizar(
+        alvo.id,
+        req.usuario.id,
+        (atual, contexto) => usuarioService.aplicarAtivo(req.usuario, atual, ativo, contexto)
+    );
+    if (!atualizado) {
+        return res.status(404).json({ erro: 'Usuário não encontrado' });
+    }
+    res.json(usuarioService.publico(atualizado));
+}));
+
+// ============================================================
 // TRATAMENTO DE ERROS
 // Banco fora do ar → 503 com mensagem clara (e o motivo no log);
 // dado que o banco recusa (tamanho, formato) → 400; demais → 500.
 // Erros do próprio Express (ex.: JSON malformado) seguem o tratamento padrão.
 // ============================================================
 app.use((err, req, res, next) => {
+    // Regra de negócio ou permissão recusada nos serviços (usuarioService.ErroHttp): 403, 422...
+    if (err instanceof usuarioService.ErroHttp) {
+        return res.status(err.statusHttp).json({ erro: err.message });
+    }
     if (err.status || err.statusCode) return next(err);
     if (ehErroDeConexao(err)) {
         console.error(`[banco] ${req.method} ${req.originalUrl}: ${explicarErroBanco(err)}`);

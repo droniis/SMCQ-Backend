@@ -379,6 +379,108 @@ describe('usuários: nomes dos autores', () => {
   });
 });
 
+describe('usuários: cadastro, alteração e auditoria em transação', () => {
+  let usuariosPg;
+  const agora = new Date('2026-10-15T12:00:00.000Z');
+  const linha = (campos = {}) => ({
+    id: 10, nome: 'Fulana', email: 'fulana@smcq.com', perfil: 'OPERADOR', ativo: true, senha_provisoria: true,
+    criado_em: agora, atualizado_em: agora, senha_hash: '$2a$hash', ...campos
+  });
+  const escritas = () => mockBanco.consultas.filter(c => /^(INSERT|UPDATE|DELETE)/.test(c));
+  // Gestores ativos (travados) e o alvo, nas consultas do atualizar
+  const prepararAtualizar = (gestores, alvo) => mockBanco.respostas.push(
+    { quando: /^SELECT id FROM usuario WHERE perfil = 'GESTOR' AND ativo ORDER BY id FOR UPDATE$/, resultado: { rows: gestores.map(id => ({ id })) } },
+    { quando: /FROM usuario WHERE id = \$1 FOR UPDATE$/, resultado: { rows: alvo ? [alvo] : [] } }
+  );
+
+  beforeAll(() => { usuariosPg = require('../repositorios/postgres/usuarioRepositorio'); });
+
+  test('criar: usuário e auditoria CRIADO na mesma transação, sem a senha na auditoria', async () => {
+    // O RETURNING do cadastro não traz senha_hash
+    mockBanco.respostas.push({ quando: /^INSERT INTO usuario/, resultado: { rows: [linha({ senha_hash: undefined })] } });
+    const criado = await usuariosPg.criar({ nome: 'Fulana', email: 'fulana@smcq.com', perfil: 'OPERADOR', senhaHash: '$2a$hash', senhaProvisoria: true }, 3);
+    expect(criado).toEqual({
+      id: 10, nome: 'Fulana', email: 'fulana@smcq.com', perfil: 'OPERADOR', ativo: true, senhaProvisoria: true,
+      criadoEm: agora.toISOString(), atualizadoEm: agora.toISOString()
+    });
+    expect(mockBanco.consultas[0]).toBe('BEGIN');
+    expect(mockBanco.consultas.at(-1)).toBe('COMMIT');
+    expect(mockBanco.tabelas.auditoria_usuario).toEqual([expect.objectContaining({ usuario_id: 10, acao: 'CRIADO', realizado_por: 3 })]);
+    expect(JSON.parse(mockBanco.tabelas.auditoria_usuario[0].alteracoes)).toEqual({ nome: 'Fulana', email: 'fulana@smcq.com', perfil: 'OPERADOR' });
+  });
+
+  test('criar com e-mail repetido (UNIQUE do banco) → EMAIL_DUPLICADO (→ 409) e ROLLBACK', async () => {
+    const violacao = Object.assign(new Error('duplicate key'), { code: '23505', constraint: 'usuario_email_key' });
+    mockBanco.respostas.push({ quando: /^INSERT INTO usuario/, erro: violacao });
+    await expect(usuariosPg.criar({ nome: 'x', email: 'admin@smcq.com', perfil: 'OPERADOR', senhaHash: 'h', senhaProvisoria: true }, 3))
+      .rejects.toMatchObject({ code: 'EMAIL_DUPLICADO' });
+    expect(mockBanco.consultas).toContain('ROLLBACK');
+  });
+
+  test('atualizar: trava os gestores ativos ANTES do alvo e passa a contagem para a regra', async () => {
+    prepararAtualizar([3, 11], linha({ perfil: 'GESTOR' }));
+    let contexto;
+    await usuariosPg.atualizar(10, 3, (alvo, ctx) => { contexto = ctx; return { campos: {}, auditoria: [] }; });
+    const c = mockBanco.consultas;
+    expect(c[1]).toMatch(/perfil = 'GESTOR' AND ativo .* FOR UPDATE/);
+    expect(c[2]).toMatch(/WHERE id = \$1 FOR UPDATE/);
+    expect(contexto).toEqual({ gestoresAtivos: 2 });
+    expect(escritas()).toEqual([]);
+  });
+
+  test('atualizar: UPDATE só com as colunas alteradas (parametrizado) e um registro de auditoria por ação', async () => {
+    prepararAtualizar([3], linha());
+    mockBanco.respostas.push({ quando: /^UPDATE usuario SET/, resultado: { rows: [linha({ nome: 'Novo', senha_provisoria: true })] } });
+    const atualizado = await usuariosPg.atualizar(10, 3, () => ({
+      campos: { nome: 'Novo', senhaHash: '$2a$novo', senhaProvisoria: true },
+      auditoria: [{ acao: 'EDITADO', alteracoes: { nome: { anterior: 'Fulana', novo: 'Novo' } } }, { acao: 'SENHA_REDEFINIDA', alteracoes: {} }]
+    }));
+    const i = mockBanco.consultas.findIndex(q => q.startsWith('UPDATE usuario SET'));
+    expect(mockBanco.consultas[i]).toBe('UPDATE usuario SET nome = $2, senha_hash = $3, senha_provisoria = $4, atualizado_em = $5 WHERE id = $1 RETURNING id, nome, email, perfil, ativo, senha_provisoria, criado_em, atualizado_em, senha_hash');
+    expect(mockBanco.parametros[i].slice(0, 4)).toEqual([10, 'Novo', '$2a$novo', true]);
+    expect(mockBanco.tabelas.auditoria_usuario.map(a => a.acao)).toEqual(['EDITADO', 'SENHA_REDEFINIDA']);
+    expect(atualizado).toMatchObject({ id: 10, nome: 'Novo' });
+    expect(mockBanco.consultas.at(-1)).toBe('COMMIT');
+  });
+
+  test('atualizar: regra recusada → erro, ROLLBACK e nada gravado', async () => {
+    prepararAtualizar([3], linha({ perfil: 'GESTOR' }));
+    const recusar = () => { throw Object.assign(new Error('O sistema precisa de pelo menos um gestor ativo'), { statusHttp: 422 }); };
+    await expect(usuariosPg.atualizar(10, 3, recusar)).rejects.toMatchObject({ statusHttp: 422 });
+    expect(escritas()).toEqual([]);
+    expect(mockBanco.consultas).toContain('ROLLBACK');
+  });
+
+  test('atualizar: alvo inexistente → null sem chamar a regra; e-mail repetido → EMAIL_DUPLICADO', async () => {
+    prepararAtualizar([3], null);
+    expect(await usuariosPg.atualizar(99, 3, () => { throw new Error('não deveria ser chamado'); })).toBeNull();
+    prepararAtualizar([3], linha());
+    mockBanco.respostas.push({ quando: /^UPDATE usuario SET/, erro: Object.assign(new Error('dup'), { code: '23505', constraint: 'usuario_email_key' }) });
+    await expect(usuariosPg.atualizar(10, 3, () => ({ campos: { email: 'admin@smcq.com' }, auditoria: [{ acao: 'EDITADO', alteracoes: {} }] })))
+      .rejects.toMatchObject({ code: 'EMAIL_DUPLICADO' });
+  });
+
+  test('listar: filtros parametrizados, sem a coluna senha_hash', async () => {
+    mockBanco.respostas.push({ quando: /FROM usuario\s+WHERE/, resultado: { rows: [linha({ senha_hash: undefined })] } });
+    const lista = await usuariosPg.listar({ perfil: 'OPERADOR', ativo: false });
+    const i = mockBanco.consultas.findIndex(q => q.includes('FROM usuario WHERE'));
+    expect(mockBanco.consultas[i]).not.toContain('senha_hash');
+    expect(mockBanco.parametros[i]).toEqual(['OPERADOR', false]);
+    expect(lista[0]).not.toHaveProperty('senhaHash');
+  });
+
+  test('listarAuditoria: formato da API, com o nome de quem fez', async () => {
+    mockBanco.respostas.push({ quando: /FROM auditoria_usuario a/, resultado: { rows: [{
+      id: 1, usuario_id: 10, acao: 'DESATIVADO', alteracoes: { ativo: { anterior: true, novo: false } },
+      realizado_por: 3, realizado_em: agora, realizado_por_nome: 'Gestor'
+    }] } });
+    expect(await usuariosPg.listarAuditoria(10)).toEqual([{
+      id: 1, usuarioId: 10, acao: 'DESATIVADO', alteracoes: { ativo: { anterior: true, novo: false } },
+      realizadoPor: 3, realizadoEm: agora.toISOString(), realizadoPorNome: 'Gestor'
+    }]);
+  });
+});
+
 describe('repositorios/index.js com PERSISTENCIA=postgres', () => {
   let repos;
   const ambiente = { ...process.env };
