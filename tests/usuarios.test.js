@@ -37,6 +37,14 @@ async function criarAlvo(perfil, { ativo = true } = {}) {
   }
   return { ...r.body, ativo };
 }
+// Entra como o alvo e troca a senha provisória (obrigatório antes de usar as demais rotas) → token
+const SENHA_DEFINITIVA = 'definitiva123';
+async function entrarComSenhaDefinitiva(alvo) {
+  const token = (await login(alvo.email, 'provisoria123')).body.token;
+  const troca = await request(app).patch('/api/perfil/senha').set(comToken(token)).send({ senhaAtual: 'provisoria123', novaSenha: SENHA_DEFINITIVA });
+  expect(troca.status).toBe(200);
+  return token;
+}
 const lerUsuario = async (id) => (await request(app).get(`/api/usuarios/${id}`).set(comToken('gestor'))).body;
 const auditoriaDe = async (id) => (await request(app).get(`/api/usuarios/${id}/auditoria`).set(comToken('gestor'))).body;
 
@@ -231,7 +239,7 @@ describe('nunca fica sem gestor ativo', () => {
 
   test('pela API: dois gestores; um desativa o outro; o restante não consegue sair', async () => {
     const outro = await criarAlvo('GESTOR');
-    const tokenOutro = (await login(outro.email, 'provisoria123')).body.token;
+    const tokenOutro = await entrarComSenhaDefinitiva(outro);
     // O outro gestor desativa o gestor padrão... e o gestor padrão (desativado) perde a sessão
     expect((await request(app).patch('/api/usuarios/3/ativo').set(comToken(tokenOutro)).send({ ativo: false })).status).toBe(200);
     expect((await request(app).get('/api/usuarios').set(comToken('gestor'))).status).toBe(401);
@@ -405,11 +413,11 @@ describe('listagem', () => {
 describe('usuário desativado', () => {
   test('não entra, perde a sessão na hora e entra de novo ao ser reativado', async () => {
     const alvo = await criarAlvo('OPERADOR');
-    const token = (await login(alvo.email, 'provisoria123')).body.token;
+    const token = await entrarComSenhaDefinitiva(alvo);
     expect((await request(app).get('/api/alertas').set(comToken(token))).status).toBe(200);
 
     await request(app).patch(`/api/usuarios/${alvo.id}/ativo`).set(comToken('gestor')).send({ ativo: false });
-    const negado = await login(alvo.email, 'provisoria123');
+    const negado = await login(alvo.email, SENHA_DEFINITIVA);
     expect(negado.status).toBe(401);
     expect(negado.body.erro).toMatch(/desativado/);
     expect((await request(app).get('/api/alertas').set(comToken(token))).status).toBe(401);
@@ -417,12 +425,12 @@ describe('usuário desativado', () => {
     expect((await login(alvo.email, 'errada123')).body.erro).toBe('Senha incorreta');
 
     await request(app).patch(`/api/usuarios/${alvo.id}/ativo`).set(comToken('admin')).send({ ativo: true });
-    expect((await login(alvo.email, 'provisoria123')).status).toBe(200);
+    expect((await login(alvo.email, SENHA_DEFINITIVA)).status).toBe(200);
   });
 
   test('continua com o nome nos registros: alerta criado por ele, histórico e solicitações', async () => {
     const alvo = await criarAlvo('OPERADOR');
-    const token = (await login(alvo.email, 'provisoria123')).body.token;
+    const token = await entrarComSenhaDefinitiva(alvo);
     const { body: alerta } = await request(app).post('/api/alertas').set(comToken(token))
       .send({ titulo: 'Registro de quem sai', areaAfetada: 'PEQUENA', vento: 'BAIXO', latitude: -16.68, longitude: -56.67 });
     await request(app).post(`/api/alertas/${alerta.id}/solicitacoes-exclusao`).set(comToken(token)).send({ motivo: 'teste' });
@@ -440,7 +448,7 @@ describe('usuário desativado', () => {
 describe('mudança de perfil vale na hora (perfil lido do banco a cada requisição)', () => {
   test('operador promovido a gestor já pode cadastrar, com o mesmo token', async () => {
     const alvo = await criarAlvo('OPERADOR');
-    const token = (await login(alvo.email, 'provisoria123')).body.token;
+    const token = await entrarComSenhaDefinitiva(alvo);
     const cadastro = { nome: 'Indicado', email: novoEmail(), perfil: 'OPERADOR', senha: 'provisoria123' };
     expect((await request(app).post('/api/usuarios').set(comToken(token)).send(cadastro)).status).toBe(403);
     await request(app).patch(`/api/usuarios/${alvo.id}`).set(comToken('gestor')).send({ perfil: 'GESTOR' });

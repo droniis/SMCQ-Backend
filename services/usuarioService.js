@@ -187,6 +187,57 @@ function aplicarAtivo(ator, alvo, ativo, contexto) {
   };
 }
 
+// ------------------------------------------------------------
+// Meu perfil (UC04): todo usuário edita o próprio nome e e-mail e troca
+// a própria senha informando a atual. O perfil não muda por aqui.
+// ------------------------------------------------------------
+const CAMPOS_PERFIL_PROPRIO = ['nome', 'email', 'perfil'];
+
+// Corpo do PATCH /api/perfil → { campos: { nome?, email? }, erros, mudaPerfil }
+// "perfil" só é aceito se for o mesmo de hoje (o formulário pode reenviá-lo)
+function lerPerfilProprio(corpo, perfilAtual) {
+  const erros = [];
+  const campos = {};
+  if (!corpo || typeof corpo !== 'object' || Array.isArray(corpo)) return { campos, erros: ['Corpo da requisição inválido'], mudaPerfil: false };
+  const desconhecidos = Object.keys(corpo).filter(c => !CAMPOS_PERFIL_PROPRIO.includes(c));
+  if (desconhecidos.length > 0) {
+    erros.push(`Campos não aceitos: ${desconhecidos.join(', ')}. Aqui se alteram nome e e-mail; a senha, em /api/perfil/senha`);
+  }
+  if ('nome' in corpo) campos.nome = validarNome(corpo.nome, erros);
+  if ('email' in corpo) campos.email = validarEmail(corpo.email, erros);
+  return { campos, erros, mudaPerfil: 'perfil' in corpo && corpo.perfil !== perfilAtual };
+}
+
+// → { campos, auditoria } só com o que mudou (auditoria EDITADO, feita pelo próprio usuário)
+function aplicarPerfilProprio(alvo, campos) {
+  const novos = {};
+  const alteracoes = {};
+  for (const campo of ['nome', 'email']) {
+    if (campo in campos && campos[campo] !== alvo[campo]) {
+      novos[campo] = campos[campo];
+      alteracoes[campo] = { anterior: alvo[campo], novo: campos[campo] };
+    }
+  }
+  return { campos: novos, auditoria: Object.keys(alteracoes).length ? [{ acao: 'EDITADO', alteracoes }] : [] };
+}
+
+// Corpo do PATCH /api/perfil/senha → { senhaAtual, novaSenha, erros }
+function lerTrocaSenha(corpo = {}) {
+  const erros = [];
+  const senhaAtual = typeof corpo.senhaAtual === 'string' ? corpo.senhaAtual : '';
+  if (!senhaAtual) erros.push('Informe a senha atual');
+  const novaSenha = validarSenha(corpo.novaSenha, erros, 'A nova senha');
+  return { senhaAtual, novaSenha, erros };
+}
+
+// Troca da própria senha: deixa de ser provisória (auditoria SENHA_ALTERADA, sem a senha)
+function aplicarTrocaSenha(senhaHash) {
+  return {
+    campos: { senhaHash, senhaProvisoria: false },
+    auditoria: [{ acao: 'SENHA_ALTERADA', alteracoes: {} }]
+  };
+}
+
 // Campos que podem sair na API (nunca o hash da senha)
 function publico(usuario) {
   if (!usuario) return null;
@@ -212,5 +263,9 @@ module.exports = {
   verificarGestorRestante,
   aplicarEdicao,
   aplicarAtivo,
+  lerPerfilProprio,
+  aplicarPerfilProprio,
+  lerTrocaSenha,
+  aplicarTrocaSenha,
   publico
 };

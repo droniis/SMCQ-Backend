@@ -267,7 +267,7 @@ describe('regressão: rotas existentes', () => {
   test('login: credenciais corretas → token; e-mail desconhecido ou senha errada → 401', async () => {
     const ok = await request(app).post('/api/login').send({ email: 'gestor@smcq.com', senha: 'gestor123' });
     expect(ok.status).toBe(200);
-    expect(ok.body.usuario).toEqual({ id: 3, nome: 'Gestor', email: 'gestor@smcq.com', perfil: 'GESTOR' });
+    expect(ok.body.usuario).toEqual({ id: 3, nome: 'Gestor', email: 'gestor@smcq.com', perfil: 'GESTOR', senhaProvisoria: false });
     expect((await request(app).post('/api/login').send({ email: 'x@smcq.com', senha: 'a' })).status).toBe(401);
     expect((await request(app).post('/api/login').send({ email: 'gestor@smcq.com', senha: 'errada' })).status).toBe(401);
   });

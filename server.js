@@ -142,7 +142,9 @@ app.post('/api/login', rota(async (req, res) => {
             id: usuario.id,
             nome: usuario.nome,
             email: usuario.email,
-            perfil: usuario.perfil
+            perfil: usuario.perfil,
+            // true → o frontend leva à troca de senha; as demais rotas respondem 403 até lá
+            senhaProvisoria: usuario.senhaProvisoria
         }
     });
 }));
@@ -151,6 +153,61 @@ app.post('/api/login', rota(async (req, res) => {
 // ROTAS PROTEGIDAS (REQUEREM TOKEN)
 // ============================================================
 app.use('/api', autenticarToken);
+
+// Troca de senha obrigatória no primeiro acesso: com senha provisória, só as rotas
+// de "Meu perfil" respondem; as demais devolvem 403 com o código TROCA_SENHA_OBRIGATORIA.
+app.use('/api', (req, res, next) => {
+    if (req.usuario.senhaProvisoria && !/^\/perfil(\/|$)/.test(req.path)) {
+        return res.status(403).json({
+            erro: 'Troque a senha provisória antes de continuar',
+            codigo: 'TROCA_SENHA_OBRIGATORIA'
+        });
+    }
+    next();
+});
+
+// ============================================================
+// MEU PERFIL (UC04): todo usuário, sobre si mesmo
+// ============================================================
+app.get('/api/perfil', rota(async (req, res) => {
+    res.json(usuarioService.publico(await usuarios.buscarPorId(req.usuario.id)));
+}));
+
+// Editar o próprio nome e e-mail. O perfil não muda por aqui (422).
+app.patch('/api/perfil', rota(async (req, res) => {
+    const { campos, erros, mudaPerfil } = usuarioService.lerPerfilProprio(req.body, req.usuario.perfil);
+    if (mudaPerfil) {
+        return res.status(422).json({ erro: 'Você não pode alterar o seu próprio perfil' });
+    }
+    if (erros.length > 0) {
+        return res.status(400).json({ erro: erros.join('; ') });
+    }
+    const atualizado = await comEmailUnico(res, () => usuarios.atualizar(
+        req.usuario.id,
+        req.usuario.id,
+        (atual) => usuarioService.aplicarPerfilProprio(atual, campos)
+    ));
+    if (atualizado) res.json(usuarioService.publico(atualizado));
+}));
+
+// Alterar a própria senha informando a atual (UC04 passos 4 a 6).
+// Senha atual errada → 422 (não 401, que o frontend trata como sessão expirada).
+app.patch('/api/perfil/senha', rota(async (req, res) => {
+    const { senhaAtual, novaSenha, erros } = usuarioService.lerTrocaSenha(req.body || {});
+    if (erros.length > 0) {
+        return res.status(400).json({ erro: erros.join('; ') });
+    }
+    const atual = await usuarios.buscarPorId(req.usuario.id);
+    if (!(await bcrypt.compare(senhaAtual, atual.senhaHash))) {
+        return res.status(422).json({ erro: 'Senha atual incorreta' });
+    }
+    if (senhaAtual === novaSenha) {
+        return res.status(422).json({ erro: 'A nova senha deve ser diferente da atual' });
+    }
+    const senhaHash = await bcrypt.hash(novaSenha, CUSTO_BCRYPT);
+    const atualizado = await usuarios.atualizar(req.usuario.id, req.usuario.id, () => usuarioService.aplicarTrocaSenha(senhaHash));
+    res.json(usuarioService.publico(atualizado));
+}));
 
 // Listar alertas (sem os excluídos). Filtro opcional: ?tipoOcorrencia=QUEIMADA_VEGETACAO | INCENDIO_URBANO
 app.get('/api/alertas', rota(async (req, res) => {
