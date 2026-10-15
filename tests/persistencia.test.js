@@ -84,6 +84,20 @@ describe('repositório em memória', () => {
     await expect(repositorios.alertas.criarSolicitacao(id, 2, 'segunda')).rejects.toMatchObject({ code: 'SOLICITACAO_PENDENTE' });
   });
 
+  test('atualizarStatus recusa transição proibida sem alterar o alerta', async () => {
+    const { id } = await repositorios.alertas.criar(dados());
+    await expect(repositorios.alertas.atualizarStatus(id, 'RESOLVIDO', 1)).rejects.toMatchObject({ code: 'TRANSICAO_INVALIDA' });
+    await expect(repositorios.alertas.atualizarStatus(id, 'NOVO', 1)).rejects.toMatchObject({ code: 'TRANSICAO_INVALIDA' });
+    const guardado = await repositorios.alertas.buscarAtivo(id);
+    expect(guardado.status).toBe('NOVO');
+    expect(guardado.historico).toEqual([]);
+    expect((await repositorios.alertas.atualizarStatus(id, 'EM_ANALISE', 1)).status).toBe('EM_ANALISE');
+  });
+
+  test('nomesPorIds resolve os nomes dos usuários padrão', async () => {
+    expect(await repositorios.usuarios.nomesPorIds([1, 3, 3, null])).toEqual({ 1: 'Admin', 3: 'Gestor' });
+  });
+
   test('operações em alerta inexistente ou excluído devolvem null', async () => {
     const { id } = await repositorios.alertas.criar(dados());
     await repositorios.alertas.excluir(id, 1);

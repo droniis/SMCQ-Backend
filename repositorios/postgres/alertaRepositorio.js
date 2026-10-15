@@ -8,6 +8,7 @@
 // ============================================================
 const { obterPool, emTransacao } = require('./pool');
 const { PESOS_AHP_V2 } = require('../../services/riscoService');
+const { transicaoPermitida, erroTransicao } = require('../../services/statusService');
 
 // Ordem dos critérios no "detalhes" devolvido (a mesma do cálculo)
 const ORDEM_CRITERIOS = Object.keys(PESOS_AHP_V2);
@@ -237,11 +238,13 @@ async function criar(d) {
   });
 }
 
-// Status + registro no histórico
+// Status + registro no histórico. A transição é conferida com o alerta travado.
+// → o alerta atualizado; null se não existe; erro TRANSICAO_INVALIDA (ROLLBACK, nada gravado)
 async function atualizarStatus(id, status, usuarioId) {
   return emTransacao(async (client) => {
     const { rows } = await client.query('SELECT status FROM alerta WHERE id = $1 AND NOT excluido FOR UPDATE', [id]);
     if (rows.length === 0) return null;
+    if (!transicaoPermitida(rows[0].status, status)) throw erroTransicao(rows[0].status, status);
     const agora = new Date().toISOString();
     await client.query('UPDATE alerta SET status = $2, atualizado_em = $3 WHERE id = $1', [id, status, agora]);
     await registrarHistorico(client, id, 'status', rows[0].status, status, usuarioId, agora);
