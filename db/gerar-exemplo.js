@@ -4,13 +4,16 @@
 //
 // 1. Cria o banco temporário smcq_exemplo (o banco "smcq" não é tocado);
 // 2. aplica o esquema e o seed (usuários de demonstração);
-// 3. cadastra alertas pela própria API (IRS v2 e geodados reais — requer internet);
+// 3. cadastra alertas e usuários pela própria API (IRS v2 e geodados reais — requer
+//    internet) e os movimenta: status, observações, edição com recálculo do IRS,
+//    solicitações de exclusão, troca de senha provisória e desativação;
 // 4. exporta: db/schema.sql + dados em INSERTs simples (sem comandos
 //    exclusivos do psql), para abrir também no Query Tool do pgAdmin;
 // 5. confere a restauração num segundo banco temporário e apaga os dois.
 //
 // Senhas: só os hashes bcrypt das senhas de DEMONSTRAÇÃO documentadas
-// no README (admin123, operador123, gestor123). Nenhuma senha real.
+// no README (admin123, operador123, gestor123) e dos dois usuários
+// cadastrados aqui (SENHA_EXEMPLO e SENHA_EXEMPLO_DEFINITIVA). Nenhuma senha real.
 // ============================================================
 require('dotenv').config({ quiet: true });
 const fs = require('fs');
@@ -24,7 +27,16 @@ const BANCO = 'smcq_exemplo';
 const BANCO_VERIFICACAO = 'smcq_exemplo_verificacao';
 const SAIDA = path.join(__dirname, 'smcq-exemplo.sql');
 const TABELAS = ['usuario', 'alerta', 'localizacao', 'fator_risco', 'classificacao_risco', 'contribuicao_criterio',
-  'historico_status', 'observacao', 'arquivo_anexo', 'solicitacao_exclusao'];
+  'historico_status', 'observacao', 'arquivo_anexo', 'solicitacao_exclusao', 'auditoria_usuario'];
+
+// Usuários cadastrados pelo gestor (senhas de demonstração): a brigadista troca a senha
+// provisória no primeiro acesso; o outro operador é desativado.
+const SENHA_EXEMPLO = 'provisoria123';
+const SENHA_EXEMPLO_DEFINITIVA = 'brigadista123';
+const USUARIOS = {
+  brigadista: { nome: 'Brigadista Exemplo', email: 'brigadista@smcq.com', perfil: 'OPERADOR', senha: SENHA_EXEMPLO },
+  desligado: { nome: 'Operador Desligado', email: 'desligado@smcq.com', perfil: 'OPERADOR', senha: SENHA_EXEMPLO }
+};
 
 // Ocorrências de demonstração: uma queimada em vegetação por bioma e um incêndio urbano
 // (endereço com ponto de referência, sem número). Como o frontend, enviam tipoOcorrencia, não zonaUrbana.
@@ -91,9 +103,13 @@ async function popularPelaApi() {
     await api('PATCH', `/alertas/${pantanal}/status`, gestor, { status: 'EM_ATENDIMENTO' });
     await api('POST', `/alertas/${pantanal}/observacoes`, operador, { observacao: 'Brigada do PREVFOGO acionada' });
     await api('PATCH', `/alertas/${amazonia}/status`, gestor, { status: 'EM_ANALISE' });
-    await api('PATCH', `/alertas/${caatinga}/status`, gestor, { status: 'RESOLVIDO' });
+    // Transições do UC05: NOVO → EM_ANALISE → EM_ATENDIMENTO → RESOLVIDO
+    for (const status of ['EM_ANALISE', 'EM_ATENDIMENTO', 'RESOLVIDO']) {
+      await api('PATCH', `/alertas/${caatinga}/status`, gestor, { status });
+    }
     await api('POST', `/alertas/${caatinga}/observacoes`, operador, { observacao: 'Foco extinto pela brigada municipal' });
     await api('POST', `/alertas/${mata}/observacoes`, operador, { observacao: 'Defesa Civil notificada' });
+    await api('PATCH', `/alertas/${urbano}/status`, gestor, { status: 'EM_ANALISE' });
     await api('PATCH', `/alertas/${urbano}/status`, gestor, { status: 'EM_ATENDIMENTO' });
     await api('POST', `/alertas/${urbano}/observacoes`, operador, { observacao: 'Corpo de Bombeiros no local' });
     // Solicitação rejeitada, solicitação pendente e solicitação aprovada (exclusão lógica)
@@ -102,7 +118,21 @@ async function popularPelaApi() {
     await api('POST', `/alertas/${mata}/solicitacoes-exclusao`, operador, { motivo: 'Confirmar se o foco já foi registrado pelos bombeiros' });
     const aprovada = await api('POST', `/alertas/${pampa}/solicitacoes-exclusao`, operador, { motivo: 'Alerta cadastrado por engano' });
     await api('PATCH', `/alertas/${pampa}/solicitacoes-exclusao/${aprovada.id}`, admin, { decisao: 'APROVADA', resposta: 'Excluído' });
-    console.log('   ✔ status, observações e solicitações de exclusão registrados');
+    // Edição (RF11): muda a área afetada e o vento, entradas do cálculo → IRS recalculado, campos no histórico
+    const editado = await api('PATCH', `/alertas/${cerrado}`, gestor, { areaAfetada: 'GRANDE', vento: 'ALTO', descricao: 'Fogo em pasto seco avançou para a vegetação nativa' });
+    console.log(`   ✏️  #${cerrado} editado: risco ${editado.risco} (IRS ${editado.irs})`);
+    console.log('   ✔ status, observações, edição e solicitações de exclusão registrados');
+
+    // Gestão de usuários (RF04): cadastro com senha provisória, troca no primeiro acesso,
+    // edição pelo administrador e desativação pelo gestor (tudo em auditoria_usuario)
+    const brigadista = await api('POST', '/usuarios', gestor, USUARIOS.brigadista);
+    const desligado = await api('POST', '/usuarios', gestor, USUARIOS.desligado);
+    const tokenBrigadista = await login(USUARIOS.brigadista.email, SENHA_EXEMPLO);
+    await api('PATCH', '/perfil/senha', tokenBrigadista, { senhaAtual: SENHA_EXEMPLO, novaSenha: SENHA_EXEMPLO_DEFINITIVA });
+    await api('POST', `/alertas/${amazonia}/observacoes`, tokenBrigadista, { observacao: 'Equipe em deslocamento pela BR-163' });
+    await api('PATCH', `/usuarios/${brigadista.id}`, admin, { nome: 'Brigadista de Exemplo' });
+    await api('PATCH', `/usuarios/${desligado.id}/ativo`, gestor, { ativo: false });
+    console.log(`   ✔ usuários #${brigadista.id} (senha trocada) e #${desligado.id} (desativado) registrados`);
   } finally {
     await new Promise(resolve => servidor.close(resolve));
     await repositorios.encerrar();
@@ -118,12 +148,15 @@ function exportar() {
 -- Gerado por "npm run db:exemplo" em ${new Date().toISOString().slice(0, 10)}.
 --
 -- Contém o esquema completo (db/schema.sql) e dados de demonstração:
--- 3 usuários e ${ALERTAS.length} alertas classificados pelo IRS v2 com geodados reais
--- (${ALERTAS.filter(a => a.tipoOcorrencia === VEGETACAO).length} queimadas em vegetação, uma por bioma, e ${ALERTAS.filter(a => a.tipoOcorrencia !== VEGETACAO).length} incêndio em área urbana).
+-- ${3 + Object.keys(USUARIOS).length} usuários (um deles desativado) e ${ALERTAS.length} alertas classificados pelo IRS v2 com geodados reais
+-- (${ALERTAS.filter(a => a.tipoOcorrencia === VEGETACAO).length} queimadas em vegetação, uma por bioma, e ${ALERTAS.filter(a => a.tipoOcorrencia !== VEGETACAO).length} incêndio em área urbana),
+-- com histórico de status e de edição, observações, solicitações de exclusão
+-- e a auditoria das ações sobre os usuários.
 --
 -- Senhas: apenas hashes bcrypt das senhas de DEMONSTRAÇÃO
 -- (admin@smcq.com / admin123, operador@smcq.com / operador123,
---  gestor@smcq.com / gestor123). Nenhuma senha real.
+--  gestor@smcq.com / gestor123, ${USUARIOS.brigadista.email} / ${SENHA_EXEMPLO_DEFINITIVA};
+--  ${USUARIOS.desligado.email} está desativado). Nenhuma senha real.
 --
 -- Como carregar (num banco vazio):
 --   createdb -U postgres smcq

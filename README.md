@@ -6,7 +6,7 @@
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-18-4169E1?logo=postgresql&logoColor=white)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-API REST do **SMCQ (Sistema de Monitoramento de Queimadas)**, desenvolvido como Trabalho de Conclusão de Curso. O backend autentica usuários, registra ocorrências de queimadas, classifica o risco de cada uma com um algoritmo multicritério e controla o fluxo de exclusão de alertas com aprovação.
+API REST do **SMCQ (Sistema de Monitoramento de Queimadas)**, desenvolvido como Trabalho de Conclusão de Curso. O backend autentica usuários, registra e edita ocorrências de queimadas, classifica o risco de cada uma com um algoritmo multicritério, controla o ciclo de status e o fluxo de exclusão de alertas com aprovação, e gerencia os usuários com auditoria das alterações.
 
 > Os dados ficam no **PostgreSQL** e permanecem após reiniciar o servidor. Para demonstração rápida sem banco, há também o modo em memória (`PERSISTENCIA=memoria`), em que os dados se perdem a cada reinício.
 
@@ -20,6 +20,7 @@ O frontend (React + Vite) fica em um repositório separado: [SMCQ-TCC](https://g
 - [Estrutura de pastas](#estrutura-de-pastas)
 - [Banco de dados](#banco-de-dados)
 - [API](#api)
+- [Usuários](#usuários)
 - [Algoritmo de classificação de risco](#algoritmo-de-classificação-de-risco)
 - [Bases de dados externas](#bases-de-dados-externas)
 - [Validação do IRS](#validação-do-irs)
@@ -106,9 +107,11 @@ curl -X POST http://localhost:3000/api/login \
 
 | Perfil | E-mail | Senha | Pode |
 | :--- | :--- | :--- | :--- |
-| `ADMINISTRADOR` | `admin@smcq.com` | `admin123` | Tudo, incluindo excluir alertas e avaliar solicitações de exclusão |
-| `OPERADOR` | `operador@smcq.com` | `operador123` | Registrar e acompanhar alertas; solicitar exclusão |
-| `GESTOR` | `gestor@smcq.com` | `gestor123` | Registrar e acompanhar alertas; excluir alertas e avaliar solicitações de exclusão |
+| `ADMINISTRADOR` | `admin@smcq.com` | `admin123` | Registrar, editar e acompanhar alertas; excluir alertas e avaliar solicitações de exclusão; editar, desativar e reativar operadores |
+| `OPERADOR` | `operador@smcq.com` | `operador123` | Registrar, editar e acompanhar alertas; solicitar exclusão e acompanhar as próprias solicitações |
+| `GESTOR` | `gestor@smcq.com` | `gestor123` | Registrar, editar e acompanhar alertas; excluir alertas e avaliar solicitações de exclusão; cadastrar, editar, desativar e reativar qualquer usuário |
+
+Todo usuário edita o próprio nome e e-mail e troca a própria senha em "Meu perfil". Usuários cadastrados pelo gestor recebem uma **senha provisória** e precisam trocá-la no primeiro acesso (ver [Usuários](#usuários)).
 
 ## Estrutura de pastas
 
@@ -132,6 +135,10 @@ SMCQ-Backend/
 ├── services/
 │   ├── riscoService.js     # Algoritmo multicritério de classificação de risco (IRS v1 e v2)
 │   ├── classificacaoService.js # Liga o alerta ao IRS v2: geodados + valores informados + cálculo
+│   ├── ocorrenciaService.js # Tipo de ocorrência: endereço exigido e zona urbana
+│   ├── statusService.js    # Transições de status permitidas (UC05)
+│   ├── edicaoService.js    # Edição da ocorrência e recálculo do IRS (RF11)
+│   ├── usuarioService.js   # Gestão de usuários: validação e matriz de permissões (RF04)
 │   ├── geodadosService.js  # Bioma, UC, TI, fauna e focos (IBGE, ICMBio, FUNAI, GBIF, INPE)
 │   ├── cacheService.js     # Cache em memória com TTL
 │   ├── linhaBaseService.js # Linha de base da validação (média simples, sem AHP)
@@ -155,23 +162,25 @@ SMCQ-Backend/
 
 ### Modelo
 
-O esquema completo está em [`db/schema.sql`](db/schema.sql). As 10 tabelas seguem o diagrama de classes do TCC:
+O esquema completo está em [`db/schema.sql`](db/schema.sql). As 11 tabelas seguem o diagrama de classes do TCC:
 
 ```
 usuario ─┬─< alerta ─┬── localizacao          (1:1) coordenadas e endereço
          │           ├── fator_risco          (1:1) dados de ENTRADA do cálculo e geodados (JSONB)
          │           ├── classificacao_risco  (1:1) RESULTADO: IRS, sigmoide, nível, versão do algoritmo
          │           │       └─< contribuicao_criterio   uma linha por critério (9 no IRS v2)
-         │           ├─< historico_status     status e exclusão; o 1º registro é a criação
+         │           ├─< historico_status     status, edições de campos e exclusão; o 1º registro é a criação
          │           ├─< observacao
          │           ├─< arquivo_anexo        estrutura prevista; ainda sem rota na API
          │           └─< solicitacao_exclusao
+         └─< auditoria_usuario                ações sobre o usuário: quem fez, o quê (antes/depois), quando
 ```
 
 - **Índices (RNF20)** para os filtros por data, status, nível de risco e região (estado/município), além de coordenadas.
 - **Regras garantidas pelo banco:** valores válidos de status, perfil, nível e tipo de ocorrência (`CHECK`) e no máximo uma solicitação de exclusão pendente por alerta (índice único parcial).
 - **Tipo de ocorrência:** coluna `alerta.tipo_ocorrencia` (`QUEIMADA_VEGETACAO` | `INCENDIO_URBANO`), criada por migração idempotente no próprio `schema.sql` (`ALTER TABLE ... ADD COLUMN IF NOT EXISTS`, com `CHECK` e `DEFAULT 'QUEIMADA_VEGETACAO'`). Num banco que já tem alertas, basta rodar `npm run db:init`: a coluna é criada, os alertas existentes ficam como `QUEIMADA_VEGETACAO` e nenhum dado é apagado. `fator_risco.zona_urbana` continua existindo e grava a zona urbana efetivamente usada no cálculo.
-- **Transações:** a criação do alerta (com classificação, contribuições e histórico), a mudança de status, a exclusão e a avaliação de solicitações gravam tudo ou nada.
+- **Gestão de usuários:** colunas `usuario.ativo`, `usuario.senha_provisoria` e `usuario.atualizado_em`, e a tabela `auditoria_usuario` (ações `CRIADO`, `EDITADO`, `DESATIVADO`, `REATIVADO`, `SENHA_REDEFINIDA`, `SENHA_ALTERADA`; o campo `alteracoes` guarda `{ campo: { anterior, novo } }`, nunca a senha). Criadas por migração idempotente no `schema.sql`: num banco existente, `npm run db:init` as acrescenta sem apagar dados, e os usuários já cadastrados ficam ativos e com senha definitiva.
+- **Transações:** a criação do alerta (com classificação, contribuições e histórico), a mudança de status, a edição (dados, nova classificação e histórico), a exclusão, a avaliação de solicitações e as alterações de usuários (com a auditoria) gravam tudo ou nada. A edição e a mudança de status travam o alerta (`SELECT ... FOR UPDATE`) e conferem a regra sobre o estado travado; a desativação trava os gestores ativos para garantir que sempre reste um.
 - **Senhas:** apenas o hash bcrypt (RNF03).
 - **Sem PostGIS:** as distâncias continuam calculadas na aplicação pela fórmula de Haversine (RNF17).
 
@@ -210,7 +219,12 @@ O script sai com código diferente de zero em caso de falha, e o Agendador regis
 
 ### Base de dados de exemplo
 
-[`db/smcq-exemplo.sql`](db/smcq-exemplo.sql) contém o esquema e dados de demonstração: os 3 usuários de teste e 7 alertas (6 queimadas em vegetação, uma por bioma, e 1 incêndio em área urbana com ponto de referência no lugar da rua), classificados pelo IRS v2 com geodados reais e com status, observações e solicitações de exclusão (pendente, rejeitada e aprovada). Não contém senhas reais, apenas os hashes das senhas de demonstração da tabela [Usuários de teste](#usuários-de-teste). O arquivo não usa comandos exclusivos do `psql`, então também pode ser executado no Query Tool do pgAdmin.
+[`db/smcq-exemplo.sql`](db/smcq-exemplo.sql) contém o esquema e dados de demonstração, todos gerados pela própria API:
+- os 3 usuários de teste e mais 2 operadores cadastrados pelo gestor: `brigadista@smcq.com` (senha `brigadista123`), que trocou a senha provisória no primeiro acesso e teve o nome editado pelo administrador, e `desligado@smcq.com`, desativado; tudo registrado em `auditoria_usuario`;
+- 7 alertas (6 queimadas em vegetação, uma por bioma, e 1 incêndio em área urbana com ponto de referência no lugar da rua), classificados pelo IRS v2 com geodados reais;
+- mudanças de status pelas transições permitidas (inclusive um alerta resolvido), observações, uma edição com recálculo do IRS (área afetada e vento) registrada no histórico, e solicitações de exclusão pendente, rejeitada e aprovada.
+
+Não contém senhas reais, apenas os hashes das senhas de demonstração. O arquivo não usa comandos exclusivos do `psql`, então também pode ser executado no Query Tool do pgAdmin.
 
 ```bash
 createdb -U postgres smcq_demo
@@ -225,11 +239,12 @@ Base: `http://localhost:3000/api`. Todas as rotas, exceto o login, exigem o cabe
 
 | Código | Significado |
 | :--- | :--- |
-| `400` | Dados inválidos ou ausentes |
-| `401` | Token ausente, inválido ou expirado (ou credenciais erradas no login) |
-| `403` | Usuário autenticado sem permissão para a ação |
-| `404` | Alerta ou solicitação não encontrados |
-| `409` | Conflito (ex.: já existe solicitação de exclusão pendente) |
+| `400` | Dados inválidos ou ausentes (inclui campos desconhecidos e filtros fora da lista) |
+| `401` | Token ausente, inválido ou expirado, usuário desativado, ou credenciais erradas no login |
+| `403` | Usuário autenticado sem permissão para a ação. Com senha provisória, todas as rotas fora de `/perfil` respondem `403` com `"codigo": "TROCA_SENHA_OBRIGATORIA"` |
+| `404` | Alerta, solicitação ou usuário não encontrados (alerta excluído também responde `404`) |
+| `409` | Conflito (ex.: já existe solicitação de exclusão pendente; e-mail já cadastrado) |
+| `422` | Regra de negócio violada (ex.: transição de status não permitida, edição de alerta resolvido, desativar o último gestor ativo, senha atual incorreta) |
 | `500` | Erro interno inesperado (`{ "erro": "Erro interno do servidor" }`) |
 | `503` | Banco de dados indisponível no momento; o motivo fica no log do servidor |
 
@@ -237,7 +252,17 @@ Base: `http://localhost:3000/api`. Todas as rotas, exceto o login, exigem o cabe
 
 | Método | Rota | Descrição |
 | :--- | :--- | :--- |
-| `POST` | `/login` | Recebe `{ email, senha }` e devolve `{ token, usuario }` |
+| `POST` | `/login` | Recebe `{ email, senha }` e devolve `{ token, usuario }`. `usuario.senhaProvisoria: true` indica troca de senha obrigatória. Usuário desativado → `401` |
+
+O usuário é relido do banco a cada requisição: desativar o usuário ou redefinir a senha dele vale na hora, mesmo para uma sessão já aberta.
+
+### Meu perfil (todos os perfis)
+
+| Método | Rota | Descrição |
+| :--- | :--- | :--- |
+| `GET` | `/perfil` | Dados do próprio usuário (sem o hash da senha) |
+| `PATCH` | `/perfil` | Edita o próprio `{ nome?, email? }`. Tentar mudar o próprio perfil → `422`; outros campos → `400`; e-mail já usado → `409` |
+| `PATCH` | `/perfil/senha` | Troca a própria senha: `{ senhaAtual, novaSenha }` (mínimo 8 caracteres). Senha atual errada → `422` (não `401`, para não encerrar a sessão); nova igual à atual → `422`. A senha deixa de ser provisória |
 
 ### Alertas
 
@@ -246,10 +271,15 @@ Base: `http://localhost:3000/api`. Todas as rotas, exceto o login, exigem o cabe
 | `GET` | `/alertas` | Lista os alertas ativos (os excluídos não aparecem). Filtro opcional `?tipoOcorrencia=QUEIMADA_VEGETACAO\|INCENDIO_URBANO`; valor fora da lista → `400` |
 | `GET` | `/alertas/geodados-preview?lat=X&lng=Y` | Geodados de um ponto (bioma, UC, TI, fauna, focos), sem criar alerta. `400` se `lat`/`lng` forem inválidos |
 | `POST` | `/alertas` | Registra um alerta e calcula o risco pelo IRS v2 |
+| `GET` | `/alertas/:id` | Um alerta, com os nomes dos autores do histórico, das observações e das solicitações |
+| `PATCH` | `/alertas/:id` | Edita a ocorrência (ver [Edição de ocorrência](#edição-de-ocorrência)) |
+| `POST` | `/alertas/:id/risco/simulacao` | Mesmo corpo do `PATCH /alertas/:id`; devolve o nível e o IRS atuais e os que resultariam da edição, **sem gravar nada** |
 | `GET` | `/alertas/:id/risco` | Detalha o cálculo de risco do alerta |
 | `GET` | `/alertas/:id/geodados` | Geodados gravados no alerta (`origem: "salvo"`); se não houver, consulta em tempo real (`origem: "tempo-real"`), sem gravar |
-| `PATCH` | `/alertas/:id/status` | Altera o status: `{ status }` |
-| `POST` | `/alertas/:id/observacoes` | Adiciona uma observação: `{ observacao }` |
+| `PATCH` | `/alertas/:id/status` | Altera o status: `{ status }`, só pelas transições permitidas (ver [Ciclo de status](#ciclo-de-status)) |
+| `POST` | `/alertas/:id/observacoes` | Adiciona uma observação: `{ observacao }` (obrigatória, até 2.000 caracteres) |
+
+Todas as rotas de alertas valem para os três perfis, exceto a exclusão (ver [Exclusão de alertas](#exclusão-de-alertas)).
 
 Corpo do `POST /alertas`:
 
@@ -278,7 +308,7 @@ O alerta devolvido traz, além dos campos enviados:
 | Campo | Descrição |
 | :--- | :--- |
 | `id`, `status`, `criadoPor`, `criadoEm`, `atualizadoEm`, `solicitacoesExclusao` | Como antes. `status`: `NOVO` \| `EM_ANALISE` \| `EM_ATENDIMENTO` \| `RESOLVIDO` |
-| `historico` | Alterações de status e a exclusão. O 1º registro é a criação (RNF04): `{ campo: "status", valorAnterior: null, valorNovo: "NOVO", alteradoPor: <criador> }` |
+| `historico` | Alterações de status, campos editados e a exclusão, cada uma com autor e data (RNF04). O 1º registro é a criação: `{ campo: "status", valorAnterior: null, valorNovo: "NOVO", alteradoPor: <criador> }` |
 | `latitude`, `longitude` | Sempre numéricos na resposta, mesmo se enviados como texto |
 | `tipoOcorrencia` | `QUEIMADA_VEGETACAO` \| `INCENDIO_URBANO` |
 | `zonaUrbana` | Zona urbana efetivamente usada no cálculo (derivada do tipo de ocorrência ou enviada por cliente antigo) |
@@ -344,6 +374,26 @@ Uma Terra Indígena ou Unidade de Conservação detectada no ponto continua prev
 
 Assim, um cliente antigo obtém exatamente o mesmo IRS de antes e não passa a ter o endereço exigido. `tests/tipoOcorrencia.test.js` comprova que, com as mesmas entradas, o resultado é idêntico ao da referência gerada antes da mudança (`tests/fixtures/irs-v2-referencia.json`), pelo caminho antigo e pelo novo. A regra fica em [`services/ocorrenciaService.js`](services/ocorrenciaService.js).
 
+### Ciclo de status
+
+Regras do UC05 ([`services/statusService.js`](services/statusService.js)). Qualquer outra mudança → `422`, sem alterar nada.
+
+| De | Para |
+| :--- | :--- |
+| `NOVO` | `EM_ANALISE` |
+| `EM_ANALISE` | `EM_ATENDIMENTO` ou de volta a `NOVO` |
+| `EM_ATENDIMENTO` | `RESOLVIDO` ou de volta a `EM_ANALISE` |
+| `RESOLVIDO` | nenhum (estado final; o alerta também não pode mais ser editado) |
+
+### Edição de ocorrência
+
+`PATCH /alertas/:id` com um corpo parcial ([`services/edicaoService.js`](services/edicaoService.js)):
+
+- **Editáveis:** `titulo`, `descricao`, `areaAfetada`, `vento`, `pessoasRisco`, `bioma` e `tipoArea` (os dois últimos com `null` voltam ao valor detectado).
+- **Não editáveis:** localização (coordenadas e endereço) e tipo de ocorrência → `422`. Alerta resolvido → `422`. Valor inválido → `400`.
+- Se mudar uma entrada do cálculo, o **IRS é recalculado** com os geodados já gravados no alerta, sem nova consulta às bases externas. A fórmula, os pesos e os limiares não mudam.
+- Cada campo alterado entra no `historico` com o valor anterior, o novo, o autor e a data; se o nível de risco mudar, ele também entra (`campo: "risco"`).
+
 ### Exclusão de alertas
 
 A exclusão é **lógica**: o alerta recebe `excluido: true`, `excluidoEm` e `excluidoPor`, some das listagens e passa a responder `404` nas demais rotas, mas continua guardado para auditoria.
@@ -354,6 +404,31 @@ A exclusão é **lógica**: o alerta recebe `excluido: true`, `excluidoEm` e `ex
 | `POST` | `/alertas/:id/solicitacoes-exclusao` | Operador | Solicita a exclusão: `{ motivo }`. Só uma solicitação pendente por alerta |
 | `GET` | `/solicitacoes-exclusao` | Todos | Lista as solicitações (administrador e gestor veem todas; o operador, só as próprias). Aceita `?status=PENDENTE\|APROVADA\|REJEITADA` |
 | `PATCH` | `/alertas/:id/solicitacoes-exclusao/:sid` | Administrador, Gestor | Avalia a solicitação: `{ decisao: "APROVADA" \| "REJEITADA", resposta? }`. Aprovar exclui o alerta |
+
+## Usuários
+
+Gestão de usuários (RF04, UC08). A matriz de permissões é verificada no backend ([`services/usuarioService.js`](services/usuarioService.js)); o frontend apenas esconde os botões.
+
+| Ação | `GESTOR` | `ADMINISTRADOR` | `OPERADOR` |
+| :--- | :--- | :--- | :--- |
+| Listar usuários e ver a auditoria | sim | sim | não |
+| Cadastrar | sim, de qualquer perfil | não | não |
+| Editar nome, e-mail e redefinir a senha | qualquer usuário (a própria senha, só em "Meu perfil") | só operadores | não |
+| Alterar o perfil | de outros usuários (não o próprio) | não | não |
+| Desativar e reativar | qualquer usuário, menos ele mesmo | só operadores | não |
+
+Nunca pode faltar um gestor ativo: desativar o último ou tirar dele o perfil de gestor → `422`. Não há exclusão física de usuários, só desativação.
+
+| Método | Rota | Descrição |
+| :--- | :--- | :--- |
+| `GET` | `/usuarios` | Lista. Filtros opcionais `?perfil=ADMINISTRADOR\|GESTOR\|OPERADOR` e `?ativo=true\|false` |
+| `GET` | `/usuarios/:id` | Um usuário |
+| `GET` | `/usuarios/:id/auditoria` | Ações sobre o usuário: `acao`, `alteracoes` (`{ campo: { anterior, novo } }`), autor e data |
+| `POST` | `/usuarios` | Cadastra: `{ nome, email, perfil, senha }`. A senha (mínimo 8 caracteres) é **provisória** → `201` |
+| `PATCH` | `/usuarios/:id` | Edita `{ nome?, email?, perfil?, senha? }`. Uma senha nova é redefinida como provisória |
+| `PATCH` | `/usuarios/:id/ativo` | Desativa (`{ ativo: false }`) ou reativa (`{ ativo: true }`) |
+
+Os usuários nunca saem na API com o hash da senha. Campos devolvidos: `id`, `nome`, `email`, `perfil`, `ativo`, `senhaProvisoria`, `criadoEm`, `atualizadoEm`.
 
 ## Algoritmo de classificação de risco
 
@@ -458,6 +533,8 @@ O RNF14 exige no mínimo 70%. O único arquivo abaixo disso é o `cacheService.j
 - **Validação do IRS v2.** Concordância leve com o gabarito de propagação do fogo, sem superar a linha de base sem pesos AHP. Detalhes e limitações em [`docs/validacao-irs.md`](docs/validacao-irs.md).
 - **Porta fixa no código (3000).** Adequado para desenvolvimento e demonstração.
 - **Anexos.** A tabela `arquivo_anexo` existe no banco, mas a API ainda não tem rota de envio de arquivos.
+- **Recuperação de senha.** Não há envio de e-mail: quem esqueceu a senha pede ao gestor (ou, se for operador, ao administrador) uma senha provisória.
+- **Notificações e pesos configuráveis.** Notificações automáticas e a edição dos pesos AHP pela interface ficaram como funcionalidades futuras.
 - **Backup local.** O `db:backup` grava no mesmo computador do banco; a cópia para outro disco ou para a nuvem é manual.
 
 ## Licença
