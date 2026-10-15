@@ -352,16 +352,22 @@ app.post('/api/alertas/:id/solicitacoes-exclusao', rota(async (req, res) => {
     }
 }));
 
+const SITUACOES_SOLICITACAO = ['PENDENTE', 'APROVADA', 'REJEITADA'];
+
 // Listar solicitações de exclusão: Administrador e Gestor veem todas; o Operador, só as próprias.
 // Aceita ?status=PENDENTE|APROVADA|REJEITADA
 app.get('/api/solicitacoes-exclusao', rota(async (req, res) => {
+    const { status } = req.query;
+    if (status && !SITUACOES_SOLICITACAO.includes(status)) {
+        return res.status(400).json({ erro: `Situação inválida: ${status}. Valores aceitos: ${SITUACOES_SOLICITACAO.join(', ')}` });
+    }
     res.json(await alertas.listarSolicitacoes({
         solicitadoPor: podeExcluirDireto(req) ? null : req.usuario.id,
-        status: req.query.status || null
+        status: status || null
     }));
 }));
 
-// Aprovar ou rejeitar uma solicitação de exclusão (Administrador e Gestor)
+// Aprovar ou rejeitar uma solicitação de exclusão (Administrador e Gestor). A rejeição exige resposta.
 app.patch('/api/alertas/:id/solicitacoes-exclusao/:sid', rota(async (req, res) => {
     if (!podeExcluirDireto(req)) {
         return res.status(403).json({ erro: 'Apenas administradores e gestores podem avaliar solicitações de exclusão' });
@@ -376,14 +382,18 @@ app.patch('/api/alertas/:id/solicitacoes-exclusao/:sid', rota(async (req, res) =
     if (!solicitacao) {
         return res.status(404).json({ erro: 'Solicitação não encontrada' });
     }
-    const { decisao, resposta } = req.body;
+    const { decisao } = req.body;
     if (!['APROVADA', 'REJEITADA'].includes(decisao)) {
         return res.status(400).json({ erro: 'Decisão inválida: use APROVADA ou REJEITADA' });
+    }
+    const resposta = typeof req.body.resposta === 'string' ? req.body.resposta.trim() : '';
+    if (decisao === 'REJEITADA' && !resposta) {
+        return res.status(400).json({ erro: 'Informe a resposta ao solicitante para rejeitar a solicitação' });
     }
     if (solicitacao.status !== 'PENDENTE') {
         return res.status(409).json({ erro: 'Esta solicitação já foi avaliada' });
     }
-    const avaliada = await alertas.avaliarSolicitacao(id, sid, decisao, typeof resposta === 'string' ? resposta.trim() : '', req.usuario.id);
+    const avaliada = await alertas.avaliarSolicitacao(id, sid, decisao, resposta, req.usuario.id);
     if (!avaliada) {
         return res.status(409).json({ erro: 'Esta solicitação já foi avaliada' }); // avaliada por outro usuário no mesmo instante
     }

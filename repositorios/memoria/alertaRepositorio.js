@@ -117,7 +117,8 @@ async function listarSolicitacoes({ solicitadoPor = null, status = null } = {}) 
   )
     .filter(s => solicitadoPor === null || s.solicitadoPor === solicitadoPor)
     .filter(s => !status || s.status === status)
-    .sort((a, b) => b.criadoEm.localeCompare(a.criadoEm));
+    // Mesma ordem do PostgreSQL: mais recentes primeiro; no mesmo instante, a de maior id
+    .sort((a, b) => b.criadoEm.localeCompare(a.criadoEm) || b.id - a.id);
 }
 
 // Aprova ou rejeita uma solicitação PENDENTE; aprovada, exclui o alerta.
