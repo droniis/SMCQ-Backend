@@ -1,6 +1,6 @@
 # SMCQ — Backend
 
-![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?logo=nodedotjs&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-20.19%2B-339933?logo=nodedotjs&logoColor=white)
 ![Express](https://img.shields.io/badge/Express-4.x-000000?logo=express&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-auth-000000?logo=jsonwebtokens&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-18-4169E1?logo=postgresql&logoColor=white)
@@ -11,6 +11,8 @@ API REST do **SMCQ (Sistema de Monitoramento de Queimadas)**, desenvolvido como 
 > Os dados ficam no **PostgreSQL** e permanecem após reiniciar o servidor. Para demonstração rápida sem banco, há também o modo em memória (`PERSISTENCIA=memoria`), em que os dados se perdem a cada reinício.
 
 O frontend (React + Vite) fica em um repositório separado: [SMCQ-TCC](https://github.com/droniis/SMCQ-TCC).
+
+Este repositório se chamava `smcq-prototype` durante o desenvolvimento. É o mesmo projeto: o nome antigo pode aparecer no documento do TCC.
 
 ## Sumário
 
@@ -47,7 +49,7 @@ Desenvolvido e testado com Node.js 24.x.
 
 ## Instalação e execução
 
-Pré-requisitos: Node.js 18 ou superior e PostgreSQL 18 (versões 13 ou superiores também funcionam).
+Pré-requisitos: Node.js 20.19 ou superior (exigido pelo frontend; o backend sozinho roda a partir do 18) e PostgreSQL 18 (versões 13 ou superiores também funcionam).
 
 **1. Código e dependências**
 
@@ -57,11 +59,27 @@ cd SMCQ-Backend
 npm install
 ```
 
+> O `npm install` pode avisar de vulnerabilidades moderadas. Elas estão nas dependências do Jest, usado só nos testes, e não fazem parte do servidor em execução. A vulnerabilidade crítica do `proxy-addr` (usado pelo Express) foi corrigida com `npm audit fix`. Não use `npm audit fix --force`: ele rebaixaria o Jest para a versão 25.
+
 **2. Banco de dados.** Instale o PostgreSQL (no Windows, pelo instalador oficial, que também instala o pgAdmin) e crie um banco vazio chamado `smcq`, pelo pgAdmin ou pelo terminal:
 
 ```bash
 createdb -U postgres smcq
 ```
+
+O comando pede a senha do usuário `postgres` definida na instalação. **No Windows**, o instalador não coloca as ferramentas do PostgreSQL no PATH, e o comando acima não é reconhecido. Use o caminho completo (troque `18` pela versão instalada):
+
+```powershell
+# PowerShell
+& "C:\Program Files\PostgreSQL\18\bin\createdb.exe" -U postgres smcq
+```
+
+```bat
+:: Prompt de Comando (cmd)
+"C:\Program Files\PostgreSQL\18\bin\createdb.exe" -U postgres smcq
+```
+
+Pelo pgAdmin: em **Servers → PostgreSQL 18**, clique com o botão direito em **Databases → Create → Database…**, preencha **Database** com `smcq` e salve.
 
 **3. Arquivo `.env`.** Copie o modelo e preencha:
 
@@ -75,8 +93,8 @@ copy .env.example .env      # Windows (no Linux/macOS: cp .env.example .env)
 | `PERSISTENCIA` | `postgres` (banco) ou `memoria` (dados somem ao reiniciar) |
 | `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER` | Conexão: `localhost`, `5432`, `smcq`, `postgres` |
 | `DB_PASSWORD` | Senha do usuário do PostgreSQL definida na instalação |
-| `PG_BIN` (opcional) | Pasta `bin` do PostgreSQL, se o `pg_dump` não estiver no PATH nem em `C:\Program Files\PostgreSQL` |
-| `BACKUP_RETENCAO` (opcional) | Quantos backups manter (padrão: 30) |
+| `PG_BIN` (opcional, comentada no modelo) | Pasta `bin` do PostgreSQL, se o `pg_dump` não estiver no PATH nem em `C:\Program Files\PostgreSQL` |
+| `BACKUP_RETENCAO` (opcional, comentada no modelo) | Quantos backups manter (padrão: 30) |
 
 O `.env` não vai para o git. Sem `JWT_SECRET`, o servidor se recusa a iniciar.
 
@@ -86,6 +104,8 @@ O `.env` não vai para o git. Sem `JWT_SECRET`, o servidor se recusa a iniciar.
 npm run db:init    # cria as tabelas e índices (pode ser repetido sem apagar dados)
 npm run db:seed    # cadastra os 3 usuários de teste, com senha em hash bcrypt
 ```
+
+Alternativa: para começar com dados de demonstração (5 usuários e 7 alertas), carregue a [base de dados de exemplo](#base-de-dados-de-exemplo) no banco `smcq` ainda vazio, **no lugar** dos dois comandos acima. O arquivo já traz o esquema e os usuários de teste.
 
 **5. Execução**
 
@@ -101,6 +121,12 @@ Teste rápido:
 curl -X POST http://localhost:3000/api/login \
   -H "Content-Type: application/json" \
   -d '{"email":"admin@smcq.com","senha":"admin123"}'
+```
+
+No PowerShell (onde `curl` é outro comando e a quebra de linha com `\` não funciona):
+
+```powershell
+Invoke-RestMethod -Method Post -Uri http://localhost:3000/api/login -ContentType 'application/json' -Body '{"email":"admin@smcq.com","senha":"admin123"}'
 ```
 
 ## Usuários de teste
@@ -143,15 +169,19 @@ SMCQ-Backend/
 │   ├── cacheService.js     # Cache em memória com TTL
 │   ├── linhaBaseService.js # Linha de base da validação (média simples, sem AHP)
 │   └── metricasService.js  # Acurácia, matriz de confusão, recall e kappa ponderado
-├── scripts/validacao/      # Validação do IRS com focos reais do INPE
+├── scripts/
+│   ├── validacao/          # Validação do IRS com focos reais do INPE
+│   ├── teste-irs-v2-mock.js # Testes do IRS v2 com geodados simulados (sem internet)
+│   └── teste-geodados.js   # Consulta as bases públicas para cinco pontos (--offline simula a rede fora do ar)
 ├── data/validacao/         # Amostra, cache das consultas externas e resultados
 ├── docs/
 │   ├── irs-v2.md           # Algoritmo IRS v2: pesos, tabelas, fórmulas e justificativa
 │   ├── bases-de-dados.md   # Bases externas: dado usado, forma de acesso e licença
 │   ├── validacao-irs.md    # Relatório da validação (Cap. 6 do TCC)
-│   └── atualizacoes-tcc.md # Textos para atualizar o documento do TCC
+│   └── atualizacoes-tcc.md # Notas de trabalho usadas para atualizar o documento do TCC
 ├── tests/                  # Testes Jest e Supertest (sem internet e sem PostgreSQL)
 ├── .env.example            # Modelo das variáveis de ambiente (o .env fica fora do git)
+├── eslint.config.js        # Configuração do ESLint
 ├── package.json
 ├── package-lock.json
 ├── README.md
@@ -198,6 +228,8 @@ Gera `backups/smcq-AAAA-MM-DD_HH-MM-SS.sql` com o `pg_dump` (esquema + dados) e 
 psql -U postgres -d smcq -f backups/smcq-2026-10-14_19-42-48.sql
 ```
 
+No Windows, se o `psql` não for reconhecido, use o caminho completo, como no [passo 2 da instalação](#instalação-e-execução): `& "C:\Program Files\PostgreSQL\18\bin\psql.exe" …` no PowerShell, ou sem o `&` no cmd. O `npm run db:backup` não precisa disso: ele procura o `pg_dump` sozinho (ou usa o `PG_BIN` do `.env`).
+
 **Agendamento diário no Windows (Agendador de Tarefas):**
 
 1. Abra o **Agendador de Tarefas** (`taskschd.msc`) e clique em **Criar Tarefa Básica…**
@@ -205,7 +237,7 @@ psql -U postgres -d smcq -f backups/smcq-2026-10-14_19-42-48.sql
 3. Ação: **Iniciar um programa**.
    - Programa/script: `cmd.exe`
    - Argumentos: `/c npm run db:backup >> backups\agendamento.log 2>&1`
-   - Iniciar em: a pasta do projeto (ex.: `C:\Users\<usuário>\Documentos\smcq-prototype`)
+   - Iniciar em: a pasta do projeto (ex.: `C:\Users\<usuário>\SMCQ-Backend`)
 4. Conclua e, nas **Propriedades** da tarefa, marque **Executar estando o usuário conectado ou não** e, em **Configurações**, **Executar a tarefa o mais cedo possível após uma inicialização agendada ser perdida**.
 5. Teste com o botão direito → **Executar** e confira o novo arquivo em `backups/` e o `backups\agendamento.log`.
 
@@ -230,6 +262,8 @@ Não contém senhas reais, apenas os hashes das senhas de demonstração. O arqu
 createdb -U postgres smcq_demo
 psql -U postgres -d smcq_demo -f db/smcq-exemplo.sql
 ```
+
+Os dois comandos pedem a senha do `postgres`. No Windows, se não forem reconhecidos, use o caminho completo da pasta `bin`, como no [passo 2 da instalação](#instalação-e-execução). Para usar a base no lugar do `db:init` e do `db:seed`, troque `smcq_demo` por `smcq` (banco vazio).
 
 Para regenerá-lo: `npm run db:exemplo`. O script requer internet; cria e apaga bancos temporários próprios, sem tocar no banco `smcq`, e confere a restauração num banco vazio.
 
@@ -492,12 +526,14 @@ node scripts/validacao/validar-irs.js       # calcula métricas, sensibilidade e
 ## Testes e lint
 
 ```bash
-npm test                  # testes Jest e Supertest (tests/)
-npm run test:coverage     # os mesmos testes, com relatório de cobertura (em coverage/)
-npm run lint              # ESLint
-npm run db:backup         # backup do banco em backups/ (requer PostgreSQL)
-npm run db:exemplo        # regenera db/smcq-exemplo.sql (requer PostgreSQL e internet)
-node teste-irs-v2-mock.js # testes do IRS v2 com geodados simulados
+npm test                                 # testes Jest e Supertest (tests/)
+npm run test:coverage                    # os mesmos testes, com relatório de cobertura (em coverage/)
+npm run lint                             # ESLint
+npm run db:backup                        # backup do banco em backups/ (requer PostgreSQL)
+npm run db:exemplo                       # regenera db/smcq-exemplo.sql (requer PostgreSQL e internet)
+node scripts/teste-irs-v2-mock.js        # testes do IRS v2 com geodados simulados
+node scripts/teste-geodados.js           # consulta as bases públicas (requer internet)
+node scripts/teste-geodados.js --offline # o mesmo, simulando a rede fora do ar (testa os valores de reserva)
 ```
 
 Os testes nunca acessam a internet nem dependem do PostgreSQL:
@@ -510,17 +546,17 @@ Os testes nunca acessam a internet nem dependem do PostgreSQL:
 - os scripts de validação (`scripts/validacao/`): são ferramentas de linha de comando que dependem de rede, e só a biblioteca da amostra é testada (`tests/vazamento.test.js`);
 - os scripts de banco (`db/`): foram verificados manualmente contra o PostgreSQL.
 
-Resultado em 14/10/2026, com 180 testes:
+Resultado em 19/10/2026, com 410 testes:
 
 | Escopo | Linhas | Instruções | Ramos | Funções |
 | :--- | ---: | ---: | ---: | ---: |
-| **Geral** (`server.js` + `services/` + `repositorios/`) | **95,4%** | 94,1% | 84,2% | 93,9% |
+| **Geral** (`server.js` + `services/` + `repositorios/`) | **95,9%** | 94,6% | 85,6% | 95,4% |
 | `services/riscoService.js` | 97,9% | 98,1% | 89,5% | 100% |
 | `services/classificacaoService.js` | 100% | 100% | 100% | 100% |
 | `services/ocorrenciaService.js` | 100% | 100% | 100% | 100% |
-| `server.js` | 90,1% | 89,3% | 89,7% | 95,0% |
-| `repositorios/postgres/alertaRepositorio.js` | 100% | 97,4% | 77,8% | 100% |
-| `repositorios/memoria/alertaRepositorio.js` | 100% | 100% | 85,7% | 100% |
+| `server.js` | 92,7% | 92,6% | 90,3% | 98,1% |
+| `repositorios/postgres/alertaRepositorio.js` | 100% | 97,8% | 80,5% | 100% |
+| `repositorios/memoria/alertaRepositorio.js` | 100% | 100% | 87,2% | 100% |
 | `services/geodadosService.js` | 94,5% | 90,2% | 72,5% | 86,4% |
 | `services/cacheService.js` | 64,7% | 60,0% | 44,4% | 60,0% |
 

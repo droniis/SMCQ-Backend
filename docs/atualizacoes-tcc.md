@@ -1,5 +1,7 @@
 # Atualizações do documento do TCC para o IRS v2
 
+> **Nota:** Notas de trabalho usadas para atualizar o documento do TCC; a versão final dos textos está no documento entregue.
+
 Textos para colar no documento do TCC, refletindo a integração do IRS v2 (Etapas C a F), a persistência em banco de dados (Etapa G, Seção 5 deste arquivo) o tipo de ocorrência (Etapa H, Seção 6) e o alinhamento do sistema à documentação (Etapa I, Seção 7), outubro de 2026.
 
 > **Atenção:** o documento do TCC não estava disponível durante a redação. Os textos foram escritos a partir do sistema implementado, sem comparação com a redação atual. As seções são indicadas pelos identificadores usados no projeto (RF05, RF07, UC03, UC07, HU10, RNF01, RNF14, Quadro 2, Capítulos 5 a 7). Antes de colar, confira a numeração e ajuste os termos ao glossário do documento.
