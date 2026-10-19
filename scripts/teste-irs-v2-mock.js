@@ -1,7 +1,7 @@
 // ============================================================
 // TESTE DO IRS v2 COM GEODADOS MOCKADOS
 // Valida calcularRiscoAvancadoV2 sem depender das APIs externas.
-// Rodar: node teste-irs-v2-mock.js
+// Rodar: node scripts/teste-irs-v2-mock.js
 // ============================================================
 const assert = require('node:assert/strict');
 const {
@@ -9,7 +9,7 @@ const {
   calcularRiscoAvancadoV2,
   identificarBiomaPorCentroides,
   PESOS_AHP_V2
-} = require('./services/riscoService');
+} = require('../services/riscoService');
 
 let falhas = 0;
 function teste(nome, fn) {
@@ -26,7 +26,7 @@ const proximo = (a, b) => Math.abs(a - b) < 1e-9;
 
 // Alerta de referência (PANTANAL), geodados simulados (geo) e cenários: definidos em
 // scripts/validacao/cenarios-controlados.js, compartilhados com a validação do IRS
-const { PANTANAL, geo, PIOR_CASO, MELHOR_CASO, CENARIOS: cenarios } = require('./scripts/validacao/cenarios-controlados');
+const { PANTANAL, geo, PIOR_CASO, MELHOR_CASO, CENARIOS: cenarios } = require('./validacao/cenarios-controlados');
 
 console.log('\nEstrutura e pesos');
 teste('os pesos v2 somam 1,00', () => {

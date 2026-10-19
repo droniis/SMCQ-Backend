@@ -1,8 +1,11 @@
 {
-  "name": "smcq-prototype",
+  "name": "smcq-backend",
   "version": "1.0.0",
   "description": "Backend do SMCQ",
   "main": "server.js",
+  "engines": {
+    "node": ">=20.19"
+  },
   "scripts": {
     "start": "node server.js",
     "test": "jest",

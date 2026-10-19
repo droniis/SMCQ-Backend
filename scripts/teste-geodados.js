@@ -3,8 +3,8 @@
 // Consulta IBGE, ICMBio, FUNAI, GBIF e INPE para cinco pontos e
 // mostra o que cada fonte devolveu e se houve fallback.
 //
-// Rodar:  node teste-geodados.js             (usa a internet)
-//         node teste-geodados.js --offline   (simula a rede fora do ar)
+// Rodar:  node scripts/teste-geodados.js             (usa a internet)
+//         node scripts/teste-geodados.js --offline   (simula a rede fora do ar)
 // ============================================================
 const assert = require('node:assert/strict');
 
@@ -18,8 +18,8 @@ if (OFFLINE) {
   };
 }
 
-const geodados = require('./services/geodadosService');
-const cache = require('./services/cacheService');
+const geodados = require('../services/geodadosService');
+const cache = require('../services/cacheService');
 
 const cenarios = [
   { nome: 'Pantanal',  lat: -16.6869, lng: -56.6744 },
