@@ -546,11 +546,11 @@ Os testes nunca acessam a internet nem dependem do PostgreSQL:
 - os scripts de validação (`scripts/validacao/`): são ferramentas de linha de comando que dependem de rede, e só a biblioteca da amostra é testada (`tests/vazamento.test.js`);
 - os scripts de banco (`db/`): foram verificados manualmente contra o PostgreSQL.
 
-Resultado em 19/10/2026, com 410 testes:
+Resultado em 19/10/2026, com 420 testes:
 
 | Escopo | Linhas | Instruções | Ramos | Funções |
 | :--- | ---: | ---: | ---: | ---: |
-| **Geral** (`server.js` + `services/` + `repositorios/`) | **95,9%** | 94,6% | 85,6% | 95,4% |
+| **Geral** (`server.js` + `services/` + `repositorios/`) | **96,4%** | 95,1% | 86,1% | 96,0% |
 | `services/riscoService.js` | 97,9% | 98,1% | 89,5% | 100% |
 | `services/classificacaoService.js` | 100% | 100% | 100% | 100% |
 | `services/ocorrenciaService.js` | 100% | 100% | 100% | 100% |
@@ -558,9 +558,9 @@ Resultado em 19/10/2026, com 410 testes:
 | `repositorios/postgres/alertaRepositorio.js` | 100% | 97,8% | 80,5% | 100% |
 | `repositorios/memoria/alertaRepositorio.js` | 100% | 100% | 87,2% | 100% |
 | `services/geodadosService.js` | 94,5% | 90,2% | 72,5% | 86,4% |
-| `services/cacheService.js` | 64,7% | 60,0% | 44,4% | 60,0% |
+| `services/cacheService.js` | 100% | 100% | 100% | 100% |
 
-O RNF14 exige no mínimo 70%. O único arquivo abaixo disso é o `cacheService.js`, cuja parte não testada é a limpeza de entradas vencidas acima de 500 itens. No `server.js`, ficam sem cobertura a recusa de iniciar com configuração inválida (`process.exit`) e o bloco que abre a porta.
+O RNF14 exige no mínimo 70%, e todos os arquivos do escopo passam disso (o menor, `repositorios/index.js`, tem 91,3% das linhas). O `cacheService.js` é testado em `tests/cache.test.js`, com o relógio controlado pelos temporizadores falsos do Jest: prazo de validade, remoção das entradas vencidas ao ler e limpeza das vencidas acima de 500 itens. No `server.js`, ficam sem cobertura a recusa de iniciar com configuração inválida (`process.exit`) e o bloco que abre a porta.
 
 ## Limitações conhecidas
 
