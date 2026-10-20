@@ -1,0 +1,2085 @@
+{
+  "geradoEm": "2026-10-20T16:36:09.737Z",
+  "parametros": {
+    "n": 294,
+    "semente": 20261025,
+    "reamostragens": 2000,
+    "intervalo": "percentil 95% (mesma fórmula de validar-irs.js)",
+    "tercisPublicados": {
+      "t1": 2,
+      "t2": 5,
+      "nPositivas": 112
+    },
+    "pesosAlterados": false,
+    "fontes": [
+      "data/validacao/amostra.json",
+      "data/validacao/amostra.csv",
+      "data/validacao/resultados.json (porFoco)",
+      "data/validacao/bruto/*.csv (só C2)"
+    ]
+  },
+  "A": {
+    "grupos": 294,
+    "metricas": {
+      "IRS v2|acuracia": {
+        "valor": 0.35034013605442177,
+        "ic95": [
+          0.29591836734693877,
+          0.40816326530612246
+        ],
+        "validas": 2000
+      },
+      "IRS v2|kappa": {
+        "valor": 0.11136776920430558,
+        "ic95": [
+          0.00882836553847488,
+          0.20921571491164015
+        ],
+        "validas": 2000
+      },
+      "IRS v1|acuracia": {
+        "valor": 0.5952380952380952,
+        "ic95": [
+          0.5374149659863946,
+          0.6530612244897959
+        ],
+        "validas": 2000
+      },
+      "IRS v1|kappa": {
+        "valor": 0.01931480510400274,
+        "ic95": [
+          -0.01656543346217565,
+          0.060638411444432494
+        ],
+        "validas": 2000
+      },
+      "Linha de base|acuracia": {
+        "valor": 0.2925170068027211,
+        "ic95": [
+          0.24149659863945577,
+          0.3469387755102041
+        ],
+        "validas": 2000
+      },
+      "Linha de base|kappa": {
+        "valor": 0.11389432032488345,
+        "ic95": [
+          0.019081134395966926,
+          0.21005373784096315
+        ],
+        "validas": 2000
+      },
+      "IRS v2 − IRS v1|acuracia": {
+        "valor": -0.24489795918367346,
+        "ic95": [
+          -0.3197278911564626,
+          -0.163265306122449
+        ],
+        "validas": 2000
+      },
+      "IRS v2 − IRS v1|kappa": {
+        "valor": 0.09205296410030284,
+        "ic95": [
+          0.0025177088586525453,
+          0.17289795275452746
+        ],
+        "validas": 2000
+      },
+      "IRS v2 − Linha de base|acuracia": {
+        "valor": 0.05782312925170069,
+        "ic95": [
+          0.020408163265306145,
+          0.09183673469387754
+        ],
+        "validas": 2000
+      },
+      "IRS v2 − Linha de base|kappa": {
+        "valor": -0.002526551120577869,
+        "ic95": [
+          -0.052517636794563116,
+          0.04194450371293801
+        ],
+        "validas": 2000
+      }
+    },
+    "reproduzOriginal": true
+  },
+  "B": {
+    "municipio": {
+      "grupos": 187,
+      "metricas": {
+        "IRS v2|acuracia": {
+          "valor": 0.35034013605442177,
+          "ic95": [
+            0.2898550724637681,
+            0.4141791044776119
+          ],
+          "validas": 2000
+        },
+        "IRS v2|kappa": {
+          "valor": 0.11136776920430558,
+          "ic95": [
+            -0.012677725118483085,
+            0.21898506586430833
+          ],
+          "validas": 2000
+        },
+        "IRS v1|acuracia": {
+          "valor": 0.5952380952380952,
+          "ic95": [
+            0.526813880126183,
+            0.6666666666666666
+          ],
+          "validas": 2000
+        },
+        "IRS v1|kappa": {
+          "valor": 0.01931480510400274,
+          "ic95": [
+            -0.03374043223773082,
+            0.08159193150486121
+          ],
+          "validas": 2000
+        },
+        "Linha de base|acuracia": {
+          "valor": 0.2925170068027211,
+          "ic95": [
+            0.23574144486692014,
+            0.35424354243542433
+          ],
+          "validas": 2000
+        },
+        "Linha de base|kappa": {
+          "valor": 0.11389432032488345,
+          "ic95": [
+            -0.0025491492815490346,
+            0.22136531865832154
+          ],
+          "validas": 2000
+        },
+        "IRS v2 − IRS v1|acuracia": {
+          "valor": -0.24489795918367346,
+          "ic95": [
+            -0.32363636363636367,
+            -0.16891891891891886
+          ],
+          "validas": 2000
+        },
+        "IRS v2 − IRS v1|kappa": {
+          "valor": 0.09205296410030284,
+          "ic95": [
+            0.0008282856532562111,
+            0.17282607313821674
+          ],
+          "validas": 2000
+        },
+        "IRS v2 − Linha de base|acuracia": {
+          "valor": 0.05782312925170069,
+          "ic95": [
+            0.018656716417910446,
+            0.0981818181818182
+          ],
+          "validas": 2000
+        },
+        "IRS v2 − Linha de base|kappa": {
+          "valor": -0.002526551120577869,
+          "ic95": [
+            -0.05501426003867227,
+            0.0447708875396301
+          ],
+          "validas": 2000
+        }
+      },
+      "focosPorGrupo": {
+        "minimo": 1,
+        "mediana": 1,
+        "maximo": 12,
+        "gruposComUmFoco": 142
+      },
+      "razaoLarguraIcSobreSimples": {
+        "IRS v2|acuracia": 1.1076141033960627,
+        "IRS v2|kappa": 1.1560749304158138,
+        "IRS v1|acuracia": 1.209315271850065,
+        "IRS v1|kappa": 1.4938681341856375,
+        "Linha de base|acuracia": 1.123858602746459,
+        "Linha de base|kappa": 1.1724952370163517,
+        "IRS v2 − IRS v1|acuracia": 0.9888462771071472,
+        "IRS v2 − IRS v1|kappa": 1.0094937273952616,
+        "IRS v2 − Linha de base|acuracia": 1.1133514246947092,
+        "IRS v2 − Linha de base|kappa": 1.0563506929040904
+      }
+    },
+    "dia": {
+      "grupos": 50,
+      "metricas": {
+        "IRS v2|acuracia": {
+          "valor": 0.35034013605442177,
+          "ic95": [
+            0.27099236641221375,
+            0.44370860927152317
+          ],
+          "validas": 2000
+        },
+        "IRS v2|kappa": {
+          "valor": 0.11136776920430558,
+          "ic95": [
+            -0.020262557077625365,
+            0.2381889763779529
+          ],
+          "validas": 2000
+        },
+        "IRS v1|acuracia": {
+          "valor": 0.5952380952380952,
+          "ic95": [
+            0.5107913669064749,
+            0.6731391585760518
+          ],
+          "validas": 2000
+        },
+        "IRS v1|kappa": {
+          "valor": 0.01931480510400274,
+          "ic95": [
+            -0.020178993583248817,
+            0.06951547394313828
+          ],
+          "validas": 2000
+        },
+        "Linha de base|acuracia": {
+          "valor": 0.2925170068027211,
+          "ic95": [
+            0.21305841924398625,
+            0.38461538461538464
+          ],
+          "validas": 2000
+        },
+        "Linha de base|kappa": {
+          "valor": 0.11389432032488345,
+          "ic95": [
+            -0.006121357925688464,
+            0.22164998779594824
+          ],
+          "validas": 2000
+        },
+        "IRS v2 − IRS v1|acuracia": {
+          "valor": -0.24489795918367346,
+          "ic95": [
+            -0.33687943262411346,
+            -0.1503067484662577
+          ],
+          "validas": 2000
+        },
+        "IRS v2 − IRS v1|kappa": {
+          "valor": 0.09205296410030284,
+          "ic95": [
+            -0.021968690726393736,
+            0.1980902444920698
+          ],
+          "validas": 2000
+        },
+        "IRS v2 − Linha de base|acuracia": {
+          "valor": 0.05782312925170069,
+          "ic95": [
+            0.023255813953488413,
+            0.0959409594095941
+          ],
+          "validas": 2000
+        },
+        "IRS v2 − Linha de base|kappa": {
+          "valor": -0.002526551120577869,
+          "ic95": [
+            -0.04733011348071403,
+            0.04325669888913197
+          ],
+          "validas": 2000
+        }
+      },
+      "focosPorGrupo": {
+        "minimo": 1,
+        "mediana": 5,
+        "maximo": 19,
+        "gruposComUmFoco": 4
+      },
+      "razaoLarguraIcSobreSimples": {
+        "IRS v2|acuracia": 1.538744709110211,
+        "IRS v2|kappa": 1.2897597291647624,
+        "IRS v1|acuracia": 1.4038309044369308,
+        "IRS v1|kappa": 1.1617875720424107,
+        "Linha de base|acuracia": 1.6270241231997136,
+        "Linha de base|kappa": 1.1926912112670613,
+        "IRS v2 − IRS v1|acuracia": 1.1924428074436868,
+        "IRS v2 − IRS v1|kappa": 1.2915754208742003,
+        "IRS v2 − Linha de base|acuracia": 1.01759203638548,
+        "IRS v2 − Linha de base|kappa": 0.9589748007314381
+      }
+    }
+  },
+  "C": {
+    "disjuncaoTemporal": {
+      "entrada": "dias 0 e −1 (scripts/validacao/amostra.js: montarEntradasDia0, l. 186–196, chamada com a visão indice.ate(dia0), que lança erro ao consultar dia posterior, l. 97–105; preparar-amostra.js l. 169)",
+      "referencia": "dias 1 a 7 (scripts/validacao/amostra.js: calcularGabarito, l. 228–233, laço d = 1..DIAS_GABARITO)",
+      "diasEntrada": [
+        -1,
+        0
+      ],
+      "diasReferencia": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "focosEmComum": 0,
+      "conclusao": "Os conjuntos de dias são disjuntos; nenhum foco usado na entrada pode entrar na contagem da referência."
+    },
+    "spearmanEntradaReferencia": {
+      "n_focos_1km_dia0": {
+        "descricao": "focos a ≤ 1 km no dia 0 (inclui o próprio) → área afetada",
+        "rho": 0.024775338835954883,
+        "distribuicao": {
+          "1": 219,
+          "2": 63,
+          "3": 12
+        }
+      },
+      "n_outros_focos_1km_dia0": {
+        "descricao": "outros focos a ≤ 1 km no dia 0 → dA/dt",
+        "rho": 0.024775338835954883,
+        "distribuicao": {
+          "0": 219,
+          "1": 63,
+          "2": 12
+        }
+      },
+      "n_focos_1km_dia_menos1": {
+        "descricao": "focos a ≤ 1 km no dia −1 → dA/dt",
+        "rho": 0.11818706639379395,
+        "distribuicao": {
+          "0": 291,
+          "1": 3
+        }
+      },
+      "dA_dt": {
+        "descricao": "dA/dt = max(0, outros dia 0 − dia −1)",
+        "rho": 0.015405625440930834,
+        "distribuicao": {
+          "0": 220,
+          "1": 62,
+          "2": 12
+        }
+      }
+    },
+    "spearmanEscoreReferencia": {
+      "IRS v2": 0.15011757092778924,
+      "IRS v1": 0.06135526854817822,
+      "Linha de base": 0.1439620402117514
+    },
+    "proximidadeNaAmostra": {
+      "criterio": "distância ≤ 10 km e |Δ dias| ≤ 7",
+      "pares": 70,
+      "paresMesmoDia": 37,
+      "focosEnvolvidos": 76,
+      "focosComOutroDaAmostraNaReferencia": 22,
+      "focosContadosNaReferenciaDeOutro": 26,
+      "lista": [
+        {
+          "i": "cb06dfc0-0140-3669-93b3-619b0d7c81d8",
+          "j": "336b7193-0c1c-308b-bfa8-600f43e9852e",
+          "km": 9.98,
+          "diferencaDias": -3
+        },
+        {
+          "i": "cb06dfc0-0140-3669-93b3-619b0d7c81d8",
+          "j": "978fb235-f5f5-3e83-a33c-e5096c20b0bb",
+          "km": 8.09,
+          "diferencaDias": 3
+        },
+        {
+          "i": "336b7193-0c1c-308b-bfa8-600f43e9852e",
+          "j": "978fb235-f5f5-3e83-a33c-e5096c20b0bb",
+          "km": 2.35,
+          "diferencaDias": 6
+        },
+        {
+          "i": "a021d26d-edc7-3280-97c6-6b7e4f576959",
+          "j": "72983ac2-767a-3f21-9f90-13c13634d183",
+          "km": 7.62,
+          "diferencaDias": 5
+        },
+        {
+          "i": "a213bb0c-233a-3eb8-a13c-075450e71aa0",
+          "j": "2a562fd1-1466-35f5-ab9a-5d5b1a21024e",
+          "km": 5.92,
+          "diferencaDias": 4
+        },
+        {
+          "i": "60cf0780-cfa1-38ab-ab21-db0ea7aabe31",
+          "j": "98994f36-0961-3000-97e6-24dabf843707",
+          "km": 4.44,
+          "diferencaDias": 0
+        },
+        {
+          "i": "8cb6a7c3-1ce8-3bad-8238-698fe6818d81",
+          "j": "5522f7d1-e4a7-3cf1-918a-93d1bab88d0d",
+          "km": 8.33,
+          "diferencaDias": -5
+        },
+        {
+          "i": "509a3fe0-a5a0-356a-b615-b6e76d340e04",
+          "j": "fcecf348-bf7e-37c4-b0d8-78e9ceb40020",
+          "km": 1.06,
+          "diferencaDias": 0
+        },
+        {
+          "i": "214efad9-5b2d-3b02-9337-e43ef42fbfbc",
+          "j": "deda1675-f80b-3e06-9ffe-6a78f2dc9d0f",
+          "km": 0.67,
+          "diferencaDias": 0
+        },
+        {
+          "i": "f5aec249-015b-36e5-813c-3a1e6f8d9f66",
+          "j": "978d63e8-e015-3ac8-a259-394dd3d70344",
+          "km": 0.99,
+          "diferencaDias": 0
+        },
+        {
+          "i": "98d037ca-528b-3e44-8339-af1be416662a",
+          "j": "e973d213-8c57-333a-8224-1f17af5dac5f",
+          "km": 1.19,
+          "diferencaDias": 0
+        },
+        {
+          "i": "7878801d-47d8-3c7a-87f3-01a7bb0bcdd8",
+          "j": "f2fa3f4e-ebb9-3f86-bf38-0b0b79e776ae",
+          "km": 1.04,
+          "diferencaDias": 0
+        },
+        {
+          "i": "0db284df-5918-3285-8141-8bfd0476b31c",
+          "j": "438c39a8-101f-37ff-ba26-177d9e0d3951",
+          "km": 1.25,
+          "diferencaDias": 0
+        },
+        {
+          "i": "0db284df-5918-3285-8141-8bfd0476b31c",
+          "j": "15b15660-a1fd-3cf4-8b90-d1871135dc48",
+          "km": 0.67,
+          "diferencaDias": 0
+        },
+        {
+          "i": "afa145c4-cc83-3e10-a64f-435c5b24c4a8",
+          "j": "5bec0097-ed73-348a-88d3-efe79f74fc55",
+          "km": 1.01,
+          "diferencaDias": 0
+        },
+        {
+          "i": "438c39a8-101f-37ff-ba26-177d9e0d3951",
+          "j": "15b15660-a1fd-3cf4-8b90-d1871135dc48",
+          "km": 0.62,
+          "diferencaDias": 0
+        },
+        {
+          "i": "f5e721d3-8a20-3526-8f23-05cb6cd5926a",
+          "j": "ffe36ae4-5bdd-3c81-92fc-6173bd02c860",
+          "km": 1.41,
+          "diferencaDias": 0
+        },
+        {
+          "i": "2e5ba122-d2b3-3c8a-a4ad-b9f330268aac",
+          "j": "a39427bb-50a0-36c5-8c7c-33fb4b0bd8cb",
+          "km": 1.82,
+          "diferencaDias": 0
+        },
+        {
+          "i": "8729cf67-dfce-36f7-96c4-fab85f18460a",
+          "j": "251dc98c-13fb-3513-a176-424771a3f26e",
+          "km": 4.52,
+          "diferencaDias": 2
+        },
+        {
+          "i": "8729cf67-dfce-36f7-96c4-fab85f18460a",
+          "j": "4b5d27bd-d9dd-36f1-890d-a336c1258bd1",
+          "km": 3.51,
+          "diferencaDias": 2
+        },
+        {
+          "i": "8729cf67-dfce-36f7-96c4-fab85f18460a",
+          "j": "f439388e-7e80-3a1d-b2e8-3afd567ed1a9",
+          "km": 7.91,
+          "diferencaDias": 2
+        },
+        {
+          "i": "35121037-a935-3fbf-9c4f-9e4758d85db1",
+          "j": "158733a1-98c8-30cb-9929-6ab9f4fc3590",
+          "km": 3.73,
+          "diferencaDias": -4
+        },
+        {
+          "i": "61798e98-b1c2-3f7f-ab9e-fc17bf5d0ab5",
+          "j": "731bcb44-09b3-3a5b-92e8-5c3cf3d41827",
+          "km": 4.95,
+          "diferencaDias": 0
+        },
+        {
+          "i": "251dc98c-13fb-3513-a176-424771a3f26e",
+          "j": "4b5d27bd-d9dd-36f1-890d-a336c1258bd1",
+          "km": 1.03,
+          "diferencaDias": 0
+        },
+        {
+          "i": "251dc98c-13fb-3513-a176-424771a3f26e",
+          "j": "bbc72e25-d419-34db-b94b-8a95ffa713c8",
+          "km": 8.53,
+          "diferencaDias": 0
+        },
+        {
+          "i": "251dc98c-13fb-3513-a176-424771a3f26e",
+          "j": "f439388e-7e80-3a1d-b2e8-3afd567ed1a9",
+          "km": 5.78,
+          "diferencaDias": 0
+        },
+        {
+          "i": "251dc98c-13fb-3513-a176-424771a3f26e",
+          "j": "395b9aae-0575-38c5-9653-b077def7e68a",
+          "km": 8.53,
+          "diferencaDias": 0
+        },
+        {
+          "i": "251dc98c-13fb-3513-a176-424771a3f26e",
+          "j": "e1f220de-fee9-3f12-920e-62f2d3121f0e",
+          "km": 7.98,
+          "diferencaDias": 0
+        },
+        {
+          "i": "917031d6-48cb-381b-b3f0-5149bad04978",
+          "j": "18b4c22e-e90f-3a0d-a233-8b5e48824045",
+          "km": 3.48,
+          "diferencaDias": 0
+        },
+        {
+          "i": "4b5d27bd-d9dd-36f1-890d-a336c1258bd1",
+          "j": "bbc72e25-d419-34db-b94b-8a95ffa713c8",
+          "km": 8.93,
+          "diferencaDias": 0
+        },
+        {
+          "i": "4b5d27bd-d9dd-36f1-890d-a336c1258bd1",
+          "j": "f439388e-7e80-3a1d-b2e8-3afd567ed1a9",
+          "km": 6.22,
+          "diferencaDias": 0
+        },
+        {
+          "i": "4b5d27bd-d9dd-36f1-890d-a336c1258bd1",
+          "j": "395b9aae-0575-38c5-9653-b077def7e68a",
+          "km": 9.17,
+          "diferencaDias": 0
+        },
+        {
+          "i": "4b5d27bd-d9dd-36f1-890d-a336c1258bd1",
+          "j": "e1f220de-fee9-3f12-920e-62f2d3121f0e",
+          "km": 8.53,
+          "diferencaDias": 0
+        },
+        {
+          "i": "b746fa01-71d6-3f62-aca6-c48eb88516a1",
+          "j": "73100a2f-5536-3887-8415-461038183f8e",
+          "km": 5.19,
+          "diferencaDias": -3
+        },
+        {
+          "i": "bbc72e25-d419-34db-b94b-8a95ffa713c8",
+          "j": "f439388e-7e80-3a1d-b2e8-3afd567ed1a9",
+          "km": 2.75,
+          "diferencaDias": 0
+        },
+        {
+          "i": "bbc72e25-d419-34db-b94b-8a95ffa713c8",
+          "j": "395b9aae-0575-38c5-9653-b077def7e68a",
+          "km": 2.32,
+          "diferencaDias": 0
+        },
+        {
+          "i": "bbc72e25-d419-34db-b94b-8a95ffa713c8",
+          "j": "e1f220de-fee9-3f12-920e-62f2d3121f0e",
+          "km": 1.49,
+          "diferencaDias": 0
+        },
+        {
+          "i": "880bd163-58ee-3c93-9561-e045f0ab228e",
+          "j": "c38056fe-164b-30ca-af2d-b87dc4ae9cd5",
+          "km": 0.69,
+          "diferencaDias": 0
+        },
+        {
+          "i": "f439388e-7e80-3a1d-b2e8-3afd567ed1a9",
+          "j": "395b9aae-0575-38c5-9653-b077def7e68a",
+          "km": 3.27,
+          "diferencaDias": 0
+        },
+        {
+          "i": "f439388e-7e80-3a1d-b2e8-3afd567ed1a9",
+          "j": "e1f220de-fee9-3f12-920e-62f2d3121f0e",
+          "km": 2.41,
+          "diferencaDias": 0
+        },
+        {
+          "i": "66465055-33da-3d23-b2f6-b1bdd2c8a9a3",
+          "j": "b6f7dfc1-6bc9-3085-8601-d7af5c104fce",
+          "km": 2.42,
+          "diferencaDias": 0
+        },
+        {
+          "i": "877052c5-3c49-3b43-a493-fd8cda69926b",
+          "j": "e8e52ccb-3126-3673-8641-2e951fe13e8e",
+          "km": 1.54,
+          "diferencaDias": 0
+        },
+        {
+          "i": "d1284e27-649b-3c97-b00b-21c9d2918bdc",
+          "j": "b016f993-57ef-3a46-9879-0a6d767b0bfd",
+          "km": 9.29,
+          "diferencaDias": 4
+        },
+        {
+          "i": "d1284e27-649b-3c97-b00b-21c9d2918bdc",
+          "j": "1d0b9f22-8dba-3443-8618-9bffaa45baa6",
+          "km": 5.48,
+          "diferencaDias": -1
+        },
+        {
+          "i": "b9fd4f9c-6d72-3b53-a57e-e1d33ac16c7b",
+          "j": "742b055a-dda2-3484-8515-ecaf50c60f3a",
+          "km": 1.39,
+          "diferencaDias": 0
+        },
+        {
+          "i": "395b9aae-0575-38c5-9653-b077def7e68a",
+          "j": "e1f220de-fee9-3f12-920e-62f2d3121f0e",
+          "km": 1.03,
+          "diferencaDias": 0
+        },
+        {
+          "i": "b063ed22-c7c9-3d7b-99fd-253aa169ee38",
+          "j": "46fa3a38-4dd3-3b18-a7d8-2460dc2893c5",
+          "km": 2.79,
+          "diferencaDias": 4
+        },
+        {
+          "i": "04ac65ae-07be-3133-beff-db5ece683f11",
+          "j": "bd9daba5-bc61-33c7-b1bf-0f3a90f44f28",
+          "km": 1.46,
+          "diferencaDias": 0
+        },
+        {
+          "i": "04ac65ae-07be-3133-beff-db5ece683f11",
+          "j": "a11fbfe0-d7a0-348d-8d57-d91df8d0b6df",
+          "km": 2.95,
+          "diferencaDias": -7
+        },
+        {
+          "i": "bd9daba5-bc61-33c7-b1bf-0f3a90f44f28",
+          "j": "a11fbfe0-d7a0-348d-8d57-d91df8d0b6df",
+          "km": 4.34,
+          "diferencaDias": -7
+        },
+        {
+          "i": "92dd05a9-9ca4-300d-8cd2-6b320a9b5f03",
+          "j": "c11818aa-4e1c-34c8-84be-49ae0411cb28",
+          "km": 1.28,
+          "diferencaDias": -2
+        },
+        {
+          "i": "32dcbdb0-96c2-3968-95f7-dd8517707044",
+          "j": "ea2e8017-b9b4-3389-ada0-0c656956c889",
+          "km": 9.38,
+          "diferencaDias": -7
+        },
+        {
+          "i": "32dcbdb0-96c2-3968-95f7-dd8517707044",
+          "j": "a5599cd9-0252-3ec1-95fb-7b2d464a19f3",
+          "km": 7.96,
+          "diferencaDias": 1
+        },
+        {
+          "i": "32dcbdb0-96c2-3968-95f7-dd8517707044",
+          "j": "84dafb25-49c2-3ac7-9c76-05a1aa5c1ad4",
+          "km": 4.7,
+          "diferencaDias": 1
+        },
+        {
+          "i": "32dcbdb0-96c2-3968-95f7-dd8517707044",
+          "j": "f0fc6392-6b91-357c-a9aa-072d01c10360",
+          "km": 3.13,
+          "diferencaDias": -7
+        },
+        {
+          "i": "32dcbdb0-96c2-3968-95f7-dd8517707044",
+          "j": "678911ce-9c74-37f5-874a-627e9e272dbb",
+          "km": 5.31,
+          "diferencaDias": -2
+        },
+        {
+          "i": "a2a6ff5f-99df-3ef4-a72a-22fc7021659f",
+          "j": "ea2e8017-b9b4-3389-ada0-0c656956c889",
+          "km": 9.85,
+          "diferencaDias": 6
+        },
+        {
+          "i": "a2a6ff5f-99df-3ef4-a72a-22fc7021659f",
+          "j": "1b2c4072-9ad3-3936-b471-3c6952e0616e",
+          "km": 0.55,
+          "diferencaDias": 0
+        },
+        {
+          "i": "a2a6ff5f-99df-3ef4-a72a-22fc7021659f",
+          "j": "f0fc6392-6b91-357c-a9aa-072d01c10360",
+          "km": 1.3,
+          "diferencaDias": 6
+        },
+        {
+          "i": "a2a6ff5f-99df-3ef4-a72a-22fc7021659f",
+          "j": "6ddab2de-490b-3f15-83a9-faf701077bf8",
+          "km": 4.05,
+          "diferencaDias": -2
+        },
+        {
+          "i": "ea2e8017-b9b4-3389-ada0-0c656956c889",
+          "j": "f0fc6392-6b91-357c-a9aa-072d01c10360",
+          "km": 9.45,
+          "diferencaDias": 0
+        },
+        {
+          "i": "ea2e8017-b9b4-3389-ada0-0c656956c889",
+          "j": "678911ce-9c74-37f5-874a-627e9e272dbb",
+          "km": 4.33,
+          "diferencaDias": 5
+        },
+        {
+          "i": "a5599cd9-0252-3ec1-95fb-7b2d464a19f3",
+          "j": "84dafb25-49c2-3ac7-9c76-05a1aa5c1ad4",
+          "km": 4.1,
+          "diferencaDias": 0
+        },
+        {
+          "i": "a5599cd9-0252-3ec1-95fb-7b2d464a19f3",
+          "j": "678911ce-9c74-37f5-874a-627e9e272dbb",
+          "km": 3.18,
+          "diferencaDias": -3
+        },
+        {
+          "i": "ed37f94c-17cc-3727-b192-6b3dac38ab6e",
+          "j": "00b1e9c2-8342-3774-ad7c-2adc2c17e0e5",
+          "km": 8.98,
+          "diferencaDias": 5
+        },
+        {
+          "i": "84dafb25-49c2-3ac7-9c76-05a1aa5c1ad4",
+          "j": "678911ce-9c74-37f5-874a-627e9e272dbb",
+          "km": 0.92,
+          "diferencaDias": -3
+        },
+        {
+          "i": "8305288d-4779-3250-bf61-0ba510f4a927",
+          "j": "f410ab1d-bc5d-34e6-a336-2012f0c292d3",
+          "km": 0.58,
+          "diferencaDias": 3
+        },
+        {
+          "i": "1b2c4072-9ad3-3936-b471-3c6952e0616e",
+          "j": "f0fc6392-6b91-357c-a9aa-072d01c10360",
+          "km": 1.81,
+          "diferencaDias": 6
+        },
+        {
+          "i": "1b2c4072-9ad3-3936-b471-3c6952e0616e",
+          "j": "6ddab2de-490b-3f15-83a9-faf701077bf8",
+          "km": 4.6,
+          "diferencaDias": -2
+        },
+        {
+          "i": "f0fc6392-6b91-357c-a9aa-072d01c10360",
+          "j": "678911ce-9c74-37f5-874a-627e9e272dbb",
+          "km": 5.13,
+          "diferencaDias": 5
+        }
+      ]
+    }
+  },
+  "C2": {
+    "definicao": "focos a mais de 1 km e até 10 km nos dias 1 a 7, satélite AQUA_M-T",
+    "reproduzContagemPublicada": true,
+    "focosComAlgumFocoAte1km": 25,
+    "focosAte1kmNaReferencia": 35,
+    "focosNaReferenciaPublicada": 677,
+    "zerosNoAnel": 189,
+    "tercisRecalculados": {
+      "limites": {
+        "t1": 2,
+        "t2": 5,
+        "nPositivas": 105
+      },
+      "porNivel": {
+        "BAIXO": 189,
+        "MODERADO": 49,
+        "ALTO": 22,
+        "CRITICO": 34
+      },
+      "focosQueMudaramDeNivel": 12,
+      "grupos": 294,
+      "metricas": {
+        "IRS v2|acuracia": {
+          "valor": 0.36394557823129253,
+          "ic95": [
+            0.30952380952380953,
+            0.42517006802721086
+          ],
+          "validas": 2000
+        },
+        "IRS v2|kappa": {
+          "valor": 0.10776933061375848,
+          "ic95": [
+            0.008312469938211442,
+            0.20533347128280077
+          ],
+          "validas": 2000
+        },
+        "IRS v1|acuracia": {
+          "valor": 0.6224489795918368,
+          "ic95": [
+            0.564625850340136,
+            0.6768707482993197
+          ],
+          "validas": 2000
+        },
+        "IRS v1|kappa": {
+          "valor": 0.018405763420869192,
+          "ic95": [
+            -0.018540641276819203,
+            0.06149572583986862
+          ],
+          "validas": 2000
+        },
+        "Linha de base|acuracia": {
+          "valor": 0.30272108843537415,
+          "ic95": [
+            0.25170068027210885,
+            0.35714285714285715
+          ],
+          "validas": 2000
+        },
+        "Linha de base|kappa": {
+          "valor": 0.10813157803327633,
+          "ic95": [
+            0.015675426463808373,
+            0.20219147404622884
+          ],
+          "validas": 2000
+        },
+        "IRS v2 − IRS v1|acuracia": {
+          "valor": -0.2585034013605442,
+          "ic95": [
+            -0.3333333333333333,
+            -0.17687074829931976
+          ],
+          "validas": 2000
+        },
+        "IRS v2 − IRS v1|kappa": {
+          "valor": 0.08936356719288929,
+          "ic95": [
+            0.0025570043967333422,
+            0.1697405480622337
+          ],
+          "validas": 2000
+        },
+        "IRS v2 − Linha de base|acuracia": {
+          "valor": 0.06122448979591838,
+          "ic95": [
+            0.02721088435374147,
+            0.09523809523809529
+          ],
+          "validas": 2000
+        },
+        "IRS v2 − Linha de base|kappa": {
+          "valor": -0.0003622474195178471,
+          "ic95": [
+            -0.04883876141813337,
+            0.044620875320782516
+          ],
+          "validas": 2000
+        }
+      }
+    },
+    "limitesOriginais": {
+      "limites": {
+        "t1": 2,
+        "t2": 5,
+        "nPositivas": 112
+      },
+      "porNivel": {
+        "BAIXO": 189,
+        "MODERADO": 49,
+        "ALTO": 22,
+        "CRITICO": 34
+      },
+      "focosQueMudaramDeNivel": 12,
+      "grupos": 294,
+      "metricas": {
+        "IRS v2|acuracia": {
+          "valor": 0.36394557823129253,
+          "ic95": [
+            0.30952380952380953,
+            0.42517006802721086
+          ],
+          "validas": 2000
+        },
+        "IRS v2|kappa": {
+          "valor": 0.10776933061375848,
+          "ic95": [
+            0.008312469938211442,
+            0.20533347128280077
+          ],
+          "validas": 2000
+        },
+        "IRS v1|acuracia": {
+          "valor": 0.6224489795918368,
+          "ic95": [
+            0.564625850340136,
+            0.6768707482993197
+          ],
+          "validas": 2000
+        },
+        "IRS v1|kappa": {
+          "valor": 0.018405763420869192,
+          "ic95": [
+            -0.018540641276819203,
+            0.06149572583986862
+          ],
+          "validas": 2000
+        },
+        "Linha de base|acuracia": {
+          "valor": 0.30272108843537415,
+          "ic95": [
+            0.25170068027210885,
+            0.35714285714285715
+          ],
+          "validas": 2000
+        },
+        "Linha de base|kappa": {
+          "valor": 0.10813157803327633,
+          "ic95": [
+            0.015675426463808373,
+            0.20219147404622884
+          ],
+          "validas": 2000
+        },
+        "IRS v2 − IRS v1|acuracia": {
+          "valor": -0.2585034013605442,
+          "ic95": [
+            -0.3333333333333333,
+            -0.17687074829931976
+          ],
+          "validas": 2000
+        },
+        "IRS v2 − IRS v1|kappa": {
+          "valor": 0.08936356719288929,
+          "ic95": [
+            0.0025570043967333422,
+            0.1697405480622337
+          ],
+          "validas": 2000
+        },
+        "IRS v2 − Linha de base|acuracia": {
+          "valor": 0.06122448979591838,
+          "ic95": [
+            0.02721088435374147,
+            0.09523809523809529
+          ],
+          "validas": 2000
+        },
+        "IRS v2 − Linha de base|kappa": {
+          "valor": -0.0003622474195178471,
+          "ic95": [
+            -0.04883876141813337,
+            0.044620875320782516
+          ],
+          "validas": 2000
+        }
+      }
+    }
+  },
+  "D": {
+    "quatroNiveis": {
+      "principal": {
+        "descricao": "0 | tercis das contagens > 0 (≤ 2 | 3–5 | ≥ 6)",
+        "porNivel": {
+          "BAIXO": 182,
+          "MODERADO": 52,
+          "ALTO": 24,
+          "CRITICO": 36
+        },
+        "identicoAoPrincipal": true,
+        "grupos": 294,
+        "metricas": {
+          "IRS v2|acuracia": {
+            "valor": 0.35034013605442177,
+            "ic95": [
+              0.29591836734693877,
+              0.40816326530612246
+            ],
+            "validas": 2000
+          },
+          "IRS v2|kappa": {
+            "valor": 0.11136776920430558,
+            "ic95": [
+              0.00882836553847488,
+              0.20921571491164015
+            ],
+            "validas": 2000
+          },
+          "IRS v1|acuracia": {
+            "valor": 0.5952380952380952,
+            "ic95": [
+              0.5374149659863946,
+              0.6530612244897959
+            ],
+            "validas": 2000
+          },
+          "IRS v1|kappa": {
+            "valor": 0.01931480510400274,
+            "ic95": [
+              -0.01656543346217565,
+              0.060638411444432494
+            ],
+            "validas": 2000
+          },
+          "Linha de base|acuracia": {
+            "valor": 0.2925170068027211,
+            "ic95": [
+              0.24149659863945577,
+              0.3469387755102041
+            ],
+            "validas": 2000
+          },
+          "Linha de base|kappa": {
+            "valor": 0.11389432032488345,
+            "ic95": [
+              0.019081134395966926,
+              0.21005373784096315
+            ],
+            "validas": 2000
+          },
+          "IRS v2 − IRS v1|acuracia": {
+            "valor": -0.24489795918367346,
+            "ic95": [
+              -0.3197278911564626,
+              -0.163265306122449
+            ],
+            "validas": 2000
+          },
+          "IRS v2 − IRS v1|kappa": {
+            "valor": 0.09205296410030284,
+            "ic95": [
+              0.0025177088586525453,
+              0.17289795275452746
+            ],
+            "validas": 2000
+          },
+          "IRS v2 − Linha de base|acuracia": {
+            "valor": 0.05782312925170069,
+            "ic95": [
+              0.020408163265306145,
+              0.09183673469387754
+            ],
+            "validas": 2000
+          },
+          "IRS v2 − Linha de base|kappa": {
+            "valor": -0.002526551120577869,
+            "ic95": [
+              -0.052517636794563116,
+              0.04194450371293801
+            ],
+            "validas": 2000
+          }
+        }
+      },
+      "secundaria": {
+        "descricao": "quartis (Q1 = Q2 = 0, Q3 = 2)",
+        "porNivel": {
+          "BAIXO": 182,
+          "MODERADO": 0,
+          "ALTO": 52,
+          "CRITICO": 60
+        },
+        "identicoAoPrincipal": false,
+        "grupos": 294,
+        "metricas": {
+          "IRS v2|acuracia": {
+            "valor": 0.2891156462585034,
+            "ic95": [
+              0.23809523809523808,
+              0.3435374149659864
+            ],
+            "validas": 2000
+          },
+          "IRS v2|kappa": {
+            "valor": 0.1290632506004803,
+            "ic95": [
+              0.02216066481994483,
+              0.22957323298620225
+            ],
+            "validas": 2000
+          },
+          "IRS v1|acuracia": {
+            "valor": 0.5952380952380952,
+            "ic95": [
+              0.5374149659863946,
+              0.6530612244897959
+            ],
+            "validas": 2000
+          },
+          "IRS v1|kappa": {
+            "valor": 0.009251052514956615,
+            "ic95": [
+              -0.01624083977025159,
+              0.0377930860140302
+            ],
+            "validas": 2000
+          },
+          "Linha de base|acuracia": {
+            "valor": 0.2619047619047619,
+            "ic95": [
+              0.2108843537414966,
+              0.3163265306122449
+            ],
+            "validas": 2000
+          },
+          "Linha de base|kappa": {
+            "valor": 0.12909082036015818,
+            "ic95": [
+              0.025604184028276578,
+              0.22672913327579836
+            ],
+            "validas": 2000
+          },
+          "IRS v2 − IRS v1|acuracia": {
+            "valor": -0.30612244897959184,
+            "ic95": [
+              -0.37074829931972797,
+              -0.23809523809523808
+            ],
+            "validas": 2000
+          },
+          "IRS v2 − IRS v1|kappa": {
+            "valor": 0.11981219808552368,
+            "ic95": [
+              0.022805956196314647,
+              0.2113682075854979
+            ],
+            "validas": 2000
+          },
+          "IRS v2 − Linha de base|acuracia": {
+            "valor": 0.02721088435374147,
+            "ic95": [
+              -0.003401360544217691,
+              0.05782312925170066
+            ],
+            "validas": 2000
+          },
+          "IRS v2 − Linha de base|kappa": {
+            "valor": -0.000027569759677881223,
+            "ic95": [
+              -0.048660131335271584,
+              0.04721240711183694
+            ],
+            "validas": 2000
+          }
+        }
+      },
+      "D1": {
+        "descricao": "fixos 0 | 1–2 | 3–5 | 6+",
+        "porNivel": {
+          "BAIXO": 182,
+          "MODERADO": 52,
+          "ALTO": 24,
+          "CRITICO": 36
+        },
+        "identicoAoPrincipal": true,
+        "grupos": 294,
+        "metricas": {
+          "IRS v2|acuracia": {
+            "valor": 0.35034013605442177,
+            "ic95": [
+              0.29591836734693877,
+              0.40816326530612246
+            ],
+            "validas": 2000
+          },
+          "IRS v2|kappa": {
+            "valor": 0.11136776920430558,
+            "ic95": [
+              0.00882836553847488,
+              0.20921571491164015
+            ],
+            "validas": 2000
+          },
+          "IRS v1|acuracia": {
+            "valor": 0.5952380952380952,
+            "ic95": [
+              0.5374149659863946,
+              0.6530612244897959
+            ],
+            "validas": 2000
+          },
+          "IRS v1|kappa": {
+            "valor": 0.01931480510400274,
+            "ic95": [
+              -0.01656543346217565,
+              0.060638411444432494
+            ],
+            "validas": 2000
+          },
+          "Linha de base|acuracia": {
+            "valor": 0.2925170068027211,
+            "ic95": [
+              0.24149659863945577,
+              0.3469387755102041
+            ],
+            "validas": 2000
+          },
+          "Linha de base|kappa": {
+            "valor": 0.11389432032488345,
+            "ic95": [
+              0.019081134395966926,
+              0.21005373784096315
+            ],
+            "validas": 2000
+          },
+          "IRS v2 − IRS v1|acuracia": {
+            "valor": -0.24489795918367346,
+            "ic95": [
+              -0.3197278911564626,
+              -0.163265306122449
+            ],
+            "validas": 2000
+          },
+          "IRS v2 − IRS v1|kappa": {
+            "valor": 0.09205296410030284,
+            "ic95": [
+              0.0025177088586525453,
+              0.17289795275452746
+            ],
+            "validas": 2000
+          },
+          "IRS v2 − Linha de base|acuracia": {
+            "valor": 0.05782312925170069,
+            "ic95": [
+              0.020408163265306145,
+              0.09183673469387754
+            ],
+            "validas": 2000
+          },
+          "IRS v2 − Linha de base|kappa": {
+            "valor": -0.002526551120577869,
+            "ic95": [
+              -0.052517636794563116,
+              0.04194450371293801
+            ],
+            "validas": 2000
+          }
+        }
+      },
+      "D1b": {
+        "descricao": "fixos 0 | 1–4 | 5–9 | 10+",
+        "porNivel": {
+          "BAIXO": 182,
+          "MODERADO": 69,
+          "ALTO": 18,
+          "CRITICO": 25
+        },
+        "identicoAoPrincipal": false,
+        "grupos": 294,
+        "metricas": {
+          "IRS v2|acuracia": {
+            "valor": 0.35714285714285715,
+            "ic95": [
+              0.30272108843537415,
+              0.41156462585034015
+            ],
+            "validas": 2000
+          },
+          "IRS v2|kappa": {
+            "valor": 0.07337066796526215,
+            "ic95": [
+              -0.02663011552770711,
+              0.16913459660089858
+            ],
+            "validas": 2000
+          },
+          "IRS v1|acuracia": {
+            "valor": 0.6020408163265306,
+            "ic95": [
+              0.54421768707483,
+              0.6564625850340136
+            ],
+            "validas": 2000
+          },
+          "IRS v1|kappa": {
+            "valor": 0.014605100550500127,
+            "ic95": [
+              -0.02474066677761133,
+              0.05860712278371072
+            ],
+            "validas": 2000
+          },
+          "Linha de base|acuracia": {
+            "valor": 0.30952380952380953,
+            "ic95": [
+              0.2585034013605442,
+              0.36394557823129253
+            ],
+            "validas": 2000
+          },
+          "Linha de base|kappa": {
+            "valor": 0.0781795651684124,
+            "ic95": [
+              -0.011852121985686415,
+              0.1707831882984635
+            ],
+            "validas": 2000
+          },
+          "IRS v2 − IRS v1|acuracia": {
+            "valor": -0.24489795918367346,
+            "ic95": [
+              -0.3231292517006803,
+              -0.16666666666666663
+            ],
+            "validas": 2000
+          },
+          "IRS v2 − IRS v1|kappa": {
+            "valor": 0.05876556741476202,
+            "ic95": [
+              -0.0300822666127758,
+              0.13974605495477643
+            ],
+            "validas": 2000
+          },
+          "IRS v2 − Linha de base|acuracia": {
+            "valor": 0.047619047619047616,
+            "ic95": [
+              0.0170068027210884,
+              0.08163265306122452
+            ],
+            "validas": 2000
+          },
+          "IRS v2 − Linha de base|kappa": {
+            "valor": -0.004808897203150253,
+            "ic95": [
+              -0.055636187711659235,
+              0.040611138884426246
+            ],
+            "validas": 2000
+          }
+        }
+      }
+    },
+    "binario": {
+      "descricao": "referência: ≥ 1 foco a ≤ 10 km nos dias 1–7 (SIM) × 0 (NÃO); modelo: SIM se nível ≠ BAIXO",
+      "porClasse": {
+        "NAO": 182,
+        "SIM": 112
+      },
+      "grupos": 294,
+      "metricas": {
+        "IRS v2|acuracia": {
+          "valor": 0.5272108843537415,
+          "ic95": [
+            0.46938775510204084,
+            0.5850340136054422
+          ],
+          "validas": 2000
+        },
+        "IRS v2|kappa": {
+          "valor": 0.13305613305613312,
+          "ic95": [
+            0.04116193331442699,
+            0.22588517360962448
+          ],
+          "validas": 2000
+        },
+        "IRS v1|acuracia": {
+          "valor": 0.6122448979591837,
+          "ic95": [
+            0.5544217687074829,
+            0.6666666666666666
+          ],
+          "validas": 2000
+        },
+        "IRS v1|kappa": {
+          "valor": 0.00746268656716443,
+          "ic95": [
+            -0.04807874313836815,
+            0.06825938566552897
+          ],
+          "validas": 2000
+        },
+        "Linha de base|acuracia": {
+          "valor": 0.4965986394557823,
+          "ic95": [
+            0.4387755102040816,
+            0.5544217687074829
+          ],
+          "validas": 2000
+        },
+        "Linha de base|kappa": {
+          "valor": 0.09965237543453072,
+          "ic95": [
+            0.01860705517508723,
+            0.1821126058794221
+          ],
+          "validas": 2000
+        },
+        "IRS v2 − IRS v1|acuracia": {
+          "valor": -0.08503401360544216,
+          "ic95": [
+            -0.1768707482993197,
+            0.010204081632652962
+          ],
+          "validas": 2000
+        },
+        "IRS v2 − IRS v1|kappa": {
+          "valor": 0.1255934464889687,
+          "ic95": [
+            0.023033254568957315,
+            0.22607521368033223
+          ],
+          "validas": 2000
+        },
+        "IRS v2 − Linha de base|acuracia": {
+          "valor": 0.030612244897959218,
+          "ic95": [
+            -0.003401360544217691,
+            0.06462585034013607
+          ],
+          "validas": 2000
+        },
+        "IRS v2 − Linha de base|kappa": {
+          "valor": 0.0334037576216024,
+          "ic95": [
+            -0.024731246611008853,
+            0.09197086585561821
+          ],
+          "validas": 2000
+        }
+      },
+      "sensibilidadeEspecificidade": {
+        "IRS v2": {
+          "sensibilidade": 0.7857142857142857,
+          "especificidade": 0.36813186813186816,
+          "previstosSim": 203
+        },
+        "IRS v1": {
+          "sensibilidade": 0.044642857142857144,
+          "especificidade": 0.9615384615384616,
+          "previstosSim": 12
+        },
+        "Linha de base": {
+          "sensibilidade": 0.8214285714285714,
+          "especificidade": 0.2967032967032967,
+          "previstosSim": 220
+        }
+      },
+      "referenciaSempreNao": {
+        "acuracia": 0.6190476190476191
+      }
+    }
+  },
+  "E": {
+    "IRS v2": {
+      "matriz": [
+        [
+          67,
+          74,
+          34,
+          7
+        ],
+        [
+          12,
+          25,
+          13,
+          2
+        ],
+        [
+          5,
+          9,
+          8,
+          2
+        ],
+        [
+          7,
+          22,
+          4,
+          3
+        ]
+      ],
+      "porClasse": {
+        "BAIXO": {
+          "reais": 182,
+          "previstos": 91,
+          "acertos": 67,
+          "precisao": 0.7362637362637363,
+          "recall": 0.36813186813186816,
+          "f1": 0.4908424908424909
+        },
+        "MODERADO": {
+          "reais": 52,
+          "previstos": 130,
+          "acertos": 25,
+          "precisao": 0.19230769230769232,
+          "recall": 0.4807692307692308,
+          "f1": 0.27472527472527475
+        },
+        "ALTO": {
+          "reais": 24,
+          "previstos": 59,
+          "acertos": 8,
+          "precisao": 0.13559322033898305,
+          "recall": 0.3333333333333333,
+          "f1": 0.19277108433734938
+        },
+        "CRITICO": {
+          "reais": 36,
+          "previstos": 14,
+          "acertos": 3,
+          "precisao": 0.21428571428571427,
+          "recall": 0.08333333333333333,
+          "f1": 0.12
+        }
+      },
+      "f1Macro": 0.26958471247627874
+    },
+    "IRS v1": {
+      "matriz": [
+        [
+          175,
+          7,
+          0,
+          0
+        ],
+        [
+          52,
+          0,
+          0,
+          0
+        ],
+        [
+          22,
+          2,
+          0,
+          0
+        ],
+        [
+          33,
+          3,
+          0,
+          0
+        ]
+      ],
+      "porClasse": {
+        "BAIXO": {
+          "reais": 182,
+          "previstos": 282,
+          "acertos": 175,
+          "precisao": 0.6205673758865248,
+          "recall": 0.9615384615384616,
+          "f1": 0.7543103448275862
+        },
+        "MODERADO": {
+          "reais": 52,
+          "previstos": 12,
+          "acertos": 0,
+          "precisao": 0,
+          "recall": 0,
+          "f1": 0
+        },
+        "ALTO": {
+          "reais": 24,
+          "previstos": 0,
+          "acertos": 0,
+          "precisao": null,
+          "recall": 0,
+          "f1": 0
+        },
+        "CRITICO": {
+          "reais": 36,
+          "previstos": 0,
+          "acertos": 0,
+          "precisao": null,
+          "recall": 0,
+          "f1": 0
+        }
+      },
+      "f1Macro": 0.18857758620689655
+    },
+    "Linha de base": {
+      "matriz": [
+        [
+          54,
+          84,
+          32,
+          12
+        ],
+        [
+          11,
+          24,
+          15,
+          2
+        ],
+        [
+          4,
+          10,
+          5,
+          5
+        ],
+        [
+          5,
+          21,
+          7,
+          3
+        ]
+      ],
+      "porClasse": {
+        "BAIXO": {
+          "reais": 182,
+          "previstos": 74,
+          "acertos": 54,
+          "precisao": 0.7297297297297297,
+          "recall": 0.2967032967032967,
+          "f1": 0.421875
+        },
+        "MODERADO": {
+          "reais": 52,
+          "previstos": 139,
+          "acertos": 24,
+          "precisao": 0.17266187050359713,
+          "recall": 0.46153846153846156,
+          "f1": 0.2513089005235602
+        },
+        "ALTO": {
+          "reais": 24,
+          "previstos": 59,
+          "acertos": 5,
+          "precisao": 0.0847457627118644,
+          "recall": 0.20833333333333334,
+          "f1": 0.12048192771084336
+        },
+        "CRITICO": {
+          "reais": 36,
+          "previstos": 22,
+          "acertos": 3,
+          "precisao": 0.13636363636363635,
+          "recall": 0.08333333333333333,
+          "f1": 0.10344827586206896
+        }
+      },
+      "f1Macro": 0.22427852602411813
+    }
+  },
+  "F": {
+    "auc": {
+      "propagacao": {
+        "descricao": "D2: ≥ 1 foco (SIM) × 0",
+        "positivos": 112,
+        "negativos": 182,
+        "porModelo": {
+          "IRS v2": {
+            "auc": 0.5894819466248038,
+            "ic95": [
+              0.5240096038415366,
+              0.6541358829494422
+            ],
+            "validas": 2000,
+            "paresPositivoNegativo": 20384,
+            "paresEmpatados": 6
+          },
+          "IRS v1": {
+            "auc": 0.5357878728414442,
+            "ic95": [
+              0.46757590132827326,
+              0.6010721247563353
+            ],
+            "validas": 2000,
+            "paresPositivoNegativo": 20384,
+            "paresEmpatados": 23
+          },
+          "Linha de base": {
+            "auc": 0.5806514913657771,
+            "ic95": [
+              0.5138438810522302,
+              0.644249699879952
+            ],
+            "validas": 2000,
+            "paresPositivoNegativo": 20384,
+            "paresEmpatados": 8
+          }
+        }
+      },
+      "criticoContraResto": {
+        "descricao": "CRÍTICO × demais níveis (regra principal)",
+        "positivos": 36,
+        "negativos": 258,
+        "porModelo": {
+          "IRS v2": {
+            "auc": 0.5496877691645133,
+            "ic95": [
+              0.45889344262295084,
+              0.6415744957709825
+            ],
+            "validas": 2000,
+            "paresPositivoNegativo": 9288,
+            "paresEmpatados": 7
+          },
+          "IRS v1": {
+            "auc": 0.5193260120585702,
+            "ic95": [
+              0.42481620196976,
+              0.618270887166236
+            ],
+            "validas": 2000,
+            "paresPositivoNegativo": 9288,
+            "paresEmpatados": 13
+          },
+          "Linha de base": {
+            "auc": 0.5689599483204134,
+            "ic95": [
+              0.47695167286245355,
+              0.6576357466063348
+            ],
+            "validas": 2000,
+            "paresPositivoNegativo": 9288,
+            "paresEmpatados": 3
+          }
+        }
+      }
+    },
+    "empates": {
+      "IRS v2": {
+        "valoresDistintos": 261,
+        "focosComEscoreRepetido": 64,
+        "maiorRepeticao": 3
+      },
+      "IRS v1": {
+        "valoresDistintos": 233,
+        "focosComEscoreRepetido": 108,
+        "maiorRepeticao": 5
+      },
+      "Linha de base": {
+        "valoresDistintos": 271,
+        "focosComEscoreRepetido": 46,
+        "maiorRepeticao": 2
+      }
+    },
+    "calibracaoNaAmostra": {
+      "proporcoesReferencia": {
+        "BAIXO": 182,
+        "MODERADO": 52,
+        "ALTO": 24,
+        "CRITICO": 36
+      },
+      "porModelo": {
+        "IRS v2": {
+          "limiares": [
+            0.45367619047619046,
+            0.5265938775510205,
+            0.5793244897959184
+          ],
+          "previstosPorNivel": {
+            "BAIXO": 182,
+            "MODERADO": 52,
+            "ALTO": 24,
+            "CRITICO": 36
+          },
+          "acuracia": 0.48639455782312924,
+          "kappa": 0.08879209247780173,
+          "kappaComLimiaresAtuais": 0.11136776920430558
+        },
+        "IRS v1": {
+          "limiares": [
+            0.12359047619047618,
+            0.18016122448979593,
+            0.33994489795918365
+          ],
+          "previstosPorNivel": {
+            "BAIXO": 182,
+            "MODERADO": 52,
+            "ALTO": 24,
+            "CRITICO": 36
+          },
+          "acuracia": 0.45918367346938777,
+          "kappa": 0.014910370246272286,
+          "kappaComLimiaresAtuais": 0.01931480510400274
+        },
+        "Linha de base": {
+          "limiares": [
+            0.47353809523809526,
+            0.5492857142857144,
+            0.5987244897959184
+          ],
+          "previstosPorNivel": {
+            "BAIXO": 182,
+            "MODERADO": 52,
+            "ALTO": 24,
+            "CRITICO": 36
+          },
+          "acuracia": 0.47959183673469385,
+          "kappa": 0.09494890266376255,
+          "kappaComLimiaresAtuais": 0.11389432032488345
+        }
+      }
+    },
+    "validacaoCruzada": {
+      "partes": 5,
+      "estratificadaPor": "nível da referência (regra principal)",
+      "semente": 20261025,
+      "porModelo": {
+        "IRS v2": {
+          "porParte": [
+            {
+              "parte": 1,
+              "n": 59,
+              "limiares": [
+                0.44817142857142855,
+                0.5230571428571429,
+                0.5800897959183674
+              ],
+              "kappa": -0.021473627700979714
+            },
+            {
+              "parte": 2,
+              "n": 59,
+              "limiares": [
+                0.4535857142857143,
+                0.5219734693877551,
+                0.5799510204081633
+              ],
+              "kappa": 0.09207870837537835
+            },
+            {
+              "parte": 3,
+              "n": 59,
+              "limiares": [
+                0.457,
+                0.5344,
+                0.5809387755102041
+              ],
+              "kappa": 0.01098265895953765
+            },
+            {
+              "parte": 4,
+              "n": 59,
+              "limiares": [
+                0.4515428571428572,
+                0.5173775510204082,
+                0.5782428571428572
+              ],
+              "kappa": 0.17584223500410834
+            },
+            {
+              "parte": 5,
+              "n": 58,
+              "limiares": [
+                0.45470952380952384,
+                0.5333,
+                0.5784673469387756
+              ],
+              "kappa": 0.14862385321100913
+            }
+          ],
+          "kappaMedio": 0.08121076556981074,
+          "desvioPadrao": 0.08528455773598997,
+          "kappaAgregado": 0.0856649539223232,
+          "acuraciaAgregada": 0.48639455782312924
+        },
+        "IRS v1": {
+          "porParte": [
+            {
+              "parte": 1,
+              "n": 59,
+              "limiares": [
+                0.12578571428571428,
+                0.17813673469387756,
+                0.3369244897959184
+              ],
+              "kappa": -0.0874291115311907
+            },
+            {
+              "parte": 2,
+              "n": 59,
+              "limiares": [
+                0.1239,
+                0.18071836734693877,
+                0.33934897959183674
+              ],
+              "kappa": -0.07086026852312277
+            },
+            {
+              "parte": 3,
+              "n": 59,
+              "limiares": [
+                0.12910000000000002,
+                0.1826591836734694,
+                0.3428632653061225
+              ],
+              "kappa": -0.04222317966393807
+            },
+            {
+              "parte": 4,
+              "n": 59,
+              "limiares": [
+                0.12258571428571428,
+                0.1788918367346939,
+                0.3365326530612245
+              ],
+              "kappa": 0.2154641713863581
+            },
+            {
+              "parte": 5,
+              "n": 58,
+              "limiares": [
+                0.1223952380952381,
+                0.18011224489795918,
+                0.34178979591836733
+              ],
+              "kappa": 0.08887630908576272
+            }
+          ],
+          "kappaMedio": 0.020765584150773852,
+          "desvioPadrao": 0.12904997495305764,
+          "kappaAgregado": 0.01957372770769883,
+          "acuraciaAgregada": 0.4523809523809524
+        },
+        "Linha de base": {
+          "porParte": [
+            {
+              "parte": 1,
+              "n": 59,
+              "limiares": [
+                0.4708714285714286,
+                0.5432612244897959,
+                0.598373469387755
+              ],
+              "kappa": 0.0036447576236181556
+            },
+            {
+              "parte": 2,
+              "n": 59,
+              "limiares": [
+                0.4734428571428571,
+                0.5485122448979592,
+                0.5994897959183674
+              ],
+              "kappa": 0.07122580645161292
+            },
+            {
+              "parte": 3,
+              "n": 59,
+              "limiares": [
+                0.4754142857142857,
+                0.5585183673469388,
+                0.5993163265306123
+              ],
+              "kappa": 0.03197307530500626
+            },
+            {
+              "parte": 4,
+              "n": 59,
+              "limiares": [
+                0.46804285714285715,
+                0.5459367346938776,
+                0.5969081632653062
+              ],
+              "kappa": 0.14756039791567988
+            },
+            {
+              "parte": 5,
+              "n": 58,
+              "limiares": [
+                0.4743952380952381,
+                0.551677551020408,
+                0.5987448979591837
+              ],
+              "kappa": 0.15721007473014115
+            }
+          ],
+          "kappaMedio": 0.08232282240521167,
+          "desvioPadrao": 0.06839685755421698,
+          "kappaAgregado": 0.08279446799294576,
+          "acuraciaAgregada": 0.46938775510204084
+        }
+      }
+    },
+    "faixasAtuais": [
+      {
+        "sigmoide": 0.25,
+        "irs": 0.390138771133189,
+        "confere": true
+      },
+      {
+        "sigmoide": 0.5,
+        "irs": 0.5,
+        "confere": true
+      },
+      {
+        "sigmoide": 0.75,
+        "irs": 0.6098612288668109,
+        "confere": true
+      }
+    ],
+    "distribuicaoEscores": {
+      "IRS v2": {
+        "n": 294,
+        "minimo": 0.2706,
+        "q1": 0.36675,
+        "mediana": 0.4313,
+        "q3": 0.49665,
+        "maximo": 0.6736,
+        "valoresDistintos": 261,
+        "porNivelAtual": {
+          "BAIXO": 91,
+          "MODERADO": 130,
+          "ALTO": 59,
+          "CRITICO": 14
+        }
+      },
+      "IRS v1": {
+        "n": 294,
+        "minimo": 0.0738,
+        "q1": 0.08805,
+        "mediana": 0.1028,
+        "q3": 0.17352499999999998,
+        "maximo": 0.4786,
+        "valoresDistintos": 233,
+        "porNivelAtual": {
+          "BAIXO": 282,
+          "MODERADO": 12,
+          "ALTO": 0,
+          "CRITICO": 0
+        }
+      },
+      "Linha de base": {
+        "n": 294,
+        "minimo": 0.2723,
+        "q1": 0.389425,
+        "mediana": 0.44599999999999995,
+        "q3": 0.5202,
+        "maximo": 0.7254,
+        "valoresDistintos": 271,
+        "porNivelAtual": {
+          "BAIXO": 74,
+          "MODERADO": 139,
+          "ALTO": 59,
+          "CRITICO": 22
+        }
+      }
+    }
+  }
+}
