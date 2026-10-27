@@ -167,7 +167,7 @@ SMCQ-Backend/
 │   ├── usuarioService.js   # Gestão de usuários: validação e matriz de permissões (RF04)
 │   ├── geodadosService.js  # Bioma, UC, TI, fauna e focos (IBGE, ICMBio, FUNAI, GBIF, INPE)
 │   ├── cacheService.js     # Cache em memória com TTL
-│   ├── linhaBaseService.js # Linha de base da validação (média simples, sem AHP)
+│   ├── linhaBaseService.js # Linha de base da validação (média simples, sem pesos)
 │   └── metricasService.js  # Acurácia, matriz de confusão, recall e kappa ponderado
 ├── scripts/
 │   ├── validacao/          # Validação do IRS com focos reais do INPE
@@ -466,7 +466,9 @@ Os usuários nunca saem na API com o hash da senha. Campos devolvidos: `id`, `no
 
 ## Algoritmo de classificação de risco
 
-O risco de cada alerta é calculado pelo **Índice de Risco Sintético (IRS) v2** (`calcularRiscoAvancadoV2`, em `services/riscoService.js`): uma soma ponderada de nove critérios, cada um normalizado entre 0 e 1, com pesos AHP. A descrição completa, com as tabelas de pontuação, as fórmulas e a justificativa da mudança, está em [`docs/irs-v2.md`](docs/irs-v2.md).
+O risco de cada alerta é calculado pelo **Índice de Risco Sintético (IRS) v2** (`calcularRiscoAvancadoV2`, em `services/riscoService.js`): uma soma ponderada de nove critérios, cada um normalizado entre 0 e 1, com pesos definidos pela equipe. A descrição completa, com as tabelas de pontuação, as fórmulas e a justificativa da mudança, está em [`docs/irs-v2.md`](docs/irs-v2.md).
+
+> **Sobre os pesos.** Os pesos foram definidos pela equipe, a partir da discussão sobre a importância relativa de cada critério. O método AHP orientou a organização hierárquica dos critérios, mas os pesos **não** foram obtidos por matriz de comparação par a par nem validados por especialistas; essa consulta é trabalho futuro. Os nomes `PESOS_AHP` e `PESOS_AHP_V2` no código, e a expressão "pesos AHP" em alguns documentos de `docs/`, são históricos e se referem a esses pesos da equipe.
 
 ```
 IRS = Σ (peso do critério × fator do critério)
@@ -507,7 +509,7 @@ Os critérios ambientais vêm de bases públicas, sem chave de acesso: IBGE (bio
 
 ## Validação do IRS
 
-O IRS v2 foi validado com 294 focos de calor reais do INPE (agosto e setembro de 2026), comparado com uma linha de base sem pesos AHP e com o IRS v1. Método, resultados e limitações estão em [`docs/validacao-irs.md`](docs/validacao-irs.md).
+O IRS v2 foi validado com 294 focos de calor reais do INPE (agosto e setembro de 2026), comparado com uma linha de base sem pesos (média simples dos critérios) e com o IRS v1. Método, resultados e limitações estão em [`docs/validacao-irs.md`](docs/validacao-irs.md).
 
 Para reproduzir:
 
@@ -566,11 +568,11 @@ O RNF14 exige no mínimo 70%, e todos os arquivos do escopo passam disso (o meno
 
 - **Proximidade urbana restrita a 10 cidades.** O fator urbano cai a quase zero além de cerca de 25 km; na validação, ficou abaixo de 0,05 em 98,6% dos focos reais. No IRS v1, isso fazia todo alerta distante dessas cidades e sem pessoas em risco ser `BAIXO`. No v2, os critérios ambientais compensam em parte. Melhoria prevista: usar as sedes municipais do IBGE.
 - **Dependência de bases externas.** Sem resposta de uma base, o critério correspondente usa um valor de reserva (marcado em `geodados.fontes`), e o resultado fica menos preciso.
-- **Validação do IRS v2.** Concordância leve com o gabarito de propagação do fogo, sem superar a linha de base sem pesos AHP. Detalhes e limitações em [`docs/validacao-irs.md`](docs/validacao-irs.md).
+- **Validação do IRS v2.** Concordância leve com o gabarito de propagação do fogo, sem superar a linha de base sem pesos. Detalhes e limitações em [`docs/validacao-irs.md`](docs/validacao-irs.md).
 - **Porta fixa no código (3000).** Adequado para desenvolvimento e demonstração.
 - **Anexos.** A tabela `arquivo_anexo` existe no banco, mas a API ainda não tem rota de envio de arquivos.
 - **Recuperação de senha.** Não há envio de e-mail: quem esqueceu a senha pede ao gestor (ou, se for operador, ao administrador) uma senha provisória.
-- **Notificações e pesos configuráveis.** Notificações automáticas e a edição dos pesos AHP pela interface ficaram como funcionalidades futuras.
+- **Notificações e pesos configuráveis.** Notificações automáticas e a definição dos pesos pelo método AHP na interface (RF22), com consulta a especialistas, ficaram como funcionalidades futuras.
 - **Backup local.** O `db:backup` grava no mesmo computador do banco; a cópia para outro disco ou para a nuvem é manual.
 
 ## Licença
