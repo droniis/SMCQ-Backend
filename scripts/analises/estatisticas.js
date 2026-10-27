@@ -206,7 +206,42 @@ function resumo(valores) {
   };
 }
 
+// ------------------------------------------------------------
+// Curva ROC: pontos (taxa de falsos positivos, taxa de verdadeiros
+// positivos), do limiar mais alto ao mais baixo. Escores empatados
+// formam um único passo, de modo que a área sob os pontos (regra do
+// trapézio) é igual à AUC de auc(). null se faltar positivo ou negativo.
+// ------------------------------------------------------------
+function curvaRoc(escores, positivos) {
+  const nPos = positivos.filter(Boolean).length;
+  const nNeg = positivos.length - nPos;
+  if (nPos === 0 || nNeg === 0) return null;
+  const ordem = escores.map((s, i) => [s, positivos[i]]).sort((a, b) => b[0] - a[0]);
+  const pontos = [{ limiar: Infinity, fpr: 0, tpr: 0 }];
+  let vp = 0, fp = 0;
+  for (let i = 0; i < ordem.length;) {
+    const s = ordem[i][0];
+    while (i < ordem.length && ordem[i][0] === s) {
+      if (ordem[i][1]) vp++; else fp++;
+      i++;
+    }
+    pontos.push({ limiar: s, fpr: fp / nNeg, tpr: vp / nPos });
+  }
+  return pontos;
+}
+
+// Área sob uma lista de pontos ROC pela regra do trapézio
+function areaTrapezio(pontos) {
+  let area = 0;
+  for (let i = 1; i < pontos.length; i++) {
+    area += (pontos[i].fpr - pontos[i - 1].fpr) * (pontos[i].tpr + pontos[i - 1].tpr) / 2;
+  }
+  return area;
+}
+
 module.exports = {
+  curvaRoc,
+  areaTrapezio,
   matriz,
   metricasPorClasse,
   kappaCohen,

@@ -156,3 +156,23 @@ describe('limiares por quantis e partição estratificada', () => {
     expect(E.resumo([1, 2, 3, 4, 5])).toEqual({ n: 5, minimo: 1, q1: 2, mediana: 3, q3: 4, maximo: 5, valoresDistintos: 5 });
   });
 });
+
+describe('curva ROC', () => {
+  test('separação perfeita: sobe até TPR = 1 antes de qualquer falso positivo', () => {
+    const pontos = E.curvaRoc([0.9, 0.8, 0.2, 0.1], [true, true, false, false]);
+    expect(pontos.map(p => [p.fpr, p.tpr])).toEqual([[0, 0], [0, 0.5], [0, 1], [0.5, 1], [1, 1]]);
+    expect(E.areaTrapezio(pontos)).toBe(1);
+  });
+
+  test('empates formam um único passo e a área coincide com a AUC de Mann–Whitney', () => {
+    const escores = [0.5, 0.5, 0.7, 0.3, 0.5, 0.9, 0.1];
+    const positivos = [true, false, true, false, true, false, false];
+    const pontos = E.curvaRoc(escores, positivos);
+    expect(pontos).toHaveLength(1 + new Set(escores).size);
+    expect(E.areaTrapezio(pontos)).toBeCloseTo(E.auc(escores, positivos), 12);
+  });
+
+  test('sem positivos ou sem negativos: null', () => {
+    expect(E.curvaRoc([1, 2], [true, true])).toBeNull();
+  });
+});
