@@ -13,6 +13,9 @@ Thumbs.db
 data/validacao/bruto/*.csv
 data/validacao/bruto/*.parcial
 
+# Brutos da amostra de outubro (~90 MB, reproduzíveis por scripts/analises/preparar-amostra-outubro.js)
+data/analises/outubro/bruto/*.csv
+
 # Relatório de cobertura dos testes (npm run test:coverage)
 coverage/
 

@@ -1,0 +1,236 @@
+{
+  "downloads": [
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20260930.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20260930.csv",
+      "baixadoEm": "2026-10-29T17:36:37.259Z",
+      "bytes": 4346050,
+      "sha256": "c5b288bef5531caf6b263e08c0197309c00d12a892778a2540761f3ec1860e12",
+      "ultimaModificacaoServidor": "Thu, 01 Oct 2026 12:05:02 GMT"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20261001.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20261001.csv",
+      "baixadoEm": "2026-10-29T17:36:37.425Z",
+      "bytes": 4751640,
+      "sha256": "5ba6c1ba6880f6283eb152d41941374450743acd20802786bcc8864328a3e25f",
+      "ultimaModificacaoServidor": "Fri, 02 Oct 2026 12:05:02 GMT"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20261002.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20261002.csv",
+      "baixadoEm": "2026-10-29T17:36:37.491Z",
+      "bytes": 3362970,
+      "sha256": "f4076f42ddf0df91200604c315368a9b6c8f12104e675096eef063ef05799733",
+      "ultimaModificacaoServidor": "Sat, 03 Oct 2026 12:05:02 GMT"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20261003.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20261003.csv",
+      "baixadoEm": "2026-10-29T17:36:37.545Z",
+      "bytes": 2455587,
+      "sha256": "24d31c6e3550bf1eec28131b98ae57435efa81bde1bc8ca638db78f31960afe2",
+      "ultimaModificacaoServidor": "Sun, 04 Oct 2026 12:05:03 GMT"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20261004.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20261004.csv",
+      "baixadoEm": "2026-10-29T17:36:37.615Z",
+      "bytes": 2992887,
+      "sha256": "15dc403146c89e8dac09477fc905c3db0ae0440076200f6e93c04f56d1acb86b",
+      "ultimaModificacaoServidor": "Mon, 05 Oct 2026 12:05:03 GMT"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20261005.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20261005.csv",
+      "baixadoEm": "2026-10-29T17:36:37.687Z",
+      "bytes": 3599036,
+      "sha256": "68d6f887d27f85b293e41fbeed801f2d262ce64f46dedd86a4a9870d6f6a621d",
+      "ultimaModificacaoServidor": "Tue, 06 Oct 2026 12:05:03 GMT"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20261006.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20261006.csv",
+      "baixadoEm": "2026-10-29T17:36:37.788Z",
+      "bytes": 5619775,
+      "sha256": "a8e7e6d04af265f82ddb6d462243b470f7fcc8366d23f2e70c20dacc14729212",
+      "ultimaModificacaoServidor": "Wed, 07 Oct 2026 12:05:03 GMT"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20261007.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20261007.csv",
+      "baixadoEm": "2026-10-29T17:36:37.928Z",
+      "bytes": 8038171,
+      "sha256": "29d615f514ab93d8f6f88b90a523bbaae0a6f1758fa0fa0ca80495f8fbcd33ab",
+      "ultimaModificacaoServidor": "Thu, 08 Oct 2026 12:05:03 GMT"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20261008.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20261008.csv",
+      "baixadoEm": "2026-10-29T17:36:38.111Z",
+      "bytes": 10324256,
+      "sha256": "f8fa7b24bc593b99dbc7568f9b30ad917515913e24f378df296b5aaa27732e42",
+      "ultimaModificacaoServidor": "Fri, 09 Oct 2026 12:05:04 GMT"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20261009.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20261009.csv",
+      "baixadoEm": "2026-10-29T17:36:38.314Z",
+      "bytes": 9734566,
+      "sha256": "f04eaf7426b72c1bbcf803da1c338838b79e8b88ccab93cc62ae041c4c7e7ed2",
+      "ultimaModificacaoServidor": "Sat, 10 Oct 2026 12:05:04 GMT"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20261010.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20261010.csv",
+      "baixadoEm": "2026-10-29T17:36:38.414Z",
+      "bytes": 7003812,
+      "sha256": "c9aaa653d74b6aeb150b86b48743872f61dec2996301512ffe0798563014e737",
+      "ultimaModificacaoServidor": "Sun, 11 Oct 2026 12:05:04 GMT"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20261011.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20261011.csv",
+      "baixadoEm": "2026-10-29T17:36:38.507Z",
+      "bytes": 5519350,
+      "sha256": "9fbd96efca9c7ffe70561d03d90272b7525d33315a1d5b54934588597035cc2f",
+      "ultimaModificacaoServidor": "Mon, 12 Oct 2026 12:05:03 GMT"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20261012.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20261012.csv",
+      "baixadoEm": "2026-10-29T17:36:38.591Z",
+      "bytes": 4188279,
+      "sha256": "66a7feb9482438c544f49b0461ba98074a91de09dcc80c10382e4709edb38c96",
+      "ultimaModificacaoServidor": "Tue, 13 Oct 2026 12:05:02 GMT"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20261013.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20261013.csv",
+      "baixadoEm": "2026-10-29T17:36:38.680Z",
+      "bytes": 4426908,
+      "sha256": "85a5e589a951e55f8ef0e19d2195f5dcc75cc853f1141b26981ad0b9ba926af5",
+      "ultimaModificacaoServidor": "Wed, 14 Oct 2026 12:05:03 GMT"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20261014.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20261014.csv",
+      "baixadoEm": "2026-10-29T17:36:38.784Z",
+      "bytes": 6500435,
+      "sha256": "10ad9f225b9047ded2eb597077f53d6dc3d6d7624abec89caf1d447d427e379d",
+      "ultimaModificacaoServidor": "Thu, 15 Oct 2026 12:05:03 GMT"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20261015.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20261015.csv",
+      "baixadoEm": "2026-10-29T17:36:38.880Z",
+      "bytes": 5550788,
+      "sha256": "de0b2ed96e1a3ad74d259a7f81a6977afc582cb0bb7946dbc007a4093abb7624",
+      "ultimaModificacaoServidor": "Fri, 16 Oct 2026 12:05:03 GMT"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20261016.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20261016.csv",
+      "baixadoEm": "2026-10-29T17:36:38.963Z",
+      "bytes": 5715993,
+      "sha256": "2a4a4244e0a4ec78f3949595f813527342685edf82fc2278ba5c81200c5b339e",
+      "ultimaModificacaoServidor": "Sat, 17 Oct 2026 12:05:03 GMT"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20261017.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20261017.csv",
+      "baixadoEm": "2026-10-29T17:36:39.047Z",
+      "bytes": 4998354,
+      "sha256": "6feebdece14de093f459509c91b990bd16c547fa1b4b5a4cf6e5045549a84403",
+      "ultimaModificacaoServidor": "Sun, 18 Oct 2026 12:05:03 GMT"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20261018.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20261018.csv",
+      "baixadoEm": "2026-10-29T17:36:39.090Z",
+      "bytes": 2010464,
+      "sha256": "5cf69aa0fd1d04357de70541dc54f0a7d7b5d64a059e60766230ccc5c1d8f033",
+      "ultimaModificacaoServidor": "Mon, 19 Oct 2026 12:05:03 GMT"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20261019.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20261019.csv",
+      "baixadoEm": "2026-10-29T17:36:39.128Z",
+      "bytes": 1804360,
+      "sha256": "4f53841e6384499cd64f6bbbb206eb20c904e24f46ef49d513ed0a147f448b92",
+      "ultimaModificacaoServidor": "Tue, 20 Oct 2026 12:05:02 GMT"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20261020.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20261020.csv",
+      "baixadoEm": "2026-10-29T17:36:39.167Z",
+      "bytes": 2218601,
+      "sha256": "b4737635926f4bcd3f52d294c423f337ba8a9fea7490e4ba45029d3b2ef83c6c",
+      "ultimaModificacaoServidor": "Wed, 21 Oct 2026 12:05:03 GMT"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20261021.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20261021.csv",
+      "baixadoEm": "2026-10-29T17:36:39.233Z",
+      "bytes": 3164537,
+      "sha256": "9b5f6ae98ee4bc5a3ddef1d0b43770aa5d713e7ea8b63f64142875183a27268c",
+      "ultimaModificacaoServidor": "Thu, 22 Oct 2026 12:05:02 GMT"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20261022.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20261022.csv",
+      "baixadoEm": "2026-10-29T17:36:39.301Z",
+      "bytes": 4441854,
+      "sha256": "16cd3dfbce69c317cc267fe28a7c8e35b747fac9549efc3c85c1583e5558f1b1",
+      "ultimaModificacaoServidor": "Fri, 23 Oct 2026 12:05:03 GMT"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20261023.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20261023.csv",
+      "baixadoEm": "2026-10-29T17:36:39.375Z",
+      "bytes": 4232006,
+      "sha256": "ad044af7fbe3b001a325804263207fa327285cdf4d9003026db1e49ae616cb9b",
+      "ultimaModificacaoServidor": "Sat, 24 Oct 2026 12:05:02 GMT"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20261024.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20261024.csv",
+      "baixadoEm": "2026-10-29T17:36:39.461Z",
+      "bytes": 5712505,
+      "sha256": "36bb50c86fffbaf9d6e9925c99a567e1cb87371b32a5527e3ca703e5a95abfbf",
+      "ultimaModificacaoServidor": "Sun, 25 Oct 2026 12:05:02 GMT"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20261025.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20261025.csv",
+      "baixadoEm": "2026-10-29T17:36:39.554Z",
+      "bytes": 4426643,
+      "sha256": "aa2ea713f9d5f8bd8afae3f89da708133b36269e2b205cde99121996fb540c49",
+      "ultimaModificacaoServidor": "Mon, 26 Oct 2026 12:05:03 GMT"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20261026.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20261026.csv",
+      "baixadoEm": "2026-10-29T17:36:39.605Z",
+      "bytes": 2760187,
+      "sha256": "fa92bbe5c06f5d2c8be9a50c58d0674455bc8ad1b93ea638f54ce911516ab9ce",
+      "ultimaModificacaoServidor": "Tue, 27 Oct 2026 12:05:06 GMT"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20261027.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20261027.csv",
+      "baixadoEm": "2026-10-29T17:36:39.670Z",
+      "bytes": 3196814,
+      "sha256": "9caf5f237e46bc40d2e098d0f357553ee6f88e470a83bbec1b34a38c02804693",
+      "ultimaModificacaoServidor": "Wed, 28 Oct 2026 12:05:10 GMT"
+    },
+    {
+      "url": "https://dataserver-coids.inpe.br/queimadas/queimadas/focos/csv/diario/Brasil/focos_diario_br_20261028.csv",
+      "arquivo": "data/analises/outubro/bruto/focos_diario_br_20261028.csv",
+      "baixadoEm": "2026-10-29T17:36:39.734Z",
+      "bytes": 3819415,
+      "sha256": "51e48eb5cb67012bed4cb9263863b289349b5d3ee0613ec00f9a08d15335a155",
+      "ultimaModificacaoServidor": "Thu, 29 Oct 2026 12:05:02 GMT"
+    }
+  ]
+}

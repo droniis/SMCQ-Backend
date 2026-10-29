@@ -1,0 +1,69 @@
+{
+  "geradoEm": "2026-10-29T17:48:55.792Z",
+  "preRegistro": "docs/preregistro-variante-meteorologica.md",
+  "periodo": {
+    "inicio": "2026-10-01",
+    "fim": "2026-10-28",
+    "ultimoDia0Sorteavel": "2026-10-21",
+    "ultimoDiaComDados": "2026-10-28"
+  },
+  "satelite": "AQUA_M-T",
+  "semente": 20261025,
+  "cortesReferencia": {
+    "t1": 2,
+    "t2": 5
+  },
+  "focosLidos": 30749,
+  "linhasMalformadas": 0,
+  "focosElegiveis": 21682,
+  "elegiveisPorEstrato": {
+    "Urbano (≤ 50 km de uma das 10 cidades)": 80,
+    "Amazônia": 12107,
+    "Cerrado": 5802,
+    "Pantanal": 11,
+    "Mata Atlântica": 1004,
+    "Caatinga": 2660,
+    "Pampa": 18
+  },
+  "n": 244,
+  "porEstrato": {
+    "Amazônia": 43,
+    "Caatinga": 43,
+    "Cerrado": 43,
+    "Mata Atlântica": 43,
+    "Pampa": 18,
+    "Pantanal": 11,
+    "Urbano (≤ 50 km de uma das 10 cidades)": 43
+  },
+  "porBiomaInpe": {
+    "Amazônia": 67,
+    "Caatinga": 49,
+    "Cerrado": 51,
+    "Mata Atlântica": 47,
+    "Pampa": 19,
+    "Pantanal": 11
+  },
+  "referenciaPorNivel": {
+    "CRITICO": 30,
+    "BAIXO": 140,
+    "ALTO": 32,
+    "MODERADO": 42
+  },
+  "riscoFogoAusente": 1,
+  "frpAusente": 0,
+  "geodadosComFallback": 0,
+  "fontesGeodados": {
+    "bioma": {
+      "IBGE WFS": 244
+    },
+    "uc": {
+      "ICMBio WFS": 244
+    },
+    "ti": {
+      "FUNAI WFS": 244
+    },
+    "fauna": {
+      "GBIF API": 244
+    }
+  }
+}
